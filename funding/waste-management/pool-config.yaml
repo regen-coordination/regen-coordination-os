@@ -1,0 +1,39 @@
+# Waste Management Domain Pool
+# Regen Coordination Network
+
+pool:
+  name: "Waste Management Innovation Pool"
+  domain: "waste-management"
+  network: "regen-coordination"
+  status: "designing"  # designing | active | paused | closed
+
+  description: |
+    Capital pool supporting circular economy initiatives and waste reduction
+    projects across network bioregions. First proposed as a pilot for the
+    domain-based pool model.
+
+  funding_sources:
+    - platform: "artisan"
+      type: "quadratic-matching"
+      status: "first-target"
+      notes: "Waste management as a natural fit for artisan's seasonal approach"
+
+  governance:
+    model: "consensus"
+    decision_period: "quarterly"
+    council: "regen-coordination"
+
+  eligibility:
+    - Must be an active node in regen-coordination network
+    - Project must address waste management, circular economy, or material flows
+    - Community involvement required (not purely technical)
+    - Must have operational track record or credible pilot plan
+
+  allocation:
+    model: "council-decision"
+    review_period: "quarterly"
+    minimum_grant: "$500"
+    maximum_grant: "$3000"
+
+  created: "2026-02-20"
+  last_updated: "2026-02-20"

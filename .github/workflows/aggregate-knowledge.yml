@@ -1,0 +1,57 @@
+name: Aggregate Knowledge
+
+on:
+  push:
+    paths:
+      - 'knowledge/**/from-nodes/**'
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 6am UTC
+  workflow_dispatch:
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout hub
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Generate domain aggregations
+        run: |
+          echo "Aggregating knowledge from nodes..."
+          
+          # For each domain, list all node contributions
+          for domain in knowledge/*/; do
+            domain_name=$(basename "$domain")
+            echo "Processing domain: $domain_name"
+            
+            # Create aggregated index if doesn't exist
+            if [ ! -f "${domain}aggregated/index.md" ]; then
+              mkdir -p "${domain}aggregated"
+              echo "# ${domain_name^} — Aggregated Knowledge" > "${domain}aggregated/index.md"
+              echo "" >> "${domain}aggregated/index.md"
+              echo "_Auto-generated from node contributions. Last updated: $(date +%Y-%m-%d)_" >> "${domain}aggregated/index.md"
+            fi
+            
+            # Update last-updated timestamp
+            sed -i "s/_Auto-generated from node contributions. Last updated: .*_/_Auto-generated from node contributions. Last updated: $(date +%Y-%m-%d)_/" "${domain}aggregated/index.md" || true
+          done
+
+      - name: Commit aggregated knowledge
+        run: |
+          git config user.name "Regen Coordination Bot"
+          git config user.email "bot@regen-coordination.org"
+          git add knowledge/
+          if git diff --staged --quiet; then
+            echo "No changes to aggregate"
+          else
+            git commit -m "chore: aggregate knowledge $(date +%Y-%m-%d)"
+            git push
+          fi

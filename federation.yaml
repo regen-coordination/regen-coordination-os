@@ -1,0 +1,143 @@
+# Regen Coordination Hub — Federation Manifest v3.0
+
+version: "3.0"
+spec: "organizational-os/3.0"
+
+# ── Hub Identity ──────────────────────────────────────────────────────────────
+identity:
+  name: "Regen Coordination Hub"
+  type: "Hub"
+  emoji: "🌐"
+  daoURI: "https://regen-coordination.github.io/.well-known/dao.json"
+  chain: "eip155:100"
+  onchain_registration:
+    enabled: false
+
+# ── Network Structure ─────────────────────────────────────────────────────────
+network: "regen-coordination"
+hub: "github.com/regen-coordination/regen-coordination-os"
+
+# Hub's upstream: organizational-os-template (inherits base conventions)
+upstream:
+  - type: "template"
+    repository: "organizational-os/organizational-os-template"
+    url: "https://github.com/organizational-os/organizational-os-template"
+    relationship: "fork"
+    sync_frequency: "monthly"
+    remote_name: "upstream"
+
+# Hub's downstream: all network nodes
+downstream:
+  - name: "ReFi BCN"
+    repo: "regen-coordination/refi-bcn"
+    url: "https://github.com/regen-coordination/refi-bcn"
+    type: "implementation"
+    trust: "full"
+
+  - name: "NYC Node"
+    repo: "regen-coordination/nyc-node"
+    url: "https://github.com/regen-coordination/nyc-node"
+    type: "implementation"
+    trust: "full"
+
+  - name: "Bloom"
+    repo: "regen-coordination/bloom"
+    url: "https://github.com/regen-coordination/bloom"
+    type: "implementation"
+    trust: "full"
+
+  - name: "GreenPill Network"
+    repo: "regen-coordination/greenpill"
+    url: "https://github.com/regen-coordination/greenpill"
+    type: "implementation"
+    trust: "read"
+
+  - name: "Regenerant Catalunya"
+    repo: "regen-coordination/regenerant-catalunya"
+    url: "https://github.com/regen-coordination/regenerant-catalunya"
+    type: "program-node"
+    trust: "full"
+
+  - name: "Local ReFi Toolkit"
+    repo: "regen-coordination/local-refi-toolkit"
+    url: "https://github.com/regen-coordination/local-refi-toolkit"
+    type: "resource-node"
+    trust: "full"
+
+# Hub has no peers (it is the hub)
+peers: []
+
+# ── Tool Integrations ────────────────────────────────────────────────────────
+integrations:
+  grants:
+    - name: "opengrants-os"
+      repo: "organizational-os/opengrants-os"
+      role: "funding-platform"
+  knowledge_infrastructure:
+    - name: "koi-net-integration"
+      repo: "organizational-os/koi-net-integration"
+      role: "real-time-knowledge-sync"
+
+# ── Agent Configuration ────────────────────────────────────────────────────────
+# Hub does not run an agent by default — it is a Git-based coordination point.
+# Automation is via GitHub Actions.
+agent:
+  runtime: "none"
+  skills:
+    - meeting-processor
+    - funding-scout
+    - knowledge-curator
+  proactive: false
+
+# ── Knowledge Commons ─────────────────────────────────────────────────────────
+knowledge-commons:
+  enabled: true
+  shared-domains:
+    - "regenerative-finance"
+    - "local-governance"
+    - "knowledge-infrastructure"
+    - "agroforestry"
+    - "waste-management"
+  sync-protocol: "git"
+  publish:
+    meetings: false      # Hub aggregates from nodes, doesn't publish its own
+    projects: false
+    funding: true        # Hub maintains network-wide funding opportunities
+  subscribe:
+    - domain: "regenerative-finance"
+      from: "all"
+    - domain: "local-governance"
+      from: "all"
+    - domain: "knowledge-infrastructure"
+      from: "all"
+
+# ── Packages ─────────────────────────────────────────────────────────────────
+packages:
+  knowledge_base: true
+  meetings: false
+  projects: false
+  finances: false
+  coordination: true
+  webapps: false
+  web3: false
+
+# ── Governance ────────────────────────────────────────────────────────────────
+governance:
+  maintainers:
+    - name: "Regen Coordination Council"
+      role: "owner"
+  decision_model: "consensus"
+  proposal_threshold: "Council consensus"
+  voting_period: "1 week (async, weekly sync call)"
+
+# ── Platforms ─────────────────────────────────────────────────────────────────
+platforms:
+  primary: "github"
+  deployment: "github-pages"
+  domain: ""
+
+# ── Metadata ─────────────────────────────────────────────────────────────────
+metadata:
+  created: "2026-02-20T00:00:00Z"
+  last_updated: "2026-02-20T00:00:00Z"
+  framework_version: "3.0"

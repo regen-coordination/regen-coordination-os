@@ -1,0 +1,50 @@
+# Regenerative Finance Domain Pool
+# Regen Coordination Network
+
+pool:
+  name: "Regenerative Finance Domain Pool"
+  domain: "regenerative-finance"
+  network: "regen-coordination"
+  status: "designing"  # designing | active | paused | closed
+
+  description: |
+    Capital pool coordinating funding for regenerative finance research,
+    tooling, and local node operations across the Regen Coordination network.
+
+  funding_sources:
+    - platform: "octant"
+      type: "yield-distribution"
+      status: "exploring"
+    - platform: "artisan"
+      type: "quadratic-matching"
+      status: "planning-s6"
+    - platform: "impact-stake"
+      type: "eth-yield"
+      status: "exploring"
+      notes: "1/3-1/3-1/3 split model under evaluation"
+
+  governance:
+    model: "domain-weighted"
+    tool: "streamvote"  # under evaluation
+    decision_period: "quarterly"
+    council: "regen-coordination"
+
+  eligibility:
+    - Must be an active node in regen-coordination network
+    - Project must address regenerative finance in a bioregion
+    - Must have submitted at least one knowledge contribution in last 90 days
+    - Must have Karma Gap profile with positive completion history
+
+  allocation:
+    model: "conviction-voting"
+    review_period: "quarterly"
+    minimum_grant: "$500"
+    maximum_grant: "$5000"
+
+  domains:
+    - "regenerative-finance"
+    - "capital-flow"
+    - "funding-mechanisms"
+
+  created: "2026-02-20"
+  last_updated: "2026-02-20"

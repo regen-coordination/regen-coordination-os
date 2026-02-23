@@ -1,0 +1,91 @@
+name: Distribute Skills to Nodes
+
+on:
+  push:
+    paths:
+      - 'skills/**'
+  workflow_dispatch:
+    inputs:
+      target_node:
+        description: 'Target node repo (org/repo) or "all" for all nodes'
+        required: false
+        default: 'all'
+
+jobs:
+  distribute:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    strategy:
+      matrix:
+        # List of node repositories to distribute skills to
+        # Add new nodes here when they join the network
+        node:
+          - repo: "regen-coordination/refi-bcn"
+            name: "ReFi BCN"
+          # - repo: "regen-coordination/nyc-node"
+          #   name: "NYC Node"
+          # Uncomment nodes as they become active
+
+    steps:
+      - name: Skip if target doesn't match
+        if: github.event.inputs.target_node != 'all' && github.event.inputs.target_node != matrix.node.repo
+        run: |
+          echo "Skipping ${{ matrix.node.name }} (not target)"
+          exit 0
+
+      - name: Checkout hub
+        uses: actions/checkout@v4
+
+      - name: Distribute skills to ${{ matrix.node.name }}
+        env:
+          NODE_PUSH_TOKEN: ${{ secrets.NODE_PUSH_TOKEN }}
+        run: |
+          if [ -z "$NODE_PUSH_TOKEN" ]; then
+            echo "NODE_PUSH_TOKEN not set — skipping push to ${{ matrix.node.name }}"
+            echo "Manual instruction: copy skills/ directory to ${{ matrix.node.repo }}"
+            exit 0
+          fi
+          
+          git config user.name "Regen Coordination Bot"
+          git config user.email "bot@regen-coordination.org"
+          
+          # Clone target node
+          git clone "https://x-access-token:${NODE_PUSH_TOKEN}@github.com/${{ matrix.node.repo }}" node-repo
+          
+          # Copy skills (overwrite skill files but not node-specific additions)
+          mkdir -p node-repo/skills
+          
+          # Copy each skill from hub, preserving node-specific files
+          for skill_dir in skills/*/; do
+            skill_name=$(basename "$skill_dir")
+            mkdir -p "node-repo/skills/${skill_name}"
+            cp "${skill_dir}SKILL.md" "node-repo/skills/${skill_name}/SKILL.md"
+            # Copy references if they exist (don't overwrite node-specific ones)
+            if [ -d "${skill_dir}references/" ]; then
+              mkdir -p "node-repo/skills/${skill_name}/references"
+              cp -n "${skill_dir}references/"* "node-repo/skills/${skill_name}/references/" 2>/dev/null || true
+            fi
+          done
+          
+          cd node-repo
+          
+          if git diff --quiet; then
+            echo "No skill updates for ${{ matrix.node.name }}"
+          else
+            git add skills/
+            git commit -m "chore: sync skills from hub $(date +%Y-%m-%d)"
+            git push
+            echo "Skills distributed to ${{ matrix.node.name }}"
+          fi
+
+  notify:
+    needs: distribute
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Summary
+        run: |
+          echo "Skill distribution complete."
+          echo "Check individual node jobs for status."
