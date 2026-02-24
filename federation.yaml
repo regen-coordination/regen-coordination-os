@@ -1,11 +1,11 @@
-# Regen Coordination Hub — Federation Manifest v3.0
+# Regen Coordination OS — Federation Manifest v3.0
 
 version: "3.0"
 spec: "organizational-os/3.0"
 
 # ── Hub Identity ──────────────────────────────────────────────────────────────
 identity:
-  name: "Regen Coordination Hub"
+  name: "Regen Coordination OS"
   type: "Hub"
   emoji: "🌐"
   daoURI: "https://regen-coordination.github.io/.well-known/dao.json"
@@ -68,15 +68,23 @@ downstream:
 peers: []
 
 # ── Tool Integrations ────────────────────────────────────────────────────────
+# Full specs: see integrations/README.md and integrations/profiles/
 integrations:
-  grants:
-    - name: "opengrants-os"
-      repo: "organizational-os/opengrants-os"
-      role: "funding-platform"
   knowledge_infrastructure:
-    - name: "koi-net-integration"
-      repo: "organizational-os/koi-net-integration"
+    - name: "koi-net"
+      repo: "organizational-os/koi-net"
+      url: "https://github.com/organizational-os/koi-net"
       role: "real-time-knowledge-sync"
+  content:
+    - name: "regen-toolkit"
+      repo: "organizational-os/regen-toolkit"
+      url: "https://github.com/organizational-os/regen-toolkit"
+      role: "educational-content"
+  agent_runtimes:
+    - name: "openclaw"
+      repo: "organizational-os/openclaw-source"
+      url: "https://github.com/organizational-os/openclaw-source"
+      role: "primary-runtime"
 
 # ── Agent Configuration ────────────────────────────────────────────────────────
 # Hub does not run an agent by default — it is a Git-based coordination point.
@@ -123,12 +131,47 @@ packages:
 
 # ── Governance ────────────────────────────────────────────────────────────────
 governance:
+  type: "multi-org-council"
+  partners:
+    - name: "ReFi DAO"
+      role: "articulation-org"
+      url: "https://refi.dao"
+    - name: "Greenpill Network"
+      role: "articulation-org"
+      url: "https://greenpill.network"
+    - name: "Bloom Network"
+      role: "governing-partner"
+    - name: "Bread Coop"
+      role: "governing-partner-invited"
   maintainers:
     - name: "Regen Coordination Council"
       role: "owner"
   decision_model: "consensus"
   proposal_threshold: "Council consensus"
   voting_period: "1 week (async, weekly sync call)"
+
+# ── Communication Channels ─────────────────────────────────────────────────────
+channels:
+  forum:
+    name: "Regen Coordination Hub"
+    url: "https://hub.regencoordination.xyz"
+    api: "https://hub.regencoordination.xyz/latest.json"
+    categories:
+      - id: 4
+        slug: "regen-coordination"
+      - id: 20
+        slug: "greenpill"
+      - id: 21
+        slug: "refi-dao"
+      - id: 33
+        slug: "regen-commons"
+  telegram:
+    - name: "RC Council"
+      type: "private"
+      purpose: "governance"
+    - name: "RC Open"
+      type: "public"
+      purpose: "community"
 
 # ── Platforms ─────────────────────────────────────────────────────────────────
 platforms:

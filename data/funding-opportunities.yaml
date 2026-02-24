@@ -1,0 +1,96 @@
+# Cross-network funding opportunities registry
+# Sources: RC Council Sync 2026-02-20, Luiz <> Matty sync 2026-02-12
+# Last updated: 2026-02-20
+
+funding_opportunities:
+  - id: artisan-season6
+    name: "Artisan Season 6"
+    type: "platform"
+    status: active
+    duration: "~3 months"
+    mechanism: "artifact-based donations + matching"
+    total_endowment: "$10M+ (RevNet)"
+    networks: [refi-dao, greenpill, bloom]
+    contact: "Swift EVO"
+    notes: "Multiple funds: Network States, Region Rebels, Green Pill Asia. Projects apply to multiple funds."
+
+  - id: octant-vaults
+    name: "Octant Vaults"
+    type: "yield-protocol"
+    status: active
+    mechanism: "ETH staking yield (2-3% after Lido cut), multi-strategy vaults"
+    networks: [regen-coordination]
+    contact: "James (Octant), Eugene"
+    notes: "Need co-funders for credible proposals. Tech/dev-focused ideas preferred."
+
+  - id: impact-stake
+    name: "Impact Stake"
+    type: "yield-protocol"
+    status: exploring
+    mechanism: "1/3-1/3-1/3 split approach"
+    networks: [regen-coordination]
+    notes: "Pending final approval of split structure."
+
+  - id: superfluid-campaigns
+    name: "Superfluid Campaigns"
+    type: "streaming"
+    status: active
+    mechanism: "Flow-based SUB token distribution; sooner you start, sooner flow begins"
+    season: "Season 5 ending, Season 6 TBD"
+    networks: [refi-dao, greenpill]
+
+  - id: spinach-fry
+    name: "Spinach Fry (USB Glow Rewards)"
+    type: "yield"
+    status: active
+    mechanism: "Monthly renewal, ~$50/month for ReFi DAO"
+    networks: [refi-dao]
+    notes: "Connected to Gardens projects. UberSwap campaign gives 10% USDC APY + OOBA rewards."
+
+  - id: celo-public-goods
+    name: "Celo Public Goods"
+    type: "grants"
+    status: pipeline
+    mechanism: "Ecosystem grants"
+    total: "$350k for H1 2025"
+    contact: "Marek (Celo Labs)"
+    networks: [regen-coordination]
+
+  - id: arbitrum-grants
+    name: "Arbitrum Ecosystem Grants"
+    type: "grants"
+    status: pipeline
+    networks: [regen-coordination]
+
+  - id: gardens-pools
+    name: "Gardens Conviction Voting Pools"
+    type: "governance-funding"
+    status: active
+    mechanism: "Conviction voting on proposals"
+    notes: "$500 kickstarter for new nodes. NYC garden signed up."
+    networks: [refi-dao, greenpill]
+
+  - id: inverter-network
+    name: "Inverter Network"
+    type: "yield-protocol"
+    status: research
+    mechanism: "DAO-to-DAO coordination and collective funding (similar to Octant Vaults)"
+    developed_by: ["PrimeDow", "Bloom", "Token Engineering Commons"]
+    networks: [regen-coordination, bloom]
+
+  - id: gitcoin-rounds
+    name: "Gitcoin / GG Rounds"
+    type: "quadratic-funding"
+    status: periodic
+    networks: [refi-dao, greenpill]
+
+domain_pools:
+  strategy: "domain-based first, bioregional later"
+  rationale: "Crypto-native funders more motivated by domain expertise"
+  candidate_domains:
+    - regenerative-finance
+    - waste-management
+    - agroforestry
+    - local-governance
+  governance_layer: "StreamVote (trust-graph-based)"
+  impact_accounting: "Karma Gap (inflows) + DAOIP-5 (outflows)"

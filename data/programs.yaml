@@ -1,0 +1,61 @@
+# Active funding/coordination programs
+# Last updated: 2026-02-20
+
+programs:
+  funding:
+    - id: artisan-season6
+      name: "Artisan Season 6"
+      type: "artifact-based"
+      status: active
+      duration: "~3 months"
+
+    - id: octant-vaults
+      name: "Octant Vaults"
+      type: "yield-protocol"
+      status: active
+
+    - id: impact-stake
+      name: "Impact Stake"
+      type: "yield-protocol"
+      status: exploring
+
+    - id: superfluid
+      name: "Superfluid Campaigns"
+      type: "streaming"
+      status: active
+
+    - id: spinach-fry
+      name: "Spinach Fry"
+      type: "yield"
+      status: active
+
+    - id: gardens
+      name: "Gardens Conviction Voting"
+      type: "governance-funding"
+      status: active
+
+    - id: celo-pg
+      name: "Celo Public Goods"
+      type: "grants"
+      status: pipeline
+
+    - id: arbitrum-grants
+      name: "Arbitrum Grants"
+      type: "grants"
+      status: pipeline
+
+  coordination:
+    - id: local-refi-toolkit
+      name: "Local ReFi Toolkit"
+      networks: [regen-coordination]
+      status: active
+
+    - id: regenerant-catalunya
+      name: "Regenerant Catalunya"
+      networks: [refi-bcn, regen-coordination]
+      status: active
+
+    - id: knowledge-commons
+      name: "Knowledge Commons"
+      networks: [regen-coordination]
+      status: active

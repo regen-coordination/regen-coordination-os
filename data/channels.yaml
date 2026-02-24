@@ -1,0 +1,55 @@
+# Communication channels registry
+# Last updated: 2026-02-20
+
+channels:
+  - id: rc-forum
+    name: "Regen Coordination Hub"
+    type: "discourse"
+    url: "https://hub.regencoordination.xyz"
+    api: "https://hub.regencoordination.xyz/latest.json"
+    purpose: "Main forum"
+    categories:
+      - id: 4
+        slug: "regen-coordination"
+      - id: 20
+        slug: "greenpill"
+      - id: 21
+        slug: "refi-dao"
+      - id: 33
+        slug: "regen-commons"
+
+  - id: rc-council-telegram
+    name: "RC Council"
+    type: "telegram"
+    visibility: "private"
+    purpose: "Governance, action items"
+
+  - id: rc-open-telegram
+    name: "RC Open"
+    type: "telegram"
+    visibility: "public"
+    purpose: "Community engagement, partner announcements"
+
+  - id: greenpill-steward-telegram
+    name: "GreenPill Steward"
+    type: "telegram"
+    network: "greenpill"
+    purpose: "Steward coordination"
+
+  - id: greenpill-broader-telegram
+    name: "GreenPill broader"
+    type: "telegram"
+    network: "greenpill"
+    purpose: "Community"
+
+  - id: refi-dao-telegram
+    name: "ReFi DAO"
+    type: "telegram"
+    network: "refi-dao"
+    purpose: "Updates (mostly one-directional)"
+
+  - id: bread-coop-media-telegram
+    name: "Bread Coop Media"
+    type: "telegram"
+    network: "bread-coop"
+    purpose: ""

@@ -1,0 +1,57 @@
+# Cross-network initiatives registry
+# Last updated: 2026-02-20
+
+initiatives:
+  - id: localism-fund
+    name: "Localism Fund"
+    networks: [regen-coordination]
+    status: active
+    description: "Supports credible local networks and place-based groups"
+
+  - id: regenerant-catalunya
+    name: "Regenerant Catalunya"
+    networks: [refi-bcn, regen-coordination]
+    status: active
+    description: "Bioregional funding program for Catalonia"
+
+  - id: local-refi-toolkit
+    name: "Local ReFi Toolkit"
+    networks: [regen-coordination]
+    status: active
+    description: "Playbooks and frameworks for local ReFi nodes"
+
+  - id: nyc-local-funding
+    name: "NYC Local Funding Program"
+    networks: [nyc-node]
+    status: bootstrapping
+    description: "Stablecoin + ETH on mainnet; yield to Decentral Park"
+
+  - id: green-goods
+    name: "Green Goods"
+    networks: [greenpill]
+    status: active
+    description: "Protocol deployment; Impact Stake builder"
+
+  - id: earth-live-bloom
+    name: "Earth.live x Bloom"
+    networks: [bloom]
+    status: active
+    description: "Federated learning environmental data; MOU signed"
+
+  - id: refi-greenpill-merger
+    name: "ReFi DAO + Greenpill merger"
+    networks: [refi-dao, greenpill]
+    status: in-progress
+    description: "Formal steward discussion post-March 5 ReRe workshop"
+
+  - id: domain-pools
+    name: "Domain-based funding pools"
+    networks: [regen-coordination]
+    status: planning
+    description: "StreamVote governance, Karma Gap + DAOIP-5"
+
+  - id: regen-writers-guild
+    name: "Regen Writers Guild"
+    networks: [regen-coordination]
+    status: proposed
+    description: "Rename from GreenPill Writers Guild; include ReFi DAO"

@@ -75,13 +75,43 @@ When improving a shared skill:
 **Downstream nodes** (see `federation.yaml` and `MEMBERS.md`):
 - ReFi BCN, Regenerant Catalunya, Local ReFi Toolkit, NYC Node, Bloom, GreenPill Network
 
-**Tool integrations** (see `federation.yaml` integrations block):
-- [opengrants-os](../opengrants-os/) — funding platform for network grants
-- [koi-net-integration](../koi-net-integration/) — real-time knowledge sync across nodes
+**Tool integrations** — See [integrations/](integrations/) for profiles and specs. Declared in federation.yaml: koi-net, regen-toolkit, openclaw, funding platforms.
 
 **Upstream**: [organizational-os-template](../organizational-os-template/) — base conventions
 
 **Cross-repo map**: [ECOSYSTEM-MAP.md](../ECOSYSTEM-MAP.md)
+
+---
+
+## Communication Channels
+
+- **Discourse Forum:** [hub.regencoordination.xyz](https://hub.regencoordination.xyz) — API: `/latest.json`, `/c/regen-coordination/4.json`
+- **Telegram:** RC Council (private, governance), RC Open (public, community)
+- **Usage:** Use `knowledge-curator` skill to fetch forum posts, extract action items, and update `knowledge/network/` and `data/` registries. When OpenClaw is deployed on nodes, Telegram context flows via meeting notes and forum cross-posts.
+
+---
+
+## Network Directory
+
+- **Location:** [knowledge/network/](knowledge/network/) and [data/](data/)
+- **Purpose:** Cross-network aggregation layer — nodes, chapters, initiatives, events, programs, channels, funding, funds
+- **Responsibility:** RC agents keep this current from forum posts, meeting notes, and partner announcements.
+
+---
+
+## Funding Opportunities
+
+- **Registry:** [data/funding-opportunities.yaml](data/funding-opportunities.yaml)
+- **Human view:** [knowledge/network/funding/](knowledge/network/funding/)
+- **Usage:** `funding-scout` skill reads from this registry and updates it when new opportunities are announced on the forum or in council calls.
+
+---
+
+## Funds (On-Chain)
+
+- **Registry:** [data/funds.yaml](data/funds.yaml)
+- **Human view:** [knowledge/network/funds/](knowledge/network/funds/)
+- **Distinction:** funding-opportunities = platforms/mechanisms; funds = actual deployed instances (Safe treasuries with addresses, Gardens pools, Octant/Artisan vaults). Agents can read treasury addresses for capital-flow operations and track pool balances.
 
 ---
 

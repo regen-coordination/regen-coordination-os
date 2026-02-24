@@ -49,6 +49,12 @@ regen-coordination-os/
 │       └── references/
 │           └── funding-platforms.yaml
 │
+├── integrations/          # Integration profiles, sync, crosswalks
+│   ├── README.md
+│   ├── profiles/
+│   ├── sync/
+│   └── crosswalks/
+│
 ├── knowledge/             # Aggregated knowledge commons
 │   ├── regenerative-finance/
 │   │   ├── README.md

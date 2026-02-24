@@ -1,0 +1,62 @@
+# Cross-network on-chain fund instances
+# Covers: Octant vaults, Gardens pools, Safe treasuries
+# Last updated: 2026-02-20
+
+funds:
+  - id: refi-bcn-safe
+    name: "ReFi BCN Treasury"
+    type: "safe-multisig"
+    network_chain: "gnosis"
+    address: "TBD"
+    node: refi-bcn
+    signers: ["Luiz", "Giulio", "Andrea"]
+    status: active
+
+  - id: regen-coordination-safe
+    name: "Regen Coordination Treasury"
+    type: "safe-multisig"
+    network_chain: "gnosis"
+    address: "TBD"
+    node: regen-coordination-os
+    status: planned
+
+  - id: nyc-gardens-pool
+    name: "NYC Garden Pool"
+    type: "gardens-pool"
+    network_chain: "gnosis"
+    node: nyc-node
+    spinach_enrolled: true
+    status: active
+    notes: "Signed up for Spinach Fry $2 reward"
+
+  - id: greenpill-dev-guild-pool
+    name: "GreenPill Dev Guild Treasury Kit"
+    type: "gardens-pool"
+    network_chain: "gnosis"
+    node: greenpill-network
+    spinach_enrolled: true
+    status: active
+    notes: "UberSwap campaign: 10% USDC APY + OOBA rewards"
+
+  - id: regen-coordination-octant-vault
+    name: "Regen Coordination Octant Vault"
+    type: "octant-vault"
+    network_chain: "mainnet"
+    status: planned
+    notes: "Exploring 1/3-1/3-1/3 split with Impact Stake. Needs co-funders."
+    contact: "James / Eugene (Octant)"
+
+  - id: artisan-greenpill-asia
+    name: "GreenPill Asia Artisan Fund"
+    type: "artisan-pool"
+    manager: "Swift"
+    season: 5
+    status: winding-down
+
+  - id: artisan-season6-pools
+    name: "Artisan Season 6 Pools"
+    type: "artisan-pool"
+    season: 6
+    status: active
+    available_pools: ["Network States", "Region Rebels", "Green Pill Asia"]
+    notes: "Projects can apply to multiple pools"

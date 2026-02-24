@@ -1,0 +1,104 @@
+# Cross-network node registry
+# Sources: ReFi DAO, Greenpill Network, Bloom Network
+# Last updated: 2026-02-20
+
+nodes:
+  - id: refi-bcn
+    name: "ReFi BCN"
+    network: "refi-dao"
+    type: "local-node"
+    location: "Barcelona, Spain"
+    status: active
+    repo: "github.com/regen-coordination/refi-bcn"
+    website: "refi.barcelona"
+
+  - id: refi-mediterranean
+    name: "ReFi Mediterranean"
+    network: "refi-dao"
+    type: "regional"
+    location: "Mediterranean"
+    status: active
+
+  - id: refi-provence
+    name: "ReFi Provence"
+    network: "refi-dao"
+    type: "local-node"
+    location: "Provence, France"
+    status: to-verify
+
+  - id: ukraine-node
+    name: "Ukraine Node"
+    network: "refi-dao"
+    type: "local-node"
+    location: "Ukraine"
+    status: to-verify
+    notes: "Gardens $500 kickstarter; hybrid university event"
+
+  - id: greenpill-network
+    name: "GreenPill Network"
+    network: "greenpill"
+    type: "umbrella"
+    status: active
+
+  - id: greenpill-nyc
+    name: "GreenPill NYC"
+    network: "greenpill"
+    type: "chapter"
+    location: "New York, USA"
+    status: active
+
+  - id: greenpill-asia
+    name: "GreenPill Asia"
+    network: "greenpill"
+    type: "chapter"
+    location: "Asia"
+    status: active
+
+  - id: greenpill-cape-town
+    name: "Cape Town"
+    network: "greenpill"
+    type: "chapter"
+    location: "Cape Town, South Africa"
+    status: active
+
+  - id: greenpill-london-ontario
+    name: "London, Ontario"
+    network: "greenpill"
+    type: "chapter"
+    location: "London, Ontario, Canada"
+    status: active
+
+  - id: bloom-network
+    name: "Bloom Network"
+    network: "bloom"
+    type: "umbrella"
+    status: active
+
+  - id: bloom-liberia
+    name: "Bloom Liberia"
+    network: "bloom"
+    type: "chapter"
+    location: "Liberia"
+    status: active
+
+  - id: regenerant-catalunya
+    name: "Regenerant Catalunya"
+    network: "regen-coordination"
+    type: "program-node"
+    location: "Catalonia, Spain"
+    status: active
+    repo: "github.com/regen-coordination/regenerant-catalunya"
+
+  - id: local-refi-toolkit
+    name: "Local ReFi Toolkit"
+    network: "regen-coordination"
+    type: "resource-node"
+    status: active
+    repo: "github.com/regen-coordination/local-refi-toolkit"
+
+  - id: nyc-node
+    name: "NYC Node"
+    network: "regen-coordination"
+    type: "local-node"
+    location: "New York, USA"
+    status: bootstrapping

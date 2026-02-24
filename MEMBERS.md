@@ -1,12 +1,33 @@
 # Network Members
 
-**Regen Coordination Network — Active Nodes**
+**Regen Coordination Network**
 
 Last updated: 2026-02-20
 
+For the full cross-network directory of all nodes, chapters, and initiatives, see `knowledge/network/`.
+
 ---
 
-## Active Nodes
+## Governing Partners
+
+Organizations that articulate with Regen Coordination at the governance level:
+
+| Partner | Role | URL |
+|---------|------|-----|
+| ReFi DAO | Articulation org — ReFi DAO chapters are RC-aligned nodes | https://refi.dao |
+| Greenpill Network | Articulation org — Greenpill chapters are RC-aligned nodes | https://greenpill.network |
+| Bloom Network | Governing partner | — |
+| Bread Coop | Invited governing partner | — |
+
+---
+
+## Partner Organizations
+
+For the full list of partner organizations, see [Regen Coordination Partnerships](https://docs.google.com/document/d/18I8XOK8hcaLDG_OQlSC0A0rQJnPEnz4gknGCY543STQ/edit?tab=t.omy4u5bb4br).
+
+---
+
+## Implementation Nodes
 
 | Node | Type | Location | Agent | Last Sync | Status |
 |------|------|----------|-------|-----------|--------|
@@ -71,7 +92,10 @@ The Regen Coordination Council governs this OS:
 | Name | Node | Role |
 |------|------|------|
 | Luiz Fernando | ReFi BCN | Coordinator |
-| _(more to be added)_ | — | — |
+| Mary | NYC Node | — |
+| Magenta | Bloom | — |
+| Afo (Alpha) | Greenpill | — |
+| Monty | ReFi DAO | — |
 
 ---
 
