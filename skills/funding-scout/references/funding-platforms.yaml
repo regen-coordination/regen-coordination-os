@@ -15,7 +15,6 @@ platforms:
       fund_manager_restriction: "Cannot vote for own projects"
       donation_options: ["web3 wallet", "card"]
     notes: "Growing platform. $11M+ total distributed. Transaction fees ~$5 on $20 donation loop through rev-net."
-    contact: "Renee (platform founder)"
 
   octant:
     name: "Octant"
@@ -27,7 +26,6 @@ platforms:
       model: "Project allocation from staking yield"
       vault_strategies: "Multi-strategy vaults (plug-and-play roadmap)"
     notes: "Relationship-driven. Includes mainnet strategies now and Arbitrum strategy exploration for DAI/ETH."
-    contact: "James (Octant), Eugene"
 
   impact-stake:
     name: "Impact Stake"
@@ -86,8 +84,7 @@ platforms:
     url: "https://celoPG.org"
     type: "ecosystem-grants"
     cadence: "per-round"
-    notes: "350k public goods allocated 2025 H1. CeloPG activity low post-funding. Marek (Celo Labs) is key contact."
-    contact: "Marek (Celo Labs)"
+    notes: "350k public goods allocated 2025 H1. CeloPG activity low post-funding."
 
   arbitrum:
     name: "Arbitrum Grants"

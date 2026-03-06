@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-03-06
 
-Living public inventory of the Regen Coordination ecosystem. Top priority from Luiz <> Matty sync 2026-02-12.
+Living public inventory of the Regen Coordination ecosystem. Top priority from a February 2026 coordination sync.
 
 ---
 
@@ -51,7 +51,7 @@ Living public inventory of the Regen Coordination ecosystem. Top priority from L
 
 ## Self-Hosted Architecture
 
-- DAC nodes (Barcelona: Giulio)
+- DAC nodes (Barcelona deployment in progress)
 - GitHub-based forkable repos
 - AI agents for content conversion
 - Common funnel: find your chapter, find your ecosystem fit

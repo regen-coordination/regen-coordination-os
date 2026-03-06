@@ -36,17 +36,17 @@ See `funding/` directory for pool configs:
 
 ## Network Platform Relationships
 
-Key contacts and status (update as relationships evolve):
+Status and relationship posture (update as relationships evolve):
 
-| Platform | Contact | Status | Notes |
-|----------|---------|--------|-------|
-| Artisan | Swift (GreenPill Asia) | Active | Season 6 active; artifacts drive donations + matching, votes are signaling |
-| Octant | James | Exploring | Vault strategy TBD |
-| Impact Stake | Council-led | Active | 1/3-1/3-1/3 model in implementation |
-| Superfluid | — | Active | Check Season 6 |
-| Spinach | — | Active | Monthly renewal |
-| Celo PG | Marek | Low activity | Post-funding period |
-| Gitcoin GG24 | OpenCivics + RC stewards | Pipeline | Ethereum Localism DDA co-design track |
+| Platform | Relationship | Status | Notes |
+|----------|--------------|--------|-------|
+| Artisan | Active platform relationship | Active | Season 6 active; artifacts drive donations + matching, votes are signaling |
+| Octant | Active platform relationship | Exploring | Vault strategy TBD |
+| Impact Stake | Council-led strategy | Active | 1/3-1/3-1/3 model in implementation |
+| Superfluid | Platform tracking | Active | Check Season 6 |
+| Spinach | Platform tracking | Active | Monthly renewal |
+| Celo PG | Ecosystem relationship | Low activity | Post-funding period |
+| Gitcoin GG24 | Domain co-design relationship | Pipeline | Ethereum Localism DDA co-design track |
 
 ## Current Priority Signals (2026-03 update)
 

@@ -18,7 +18,7 @@ _Key decisions, active context, and organizational history for the Regen Coordin
 ## Key Decisions
 
 - [2026-03-05] Coop launched under Regen Coordination as a product and organizational experiment (Chromium extension + PWA + anchor node)
-- [2026-03-05] Coop ownership model aligned as an equal-share co-op structure among founding builders (Afolabi, Luiz, Antonio)
+- [2026-03-05] Coop ownership model aligned as an equal-share co-op structure among founding builders
 - [2026-03-05] Experimentation-first approach adopted: prioritize rapid pilots over ontology-first architecture
 - [2026-03-05] Organizational OS repositories (`organizational-os-framework`, `organizational-os-template`) approved for transfer into Regen Coordination GitHub organization
 - [2026-03-05] Coop and org-os workstreams aligned through a monorepo approach for faster execution
@@ -54,7 +54,7 @@ _Key decisions, active context, and organizational history for the Regen Coordin
 
 ## Network History
 
-- [2026-03-05] Luiz x Afo coffee sync — Coop scope finalized (impact, coordination, governance, capital), monorepo path agreed, immediate build execution initiated
+- [2026-03-05] Council coffee sync — Coop scope finalized (impact, coordination, governance, capital), monorepo path agreed, immediate build execution initiated
 - [2026-02-20] Regen Coordination Council Sync — GitHub org created, OpenClaw selected for agents, domain-based funding pools agreed
 - [2026-02-13] Regen Coordination Council Sync — Impact Stake and Octant vault strategy aligned for pilot deployment
 - [2026-02-06] Regen Coordination Council Sync — toolkit focus, Bread split, and cross-network node visualization direction aligned
@@ -64,8 +64,8 @@ _Key decisions, active context, and organizational history for the Regen Coordin
 ## Relationship Map
 
 ### Funding Platforms
-- **Artisan:** Swift (fund manager contact) — seasonal quadratic + matching
-- **Octant:** James — quarterly yield distribution
+- **Artisan:** Fund manager relationship active — seasonal quadratic + matching
+- **Octant:** Platform relationship active — quarterly yield distribution
 - **Impact Stake:** Active implementation track (1/3-1/3-1/3 council strategy)
 - **Superfluid:** Season-based streaming rewards
 

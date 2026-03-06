@@ -89,7 +89,7 @@ For the full list of partner organizations, see [Regen Coordination Partnerships
 - **Location:** Global
 - **Status:** Bootstrapping
 - **Focus:** Voice-first and tab-first capture for impact, coordination, governance, and capital workflows
-- **Ownership model:** Equal-share co-op structure among founding builders (Afolabi Aiyeloja, Luiz Fernando, Antonio), operating under Regen Coordination
+- **Ownership model:** Equal-share co-op structure among founding builders, operating under Regen Coordination
 - **GitHub:** github.com/regen-coordination/coop
 
 ---

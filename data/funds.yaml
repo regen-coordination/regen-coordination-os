@@ -9,7 +9,7 @@ funds:
     network_chain: "gnosis"
     address: "TBD"
     node: refi-bcn
-    signers: ["Luiz", "Giulio", "Andrea"]
+    signers: ["TBD"]
     status: active
 
   - id: regen-coordination-safe
@@ -44,7 +44,6 @@ funds:
     network_chain: "mainnet"
     status: planned
     notes: "Exploring 1/3-1/3-1/3 split with Impact Stake. Needs co-funders."
-    contact: "James / Eugene (Octant)"
 
   - id: nyc-octant-vault
     name: "NYC Local Funding Octant Vault"
@@ -68,7 +67,7 @@ funds:
   - id: artisan-greenpill-asia
     name: "GreenPill Asia Artisan Fund"
     type: "artisan-pool"
-    manager: "Swift"
+    manager: "TBD"
     season: 5
     status: winding-down
 

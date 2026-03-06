@@ -4,6 +4,56 @@
 
 This guide walks through deploying the first fully operational Regen Coordination node using OpenClaw as the agent runtime on a DePIN or VPS server.
 
+Diagram standards: [DIAGRAM-STANDARDS.md](./DIAGRAM-STANDARDS.md)
+
+---
+
+## Deployment Topology
+
+### ASCII Map
+
+```text
+Operator
+  |
+  | Telegram / CLI prompts
+  v
+ReFi BCN Node Workspace (/opt/refi-bcn)
+  |-- SOUL.md / IDENTITY.md / USER.md / TOOLS.md
+  |-- federation.yaml
+  |-- skills/
+  |-- memory/
+  `-- openclaw.json + .env
+        |
+        | runtime
+        v
+     OpenClaw Agent Service (systemd)
+        |
+        +--> Telegram channels
+        +--> LLM provider API
+        +--> Safe API (read)
+        `--> Regen Coordination Hub repo sync
+```
+
+### Mermaid Flow
+
+```mermaid
+graph TD
+  cloneStep["Clone or fork workspace"]
+  configureStep["Configure core files and federation"]
+  runtimeInstall["Install OpenClaw and env"]
+  bootstrapStep["Run BOOTSTRAP onboarding"]
+  serviceStep["Deploy systemd service"]
+  testStep["Run council workflow tests"]
+  syncStep["Connect and sync with hub"]
+
+  cloneStep --> configureStep
+  configureStep --> runtimeInstall
+  runtimeInstall --> bootstrapStep
+  bootstrapStep --> serviceStep
+  serviceStep --> testStep
+  testStep --> syncStep
+```
+
 ---
 
 ## Prerequisites
@@ -234,6 +284,35 @@ Ask in Telegram:
 ```
 
 Expected: Agent reads `HEARTBEAT.md`, reports urgent, upcoming, and overdue tasks.
+
+---
+
+## Runtime Data Flow
+
+### Mermaid Flow
+
+```mermaid
+graph LR
+  telegramInput["Telegram input"]
+  transcriptInput["Transcript input"]
+  openclawRuntime["OpenClaw runtime"]
+  skillsLayer["Skills (meeting/funding/knowledge)"]
+  workspaceFiles["Workspace files (memory, data, knowledge)"]
+  responseOut["Operator response"]
+
+  telegramInput --> openclawRuntime
+  transcriptInput --> openclawRuntime
+  openclawRuntime --> skillsLayer
+  skillsLayer --> workspaceFiles
+  workspaceFiles --> openclawRuntime
+  openclawRuntime --> responseOut
+```
+
+### Operational Notes
+
+- All scenario outputs should be traceable to `skills/`, `data/`, and `memory/`.
+- Keep runtime channels and credentials in sync with `TOOLS.md` and `.env`.
+- Validate each tested path in `docs/COUNCIL-WORKFLOW-TESTS.md`.
 
 ---
 

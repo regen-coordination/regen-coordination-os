@@ -8,7 +8,7 @@
 
 | Fund | Node | Chain | Address | Signers | Status |
 |------|------|-------|---------|---------|--------|
-| ReFi BCN Treasury | refi-bcn | Gnosis | TBD | Luiz, Giulio, Andrea | active |
+| ReFi BCN Treasury | refi-bcn | Gnosis | TBD | multisig signers | active |
 | Regen Coordination Treasury | regen-coordination-os | Gnosis | TBD | — | planned |
 
 ---
@@ -26,7 +26,7 @@
 
 | Fund | Chain | Status | Notes |
 |------|-------|--------|-------|
-| Regen Coordination Octant Vault | mainnet | planned | Exploring 1/3-1/3-1/3 split; needs co-funders; contact James/Eugene |
+| Regen Coordination Octant Vault | mainnet | planned | Exploring 1/3-1/3-1/3 split; needs co-funders |
 | NYC Local Funding Octant Vault | mainnet | pilot | Stablecoin + ETH strategy; yield orientation for Decentral Park and mutual aid software |
 | Regen Coordination Impact Stake | mainnet | active | 10 ETH target; 1/3-1/3-1/3 split across ReFi DAO, Greenpill, Bloom |
 
@@ -36,7 +36,7 @@
 
 | Fund | Manager | Season | Status |
 |------|---------|--------|--------|
-| GreenPill Asia Artisan Fund | Swift | 5 | winding-down |
+| GreenPill Asia Artisan Fund | team-managed | 5 | winding-down |
 | Artisan Season 6 Pools | — | 6 | active (Network States, Region Rebels, Green Pill Asia) |
 
 ---

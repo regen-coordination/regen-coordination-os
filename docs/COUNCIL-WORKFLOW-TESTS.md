@@ -4,6 +4,8 @@
 
 These scenarios test the integration of Organizational OS v3.0 with OpenClaw against actual Regen Coordination council workflows from the 2026-02-20 sync.
 
+Diagram standards: [DIAGRAM-STANDARDS.md](./DIAGRAM-STANDARDS.md)
+
 ---
 
 ## Test Setup
@@ -12,6 +14,40 @@ These scenarios test the integration of Organizational OS v3.0 with OpenClaw aga
 **Agent:** OpenClaw with organizational-os workspace  
 **Skills:** meeting-processor, funding-scout, knowledge-curator, capital-flow  
 **Channels:** Telegram (council group)
+
+## Test Matrix
+
+### ASCII Map
+
+```text
+Scenario | Primary Channel | Core Skill         | Primary Artifact
+---------+-----------------+--------------------+-------------------------------
+1        | Telegram        | meeting-processor  | packages/operations/meetings/*
+2        | Telegram        | funding-scout      | data/funding-opportunities.yaml
+3        | Telegram        | heartbeat-monitor  | HEARTBEAT.md
+4        | Telegram        | capital-flow       | IDENTITY.md + TOOLS.md + Safe API
+5        | Telegram        | knowledge-curator  | knowledge/<domain>/*.md
+6        | Telegram + Git  | knowledge-curator  | hub sync commits / actions
+```
+
+### Mermaid Flow
+
+```mermaid
+graph TD
+  captureInput["Capture input (chat/transcript)"]
+  processSkill["Process with target skill"]
+  draftArtifacts["Draft/update artifacts"]
+  reviewGate["Operator review required?"]
+  publishStep["Publish/sync action"]
+  logResult["Log result in memory/YYYY-MM-DD.md"]
+
+  captureInput --> processSkill
+  processSkill --> draftArtifacts
+  draftArtifacts --> reviewGate
+  reviewGate -->|"yes"| publishStep
+  reviewGate -->|"no"| logResult
+  publishStep --> logResult
+```
 
 ---
 
@@ -199,6 +235,30 @@ Can you sync today's curations to the hub?
 7. Human reviews and approves treasury items in HEARTBEAT
 
 **Time target:** Full cycle within 15 minutes of call ending.
+
+---
+
+## Workflow State Model
+
+```mermaid
+stateDiagram-v2
+  [*] --> intake
+  intake --> classification
+  classification --> extraction
+  extraction --> draftArtifacts
+  draftArtifacts --> operatorReview
+  operatorReview --> syncHub: approved
+  operatorReview --> reviseDraft: changes requested
+  reviseDraft --> operatorReview
+  syncHub --> recordMemory
+  recordMemory --> [*]
+```
+
+### Operational Notes
+
+- Each scenario should end with a recorded PASS/FAIL/PARTIAL result in daily memory.
+- Sync actions must always pass explicit operator approval.
+- Failures should include cause, missing dependency, and retry plan.
 
 ---
 

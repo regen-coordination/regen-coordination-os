@@ -1,5 +1,5 @@
 # Cross-network funding opportunities registry
-# Sources: RC Council Sync 2026-02-20, Luiz <> Matty sync 2026-02-12
+# Sources: RC Council Sync 2026-02-20, February 2026 coordination sync
 # Last updated: 2026-02-20
 
 funding_opportunities:
@@ -11,7 +11,6 @@ funding_opportunities:
     mechanism: "artifact-based donations + matching"
     total_endowment: "$10M+ (RevNet)"
     networks: [refi-dao, greenpill, bloom]
-    contact: "Swift EVO"
     notes: "Multiple funds: Network States, Region Rebels, Green Pill Asia. Projects apply to multiple funds."
 
   - id: octant-vaults
@@ -20,7 +19,6 @@ funding_opportunities:
     status: active
     mechanism: "ETH staking yield (2-3% after Lido cut), multi-strategy vaults"
     networks: [regen-coordination]
-    contact: "James (Octant), Eugene"
     notes: "Need co-funders for credible proposals. Tech/dev-focused ideas preferred."
 
   - id: impact-stake
@@ -53,7 +51,6 @@ funding_opportunities:
     status: pipeline
     mechanism: "Ecosystem grants"
     total: "$350k for H1 2025"
-    contact: "Marek (Celo Labs)"
     networks: [regen-coordination]
 
   - id: arbitrum-grants

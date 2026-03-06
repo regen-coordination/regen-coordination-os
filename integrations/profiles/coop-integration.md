@@ -53,8 +53,8 @@ Coop workflows align with Regen Coordination's shared skill stack:
 
 ## Organizational Context
 
-- Launch context: Luiz × Afo sync (2026-03-05) and council alignment.
-- Founding build team for initial cycle: Afolabi Aiyeloja, Luiz Fernando, Antonio.
+- Launch context: early March 2026 council and builder sync alignment.
+- Founding build team for initial cycle: council-linked founding builders.
 - Operating model: equal-share co-op structure under Regen Coordination.
 - Initial delivery cycle: PL Genesis hackathon prototype window (first prototype target: March 9, 2026).
 
