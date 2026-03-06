@@ -1,6 +1,6 @@
 # On-Chain Funds
 
-**Last updated:** 2026-02-20
+**Last updated:** 2026-03-06
 
 ---
 
@@ -27,6 +27,8 @@
 | Fund | Chain | Status | Notes |
 |------|-------|--------|-------|
 | Regen Coordination Octant Vault | mainnet | planned | Exploring 1/3-1/3-1/3 split; needs co-funders; contact James/Eugene |
+| NYC Local Funding Octant Vault | mainnet | pilot | Stablecoin + ETH strategy; yield orientation for Decentral Park and mutual aid software |
+| Regen Coordination Impact Stake | mainnet | active | 10 ETH target; 1/3-1/3-1/3 split across ReFi DAO, Greenpill, Bloom |
 
 ---
 

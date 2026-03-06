@@ -40,4 +40,6 @@ YYYY-MM-DD-[topic].md
 
 - [Funding Platforms Reference](../../skills/funding-scout/references/funding-platforms.yaml)
 - [Domain Pool Config](../../funding/regenerative-finance/pool-config.yaml)
+- [AI ImpactQF Methodology (2026 Q1)](./2026-Q1-ai-impactqf-methodology.md)
+- [Ethereum Localism Strategy (2026 Q1)](./2026-Q1-ethereum-localism-strategy.md)
 - [Regen Finance Landscape 2026](./2026-regen-finance-landscape.md) _(to be created)_

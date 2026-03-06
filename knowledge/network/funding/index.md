@@ -1,6 +1,6 @@
 # Funding Opportunities
 
-**Last updated:** 2026-02-20
+**Last updated:** 2026-03-06
 
 ---
 
@@ -10,11 +10,12 @@
 |----------|------|--------|-------|
 | Artisan Season 6 | artifact-based | active | $10M+ endowment; ~3 months; contact Swift EVO |
 | Octant Vaults | yield-protocol | active | ETH staking yield; need co-funders; contact James/Eugene |
-| Impact Stake | yield-protocol | exploring | 1/3-1/3-1/3 split; pending approval |
+| Impact Stake | yield-protocol | active | 1/3-1/3-1/3 split in implementation; 10 ETH target |
 | Superfluid Campaigns | streaming | active | Season 6 TBD; flow-based SUB tokens |
 | Spinach Fry | yield | active | Monthly; ~$50/month ReFi DAO; Gardens-connected |
 | Gardens Pools | governance-funding | active | $500 kickstarter for new nodes |
 | Gitcoin / GG Rounds | quadratic-funding | periodic | — |
+| Gitcoin GG24 Ethereum Localism DDA | domain-allocation | pipeline | DDA co-design track with OpenCivics and RC |
 
 ---
 

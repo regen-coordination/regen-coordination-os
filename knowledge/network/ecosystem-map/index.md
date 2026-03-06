@@ -1,6 +1,6 @@
 # Ecosystem Map — Network of Networks
 
-**Last updated:** 2026-02-20
+**Last updated:** 2026-03-06
 
 Living public inventory of the Regen Coordination ecosystem. Top priority from Luiz <> Matty sync 2026-02-12.
 
@@ -12,6 +12,7 @@ Living public inventory of the Regen Coordination ecosystem. Top priority from L
 |---------|------|----------------|
 | ReFi DAO | Articulation org | ReFi BCN, ReFi Mediterranean, ReFi Provence, Ukraine, etc. |
 | Greenpill Network | Articulation org | NYC, Asia, Cape Town, London Ontario, Milwaukee, Brazil |
+| Green Brazil | Regional ecosystem cluster | Rio de Janeiro, Bahia, Sao Paulo (self-organizing hubs) |
 | Bloom Network | Governing partner | Liberia, Solutions integration, Earth.live |
 | Bread Coop | Invited partner | — |
 
@@ -54,6 +55,7 @@ Living public inventory of the Regen Coordination ecosystem. Top priority from L
 - GitHub-based forkable repos
 - AI agents for content conversion
 - Common funnel: find your chapter, find your ecosystem fit
+- Coop browser layer (Chromium extension + PWA + anchor node) as a new knowledge capture interface
 
 ---
 
