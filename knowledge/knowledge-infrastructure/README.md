@@ -19,6 +19,7 @@
 ## Key Resources
 
 - [KOI-net](../../) — Knowledge Organization Infrastructure
+- [Coop: Browser-based knowledge commons](./260305-coop-browser-knowledge-commons.md) — Chromium extension + PWA for local coordination (in development)
 - [Benjamin Life's bioregional knowledge commons approach](./2026-bioregional-knowledge-commons.md) _(to be created)_
 - Agent architecture for knowledge work (see [framework docs](../../../organizational-os-framework/docs/02-standards/agent-architecture.md))
 
@@ -26,6 +27,7 @@
 
 ## Ongoing Work
 
+- [ ] Coop: PL Genesis hackathon build (extension, anchor node, PWA)
 - [ ] KOI-net node deployment on ReFi BCN DePIN
 - [ ] Define standard knowledge formats for cross-node sharing
 - [ ] Evaluate StreamVote for knowledge governance (domain curation decisions)

@@ -17,6 +17,9 @@ _Key decisions, active context, and organizational history for the Regen Coordin
 
 ## Key Decisions
 
+- [2026-03-05] Coop launched under Regen Coordination — browser-based knowledge commons for bioregional coordination; equal co-op structure among founding council (Afolabi, Luiz, Antonio)
+- [2026-03-05] Experimentation-first approach — shift from ontology-architecting to immediate experimentation; use AI agents and existing tooling to synthesize discussions for skill execution
+- [2026-03-05] Organizational OS repos to be transferred to Regen Coordination org; kept separate for forking; Coop monorepo imports relevant schemas
 - [2026-02-20] Created regen-coordination GitHub organization
 - [2026-02-20] Adopted Organizational OS v3.0 (OpenClaw-native) as coordination infrastructure
 - [2026-02-20] Selected domain-based approach for funding pools (waste management, regen finance as first domains)
@@ -28,6 +31,7 @@ _Key decisions, active context, and organizational history for the Regen Coordin
 
 ## Active Context
 
+- [ongoing] Coop: PL Genesis hackathon build (Mar 2026); Chromium extension + PWA + anchor node; four pillars (impact, coordination, governance, capital)
 - [ongoing] Impact Stake: exploring 1/3-1/3-1/3 split proposal with council
 - [ongoing] Artisan Season 6: preparing applications for network nodes
 - [ongoing] Knowledge commons: designing domain-based structure
@@ -59,4 +63,5 @@ _Key decisions, active context, and organizational history for the Regen Coordin
 ### Infrastructure
 - **KOI-net:** Knowledge organization infrastructure for real-time federation sync
 - **OpenClaw:** Primary agent runtime across nodes
+- **Coop:** Browser-based knowledge commons (extension + PWA); capture layer for local nodes; integrates with Green Goods, Gardens
 - **StreamVote:** Potential governance tool for domain pool allocation

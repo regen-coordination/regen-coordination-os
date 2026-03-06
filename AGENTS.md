@@ -75,7 +75,7 @@ When improving a shared skill:
 **Downstream nodes** (see `federation.yaml` and `MEMBERS.md`):
 - ReFi BCN, Regenerant Catalunya, Local ReFi Toolkit, NYC Node, Bloom, GreenPill Network
 
-**Tool integrations** — See [integrations/](integrations/) for profiles and specs. Declared in federation.yaml: koi-net, regen-toolkit, openclaw, funding platforms.
+**Tool integrations** — See [integrations/](integrations/) for profiles and specs. Declared in federation.yaml: koi-net, regen-toolkit, openclaw, funding platforms, coop (browser knowledge commons).
 
 **Upstream**: [organizational-os-template](../organizational-os-template/) — base conventions
 

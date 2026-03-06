@@ -14,6 +14,7 @@
 | NYC Local Funding Program | NYC Node | bootstrapping | Stablecoin + ETH on mainnet; yield to Decentral Park |
 | Green Goods | Greenpill | active | Protocol deployment; Impact Stake builder |
 | Earth.live x Bloom | Bloom | active | Federated learning environmental data; MOU signed |
+| Coop | Regen Coordination | in-development | Browser-based knowledge commons; PL Genesis hackathon |
 
 ---
 

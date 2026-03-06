@@ -85,6 +85,12 @@ integrations:
       repo: "organizational-os/openclaw-source"
       url: "https://github.com/organizational-os/openclaw-source"
       role: "primary-runtime"
+  tools:
+    - name: "coop"
+      repo: "regen-coordination/coop"
+      url: "https://github.com/regen-coordination/coop"
+      role: "browser-knowledge-commons"
+      status: "in-development"
 
 # ── Agent Configuration ────────────────────────────────────────────────────────
 # Hub does not run an agent by default — it is a Git-based coordination point.
@@ -182,5 +188,5 @@ platforms:
 # ── Metadata ─────────────────────────────────────────────────────────────────
 metadata:
   created: "2026-02-20T00:00:00Z"
-  last_updated: "2026-02-20T00:00:00Z"
+  last_updated: "2026-03-05T00:00:00Z"
   framework_version: "3.0"
