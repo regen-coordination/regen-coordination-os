@@ -94,9 +94,10 @@ integrations:
       role: "real-time-knowledge-sync"
   content:
     - name: "regen-toolkit"
-      repo: "organizational-os/regen-toolkit"
-      url: "https://github.com/organizational-os/regen-toolkit"
+      repo: "explorience/regen-toolkit"
+      url: "https://github.com/explorience/regen-toolkit"
       role: "educational-content"
+      embedded_path: "packages/regen-toolkit"
   agent_runtimes:
     - name: "openclaw"
       repo: "organizational-os/openclaw-source"
@@ -108,6 +109,7 @@ integrations:
       url: "https://github.com/regen-coordination/coop"
       role: "browser-knowledge-commons"
       status: "active"
+      embedded_path: "packages/coop"
 
 # ── Agent Configuration ────────────────────────────────────────────────────────
 # Hub does not run an agent by default — it is a Git-based coordination point.

@@ -11,6 +11,25 @@ Regen Coordination now maintains:
 
 Org deployment repos should map additional repos under `packages/` using `git subtree` so a single clone includes all mapped content.
 
+## Current Separation of Roles
+
+- `organizational-os` remains the canonical framework/template monorepo.
+- `regen-coordination-os` is the operational hub and now embeds:
+  - `packages/coop`
+  - `packages/regen-toolkit`
+
+```mermaid
+graph TD
+  orgOS["organizational-os (framework + template canonical)"]
+  rcOS["regen-coordination-os (hub + embedded repos)"]
+  coopPkg["packages/coop"]
+  toolkitPkg["packages/regen-toolkit"]
+
+  orgOS -->|"upstream conventions"| rcOS
+  rcOS --> coopPkg
+  rcOS --> toolkitPkg
+```
+
 ## ASCII Map
 
 ```text

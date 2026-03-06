@@ -40,6 +40,26 @@
 
 ---
 
+## Funding Pipeline Diagram
+
+```mermaid
+flowchart TD
+  sourcePlatforms[SourcePlatforms] --> domainPools[DomainPools]
+  sourcePlatforms --> directRounds[DirectRounds]
+  domainPools --> allocationLayer[AllocationLayer]
+  directRounds --> allocationLayer
+  allocationLayer --> localPrograms[LocalPrograms]
+  localPrograms --> impactSignals[ImpactSignalsAndTVF]
+```
+
+```text
+SourcePlatforms
+   |- DomainPools ------\
+   `- DirectRounds -----+--> AllocationLayer --> LocalPrograms --> ImpactSignalsAndTVF
+```
+
+---
+
 ## See Also
 
 - `data/funding-opportunities.yaml` — machine-readable registry

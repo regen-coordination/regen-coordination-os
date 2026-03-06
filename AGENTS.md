@@ -1,72 +1,100 @@
 # Regen Coordination OS — Agent Guide
 
-_This repo is primarily a Git-based coordination layer, not an active agent workspace. Coordination happens through GitHub Actions and weekly council calls. This file documents conventions for AI assistants working with this content._
+This repo serves as a Git-based coordination layer for regenerative network nodes,
+and embeds selected repos under `packages/` via git subtree.
 
 ---
 
-## Purpose
+## Repository Structure
 
-This OS repo:
-1. **Aggregates** knowledge from nodes into searchable domains
-2. **Distributes** shared skills to all nodes
-3. **Coordinates** funding pools at network level
-4. **Lists** network members and their status
+**Root (Coordination Hub):**
+- `knowledge/` — Aggregated knowledge by domain
+- `skills/` — Shared skills distributed to nodes
+- `data/` — Network registries (funding, nodes, funds)
+- `.github/workflows/` — Automation (knowledge aggregation, skill distribution)
 
-This repo does NOT run an active agent. Automation is via GitHub Actions.
+**Embedded repos (`packages/`):**
+- `packages/coop/` — Browser knowledge commons monorepo
+- `packages/regen-toolkit/` — Toolkit/content repo (source remote: explorience)
+
+**Coop monorepo internals (`packages/coop/`):**
+- `packages/extension/` — Chromium extension (Manifest V3)
+- `packages/pwa/` — Mobile companion PWA (React + Vite)
+- `packages/anchor/` — Node backend (Fastify + WebSocket)
+- `packages/shared/` — Types, protocols, storage abstractions
+- `packages/contracts/` — On-chain registry contracts (Solidity/Forge)
+- `packages/org-os/` — Organizational OS schemas
+
+---
+
+## Build, Lint, and Test Commands
+
+**Root (Coordination Hub):**
+```bash
+# Root has no single package-manager workspace for all embedded repos.
+# Use repo-specific commands in each embedded directory.
+```
+
+**Coop workspace commands:**
+```bash
+# Inside packages/coop
+pnpm install
+pnpm dev
+pnpm build
+pnpm lint
+pnpm check
+pnpm format
+```
+
+**Individual coop packages:**
+```bash
+# Inside packages/coop/packages/<name>/
+pnpm dev
+pnpm build
+pnpm check
+pnpm lint
+```
+
+**Coop contracts (Forge):**
+```bash
+cd packages/coop/packages/contracts
+forge build
+forge test
+```
+
+---
+
+## Subtree Maintenance
+
+Embedded repos are maintained with `git subtree`.
+
+**Pull updates:**
+```bash
+git subtree pull --prefix packages/coop https://github.com/regen-coordination/coop.git main --squash
+git subtree pull --prefix packages/regen-toolkit https://github.com/explorience/regen-toolkit.git main --squash
+```
+
+**Push updates:**
+```bash
+git subtree push --prefix packages/coop https://github.com/regen-coordination/coop.git main
+git subtree push --prefix packages/regen-toolkit https://github.com/explorience/regen-toolkit.git main
+```
+
+Use subtree (not submodules) so a single clone contains both embedded repos.
 
 ---
 
 ## Working with Hub Content
 
-### Adding Knowledge from a Node
+**Adding Knowledge:**
+- Node contributions: `knowledge/<domain>/from-nodes/<node>/YYYY-MM-DD-contribution.md`
+- Hub aggregations: `knowledge/<domain>/YYYY-MM-DD-topic.md`
+- Never edit `from-nodes/` — that's node-owned content
 
-Place node contributions in:
-```
-knowledge/<domain>/from-nodes/<node-name>/YYYY-MM-DD-contribution.md
-```
-
-Never edit `from-nodes/` content — that's the node's contribution, not this repo's.
-
-Hub-curated aggregations go directly in `knowledge/<domain>/`:
-```
-knowledge/regenerative-finance/2026-Q1-aggregation.md
-```
-
-### Updating MEMBERS.md
-
-When a node joins, changes status, or leaves:
-1. Update the table in `MEMBERS.md`
-2. Update the node profile section
-3. Update `federation.yaml` downstream list
-
-### Adding a Funding Pool
-
-1. Create `funding/<domain>/pool-config.yaml`
-2. Add domain to `federation.yaml` `knowledge-commons.shared-domains`
-3. Announce via council call and Telegram
-
-### Updating Shared Skills
-
-When improving a shared skill:
-1. Edit `skills/<skill-name>/SKILL.md`
-2. Bump the version in the frontmatter
-3. The `distribute-skills.yml` action will push to nodes
-
----
-
-## File Conventions
-
-- Hub knowledge files: `knowledge/<domain>/YYYY-MM-DD-topic.md`
-- Node contributions: `knowledge/<domain>/from-nodes/<node>/`
-- Aggregations: `knowledge/<domain>/aggregated/`
-- Meeting notes (council): `packages/operations/meetings/YYMMDD Council Sync.md`
-
----
-
-## GitHub Actions
-
-- `aggregate-knowledge.yml` — Runs weekly to aggregate node knowledge
-- `distribute-skills.yml` — Runs when `skills/` changes, pushes to all nodes
+**Updating Registry:**
+- Nodes: `MEMBERS.md` + `federation.yaml`
+- Funding: `data/funding-opportunities.yaml`
+- Funds: `data/funds.yaml`
 
 ---
 
@@ -75,48 +103,22 @@ When improving a shared skill:
 **Downstream nodes** (see `federation.yaml` and `MEMBERS.md`):
 - ReFi BCN, Regenerant Catalunya, Local ReFi Toolkit, NYC Node, Bloom, GreenPill Network
 
-**Tool integrations** — See [integrations/](integrations/) for profiles and specs. Declared in federation.yaml: koi-net, regen-toolkit, openclaw, funding platforms.
+**Tool integrations** — See `integrations/` for profiles and specs.
 
-**Upstream**: [organizational-os](https://github.com/regen-coordination/organizational-os) (`packages/template`) — base conventions
-
-**Cross-repo map**: [ECOSYSTEM-MAP.md](../ECOSYSTEM-MAP.md)
-
----
-
-## Communication Channels
-
-- **Discourse Forum:** [hub.regencoordination.xyz](https://hub.regencoordination.xyz) — API: `/latest.json`, `/c/regen-coordination/4.json`
-- **Telegram:** RC Council (private, governance), RC Open (public, community)
-- **Usage:** Use `knowledge-curator` skill to fetch forum posts, extract action items, and update `knowledge/network/` and `data/` registries. When OpenClaw is deployed on nodes, Telegram context flows via meeting notes and forum cross-posts.
-
----
-
-## Network Directory
-
-- **Location:** [knowledge/network/](knowledge/network/) and [data/](data/)
-- **Purpose:** Cross-network aggregation layer — nodes, chapters, initiatives, events, programs, channels, funding, funds
-- **Responsibility:** RC agents keep this current from forum posts, meeting notes, and partner announcements.
-
----
-
-## Funding Opportunities
-
-- **Registry:** [data/funding-opportunities.yaml](data/funding-opportunities.yaml)
-- **Human view:** [knowledge/network/funding/](knowledge/network/funding/)
-- **Usage:** `funding-scout` skill reads from this registry and updates it when new opportunities are announced on the forum or in council calls.
-
----
-
-## Funds (On-Chain)
-
-- **Registry:** [data/funds.yaml](data/funds.yaml)
-- **Human view:** [knowledge/network/funds/](knowledge/network/funds/)
-- **Distinction:** funding-opportunities = platforms/mechanisms; funds = actual deployed instances (Safe treasuries with addresses, Gardens pools, Octant/Artisan vaults). Agents can read treasury addresses for capital-flow operations and track pool balances.
+**Upstream base conventions**:
+- `https://github.com/regen-coordination/organizational-os` (`packages/template`)
 
 ---
 
 ## Communication
 
-- **Telegram:** @regen_coordination (council channel)
-- **GitHub:** PRs for adding nodes, modifying pool configs, updating skills
-- **Weekly calls:** Every Friday — recorded and processed via meeting-processor
+- **Forum:** hub.regencoordination.xyz — API: `/latest.json`
+- **Telegram:** RC Council (governance), RC Open (community)
+- **Weekly calls:** Fridays (recorded, processed via meeting-processor)
+
+---
+
+## Automation
+
+- `aggregate-knowledge.yml` — Weekly aggregation from nodes
+- `distribute-skills.yml` — Push skill updates to downstream nodes

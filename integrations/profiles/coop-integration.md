@@ -18,6 +18,40 @@ It provides the capture and coordination layer for local communities using:
 
 ---
 
+## Integration Snapshot
+
+```text
+BrowserInputs(tabs/voice)
+        |
+        v
+  CoopCaptureLayer
+        |
+   +----+----+
+   |         |
+LocalStore  SharedMembrane
+   |         |
+   +----+----+
+        |
+        v
+   AnchorNodeOps
+        |
+        v
+ColdArchive(Storacha/Filecoin)
+```
+
+```mermaid
+flowchart TD
+  browserInput[BrowserInputsTabsVoice] --> captureLayer[CoopCaptureLayer]
+  captureLayer --> localStore[LocalStoreIndexedDB]
+  captureLayer --> membrane[SharedMembraneP2P]
+  localStore --> anchorNode[AnchorNodeOps]
+  membrane --> anchorNode
+  anchorNode --> coldArchive[ColdArchiveStoracha_Filecoin]
+  anchorNode --> rcKnowledge[RegenCoordinationKnowledgeCommons]
+```
+
+---
+
 ## Architecture
 
 ### 1) Three-layer storage model
@@ -35,6 +69,14 @@ It provides the capture and coordination layer for local communities using:
 
 - Coop membership and discoverability map to on-chain registry patterns (`CoopRegistry.sol`).
 - Account abstraction integration path uses Pimlico-compatible smart account/session key model.
+
+### Capability split
+
+```text
+StandardNode  : capture | summarize | sync
+AnchorNode    : inference | key-backed actions | external posting
+RC_OS_Context : registry | programs | network knowledge
+```
 
 ---
 

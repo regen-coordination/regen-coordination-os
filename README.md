@@ -68,6 +68,10 @@ regen-coordination-os/
 │   └── waste-management/
 │       └── pool-config.yaml
 │
+├── packages/              # Embedded product/content repos (subtree model)
+│   ├── coop/              # Browser knowledge commons product repo
+│   └── regen-toolkit/     # Educational content/toolkit repo (source: explorience)
+│
 └── .github/
     └── workflows/
         ├── aggregate-knowledge.yml
@@ -101,6 +105,17 @@ cp memory/YYYY-MM-DD.md hub-repo/knowledge/[domain]/from-nodes/[node-name]/
 cd hub-repo && git commit -am "sync: [node-name] YYYY-MM-DD" && git push
 ```
 
+### Embedded Hub Packages
+
+This hub repository embeds selected repos under `packages/` via `git subtree`
+so they are present in a single clone:
+
+- `packages/coop` (source: `regen-coordination/coop`)
+- `packages/regen-toolkit` (source: `explorience/regen-toolkit`)
+
+Subtree model is used to keep cloned workspaces complete without submodule
+initialization.
+
 ---
 
 ## Funding Pools
@@ -130,4 +145,5 @@ Weekly calls: Every Friday — see [MEMBERS.md](MEMBERS.md) for participants.
 
 - [organizational-os-template](../organizational-os-template/) — The template all nodes fork
 - [organizational-os-framework](../organizational-os-framework/) — Standards reference
+- [organizational-os](../organizational-os/) — Canonical framework/template monorepo
 - [dao-os](../dao-os/) — DAO-specific implementation layer

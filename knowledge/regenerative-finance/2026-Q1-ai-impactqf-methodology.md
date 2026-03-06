@@ -31,6 +31,40 @@ Source: `03 Libraries/Regen Coordination/Regen Coordination Docs/ai-impactqf-reg
 
 ---
 
+## System Diagram
+
+```text
+ProjectData(KarmaGAP/CIDS)
+          |
+          v
+  AI_Eval_A + AI_Eval_B
+          |
+          v
+   HumanCouncilReview
+          |
+          v
+      ImpactScore
+          |
+COCM ---- + ---- HybridMatch(50/50)
+          |
+          v
+     FinalAllocation
+```
+
+```mermaid
+flowchart TD
+  projectData[ProjectDataKarmaGAP_CIDS] --> aiEvalA[AIEvalGPT4o]
+  projectData --> aiEvalB[AIEvalClaude37]
+  aiEvalA --> councilReview[CouncilReview]
+  aiEvalB --> councilReview
+  cocmScore[COCMScore] --> hybridMatch[HybridMatch5050]
+  councilReview --> impactScore[ImpactScore]
+  impactScore --> hybridMatch
+  hybridMatch --> allocation[FinalAllocation]
+```
+
+---
+
 ## Why
 
 The methodology addresses a known issue in standard QF rounds: allocations can over-reward projects with stronger marketing reach and donor mobilization rather than stronger demonstrated impact.
@@ -61,6 +95,16 @@ The hybrid model is used as a transition mechanism to:
 
 - Hybrid ImpactQF applies final impact score alongside COCM results for matching distribution.
 - Current implementation is a stepping-stone toward deeper impact embedding in future formulas.
+
+### Layered process (ASCII)
+
+```text
+L1 Data         : CIDS / Karma GAP submissions
+L2 Evaluation   : GPT-4o + Claude 3.7 independent scoring
+L3 Deliberation : Council review and reconciliation
+L4 Allocation   : COCM + Impact hybrid distribution
+L5 Iteration    : Retro learnings -> next-round tuning
+```
 
 ---
 

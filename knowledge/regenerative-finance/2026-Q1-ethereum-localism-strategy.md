@@ -21,6 +21,35 @@ Source: `03 Libraries/Regen Coordination/Regen Coordination Docs/Ethereum Locali
 
 ---
 
+## Strategy Diagram
+
+```text
+GlobalEthereumInfra
+      |
+      +--> LocalGovernanceTools
+      +--> LocalPaymentRails
+      +--> LocalFundingPrograms
+      |
+      v
+MeaningfulAdoption
+      |
+      v
+TVF + LocalImpact + EcosystemGrowth
+```
+
+```mermaid
+flowchart TD
+  ethInfra[GlobalEthereumInfrastructure] --> govTools[LocalGovernanceTools]
+  ethInfra --> paymentRails[LocalPaymentAndStablecoinRails]
+  ethInfra --> fundingPrograms[LocalFundingPrograms]
+  govTools --> meaningfulAdoption[MeaningfulAdoption]
+  paymentRails --> meaningfulAdoption
+  fundingPrograms --> meaningfulAdoption
+  meaningfulAdoption --> outcomes[TVF_LocalImpact_EcosystemGrowth]
+```
+
+---
+
 ## Why
 
 The sensemaking report identifies two converging conditions:
@@ -67,6 +96,16 @@ Fundraising reality in the report:
 - Domain size expectation supports a $50k+ threshold.
 - CeloPG budget request up to $75k is cited as pending community vote.
 - Additional expected sponsor pathways include Ethereum ecosystem and aligned partner treasuries.
+
+### DDA rollout map
+
+```mermaid
+flowchart LR
+  sensemaking[SensemakingReport] --> coDesign[DDACoDesign]
+  coDesign --> pilots[GG24Pilots3to5]
+  pilots --> protocolization[ProtocolizationAndPlaybooks]
+  protocolization --> scale2026[ScaleTo10PlusRounds2026]
+```
 
 ---
 

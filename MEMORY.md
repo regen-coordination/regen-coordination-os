@@ -23,6 +23,7 @@ _Key decisions, active context, and organizational history for the Regen Coordin
 - [2026-03-05] Organizational OS repositories (`organizational-os-framework`, `organizational-os-template`) approved for transfer into Regen Coordination GitHub organization
 - [2026-03-05] Coop and org-os workstreams aligned through a monorepo approach for faster execution
 - [2026-03-06] Organizational OS monorepo created at `regen-coordination/organizational-os`; framework/template kept as standalone mirrors; org-mapped repos should use subtree (not submodules) for single-clone workspaces
+- [2026-03-06] `regen-coordination-os` now embeds `coop` and `regen-toolkit` under `packages/` via subtree; `regen-toolkit` source remote remains `explorience/regen-toolkit`
 - [2026-02-20] Created regen-coordination GitHub organization
 - [2026-02-20] Adopted Organizational OS v3.0 (OpenClaw-native) as coordination infrastructure
 - [2026-02-20] Selected domain-based approach for funding pools (waste management, regen finance as first domains)

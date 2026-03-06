@@ -18,6 +18,36 @@ Living public inventory of the Regen Coordination ecosystem. Top priority from a
 
 ---
 
+## Topology Diagram
+
+```mermaid
+flowchart TD
+  rcHub[RegenCoordinationHub] --> refiDao[ReFiDAO]
+  rcHub --> greenpill[GreenpillNetwork]
+  rcHub --> bloomNet[BloomNetwork]
+  rcHub --> greenBrazil[GreenBrazil]
+  rcHub --> breadCoop[BreadCoop]
+  refiDao --> refiBcn[ReFiBCN]
+  refiDao --> refiMediterranean[ReFiMediterranean]
+  greenpill --> greenpillNyc[GreenPillNYC]
+  greenpill --> greenpillAsia[GreenPillAsia]
+  bloomNet --> bloomLiberia[BloomLiberia]
+  greenBrazil --> gbRio[GreenBrazilRio]
+  greenBrazil --> gbBahia[GreenBrazilBahia]
+  greenBrazil --> gbSaoPaulo[GreenBrazilSaoPaulo]
+```
+
+```text
+RegenCoordinationHub
+  |- ReFiDAO -> ReFiBCN, ReFiMediterranean
+  |- GreenpillNetwork -> GreenPillNYC, GreenPillAsia
+  |- BloomNetwork -> BloomLiberia
+  |- GreenBrazil -> Rio, Bahia, SaoPaulo
+  `- BreadCoop
+```
+
+---
+
 ## Partnership Ecosystem
 
 | Partner | Relationship | Focus |

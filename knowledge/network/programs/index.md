@@ -21,6 +21,22 @@
 
 ---
 
+## Program Flow
+
+```mermaid
+flowchart LR
+  fundingPrograms[FundingPrograms] --> impactQf[AIImpactQF]
+  impactQf --> gg24Domain[GG24EthereumLocalismDDA]
+  gg24Domain --> pilotRounds[PilotRounds]
+  pilotRounds --> scalePath[ScalePath2026]
+```
+
+```text
+FundingPrograms -> AIImpactQF -> GG24DDA -> PilotRounds -> ScalePath2026
+```
+
+---
+
 ## Coordination Programs
 
 | Program | Networks | Status |
