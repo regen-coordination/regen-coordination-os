@@ -1,5 +1,5 @@
 # Active funding/coordination programs
-# Last updated: 2026-02-20
+# Last updated: 2026-03-06
 
 programs:
   funding:
@@ -17,7 +17,8 @@ programs:
     - id: impact-stake
       name: "Impact Stake"
       type: "yield-protocol"
-      status: exploring
+      status: active
+      notes: "1/3-1/3-1/3 split strategy in implementation across ReFi DAO, Greenpill, Bloom"
 
     - id: superfluid
       name: "Superfluid Campaigns"
@@ -44,11 +45,24 @@ programs:
       type: "grants"
       status: pipeline
 
+    - id: ai-impactqf
+      name: "AI ImpactQF"
+      type: "funding-methodology"
+      status: active
+      notes: "Hybrid 50/50 COCM + impact scoring model piloted in GG23 and scaling to GG24"
+
+    - id: gitcoin-gg24-ethereum-localism
+      name: "Gitcoin GG24 Ethereum Localism DDA"
+      type: "domain-allocation"
+      status: pipeline
+      notes: "Co-design track with OpenCivics and ecosystem partners for Dedicated Domain Allocation"
+
   coordination:
     - id: local-refi-toolkit
       name: "Local ReFi Toolkit"
       networks: [regen-coordination]
       status: active
+      notes: "Repositioning as an Ethereum Localism convergence hub"
 
     - id: regenerant-catalunya
       name: "Regenerant Catalunya"
@@ -59,3 +73,10 @@ programs:
       name: "Knowledge Commons"
       networks: [regen-coordination]
       status: active
+
+    - id: coop
+      name: "Coop"
+      networks: [regen-coordination]
+      status: active
+      phase: "hackathon-prototype"
+      notes: "Browser knowledge commons product (PL Genesis cycle)"

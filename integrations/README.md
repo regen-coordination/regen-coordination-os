@@ -25,7 +25,6 @@ Purpose: map and operationalize integrations between Regen Coordination OS and e
 | Regen Toolkit | `03 Libraries/regen-toolkit` | [regen-toolkit-integration](profiles/regen-toolkit-integration.md) |
 | OpenClaw | `03 Libraries/openclaw-source` | [openclaw-integration](profiles/openclaw-integration.md) |
 | Funding platforms | `skills/funding-scout/references/funding-platforms.yaml` | [funding-platforms-integration](profiles/funding-platforms-integration.md) |
-| Coop | `03 Libraries/coop` | [coop-integration](profiles/coop-integration.md) |
 
 ## Status model
 

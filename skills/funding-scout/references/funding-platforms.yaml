@@ -26,7 +26,7 @@ platforms:
       source: "ETH staking yield (minus Lido cut ~2-3%)"
       model: "Project allocation from staking yield"
       vault_strategies: "Multi-strategy vaults (plug-and-play roadmap)"
-    notes: "Relationship-driven. James (Octant) is key contact. New: Octant Labs."
+    notes: "Relationship-driven. Includes mainnet strategies now and Arbitrum strategy exploration for DAI/ETH."
     contact: "James (Octant), Eugene"
 
   impact-stake:
@@ -35,10 +35,12 @@ platforms:
     type: "eth-yield-staking"
     cadence: "ongoing"
     mechanics:
-      model: "1/3-1/3-1/3 split approach"
+      model: "1/3-1/3-1/3 split approach across ReFi DAO, Greenpill, Bloom"
+      staking_assets: ["ETH", "stETH"]
       yield_rate: "~2-3% ETH staking yield"
       governance: "StreamVote integration potential"
-    notes: "Needs co-funders for credible proposals. StreamVote = trust-graph voting."
+      target_size: "10 ETH initial mobilization target"
+    notes: "Lido-aligned yield mechanism. Active council implementation track."
 
   superfluid:
     name: "Superfluid Campaigns"
@@ -57,6 +59,17 @@ platforms:
     type: "quadratic-funding"
     cadence: "seasonal"
     notes: "Large web3 audience. Multiple rounds per year."
+
+  gitcoin-gg24-dda:
+    name: "Gitcoin GG24 Dedicated Domain Allocation"
+    url: "https://gov.gitcoin.co/t/gitcoin-grants-24-strategic-sense-making-framework/20865"
+    type: "domain-allocation"
+    cadence: "GG24 cycle"
+    mechanics:
+      domain: "Ethereum Localism"
+      co_design: "Regen Coordination + OpenCivics + ecosystem partners"
+      pilot_target: "3-5 local rounds"
+    notes: "Strategic pipeline item for RC; intended path toward 10+ rounds in 2026."
 
   spinach:
     name: "Spinach"

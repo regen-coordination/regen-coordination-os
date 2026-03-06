@@ -55,12 +55,3 @@ initiatives:
     networks: [regen-coordination]
     status: proposed
     description: "Rename from GreenPill Writers Guild; include ReFi DAO"
-
-  - id: coop
-    name: "Coop"
-    networks: [regen-coordination]
-    status: in-development
-    description: "Browser-based knowledge commons for bioregional and local community coordination; Chromium extension + PWA, three-layer storage, anchor nodes, on-chain registry"
-    repo: "github.com/regen-coordination/coop"
-    pillars: [impact-reporting, coordination, governance, capital-formation]
-    hackathon: "PL Genesis Frontiers of Collaboration (Mar 2026)"

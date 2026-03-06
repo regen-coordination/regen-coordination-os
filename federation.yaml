@@ -17,14 +17,25 @@ identity:
 network: "regen-coordination"
 hub: "github.com/regen-coordination/regen-coordination-os"
 
-# Hub's upstream: organizational-os-template (inherits base conventions)
+# Hub's upstream: organizational-os standards stack
 upstream:
   - type: "template"
-    repository: "organizational-os/organizational-os-template"
-    url: "https://github.com/organizational-os/organizational-os-template"
+    repository: "regen-coordination/organizational-os"
+    url: "https://github.com/regen-coordination/organizational-os"
+    path: "packages/template"
     relationship: "fork"
     sync_frequency: "monthly"
     remote_name: "upstream"
+  - type: "framework"
+    repository: "regen-coordination/organizational-os-framework"
+    url: "https://github.com/regen-coordination/organizational-os-framework"
+    relationship: "managed-reference"
+    sync_frequency: "monthly"
+  - type: "template"
+    repository: "regen-coordination/organizational-os-template"
+    url: "https://github.com/regen-coordination/organizational-os-template"
+    relationship: "managed-reference"
+    sync_frequency: "monthly"
 
 # Hub's downstream: all network nodes
 downstream:
@@ -64,6 +75,12 @@ downstream:
     type: "resource-node"
     trust: "full"
 
+  - name: "Coop"
+    repo: "regen-coordination/coop"
+    url: "https://github.com/regen-coordination/coop"
+    type: "product-node"
+    trust: "full"
+
 # Hub has no peers (it is the hub)
 peers: []
 
@@ -90,7 +107,7 @@ integrations:
       repo: "regen-coordination/coop"
       url: "https://github.com/regen-coordination/coop"
       role: "browser-knowledge-commons"
-      status: "in-development"
+      status: "active"
 
 # ── Agent Configuration ────────────────────────────────────────────────────────
 # Hub does not run an agent by default — it is a Git-based coordination point.
@@ -188,5 +205,5 @@ platforms:
 # ── Metadata ─────────────────────────────────────────────────────────────────
 metadata:
   created: "2026-02-20T00:00:00Z"
-  last_updated: "2026-03-05T00:00:00Z"
+  last_updated: "2026-03-06T00:00:00Z"
   framework_version: "3.0"

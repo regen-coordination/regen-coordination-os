@@ -1,6 +1,6 @@
 # Cross-network node registry
 # Sources: ReFi DAO, Greenpill Network, Bloom Network
-# Last updated: 2026-02-20
+# Last updated: 2026-03-06
 
 nodes:
   - id: refi-bcn
@@ -68,6 +68,35 @@ nodes:
     location: "London, Ontario, Canada"
     status: active
 
+  - id: green-brazil
+    name: "Green Brazil"
+    network: "green-brazil"
+    type: "umbrella"
+    location: "Brazil"
+    status: active
+    notes: "Self-organizing bioregional hubs with autonomous multisigs, Gardens governance, and Sarafu exploration"
+
+  - id: green-brazil-rio
+    name: "Green Brazil Rio de Janeiro"
+    network: "green-brazil"
+    type: "hub"
+    location: "Rio de Janeiro, Brazil"
+    status: active
+
+  - id: green-brazil-bahia
+    name: "Green Brazil Bahia"
+    network: "green-brazil"
+    type: "hub"
+    location: "Bahia, Brazil"
+    status: active
+
+  - id: green-brazil-sao-paulo
+    name: "Green Brazil Sao Paulo"
+    network: "green-brazil"
+    type: "hub"
+    location: "Sao Paulo, Brazil"
+    status: active
+
   - id: bloom-network
     name: "Bloom Network"
     network: "bloom"
@@ -102,3 +131,11 @@ nodes:
     type: "local-node"
     location: "New York, USA"
     status: bootstrapping
+
+  - id: coop
+    name: "Coop"
+    network: "regen-coordination"
+    type: "product-node"
+    location: "Global"
+    status: bootstrapping
+    repo: "github.com/regen-coordination/coop"

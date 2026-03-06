@@ -1,6 +1,6 @@
 # Cross-network on-chain fund instances
 # Covers: Octant vaults, Gardens pools, Safe treasuries
-# Last updated: 2026-02-20
+# Last updated: 2026-03-06
 
 funds:
   - id: refi-bcn-safe
@@ -45,6 +45,25 @@ funds:
     status: planned
     notes: "Exploring 1/3-1/3-1/3 split with Impact Stake. Needs co-funders."
     contact: "James / Eugene (Octant)"
+
+  - id: nyc-octant-vault
+    name: "NYC Local Funding Octant Vault"
+    type: "octant-vault"
+    network_chain: "mainnet"
+    node: nyc-node
+    assets: ["stablecoin", "ETH"]
+    status: pilot
+    notes: "Yield strategy aligned for Decentral Park and mutual aid software support"
+
+  - id: impact-stake-regen-coordination
+    name: "Regen Coordination Impact Stake"
+    type: "impact-stake-pool"
+    network_chain: "mainnet"
+    status: active
+    target_eth: 10
+    split_model: "1/3-1/3-1/3"
+    partners: ["ReFi DAO", "Greenpill Network", "Bloom Network"]
+    notes: "Council-aligned strategy to route ETH staking yield to regenerative funding flows"
 
   - id: artisan-greenpill-asia
     name: "GreenPill Asia Artisan Fund"

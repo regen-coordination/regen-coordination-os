@@ -40,12 +40,33 @@ Key contacts and status (update as relationships evolve):
 
 | Platform | Contact | Status | Notes |
 |----------|---------|--------|-------|
-| Artisan | Swift | Active | Season 6 launching |
+| Artisan | Swift (GreenPill Asia) | Active | Season 6 active; artifacts drive donations + matching, votes are signaling |
 | Octant | James | Exploring | Vault strategy TBD |
-| Impact Stake | — | Evaluating | 1/3-1/3-1/3 model |
+| Impact Stake | Council-led | Active | 1/3-1/3-1/3 model in implementation |
 | Superfluid | — | Active | Check Season 6 |
 | Spinach | — | Active | Monthly renewal |
 | Celo PG | Marek | Low activity | Post-funding period |
+| Gitcoin GG24 | OpenCivics + RC stewards | Pipeline | Ethereum Localism DDA co-design track |
+
+## Current Priority Signals (2026-03 update)
+
+### Artisan Season 6
+
+- Track both channels distinctly:
+  - **Votes** indicate perceived relevance by fund managers.
+  - **Artifacts** unlock real fundraising through donation + matching flows.
+- Capture season windows and deadlines per pool because season resets affect momentum.
+
+### Impact Stake
+
+- Treat Impact Stake as active in tracking.
+- Track implementation of the council-aligned 1/3-1/3-1/3 split strategy (ReFi DAO / GreenPill / Bloom).
+- Monitor ETH target progress and yield allocation pathways.
+
+### Gitcoin GG24 / Ethereum Localism DDA
+
+- Track DDA readiness signals (co-design milestones, steward alignment, pilot round commitments, sponsor conversations).
+- Prioritize opportunities that support 3-5 pilot rounds and can compound into 2026 scale-out.
 
 ## Cross-Node Opportunity Sharing
 

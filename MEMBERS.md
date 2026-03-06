@@ -2,7 +2,7 @@
 
 **Regen Coordination Network**
 
-Last updated: 2026-02-20
+Last updated: 2026-03-06
 
 For the full cross-network directory of all nodes, chapters, and initiatives, see `knowledge/network/`.
 
@@ -37,6 +37,7 @@ For the full list of partner organizations, see [Regen Coordination Partnerships
 | [NYC Node](https://github.com/regen-coordination/nyc-node) | LocalNode | New York, USA | Pending | — | 🟡 Bootstrapping |
 | [Bloom](https://github.com/regen-coordination/bloom) | LocalNode | Global | Pending | — | 🟡 Bootstrapping |
 | [GreenPill Network](https://github.com/regen-coordination/greenpill) | Network | Global | Pending | — | 🟡 Observer |
+| [Coop](https://github.com/regen-coordination/coop) | ProductNode | Global | Anchor node (OpenClaw-compatible) | — | 🟡 Bootstrapping |
 
 ---
 
@@ -83,6 +84,14 @@ For the full list of partner organizations, see [Regen Coordination Partnerships
 - **Upstream:** quartz-refi-template
 - **GitHub:** github.com/regen-coordination/local-refi-toolkit
 
+### Coop
+- **Type:** Product node — browser knowledge commons
+- **Location:** Global
+- **Status:** Bootstrapping
+- **Focus:** Voice-first and tab-first capture for impact, coordination, governance, and capital workflows
+- **Ownership model:** Equal-share co-op structure among founding builders (Afolabi Aiyeloja, Luiz Fernando, Antonio), operating under Regen Coordination
+- **GitHub:** github.com/regen-coordination/coop
+
 ---
 
 ## Council Members
@@ -94,7 +103,7 @@ The Regen Coordination Council governs this OS:
 | Luiz Fernando | ReFi BCN | Coordinator |
 | Mary | NYC Node | — |
 | Magenta | Bloom | — |
-| Afo (Alpha) | Greenpill | — |
+| Afolabi Aiyeloja (Afo) | Greenpill | — |
 | Monty | ReFi DAO | — |
 
 ---
