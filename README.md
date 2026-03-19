@@ -144,6 +144,6 @@ Weekly calls: Every Friday — see [MEMBERS.md](MEMBERS.md) for participants.
 ## Related
 
 - [organizational-os-template](../organizational-os-template/) — The template all nodes fork
-- [organizational-os-framework](../organizational-os-framework/) — Standards reference
+- [organizational-os/packages/framework](../organizational-os/packages/framework/) — Standards reference
 - [organizational-os](../organizational-os/) — Canonical framework/template monorepo
 - [dao-os](../dao-os/) — DAO-specific implementation layer

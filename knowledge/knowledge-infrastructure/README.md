@@ -20,7 +20,7 @@
 
 - [KOI-net](../../) — Knowledge Organization Infrastructure
 - [Benjamin Life's bioregional knowledge commons approach](./2026-bioregional-knowledge-commons.md) _(to be created)_
-- Agent architecture for knowledge work (see [framework docs](../../../organizational-os-framework/docs/02-standards/agent-architecture.md))
+- Agent architecture for knowledge work (see [framework docs](../../../organizational-os/packages/framework/docs/02-standards/agent-architecture.md))
 
 ---
 

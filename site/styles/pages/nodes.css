@@ -1,0 +1,2 @@
+#nodesTable td, #nodesTable th { white-space: nowrap; }
+#nodesTable td:nth-child(2) { white-space: normal; }

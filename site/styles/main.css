@@ -1,0 +1,24 @@
+@import url('./design-tokens.css');
+@import url('./base.css');
+@import url('./navigation.css');
+@import url('./components.css');
+
+.hero { padding: 84px 0 64px; }
+.hero h1 { font-size: clamp(36px, 6vw, 64px); margin-bottom: 12px; }
+.hero p { max-width: 760px; }
+
+.split {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1.2fr 1fr;
+}
+@media (max-width: 900px) {
+  .split { grid-template-columns: 1fr; }
+}
+
+footer.site-footer {
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--space-12);
+  padding: var(--space-8) 0;
+  color: var(--color-text-muted);
+}

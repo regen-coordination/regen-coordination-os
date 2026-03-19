@@ -1,0 +1,4 @@
+.page-header { padding: 54px 0 24px; }
+.page-header h1 { font-size: clamp(28px, 4vw, 44px); }
+.lead { max-width: 840px; }
+.section-title { margin-bottom: var(--space-4); }

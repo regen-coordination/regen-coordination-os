@@ -1,0 +1,15 @@
+{
+  "name": "regen-coordination-os-website",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Hybrid-light website scaffold for Regen Coordination OS",
+  "scripts": {
+    "build:snapshot": "node scripts/build-snapshot.js",
+    "dev": "npx serve site -l 3000",
+    "build": "npm run build:snapshot"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

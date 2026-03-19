@@ -1,7 +1,7 @@
 import { copyFile, mkdir } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 
-const sourceBase = '/Users/luizfernando/Desktop/Workspaces/Zettelkasten/03 Libraries/organizational-os-framework/schemas';
+const sourceBase = '/Users/luizfernando/Desktop/Workspaces/Zettelkasten/03 Libraries/organizational-os/packages/framework/schemas';
 const targetBase = new URL('../schemas', import.meta.url).pathname;
 const files = ['skills.json-ld', 'meetings.json-ld', 'projects.json-ld', 'finances.json-ld'];
 

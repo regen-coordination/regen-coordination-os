@@ -1,0 +1,50 @@
+.glass {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-glass);
+  backdrop-filter: blur(10px);
+}
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  font-weight: 600;
+}
+.btn-primary {
+  background: linear-gradient(120deg, var(--color-blue), var(--color-teal));
+  border-color: transparent;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  color: var(--color-text-muted);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+}
+.card { padding: var(--space-6); }
+.kpi {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+}
+.status-active { color: var(--color-green); }
+.status-bootstrapping { color: #facc15; }
+.status-observer { color: var(--color-pink); }
