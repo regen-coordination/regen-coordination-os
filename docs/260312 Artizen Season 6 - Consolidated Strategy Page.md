@@ -17,7 +17,7 @@ Consolidate in one place:
 - Current Season 6 context from Artizen
 
 ---
-
+[[260311 Artizen Submission Assets Stub]]
 ## Executive Summary
 
 **Decision direction:** proceed with a **single Region Coordination application umbrella** that includes both:
