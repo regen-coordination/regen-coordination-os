@@ -3,10 +3,39 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "main": "src/index.ts",
+  "main": "./dist/packages/shared/src/index.js",
+  "module": "./dist/packages/shared/src/index.js",
+  "types": "./dist/packages/shared/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/packages/shared/src/index.d.ts",
+      "default": "./dist/packages/shared/src/index.js"
+    },
+    "./contracts": {
+      "types": "./dist/packages/shared/src/contracts/index.d.ts",
+      "default": "./dist/packages/shared/src/contracts/index.js"
+    }
+  },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "check": "tsc -p tsconfig.json --noEmit",
-    "lint": "biome check src"
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@bandada/api-sdk": "^2.8.0",
+    "@coop/api": "workspace:*",
+    "@kohaku-eth/provider": "^0.0.1-alpha.2",
+    "@rhinestone/module-sdk": "^0.4.0",
+    "@semaphore-protocol/core": "^4.14.2",
+    "@storacha/client": "2.1.1",
+    "@ucanto/principal": "^9.0.3",
+    "dexie": "^4.0.10",
+    "multiformats": "^13.3.6",
+    "ox": "^0.14.0",
+    "permissionless": "^0.3.4",
+    "viem": "^2.25.0",
+    "y-indexeddb": "^9.0.12",
+    "y-webrtc": "^10.3.0",
+    "y-websocket": "^3.0.0",
+    "yjs": "^13.6.24",
+    "zod": "^3.24.2"
   }
 }

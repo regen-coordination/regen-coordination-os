@@ -4,22 +4,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "check": "tsc -p tsconfig.json --noEmit",
-    "lint": "biome check src"
+    "dev": "vite build --watch",
+    "build": "vite build"
   },
   "dependencies": {
     "@coop/shared": "workspace:*",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
-  },
-  "devDependencies": {
-    "@types/chrome": "^0.0.292",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "@vitejs/plugin-react": "^4.3.2",
-    "typescript": "^5.9.3",
-    "vite": "^5.4.8"
+    "@huggingface/transformers": "^3.8.1",
+    "@mlc-ai/web-llm": "^0.2.79",
+    "permissionless": "^0.3.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "viem": "^2.25.0"
   }
 }

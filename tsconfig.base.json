@@ -1,17 +1,22 @@
 {
   "compilerOptions": {
     "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "lib": [
-      "ES2022",
-      "DOM"
-    ],
     "strict": true,
-    "skipLibCheck": true,
+    "allowJs": false,
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "types": []
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@coop/shared": ["packages/shared/src/index.ts"],
+      "@coop/shared/*": ["packages/shared/src/*"],
+      "@coop/api": ["packages/api/config.ts"]
+    },
+    "types": ["chrome", "node", "vite/client"]
   }
 }
