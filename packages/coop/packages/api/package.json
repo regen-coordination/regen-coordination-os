@@ -1,0 +1,24 @@
+{
+  "name": "@coop/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./config.ts",
+    "./config": "./config.ts"
+  },
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "dev": "bun --watch src/index.ts"
+  },
+  "dependencies": {
+    "hono": "^4.7.0",
+    "lib0": "^0.2.117",
+    "y-protocols": "^1.0.7",
+    "yjs": "^13.6.30"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.0",
+    "typescript": "^5.8.2"
+  }
+}
