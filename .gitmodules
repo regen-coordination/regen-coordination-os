@@ -7,6 +7,3 @@
 [submodule "repos/organizational-os-template"]
 	path = repos/organizational-os-template
 	url = https://github.com/regen-coordination/organizational-os-template.git
-[submodule "repos/coop"]
-	path = repos/coop
-	url = https://github.com/regen-coordination/coop.git
