@@ -1,0 +1,91 @@
+# dashboard.yaml — Controls what /initialize shows for ReFi BCN
+# Toggle sections on/off, reorder, and customize without deleting any files.
+#
+# Sections render in the order listed below.
+# Set `show: false` to hide a section. Set `show: true` (or omit) to show it.
+
+schema_version: "2.0"
+
+sections:
+
+  header:
+    show: true
+    style: ascii
+
+  projects:
+    show: true
+    max: null
+    stages: null
+
+  tasks:
+    show: true
+    max: null
+    show_completed: true
+
+  calendar:
+    show: true
+    days: 7
+
+  funding:
+    show: true
+    horizon_days: 30
+
+  context:
+    show: true
+    max_entries: 3
+
+  plans:
+    show: true
+    queued_preview: 2
+
+  pipelines:
+    show: true
+    pipelines:
+      - id: ideas
+        source: data/ideas.yaml
+        label: "Ideas"
+        stages: [surfaced, proposed, approved, developing, hatched]
+      - id: funding
+        source: data/funding-opportunities.yaml
+        label: "Funding"
+        stages: [monitoring, researching, applied, awarded]
+      - id: knowledge
+        source: data/knowledge-manifest.yaml
+        label: "Knowledge"
+        stages: [stub, partial, comprehensive]
+      - id: plans
+        source: docs/plans/QUEUE.md
+        label: "Plans"
+        stages: [backlog, queued, active, completed]
+
+  apps:
+    show: true
+    hide:
+      - dashboard
+      - task-manager
+      - schema-generator
+
+  cheatsheet:
+    show: true
+
+  federation:
+    show: true
+
+  prompt:
+    show: true
+    suggestions: 3
+
+# ─── Custom Sections ─────────────────────────────────────────────────────────
+
+# custom_sections:
+#   - name: "Telegram Topics"
+#     show: true
+#     source: "data/telegram-topic-routing.yaml"
+#     render: "table"
+#     description: "Active Telegram topics and routing rules"
+#
+#   - name: "Pending Payouts"
+#     show: true
+#     source: "data/pending-payouts.yaml"
+#     render: "list"
+#     description: "Outstanding cooperative payouts"
