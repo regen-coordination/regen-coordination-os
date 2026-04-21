@@ -1,0 +1,664 @@
+[
+  {
+    "id": "2066ed08-45cb-8044-93cc-f18b2989428f",
+    "title": "Giulio’s work agreement, GG24 ",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2025-06-02T14:25:00.000Z",
+    "last_edited_time": "2025-09-16T09:26:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Giulio-s-work-agreement-GG24-2066ed0845cb804493ccf18b2989428f"
+  },
+  {
+    "id": "2296ed08-45cb-80fd-b612-ffa9e404dfe2",
+    "title": "2 session ReFi BCN Work session",
+    "status": "Not Started",
+    "date": "2025-07-07",
+    "created_time": "2025-07-07T09:34:00.000Z",
+    "last_edited_time": "2025-07-22T08:40:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/2-session-ReFi-BCN-Work-session-2296ed0845cb80fdb612ffa9e404dfe2"
+  },
+  {
+    "id": "2386ed08-45cb-8029-8ccb-e787e3f32c06",
+    "title": "250707 ReFi BCN Work session",
+    "status": "Done",
+    "date": "2025-07-07",
+    "created_time": "2025-07-22T08:39:00.000Z",
+    "last_edited_time": "2025-09-23T16:42:00.000Z",
+    "tags": [
+      "Meeting notes"
+    ],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/250707-ReFi-BCN-Work-session-2386ed0845cb80298ccbe787e3f32c06"
+  },
+  {
+    "id": "23f6ed08-45cb-80e6-98c5-f31e739d7a6c",
+    "title": "250729 ReFi BCN Work session",
+    "status": "Done",
+    "date": "2025-07-29",
+    "created_time": "2025-07-29T09:07:00.000Z",
+    "last_edited_time": "2025-09-23T16:42:00.000Z",
+    "tags": [
+      "Meeting notes"
+    ],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/250729-ReFi-BCN-Work-session-23f6ed0845cb80e698c5f31e739d7a6c"
+  },
+  {
+    "id": "2456ed08-45cb-803d-bf85-eb70214bc6de",
+    "title": "250805 ReFi BCN Weekly Ops sync",
+    "status": "Not Started",
+    "date": "2025-08-05",
+    "created_time": "2025-08-04T18:38:00.000Z",
+    "last_edited_time": "2025-09-23T16:42:00.000Z",
+    "tags": [
+      "Meeting notes"
+    ],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/250805-ReFi-BCN-Weekly-Ops-sync-2456ed0845cb803dbf85eb70214bc6de"
+  },
+  {
+    "id": "2546ed08-45cb-80b1-985c-cb97abd684cf",
+    "title": "250819 ReFi BCN Weekly Ops sync",
+    "status": "Done",
+    "date": null,
+    "created_time": "2025-08-19T10:20:00.000Z",
+    "last_edited_time": "2025-08-19T10:23:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/250819-ReFi-BCN-Weekly-Ops-sync-2546ed0845cb80b1985ccb97abd684cf"
+  },
+  {
+    "id": "25b6ed08-45cb-806c-8151-f35e67a4be99",
+    "title": "Research on crypto use in Spain",
+    "status": "In Progress",
+    "date": null,
+    "created_time": "2025-08-26T10:13:00.000Z",
+    "last_edited_time": "2026-01-22T14:46:00.000Z",
+    "tags": [],
+    "projects_count": 1,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Research-on-crypto-use-in-Spain-25b6ed0845cb806c8151f35e67a4be99"
+  },
+  {
+    "id": "25d6ed08-45cb-805e-a610-c1d5b23e77f2",
+    "title": "250905 Resilience Earth Governance Tool Workshop",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2025-08-28T11:11:00.000Z",
+    "last_edited_time": "2025-10-08T14:14:00.000Z",
+    "tags": [],
+    "projects_count": 1,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/250905-Resilience-Earth-Governance-Tool-Workshop-25d6ed0845cb805ea610c1d5b23e77f2"
+  },
+  {
+    "id": "2636ed08-45cb-80b8-adba-d522e18f6427",
+    "title": "Meeting with Tomaz",
+    "status": "Not Started",
+    "date": "2025-09-04",
+    "created_time": "2025-09-03T14:33:00.000Z",
+    "last_edited_time": "2025-09-23T16:42:00.000Z",
+    "tags": [
+      "Meeting notes"
+    ],
+    "projects_count": 1,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Meeting-with-Tomaz-2636ed0845cb80b8adbad522e18f6427"
+  },
+  {
+    "id": "2636ed08-45cb-80b9-bd68-f21dffb7f0c3",
+    "title": "250901 Weekly Ops",
+    "status": "In Progress",
+    "date": "2025-09-01",
+    "created_time": "2025-09-03T13:22:00.000Z",
+    "last_edited_time": "2025-09-30T12:46:00.000Z",
+    "tags": [
+      "Project Management"
+    ],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/250901-Weekly-Ops-2636ed0845cb80b9bd68f21dffb7f0c3"
+  },
+  {
+    "id": "26a6ed08-45cb-8089-b237-efe2c6fa76b4",
+    "title": "Regenerant Catalunya Draft (Sept 2025)",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2025-09-10T14:52:00.000Z",
+    "last_edited_time": "2025-09-23T16:40:00.000Z",
+    "tags": [],
+    "projects_count": 1,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Regenerant-Catalunya-Draft-Sept-2025-26a6ed0845cb8089b237efe2c6fa76b4"
+  },
+  {
+    "id": "26a6ed08-45cb-8094-9b39-f43dd482838f",
+    "title": "Homepage Draft (Sept 2025)",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2025-09-10T10:22:00.000Z",
+    "last_edited_time": "2025-10-11T14:18:00.000Z",
+    "tags": [],
+    "projects_count": 1,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Homepage-Draft-Sept-2025-26a6ed0845cb80949b39f43dd482838f"
+  },
+  {
+    "id": "26a6ed08-45cb-80ed-bbe4-e042a0278f44",
+    "title": "Naming ideas",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2025-09-10T16:02:00.000Z",
+    "last_edited_time": "2025-09-23T16:38:00.000Z",
+    "tags": [],
+    "projects_count": 1,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Naming-ideas-26a6ed0845cb80edbbe4e042a0278f44"
+  },
+  {
+    "id": "2776ed08-45cb-8020-9c43-e7a343b30292",
+    "title": "250923 Weekly Ops",
+    "status": "In Progress",
+    "date": "2025-09-01",
+    "created_time": "2025-09-23T09:55:00.000Z",
+    "last_edited_time": "2025-09-30T12:36:00.000Z",
+    "tags": [
+      "Project Management"
+    ],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/250923-Weekly-Ops-2776ed0845cb80209c43e7a343b30292"
+  },
+  {
+    "id": "27e6ed08-45cb-804a-9dea-d2716d275ba6",
+    "title": "250930 Weekly Ops",
+    "status": "In Progress",
+    "date": "2025-09-01",
+    "created_time": "2025-09-30T12:35:00.000Z",
+    "last_edited_time": "2025-09-30T14:22:00.000Z",
+    "tags": [
+      "Project Management"
+    ],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/250930-Weekly-Ops-27e6ed0845cb804a9dead2716d275ba6"
+  },
+  {
+    "id": "2856ed08-45cb-80f4-9324-c8f611e97bfc",
+    "title": "251007 Weekly Ops",
+    "status": "In Progress",
+    "date": "2025-09-01",
+    "created_time": "2025-10-07T13:06:00.000Z",
+    "last_edited_time": "2025-10-09T16:43:00.000Z",
+    "tags": [
+      "Project Management"
+    ],
+    "projects_count": 0,
+    "tasks_count": 3,
+    "url": "https://www.notion.so/251007-Weekly-Ops-2856ed0845cb80f49324c8f611e97bfc"
+  },
+  {
+    "id": "2866ed08-45cb-805b-9ecd-ecb12a38b895",
+    "title": "Reporte: Colaboración Miceli + ReFi Bcn",
+    "status": "Done",
+    "date": null,
+    "created_time": "2025-10-08T14:15:00.000Z",
+    "last_edited_time": "2025-10-19T09:45:00.000Z",
+    "tags": [],
+    "projects_count": 1,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Reporte-Colaboraci-n-Miceli-ReFi-Bcn-2866ed0845cb805b9ecdecb12a38b895"
+  },
+  {
+    "id": "2876ed08-45cb-80f2-ac08-da7c5f869488",
+    "title": "ReFi BCN Brand Strategy",
+    "status": "In Progress",
+    "date": null,
+    "created_time": "2025-10-09T16:05:00.000Z",
+    "last_edited_time": "2025-10-10T14:25:00.000Z",
+    "tags": [],
+    "projects_count": 1,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/ReFi-BCN-Brand-Strategy-2876ed0845cb80f2ac08da7c5f869488"
+  },
+  {
+    "id": "28b6ed08-45cb-807f-b41c-ef9239872e33",
+    "title": "251013 Weekly Ops",
+    "status": "In Progress",
+    "date": "2025-09-01",
+    "created_time": "2025-10-13T10:10:00.000Z",
+    "last_edited_time": "2025-10-13T16:30:00.000Z",
+    "tags": [
+      "Project Management"
+    ],
+    "projects_count": 0,
+    "tasks_count": 3,
+    "url": "https://www.notion.so/251013-Weekly-Ops-28b6ed0845cb807fb41cef9239872e33"
+  },
+  {
+    "id": "28c6ed08-45cb-8018-bd3d-fd952b330051",
+    "title": "Initial Project Plan",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2025-10-14T08:33:00.000Z",
+    "last_edited_time": "2025-10-14T08:45:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Initial-Project-Plan-28c6ed0845cb8018bd3dfd952b330051"
+  },
+  {
+    "id": "2926ed08-45cb-8064-93a8-c64ec9c56f5e",
+    "title": "251020 Weekly Ops",
+    "status": "In Progress",
+    "date": "2025-09-01",
+    "created_time": "2025-10-20T12:36:00.000Z",
+    "last_edited_time": "2025-10-20T15:37:00.000Z",
+    "tags": [
+      "Project Management"
+    ],
+    "projects_count": 0,
+    "tasks_count": 3,
+    "url": "https://www.notion.so/251020-Weekly-Ops-2926ed0845cb806493a8c64ec9c56f5e"
+  },
+  {
+    "id": "29a6ed08-45cb-80f4-b100-efb5e350aaa5",
+    "title": "251028 Weekly Ops",
+    "status": "In Progress",
+    "date": "2025-09-01",
+    "created_time": "2025-10-28T09:37:00.000Z",
+    "last_edited_time": "2025-11-04T12:45:00.000Z",
+    "tags": [
+      "Project Management"
+    ],
+    "projects_count": 0,
+    "tasks_count": 3,
+    "url": "https://www.notion.so/251028-Weekly-Ops-29a6ed0845cb80f4b100efb5e350aaa5"
+  },
+  {
+    "id": "2a16ed08-45cb-8045-a087-f1d13f507f1f",
+    "title": "251104 Weekly Ops",
+    "status": "In Progress",
+    "date": "2025-09-01",
+    "created_time": "2025-11-04T14:25:00.000Z",
+    "last_edited_time": "2025-11-04T14:42:00.000Z",
+    "tags": [
+      "Project Management"
+    ],
+    "projects_count": 0,
+    "tasks_count": 3,
+    "url": "https://www.notion.so/251104-Weekly-Ops-2a16ed0845cb8045a087f1d13f507f1f"
+  },
+  {
+    "id": "2a86ed08-45cb-80ae-b62a-e2b3aa3cc49d",
+    "title": "251111 Weekly Ops",
+    "status": "In Progress",
+    "date": "2025-09-01",
+    "created_time": "2025-11-11T14:05:00.000Z",
+    "last_edited_time": "2025-11-12T15:07:00.000Z",
+    "tags": [
+      "Project Management"
+    ],
+    "projects_count": 0,
+    "tasks_count": 3,
+    "url": "https://www.notion.so/251111-Weekly-Ops-2a86ed0845cb80aeb62ae2b3aa3cc49d"
+  },
+  {
+    "id": "2aa6ed08-45cb-80f9-9ee8-fe466872ba25",
+    "title": "Doc for empenta",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2025-11-13T10:01:00.000Z",
+    "last_edited_time": "2025-11-13T10:01:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Doc-for-empenta-2aa6ed0845cb80f99ee8fe466872ba25"
+  },
+  {
+    "id": "2ae6ed08-45cb-8014-afdf-fea4c8c0d306",
+    "title": "251117 Weekly Ops - Regenerant Catalunya Kickoff",
+    "status": "In Progress",
+    "date": null,
+    "created_time": "2025-11-17T14:24:00.000Z",
+    "last_edited_time": "2025-11-17T21:12:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/251117-Weekly-Ops-Regenerant-Catalunya-Kickoff-2ae6ed0845cb8014afdffea4c8c0d306"
+  },
+  {
+    "id": "2b66ed08-45cb-8036-8f2e-ebc47d405f7b",
+    "title": "251125 Weekly Ops",
+    "status": "In Progress",
+    "date": null,
+    "created_time": "2025-11-25T13:51:00.000Z",
+    "last_edited_time": "2025-11-25T14:56:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/251125-Weekly-Ops-2b66ed0845cb80368f2eebc47d405f7b"
+  },
+  {
+    "id": "2bc6ed08-45cb-80c9-8f28-e320eeaac8b0",
+    "title": "251120 Meeting with Regen Foundation",
+    "status": "Done",
+    "date": null,
+    "created_time": "2025-12-01T15:31:00.000Z",
+    "last_edited_time": "2025-12-04T14:38:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/251120-Meeting-with-Regen-Foundation-2bc6ed0845cb80c98f28e320eeaac8b0"
+  },
+  {
+    "id": "2bc6ed08-45cb-80d2-a822-cadbd8d378b1",
+    "title": "251201 RC KB Workshop #2 planning session – activities/impact reporting & Karma GAP",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2025-12-01T13:51:00.000Z",
+    "last_edited_time": "2025-12-09T10:37:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/251201-RC-KB-Workshop-2-planning-session-activities-impact-reporting-Karma-GAP-2bc6ed0845cb80d2a822cadbd8d378b1"
+  },
+  {
+    "id": "2bf6ed08-45cb-804d-9008-ea08c9cb7d5f",
+    "title": "251202 Meeting with Hum.community",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2025-12-04T14:52:00.000Z",
+    "last_edited_time": "2025-12-04T14:55:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/251202-Meeting-with-Hum-community-2bf6ed0845cb804d9008ea08c9cb7d5f"
+  },
+  {
+    "id": "2bf6ed08-45cb-80ef-8686-d8c07d0e016f",
+    "title": "Finances (provisional, before we have a proper one)",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2025-12-04T12:32:00.000Z",
+    "last_edited_time": "2026-01-16T18:37:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Finances-provisional-before-we-have-a-proper-one-2bf6ed0845cb80ef8686d8c07d0e016f"
+  },
+  {
+    "id": "2c36ed08-45cb-8023-b26c-df48e23bd8a3",
+    "title": "251208 Weekly Ops",
+    "status": "In Progress",
+    "date": null,
+    "created_time": "2025-12-08T15:58:00.000Z",
+    "last_edited_time": "2025-12-09T16:13:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/251208-Weekly-Ops-2c36ed0845cb8023b26cdf48e23bd8a3"
+  },
+  {
+    "id": "2ca6ed08-45cb-80a2-a32e-c0904576b573",
+    "title": "251215 Weekly Ops",
+    "status": "In Progress",
+    "date": null,
+    "created_time": "2025-12-15T10:24:00.000Z",
+    "last_edited_time": "2025-12-16T09:53:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/251215-Weekly-Ops-2ca6ed0845cb80a2a32ec0904576b573"
+  },
+  {
+    "id": "2d56ed08-45cb-80f0-933f-d8e2b060c6b8",
+    "title": "251223 ReFi BCN Weekly Ops sync",
+    "status": "Done",
+    "date": null,
+    "created_time": "2025-12-26T14:16:00.000Z",
+    "last_edited_time": "2025-12-26T15:59:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/251223-ReFi-BCN-Weekly-Ops-sync-2d56ed0845cb80f0933fd8e2b060c6b8"
+  },
+  {
+    "id": "2df6ed08-45cb-80f4-90db-d42d6ffc3418",
+    "title": "260109 ReFi BCN Weekly Ops sync",
+    "status": "In Progress",
+    "date": null,
+    "created_time": "2026-01-05T13:18:00.000Z",
+    "last_edited_time": "2026-01-09T15:07:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/260109-ReFi-BCN-Weekly-Ops-sync-2df6ed0845cb80f490dbd42d6ffc3418"
+  },
+  {
+    "id": "2e36ed08-45cb-8046-9c99-f92af979fbf2",
+    "title": "Call with Oriol 26/01",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2026-01-09T11:31:00.000Z",
+    "last_edited_time": "2026-01-23T15:58:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Call-with-Oriol-26-01-2e36ed0845cb80469c99f92af979fbf2"
+  },
+  {
+    "id": "2e36ed08-45cb-804f-8070-f0855db0eea8",
+    "title": "Coop Brand Strategy",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2026-01-09T15:04:00.000Z",
+    "last_edited_time": "2026-01-09T15:05:00.000Z",
+    "tags": [],
+    "projects_count": 1,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Coop-Brand-Strategy-2e36ed0845cb804f8070f0855db0eea8"
+  },
+  {
+    "id": "2e76ed08-45cb-8091-bc06-f81cda9b459c",
+    "title": "260113 ReFi BCN Weekly Ops sync",
+    "status": "In Progress",
+    "date": null,
+    "created_time": "2026-01-13T12:26:00.000Z",
+    "last_edited_time": "2026-01-13T14:49:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/260113-ReFi-BCN-Weekly-Ops-sync-2e76ed0845cb8091bc06f81cda9b459c"
+  },
+  {
+    "id": "2ef6ed08-45cb-801d-bee8-d0aa8f424a4f",
+    "title": "260121 ReFi BCN Weekly Ops sync",
+    "status": "In Progress",
+    "date": null,
+    "created_time": "2026-01-21T10:12:00.000Z",
+    "last_edited_time": "2026-01-22T14:55:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/260121-ReFi-BCN-Weekly-Ops-sync-2ef6ed0845cb801dbee8d0aa8f424a4f"
+  },
+  {
+    "id": "2f46ed08-45cb-807b-b977-e103b2e88a3e",
+    "title": "260127 ReFi BCN Weekly Ops sync",
+    "status": "In Progress",
+    "date": null,
+    "created_time": "2026-01-26T12:11:00.000Z",
+    "last_edited_time": "2026-02-20T14:04:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/260127-ReFi-BCN-Weekly-Ops-sync-2f46ed0845cb807bb977e103b2e88a3e"
+  },
+  {
+    "id": "2fb6ed08-45cb-809b-a9f1-ed648b3c7493",
+    "title": "260203 ReFi BCN Weekly Ops sync",
+    "status": "In Progress",
+    "date": null,
+    "created_time": "2026-02-02T10:05:00.000Z",
+    "last_edited_time": "2026-02-04T09:43:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/260203-ReFi-BCN-Weekly-Ops-sync-2fb6ed0845cb809ba9f1ed648b3c7493"
+  },
+  {
+    "id": "2fd6ed08-45cb-8089-8853-e330bcb28b20",
+    "title": "Accounting & finances meeting",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2026-02-04T15:00:00.000Z",
+    "last_edited_time": "2026-02-05T17:35:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Accounting-finances-meeting-2fd6ed0845cb80898853e330bcb28b20"
+  },
+  {
+    "id": "2fe6ed08-45cb-8080-8502-c429aa6fe8c1",
+    "title": "Per Phase Accounting",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2026-02-05T12:23:00.000Z",
+    "last_edited_time": "2026-02-11T14:48:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Per-Phase-Accounting-2fe6ed0845cb80808502c429aa6fe8c1"
+  },
+  {
+    "id": "3036ed08-45cb-8018-bb6f-d6e9671e2763",
+    "title": "260210 ReFi BCN Weekly Ops sync",
+    "status": "In Progress",
+    "date": null,
+    "created_time": "2026-02-10T14:00:00.000Z",
+    "last_edited_time": "2026-02-17T11:32:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/260210-ReFi-BCN-Weekly-Ops-sync-3036ed0845cb8018bb6fd6e9671e2763"
+  },
+  {
+    "id": "30a6ed08-45cb-80a5-a8d8-fd47727e55d9",
+    "title": "260217 ReFi BCN Weekly Ops Sync",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2026-02-17T11:32:00.000Z",
+    "last_edited_time": "2026-02-17T14:26:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/260217-ReFi-BCN-Weekly-Ops-Sync-30a6ed0845cb80a5a8d8fd47727e55d9"
+  },
+  {
+    "id": "30a6ed08-45cb-80da-8233-d58d17b35cec",
+    "title": "ReFi Barcelona Privacy Policy page",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2026-02-17T12:12:00.000Z",
+    "last_edited_time": "2026-02-17T12:14:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/ReFi-Barcelona-Privacy-Policy-page-30a6ed0845cb80da8233d58d17b35cec"
+  },
+  {
+    "id": "30c6ed08-45cb-804b-9a98-d8d0b076fab4",
+    "title": "Reg AG BCN 19/02/2026",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2026-02-19T17:20:00.000Z",
+    "last_edited_time": "2026-03-05T15:23:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Reg-AG-BCN-19-02-2026-30c6ed0845cb804b9a98d8d0b076fab4"
+  },
+  {
+    "id": "30c6ed08-45cb-8076-88b4-c5df46892301",
+    "title": "260219 Work Session",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2026-02-19T11:17:00.000Z",
+    "last_edited_time": "2026-02-19T16:01:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/260219-Work-Session-30c6ed0845cb807688b4c5df46892301"
+  },
+  {
+    "id": "30e6ed08-45cb-81b5-8da5-ff0f4b46348b",
+    "title": "260223 ReFi BCN Weekly Ops sync",
+    "status": "Not Started",
+    "date": "2026-02-24",
+    "created_time": "2026-02-21T10:40:00.000Z",
+    "last_edited_time": "2026-02-23T14:57:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/260223-ReFi-BCN-Weekly-Ops-sync-30e6ed0845cb81b58da5ff0f4b46348b"
+  },
+  {
+    "id": "3106ed08-45cb-80b2-b1cc-c50c4ccd1109",
+    "title": "260306 Work Session",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2026-02-23T15:00:00.000Z",
+    "last_edited_time": "2026-03-06T17:55:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/260306-Work-Session-3106ed0845cb80b2b1ccc50c4ccd1109"
+  },
+  {
+    "id": "3136ed08-45cb-80ea-99f8-f1be043755f9",
+    "title": "Informal meetup 26/02/2026",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2026-02-26T17:16:00.000Z",
+    "last_edited_time": "2026-02-26T17:57:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Informal-meetup-26-02-2026-3136ed0845cb80ea99f8f1be043755f9"
+  },
+  {
+    "id": "3196ed08-45cb-8038-a0b2-c22479a629be",
+    "title": "260303 ReFi BCN Weekly Ops Sync",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2026-03-04T13:41:00.000Z",
+    "last_edited_time": "2026-03-05T12:41:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/260303-ReFi-BCN-Weekly-Ops-Sync-3196ed0845cb8038a0b2c22479a629be"
+  },
+  {
+    "id": "31b6ed08-45cb-80b2-8301-cf6300d0f630",
+    "title": "Offramping",
+    "status": "Not Started",
+    "date": null,
+    "created_time": "2026-03-06T14:28:00.000Z",
+    "last_edited_time": "2026-03-06T14:29:00.000Z",
+    "tags": [],
+    "projects_count": 0,
+    "tasks_count": 0,
+    "url": "https://www.notion.so/Offramping-31b6ed0845cb80b28301cf6300d0f630"
+  }
+]

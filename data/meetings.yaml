@@ -1,0 +1,51 @@
+schema_version: "2.0"
+
+# Meeting Registry
+# Records of organizational meetings with decisions and action items
+
+meetings:
+  - id: "mtg-20260305-coffee"
+    title: "Council Coffee Sync"
+    date: "2026-03-05"
+    type: "sync"
+    participants:
+      - "did:refi-bcn:luiz-fernando"
+    duration_minutes: 60
+    recording_url: null
+    transcript_path: null
+    summary: "Coop scope finalized, monorepo path agreed, immediate build execution initiated"
+    decisions:
+      - "Coop launched under Regen Coordination as a product and organizational experiment"
+      - "Coop ownership model aligned as an equal-share co-op structure"
+      - "Experimentation-first approach adopted"
+      - "Organizational OS repositories approved for transfer into Regen Coordination GitHub organization"
+    action_items:
+      - "Initialize Coop PL Genesis build cycle"
+      - "Set up organizational-os monorepo"
+    tags:
+      - "coop"
+      - "governance"
+      - "strategy"
+  - id: "mtg-20260220-council"
+    title: "Regen Coordination Council Sync"
+    date: "2026-02-20"
+    type: "council"
+    participants:
+      - "did:refi-bcn:luiz-fernando"
+      - "did:refi-bcn:refi-bcn"
+    duration_minutes: 90
+    recording_url: null
+    transcript_path: null
+    summary: "GitHub org created, OpenClaw selected for agents, domain-based funding pools agreed"
+    decisions:
+      - "Created regen-coordination GitHub organization"
+      - "Adopted Organizational OS v3.0 (OpenClaw-native) as coordination infrastructure"
+      - "Selected domain-based approach for funding pools"
+      - "OpenClaw as primary agent runtime; DePIN nodes for self-hosted deployment"
+    action_items:
+      - "Set up ReFi BCN DePIN node as first active node"
+      - "Initialize knowledge commons design"
+    tags:
+      - "governance"
+      - "infrastructure"
+      - "funding"

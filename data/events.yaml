@@ -1,0 +1,26 @@
+schema_version: "2.0"
+
+# Events Registry
+# Network events, deadlines, and milestones
+
+events:
+  - id: "event-council-weekly"
+    title: "Regen Coordination Council Sync"
+    date: "2026-04-18"
+    end_date: null
+    type: "recurring"
+    location: "Online (Google Meet)"
+    url: null
+    related_project: null
+    status: "upcoming"
+    description: "Weekly council sync for network governance"
+  - id: "event-artisan-deadline"
+    title: "Artisan Season 6 Application Deadline"
+    date: "2026-04-30"
+    end_date: null
+    type: "deadline"
+    location: null
+    url: "https://artisan.finance"
+    related_project: "artisan-s6"
+    status: "upcoming"
+    description: "Final deadline for Artisan S6 applications"

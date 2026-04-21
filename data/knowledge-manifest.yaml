@@ -1,0 +1,39 @@
+schema_version: "2.0"
+
+# Knowledge Manifest
+# Domains and coverage status for knowledge commons
+
+knowledge_manifest:
+  domains:
+    - id: "regenerative-finance"
+      name: "Regenerative Finance"
+      description: "Capital flows, DeFi for public goods, funding mechanisms"
+      coverage: "partial"
+      sources: 5
+      last_updated: "2026-04-02"
+    - id: "local-governance"
+      name: "Local Governance"
+      description: "Coordination structures for local nodes, decision models"
+      coverage: "partial"
+      sources: 3
+      last_updated: "2026-04-02"
+    - id: "knowledge-infrastructure"
+      name: "Knowledge Infrastructure"
+      description: "Tools and systems for knowledge commons"
+      coverage: "partial"
+      sources: 4
+      last_updated: "2026-04-02"
+    - id: "agroforestry"
+      name: "Agroforestry"
+      description: "Land-based regenerative practices"
+      coverage: "stub"
+      sources: 1
+      last_updated: "2026-04-02"
+    - id: "waste-management"
+      name: "Waste Management"
+      description: "Circular economy and waste reduction"
+      coverage: "stub"
+      sources: 1
+      last_updated: "2026-04-02"
+  status: "active"
+  sync_protocol: "git"
