@@ -1,15 +1,61 @@
 {
-  "name": "regen-coordination-os-website",
+  "name": "organizational-os-template",
+  "description": "GitHub-based operational workspace template with EIP-4824 compliance",
   "private": true,
-  "version": "0.1.0",
+  "version": "2.0.0",
   "type": "module",
-  "description": "Hybrid-light website scaffold for Regen Coordination OS",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/organizational-os/organizational-os-template.git"
+  },
   "scripts": {
-    "build:snapshot": "node scripts/build-snapshot.js",
-    "dev": "npx serve site -l 3000",
-    "build": "npm run build:snapshot"
+    "clone:repos": "node scripts/clone-linked-repos.mjs",
+    "bootstrap:local": "npm run clone:repos && npm install",
+    "quartz": "./quartz/bootstrap-cli.mjs",
+    "initialize": "node scripts/initialize.mjs",
+    "setup": "node scripts/setup-org-os.mjs",
+    "setup:cursor": "node scripts/setup-cursor-rules.mjs",
+    "sync": "node scripts/sync-github.mjs",
+    "sync:upstream": "node scripts/sync-upstream.mjs",
+    "generate:schemas": "node scripts/generate-all-schemas.mjs",
+    "validate:schemas": "node scripts/validate-identity.mjs",
+    "validate:structure": "node scripts/validate-structure.mjs",
+    "analyze:instances": "node scripts/analyze-instances.mjs",
+    "version:update": "node scripts/update-version.mjs",
+    "docs": "npx quartz build --serve -d docs",
+    "check": "tsc --noEmit && npx prettier . --check",
+    "format": "npx prettier . --write",
+    "initialize": "node scripts/initialize.mjs",
+    "initialize:markdown": "node scripts/initialize.mjs --format=markdown",
+    "paperclip": "cd packages/paperclip-agents-app && npm run dev",
+    "paperclip:server": "cd packages/paperclip-agents-app && npm run dev:server",
+    "paperclip:build": "cd packages/paperclip-agents-app && npm run build:ui",
+    "deploy:pages": "node scripts/deploy-pages.mjs"
+  },
+  "engines": {
+    "npm": ">=10.9.2",
+    "node": ">=22"
+  },
+  "keywords": [
+    "organizational-os",
+    "eip-4824",
+    "dao",
+    "operational-workspace",
+    "github",
+    "quartz"
+  ],
+  "bin": {
+    "quartz": "./quartz/bootstrap-cli.mjs"
   },
   "dependencies": {
-    "js-yaml": "^4.1.0"
+    "@clack/prompts": "^0.11.0",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "prettier": "^3.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.0",
+    "typescript": "^5.9.3"
   }
 }

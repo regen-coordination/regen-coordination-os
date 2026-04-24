@@ -1,5 +1,20 @@
 {
   "@context": "https://www.daostar.org/schemas",
   "type": "ActivityLog",
-  "activities": []
+  "activities": [
+    {
+      "id": "mtg-20260305-coffee",
+      "type": "meeting",
+      "title": "Council Coffee Sync",
+      "date": "2026-03-05",
+      "summary": "Coop scope finalized, monorepo path agreed, immediate build execution initiated"
+    },
+    {
+      "id": "mtg-20260220-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync",
+      "date": "2026-02-20",
+      "summary": "GitHub org created, OpenClaw selected for agents, domain-based funding pools agreed"
+    }
+  ]
 }

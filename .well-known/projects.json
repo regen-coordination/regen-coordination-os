@@ -1,5 +1,60 @@
 {
   "@context": "https://www.daostar.org/schemas",
   "type": "ProjectRegistry",
-  "projects": []
+  "projects": [
+    {
+      "id": "coop-pl-genesis",
+      "name": "Coop PL Genesis",
+      "status": "Integrate",
+      "stage": "active",
+      "lead": "did:refi-bcn:luiz-fernando",
+      "description": "Browser knowledge commons (Chromium extension + PWA + anchor node)",
+      "startDate": "2026-03-01"
+    },
+    {
+      "id": "impact-stake",
+      "name": "Impact Stake",
+      "status": "Execute",
+      "stage": "active",
+      "lead": "did:refi-bcn:luiz-fernando",
+      "description": "1/3-1/3-1/3 split implementation across ReFi DAO, GreenPill, and Bloom (10 ETH target)",
+      "startDate": "2026-02-13"
+    },
+    {
+      "id": "gg24-dda",
+      "name": "GG24 Ethereum Localism DDA",
+      "status": "Develop",
+      "stage": "planning",
+      "lead": "did:refi-bcn:luiz-fernando",
+      "description": "Ethereum Localism Dedicated Domain Allocation co-design with OpenCivics and partner networks",
+      "startDate": "2026-03-01"
+    },
+    {
+      "id": "knowledge-commons",
+      "name": "Knowledge Commons",
+      "status": "Develop",
+      "stage": "planning",
+      "lead": "did:refi-bcn:refi-bcn",
+      "description": "Domain-based knowledge structure design for network-wide sharing",
+      "startDate": "2026-02-20"
+    },
+    {
+      "id": "artisan-s6",
+      "name": "Artisan Season 6",
+      "status": "Execute",
+      "stage": "active",
+      "lead": "did:refi-bcn:luiz-fernando",
+      "description": "Network node applications for Artisan Season 6",
+      "startDate": "2026-03-01"
+    },
+    {
+      "id": "earth-live",
+      "name": "Earth.live",
+      "status": "Integrate",
+      "stage": "active",
+      "lead": "did:regenerant-cat:regenerant",
+      "description": "Fundraising campaign with MOU with Bloom and BCN collaboration",
+      "startDate": "2026-02-01"
+    }
+  ]
 }

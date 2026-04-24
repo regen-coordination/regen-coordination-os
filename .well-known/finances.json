@@ -1,7 +1,46 @@
 {
   "@context": "https://www.daostar.org/schemas",
   "type": "FinancialRegistry",
-  "budgets": [],
-  "expenses": [],
-  "revenues": []
+  "budgets": [
+    {
+      "id": "budget-2026-network",
+      "name": "2026 Network Operations Budget",
+      "period": "2026",
+      "currency": "USD",
+      "totalAllocated": 50000,
+      "description": "General network coordination and operations"
+    }
+  ],
+  "expenses": [
+    {
+      "id": "expense-001",
+      "date": "2026-03-01",
+      "amount": 2000,
+      "currency": "USD",
+      "category": "Infrastructure",
+      "description": "DePIN node hosting costs",
+      "recipient": "did:refi-bcn:luiz-fernando",
+      "status": "paid"
+    }
+  ],
+  "revenues": [
+    {
+      "id": "revenue-001",
+      "date": "2026-02-15",
+      "amount": 25000,
+      "currency": "USD",
+      "source": "Gitcoin GG21",
+      "description": "Regen Coordination Genesis round proceeds",
+      "status": "received"
+    },
+    {
+      "id": "revenue-002",
+      "date": "2026-03-15",
+      "amount": 30000,
+      "currency": "USD",
+      "source": "Gitcoin GG22",
+      "description": "Regen Coordination round proceeds",
+      "status": "received"
+    }
+  ]
 }

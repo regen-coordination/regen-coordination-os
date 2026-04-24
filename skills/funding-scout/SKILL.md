@@ -1,8 +1,8 @@
 ---
 name: funding-scout
 version: 1.0.0
-description: Network-wide funding opportunity tracking for Regen Coordination nodes
-author: regen-coordination
+description: Identify, track, and report on funding opportunities relevant to this organization
+author: organizational-os
 category: coordination
 metadata:
   openclaw:
@@ -12,74 +12,107 @@ metadata:
       config: []
 ---
 
-# Funding Scout (Regen Coordination)
+# Funding Scout
 
 ## What This Is
 
-Network-specific funding scout with awareness of Regen Coordination's active platform relationships, domain pool strategy, and multi-node coordination.
+Monitors and tracks funding opportunities relevant to this organization's domains. Maintains a database of known opportunities, alerts on upcoming deadlines, and helps prepare application materials for human review.
 
-This extends the base `funding-scout` skill with network context.
+## When to Use
 
-## Network Funding Strategy
+- When asked "what funding is available?" or "any open rounds?"
+- On a scheduled basis (weekly scan — check HEARTBEAT.md)
+- When someone mentions a new platform or funding round in conversation
+- Before a coordination meeting where funding will be discussed
+- When reviewing `HEARTBEAT.md` and funding deadlines are approaching
 
-Regen Coordination pursues a **domain-based funding pool** approach:
+## When NOT to Use
 
-1. **Domain pools** aggregate funding from multiple sources around shared domains
-2. **Current priority domains:** Waste Management, Regenerative Finance
-3. **Primary platforms:** Artisan (seasonal), Octant (quarterly), Impact Stake (ongoing)
+- To actually submit applications (always draft + present for approval)
+- To commit any funds or treasury actions → use capital-flow skill
 
-### Domain Pool Status (as of 2026-02-20)
+## Tracked Platforms
 
-See `funding/` directory for pool configs:
-- `funding/regenerative-finance/pool-config.yaml` — designing
-- `funding/waste-management/pool-config.yaml` — designing
+See `references/funding-platforms.yaml` for full list. Core platforms:
 
-## Network Platform Relationships
+| Platform | Type | Cadence | Key Notes |
+|----------|------|---------|-----------|
+| Artisan | Quadratic + matching | Seasonal | Votes = signaling; artifacts = fundraising |
+| Octant | Yield distribution | Quarterly | Relationship-driven; vault strategies |
+| Impact Stake | ETH yield staking | Ongoing | 1/3 split model; governance layer |
+| Superfluid campaigns | Streaming rewards | Monthly | Start early; flows continue |
+| Gitcoin | Quadratic funding | Seasonal | Large reach; web3-native audience |
+| Spinach | Auto distribution | Monthly | Passive; Gardens integration |
+| Celo PG | Ecosystem grants | Per round | Ecological/regenerative focus |
+| Arbitrum | Ecosystem grants | Per cycle | Tech/dev focus |
+| Karma Gap | Reputation + reports | Ongoing | Not direct funding; visibility |
 
-Status and relationship posture (update as relationships evolve):
+## Usage
 
-| Platform | Relationship | Status | Notes |
-|----------|--------------|--------|-------|
-| Artisan | Active platform relationship | Active | Season 6 active; artifacts drive donations + matching, votes are signaling |
-| Octant | Active platform relationship | Exploring | Vault strategy TBD |
-| Impact Stake | Council-led strategy | Active | 1/3-1/3-1/3 model in implementation |
-| Superfluid | Platform tracking | Active | Check Season 6 |
-| Spinach | Platform tracking | Active | Monthly renewal |
-| Celo PG | Ecosystem relationship | Low activity | Post-funding period |
-| Gitcoin GG24 | Domain co-design relationship | Pipeline | Ethereum Localism DDA co-design track |
+### Scan Workflow (Scheduled)
 
-## Current Priority Signals (2026-03 update)
+1. Check `data/funding-opportunities.yaml` for current list and upcoming deadlines
+2. Identify opportunities with deadlines within 30 days → add to `HEARTBEAT.md`
+3. Note any opportunities that need action (application, onboarding, profile creation)
+4. Write weekly scan summary to `memory/YYYY-MM-DD.md`
 
-### Artisan Season 6
+### On-Demand Query
 
-- Track both channels distinctly:
-  - **Votes** indicate perceived relevance by fund managers.
-  - **Artifacts** unlock real fundraising through donation + matching flows.
-- Capture season windows and deadlines per pool because season resets affect momentum.
+When asked about funding:
+1. Read `data/funding-opportunities.yaml`
+2. If hub sync is configured, check `knowledge/<domain>/funding-opportunities.yaml`
+3. Return list ranked by: deadline (urgent first) → relevance to org domains → amount
+4. Suggest which ones match current org activity level and capacity
 
-### Impact Stake
+### Add New Opportunity
 
-- Treat Impact Stake as active in tracking.
-- Track implementation of the council-aligned 1/3-1/3-1/3 split strategy (ReFi DAO / GreenPill / Bloom).
-- Monitor ETH target progress and yield allocation pathways.
+When a new opportunity is found, add to `data/funding-opportunities.yaml`:
+```yaml
+- id: [platform]-[domain]-[season]
+  platform: artisan
+  fund: "Fund Name"
+  deadline: "YYYY-MM-DD"
+  domain: "regenerative-finance"
+  amount_range: "$500-$5000"
+  matching: true
+  url: "https://..."
+  status: pending
+  discovered_date: "YYYY-MM-DD"
+  notes: "Any important context"
+```
 
-### Gitcoin GG24 / Ethereum Localism DDA
+### Application Support
 
-- Track DDA readiness signals (co-design milestones, steward alignment, pilot round commitments, sponsor conversations).
-- Prioritize opportunities that support 3-5 pilot rounds and can compound into 2026 scale-out.
+When helping prepare an application:
+1. Pull org identity from `IDENTITY.md` and mission from `SOUL.md`
+2. Pull active projects from `data/projects.yaml`
+3. Load application template from `references/application-templates.md`
+4. Draft application → **present for operator approval** (never submit autonomously)
+5. After operator confirms: add submission task to `HEARTBEAT.md`
 
-## Cross-Node Opportunity Sharing
+## Deadline Alerting
 
-When a node's funding-scout discovers an opportunity:
-1. Adds to local `data/funding-opportunities.yaml`
-2. Syncs to this OS via GitHub Action (push to `knowledge/<domain>/from-nodes/<node>/`)
-3. This OS aggregates into network-wide view
-4. All nodes see opportunity on next sync
+Add to `HEARTBEAT.md` when opportunity deadline is within 30 days:
+```markdown
+### Funding
+- [ ] [Platform] [Fund name] deadline: YYYY-MM-DD — [status: research/apply/submit]
+```
 
-## Funding-Scout References
+Add 7-day pre-alert as separate item.
 
-See `references/funding-platforms.yaml` for the full platform database (kept up to date by this repo).
+## Safety
 
-## For Full Instructions
+- **Never submit applications without explicit operator approval**
+- **Never commit funds** without explicit approval
+- Flag ambiguous eligibility for human decision
+- Always read the full platform mechanics before advising
 
-See base skill in `organizational-os-template/skills/funding-scout/SKILL.md` for complete workflow.
+## Domain Matching
+
+Match opportunities to declared domains in `federation.yaml`:
+```yaml
+knowledge-commons:
+  shared-domains:
+    - "regenerative-finance"
+```
+Prioritize opportunities that match declared domains.

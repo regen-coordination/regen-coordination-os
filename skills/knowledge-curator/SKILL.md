@@ -1,9 +1,9 @@
 ---
 name: knowledge-curator
 version: 1.0.0
-description: Aggregate and curate knowledge from Discourse forum, meeting notes, and network sources
-author: regen-coordination
-category: operations
+description: Aggregate, organize, and share knowledge from channels and operational activity
+author: organizational-os
+category: knowledge
 metadata:
   openclaw:
     requires:
@@ -12,81 +12,128 @@ metadata:
       config: []
 ---
 
-# Knowledge Curator (Regen Coordination)
+# Knowledge Curator
 
 ## What This Is
 
-Network-specific knowledge curator for Regen Coordination. Fetches content from the Discourse forum and meeting notes, extracts insights, and updates the cross-network directory (`knowledge/network/`) and data registries (`data/`).
+Monitors organizational channels (Telegram, GitHub, meeting notes) for meaningful knowledge, organizes it by domain, and produces curated summaries for the workspace and federation commons. Turns the constant flow of shared links and discussions into navigable organizational knowledge.
 
-## Discourse API
+## When to Use
 
-### Endpoints
+- When asked "what do we know about [topic]?"
+- When Telegram groups have accumulated links and updates to process
+- After meetings where domain knowledge was discussed
+- Weekly: scheduled curation of accumulated knowledge
+- When preparing a thematic report or discussion
 
-- **Latest posts:** `https://hub.regencoordination.xyz/latest.json`
-- **Category:** `https://hub.regencoordination.xyz/c/regen-coordination/4.json`
-- **Topic:** `https://hub.regencoordination.xyz/t/{id}.json`
+## When NOT to Use
 
-### Key Categories
+- For individual meeting processing → use meeting-processor skill
+- For financial tracking → use capital-flow skill
+- For raw transcript processing → use meeting-processor skill
 
-| ID | Slug | Purpose |
-|----|------|---------|
-| 4 | regen-coordination | Main RC category |
-| 20 | greenpill | Greenpill Network |
-| 21 | refi-dao | ReFi DAO |
-| 33 | regen-commons | Regen Commons |
+## Inputs
 
-### Fetch Workflow
+- Telegram channel messages (if channel access is configured in `TOOLS.md`)
+- Meeting notes in `packages/operations/meetings/`
+- GitHub activity from monitored repos (configured in `TOOLS.md`)
+- Direct content pasted by operator
 
-1. GET `/latest.json` or `/c/regen-coordination/4.json`
-2. Parse `topic_list.topics` for new/updated topics
-3. For each topic: extract title, excerpt, posters, created_at, reply_count
-4. Identify: action items, proposals, new node announcements, funding opportunities
-5. Update relevant `knowledge/network/` files and `data/*.yaml` registries
+## Outputs
 
-## Update Targets
+| Output | Location | Format |
+|--------|----------|--------|
+| Domain curation | `knowledge/<domain>/YYYY-MM-DD.md` | Markdown |
+| Hub contribution | Sync to hub `knowledge/` | Markdown |
+| Weekly digest | `memory/YYYY-MM-DD.md` | Markdown |
+| Memory index update | `MEMORY.md` | Markdown |
 
-### When New Nodes/Chapters Announced
+## What Gets Curated
 
-- Add to `data/nodes.yaml`
-- Update `knowledge/network/nodes/refi-dao-nodes.md`, `greenpill-chapters.md`, or `bloom-nodes.md`
-- Cross-reference `MEMBERS.md` if RC implementation node
+### High Value (always curate)
+- Funding opportunities and platform mechanics
+- Partner organization updates (new projects, launches, pivots)
+- Governance decisions from ecosystem protocols
+- Technical developments relevant to org domains
+- Strategic insights from discussions
 
-### When Funding Opportunities Surface
+### Medium Value (curate if distinct)
+- Shared links with substantive context
+- Questions with useful answers
+- Project status updates from network
 
-- Add to `data/funding-opportunities.yaml`
-- Update `knowledge/network/funding/index.md`
+### Low Value (skip)
+- Social chat without informational content
+- Duplicate information already in knowledge base
+- Highly ephemeral content (memes, reactions)
 
-### When Funds Deploy
+## Domain Organization
 
-- Add to `data/funds.yaml` (Safe address, Gardens pool ID, Octant vault)
-- Update `knowledge/network/funds/index.md`
+Organize by domains declared in `federation.yaml`:
+```
+knowledge/
+├── regenerative-finance/
+│   └── YYYY-MM-DD-curation.md
+├── local-governance/
+│   └── YYYY-MM-DD-curation.md
+└── agroforestry/
+    └── YYYY-MM-DD-curation.md
+```
 
-### When Initiatives Launch
+## Curation Format
 
-- Add to `data/initiatives.yaml`
-- Update `knowledge/network/initiatives/index.md`
+```markdown
+# Knowledge Curation — [Domain]
+**Period:** YYYY-MM-DD → YYYY-MM-DD
+**Curated by:** [node name from IDENTITY.md]
 
-### When Cross-Network Threads Identified
+## Key Developments
 
-- Note in `knowledge/network/ecosystem-map/index.md`
-- Tag by network (refi-dao, greenpill, bloom)
+### [Sub-topic]
+- [Insight] — Source: [meeting/channel/date]
+- [Insight] — Source: [URL or reference]
 
-## Regen Coordination Terminology
+## Partner Updates
+- [Partner name]: [What's happening] — Source: [...]
 
-Apply consistent terminology (see `SOUL.md`, `IDENTITY.md`):
+## Funding Landscape
+- [Opportunity or development] — Source: [...]
 
-- **Names:** Luiz (not Luis), Mary, Magenta, Afo/Alpha, Monty
-- **Orgs:** "ReFi DAO", "Greenpill Network", "Regen Coordination"
-- **Programs:** "Regenerant Catalunya", "Local ReFi Toolkit"
+## Resources
+- [Description] — [URL]
+```
 
-## Sync Cadence
+## Curation Principles
 
-- **On-demand:** When user asks for forum summary or network update
-- **Weekly:** After council call; check for new topics since last sync
-- **Event-driven:** After major announcements (Artisan season, new round, merger)
+1. **Synthesize, don't copy** — extract insights, not raw text
+2. **Source everything** — always note where info came from
+3. **Domain-tag everything** — every item belongs to at least one domain
+4. **Distinguish signal from noise** — only what has durable value
+5. **Apply org voice** — match terminology from `SOUL.md`
 
-## Integration Points
+## Channel Configuration
 
-- `integrations/profiles/discourse-forum.md` — full forum spec
-- `integrations/profiles/telegram.md` — Telegram (via OpenClaw when deployed)
-- `federation.yaml` — `channels.forum` and `channels.telegram` config
+Check `TOOLS.md` for configured channels:
+```markdown
+## Telegram Channels to Monitor
+- @channel_handle — Description
+```
+
+## Privacy Handling
+
+- Only curate from authorized channels
+- Synthesize ideas, not quotes of individuals
+- Personal names appear only when relevant and public
+- Apply `SOUL.md` boundaries: "Open by default, private by exception"
+
+## Knowledge Commons Publishing
+
+If `federation.yaml` has `knowledge-commons.publish.meetings: true`:
+- After curation, copy to hub sync location
+- Follow hub contribution format in `federation.yaml`
+
+## Notes
+
+- This skill creates `knowledge/` directories if they don't exist
+- Curations are cumulative — each file covers a specific period
+- After curation, update `MEMORY.md` if key insights warrant it

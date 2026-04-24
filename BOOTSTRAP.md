@@ -1,132 +1,123 @@
+# BOOTSTRAP.md — First-Run Onboarding
+
+_Run this when deploying org-os for a new organization. Bootstrapping has three phases: guided interview, source ingestion, and ongoing learning. After Phase 1 completes, this file can be archived._
+
+> **Note:** The org-os repo itself is bootstrapped as of 2026-04-24. See `memory/2026-04-24.md` for the self-hosting inauguration notes. New instances (downstream of this framework) run the phases below.
+
 ---
-name: regen-coordination-agent
-version: 1.0.0
-description: Primary agent for Regen Coordination OS — coordinating regenerative finance nodes across bioregions
-author: regen-coordination
+
+## Phase 1: Guided Interview
+
+Use the `bootstrap-interviewer` skill to set up the workspace interactively. The agent asks questions and generates files automatically.
+
+### For New Workspaces (Empty Instance)
+
+Run the bootstrap interview:
+
+1. **Organization identity** — name, type, mission, values
+   → Generates: `SOUL.md`, `IDENTITY.md`
+
+2. **Team** — core members, roles, contact info
+   → Generates: `data/members.yaml`
+
+3. **Projects** — active initiatives, status, leads
+   → Generates: `data/projects.yaml`
+
+4. **Communication** — channels, platforms, purposes
+   → Generates: `data/channels.yaml`
+
+5. **Network** — federation membership, peers
+   → Generates: `federation.yaml` (identity + federation sections)
+
+6. **Data sources** — Notion, GitHub repos, websites, docs
+   → Populates: `TOOLS.md`, `data/sources.yaml`
+
+The interview works via CLI (Claude Code) or web form (for non-tech operators). See `docs/OPERATOR-GUIDE.md`.
+
+### For Existing Workspaces (Agent Joining)
+
+If the workspace already has files, skip the interview and run the standard onboarding:
+
+- [ ] Read `MASTERPLAN.md` — understand mandate and activations
+- [ ] Read `SOUL.md` — internalize values and voice
+- [ ] Read `IDENTITY.md` — note org identity, governance, addresses
+- [ ] Read `USER.md` — understand the operator
+- [ ] Read `MEMORY.md` — check key decisions
+- [ ] Read `memory/` (last 3-7 days) — recent context
+- [ ] Read `HEARTBEAT.md` — identify urgent tasks
+- [ ] Read `TOOLS.md` — available integrations
+- [ ] Read `federation.yaml` — network relationships
+- [ ] Run `npm run validate:schemas` — check system health
+- [ ] Create `memory/YYYY-MM-DD.md` with initialization note
+- [ ] Present summary to operator
+
 ---
 
-# BOOTSTRAP.md — Regen Coordination OS Agent
+## Phase 2: Source Ingestion
 
-This file initializes the agent with core context for the Regen Coordination network.
+After the workspace has basic files, point the agent at existing knowledge sources:
 
-## Agent Identity
-
-- **Name:** Regen Coordination Agent
-- **Type:** Hub coordinator agent
-- **Runtime:** OpenClaw
-- **Deployment:** ReFi BCN DePIN node (primary), VPS cluster (planned)
-
-## Core Files Activated
-
-The following files have been loaded and provide the agent's operational context:
-
-### Identity & Values
-- `SOUL.md` — Mission, values, boundaries, voice
-- `IDENTITY.md` — Network identity, governance, contacts
-- `AGENTS.md` — Repository structure, build commands, conventions
-
-### Knowledge Base
-- `MEMORY.md` — Key decisions, active context, network history
-- `MEMBERS.md` — Network node registry with status
-- `federation.yaml` — Federation manifest v3.0 with upstream/downstream relationships
-
-### Operational Skills
-- `skills/meeting-processor/SKILL.md` — Process council meeting transcripts
-- `skills/funding-scout/SKILL.md` — Track funding opportunities across platforms
-- `skills/knowledge-curator/SKILL.md` — Aggregate forum and network knowledge
-- `skills/INDEX.md` — Full skills catalog and backlog
-
-### Data Registries
-- `data/funding-opportunities.yaml` — Cross-network funding opportunities
-- `data/funds.yaml` — Deployed fund registry
-- `data/nodes.yaml` — Node registry
-- `data/initiatives.yaml` — Active initiatives
-- `data/programs.yaml` — Program registry
-- `data/channels.yaml` — Communication channels
-
-### Knowledge Commons
-- `knowledge/regenerative-finance/` — Domain knowledge (funding strategies, AI/ImpactQF)
-- `knowledge/local-governance/` — Governance patterns and practices
-- `knowledge/knowledge-infrastructure/` — Tools and systems for knowledge sharing
-- `knowledge/network/` — Cross-network directory (nodes, funds, initiatives, ecosystem map)
-
-### Embedded Projects
-- `packages/coop/` — Browser knowledge commons (Chromium extension + PWA + anchor node)
-- `packages/regen-toolkit/` — Educational Web3 toolkit
-- `repos/` — Submodule mirrors of key repos (coop, organizational-os, etc.)
-
-## Operational Context
-
-### Network Priorities (Active)
-1. **Coop PL Genesis** — Browser knowledge commons iteration (post-March 9 prototype)
-2. **Impact Stake** — 1/3-1/3-1/3 split implementation (10 ETH target)
-3. **Artisan Season 6** — Network node applications
-4. **Knowledge Commons** — Domain-based structure design
-5. **GG24 Prep** — Ethereum Localism DDA co-design
-
-### Key Relationships
-- **Upstream:** organizational-os (template, framework)
-- **Downstream:** ReFi BCN, NYC Node, Bloom, GreenPill Network, Coop
-- **Partners:** ReFi DAO, GreenPill Network, Bloom Network, Bread Coop
-- **Platforms:** Artisan, Octant, Superfluid, Gitcoin
-
-### Communication Channels
-- **Forum:** hub.regencoordination.xyz
-- **Telegram:** RC Council (private governance), RC Open (public community)
-- **Weekly calls:** Fridays (council sync)
-
-## Agent Capabilities
-
-### Active
-- ✅ Answer questions about network structure, members, funding
-- ✅ Process meeting transcripts into structured records
-- ✅ Track and report on funding opportunities
-- ✅ Curate knowledge from Discourse forum
-- ✅ Maintain data registries (nodes, funds, initiatives)
-- ✅ Coordinate with downstream nodes via GitHub Actions
-
-### Planned/Backlog
-- 📝 Octant Vault integration
-- 📝 Gardens Conviction Voting integration
-- 📝 Hats Protocol for role-based access
-- 📝 Real-time knowledge sync via KOI-net
-- 📝 Automated funding opportunity alerts
-
-## Terminology Standards
-
-Always use exact terminology:
-- "Regen Coordination" (not "RegenCoord" or "RC")
-- "ReFi BCN" / "ReFi Barcelona"
-- "GreenPill Network"
-- "Regenerant Catalunya"
-- "OpenClaw", "KOI-net", "DePIN"
-- "Coop" (the product, not "COOP")
-
-## Boundaries
-
-From `SOUL.md`:
-- Never centralize data from nodes without explicit consent
-- Never pursue growth at the cost of node autonomy
-- Never commit network-wide funds without council consensus
-- Never create extractive relationships with local communities
-
-## Quick Commands Reference
-
+### GitHub Repositories
 ```bash
-# Knowledge aggregation (runs Mondays 6am UTC via GitHub Actions)
-# Skills distribution (triggers on skills/ changes)
+# Add repos to repos.manifest.json, then:
+npm run clone:repos
+npm run index:repos
+```
+→ Populates: `repos/`, `data/sources.yaml`
 
-# Manual subtree operations
-git subtree pull --prefix packages/coop https://github.com/regen-coordination/coop.git main --squash
-git subtree push --prefix packages/coop https://github.com/regen-coordination/coop.git main
+### Website / Blog
+Use the `knowledge-curator` skill to process articles:
+→ Populates: `knowledge/[domain]/`, `data/sources.yaml`
+
+### Podcast Episodes
+Use the `knowledge-curator` skill to process episodes:
+→ Populates: `knowledge/podcast/`, `data/sources.yaml`
+
+### Notion Databases
+Configure Notion MCP (see `docs/TOOL-SETUP.md`), then:
+```bash
+npm run sync:notion
+```
+→ Syncs: `data/*.yaml` ↔ Notion databases
+
+### Documents
+Process documents into appropriate locations:
+- Proposals, governance docs → `docs/`
+- Knowledge content → `knowledge/`
+- Meeting transcripts → `data/meetings.yaml` via `meeting-processor` skill
+
+### Generate Schemas
+After ingesting sources:
+```bash
+npm run generate:schemas
+npm run validate:schemas
 ```
 
-## Initialization Complete
+---
 
-Agent is now fully activated with Regen Coordination OS context.
-Ready to coordinate across the regenerative finance network.
+## Phase 3: Ongoing Learning
+
+After initial setup and ingestion, the workspace enters continuous improvement:
+
+- **Meeting processing** → Builds operational memory, extracts action items
+- **Heartbeat monitoring** → Tracks priorities, surfaces blocked tasks
+- **Knowledge curation** → Expands knowledge commons from new content
+- **Idea scouting** → Surfaces ecosystem gaps from knowledge analysis
+- **Workspace improvement** → Autonomous autoresearch loop (see `docs/AUTORESEARCH.md`)
+- **Feedback loop** → Agent behavior improves based on operator corrections
+
+The `workspace-improver` skill manages the autonomous improvement cycle. See `skills/workspace-improver/SKILL.md`.
 
 ---
-*Last updated: 2026-03-20*
-*Framework: organizational-os/3.0*
-*Status: Active*
+
+## Post-Bootstrap
+
+Once Phase 1 is complete:
+- Archive this file: `mv BOOTSTRAP.md docs/bootstrap-completed-YYYY-MM-DD.md`
+- Future sessions use the standard startup sequence in `AGENTS.md`
+- Log "Bootstrap complete" in `memory/YYYY-MM-DD.md`
+- Begin Phase 2 source ingestion when ready
+
+---
+
+_Bootstrap is a one-time ritual for Phase 1. Phases 2 and 3 are ongoing. The standard session startup (AGENTS.md) handles all subsequent sessions._

@@ -2,16 +2,16 @@
 id: project-id
 type: project
 name: "Project Name"
-status: Integrate  # Integrate, Develop, Execute, Archive
-lead: did:refibcn:luiz-fernando
+status: Integrate # Integrate, Develop, Execute, Archive
+lead: member-id
 members:
-  - did:refibcn:luiz-fernando
-  - did:refibcn:giulio-quarta
-  - did:refibcn:andrea-farias
+  - member-id-1
+  - member-id-2
 startDate: YYYY-MM-DD
 budget:
   allocated: 0
-  currency: EUR
+  currency: USD
+notion_url: "" # Notion page URL (optional, for /initialize dashboard links)
 ---
 
 # {{name}}
@@ -25,13 +25,6 @@ budget:
 ### Context & Requirements
 
 [Gather requirements, stakeholder needs, research]
-
-### Source-of-Truth Inputs
-
-- [ ] `03 Libraries/ReFi-Barcelona` references reviewed
-- [ ] `03 Libraries/ReFi-BCN-Website` references reviewed
-- [ ] `03 Libraries/Regenerant-Catalunya` references reviewed
-- [ ] `03 Libraries/ReFi DAO` references reviewed
 
 ### Success Criteria
 
@@ -55,9 +48,9 @@ budget:
 
 ### Tasks
 
-- [ ] Task 1 (@did:refibcn:luiz-fernando) #task-1
-- [ ] Task 2 (@did:refibcn:giulio-quarta) #task-2
-- [ ] Task 3 (@did:refibcn:andrea-farias) #task-3
+- [ ] Task 1 (@assignee) #task-1
+- [ ] Task 2 (@assignee) #task-2
+- [ ] Task 3 (@assignee) #task-3
 
 ### Progress Updates
 
@@ -68,11 +61,6 @@ budget:
 ### Learnings
 
 [What worked, what didn't]
-
-### Normalization Impact
-
-- [ ] Updated canonical values in `knowledge/normalization-log.md` when needed
-- [ ] Synced affected registries in `data/`
 
 ### Outcomes
 

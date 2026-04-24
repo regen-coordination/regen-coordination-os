@@ -1,5 +1,27 @@
 {
   "@context": "https://www.daostar.org/schemas",
   "type": "DAO",
-  "members": []
+  "members": [
+    {
+      "id": "did:refi-bcn:luiz-fernando"
+    },
+    {
+      "id": "did:refi-bcn:refi-bcn"
+    },
+    {
+      "id": "did:regenerant-cat:regenerant"
+    },
+    {
+      "id": "did:local-refi:toolkit"
+    },
+    {
+      "id": "did:nyc-node:nyc"
+    },
+    {
+      "id": "did:bloom:bloom"
+    },
+    {
+      "id": "did:greenpill:greenpill"
+    }
+  ]
 }
