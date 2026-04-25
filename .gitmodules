@@ -7,3 +7,9 @@
 [submodule "repos/organizational-os-template"]
 	path = repos/organizational-os-template
 	url = https://github.com/regen-coordination/organizational-os-template.git
+[submodule ".agents/skills/karpathy-skills"]
+	path = .agents/skills/karpathy-skills
+	url = https://github.com/forrestchang/andrej-karpathy-skills.git
+[submodule ".agents/skills/superpowers"]
+	path = .agents/skills/superpowers
+	url = https://github.com/obra/superpowers.git
