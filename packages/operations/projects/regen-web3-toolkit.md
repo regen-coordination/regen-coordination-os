@@ -108,3 +108,18 @@ From the master doc, still needing your call:
 - [ ] April 9 meeting notes consolidated (doc links to external Google Doc, not processed)
 - [ ] Previous iteration docs (V2, V2+, CSIS) reviewed and archived
 - [ ] Local Regen Toolkit spreadsheet reviewed
+
+## Recent meetings
+
+- **2026-04-23** — [Planning Call](../meetings/260423%20Regen%20Web3%20Toolkit%20Planning%20Call.md). Matt one push from master-doc completion → handoff. OrgoS adopted as consolidation framework. Frame-language critique (Durgadas) to be integrated. May hackathon outreach planning.
+
+## Open action items (from 2026-04-23 planning call)
+
+- [ ] Embed OrgoS into `repos/regen-toolkit/` as own org-os instance (per queued plan `regen-toolkit-org-os-embed`) — Luiz, validate on call first
+- [ ] Initialize Bread Co-op OS instance using OrgoS template; surface CSIS power-distribution standards during deployment — Luiz + Durgadas
+- [ ] Apply frame-language critique to master doc; produce companion doc on frame language — Durgadas, next iteration
+- [ ] Encode Dunbar-number scaling research and six-directional responsibility model into next CSIS standards review — Durgadas
+- [ ] Layer ownership: open invitation; Resources tab weakest, needs collaborative organization session — Team
+- [ ] Send invite to Ethereum Localism via Telegram — Rather
+- [ ] Join Open Civics Consortium chat via website — Luiz
+- [ ] Run all meeting notes through LLM for additional master-doc insights — Luiz, ongoing
