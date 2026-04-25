@@ -1,16 +1,10 @@
-# dashboard.yaml — Controls what /initialize shows
+# dashboard.yaml — Controls what /initialize shows for Regen Coordination OS
 # Toggle sections on/off, reorder, and customize without deleting any files.
 #
 # Sections render in the order listed below.
 # Set `show: false` to hide a section. Set `show: true` (or omit) to show it.
-# Some sections accept extra options for fine-tuning.
-#
-# Tuned for the framework + orchestration hub role: instance health is the
-# headline; treasury/meetings/apps sections hidden in solo-maintainer phase.
 
 schema_version: "2.0"
-
-# ─── Dashboard Sections ──────────────────────────────────────────────────────
 
 sections:
 
@@ -29,10 +23,11 @@ sections:
     show_completed: true
 
   calendar:
-    show: false             # No formal meetings in solo phase
+    show: true
+    days: 7
 
   funding:
-    show: false             # No treasury in solo phase
+    show: true
     horizon_days: 30
 
   context:
@@ -41,10 +36,33 @@ sections:
 
   plans:
     show: true
-    queued_preview: 3       # Bumped from 2 — framework has several queued plans
+    queued_preview: 2
+
+  pipelines:
+    show: true
+    pipelines:
+      - id: ideas
+        source: data/ideas.yaml
+        label: "Ideas"
+        stages: [surfaced, proposed, approved, developing, hatched]
+      - id: funding
+        source: data/funding-opportunities.yaml
+        label: "Funding"
+        stages: [monitoring, researching, applied, awarded]
+      - id: knowledge
+        source: data/knowledge-manifest.yaml
+        label: "Knowledge"
+        stages: [stub, partial, comprehensive]
+      - id: plans
+        source: docs/plans/QUEUE.md
+        label: "Plans"
+        stages: [backlog, queued, active, completed]
 
   apps:
-    show: false             # No apps at framework level; instances turn on
+    show: true
+    hide:
+      - dashboard
+      - schema-generator
 
   cheatsheet:
     show: true
@@ -55,30 +73,3 @@ sections:
   prompt:
     show: true
     suggestions: 3
-
-# ─── Custom Sections ─────────────────────────────────────────────────────────
-# Framework-specific sections — orchestration hub view.
-
-custom_sections:
-  - name: "Instances"
-    show: true
-    source: "data/instances.yaml"
-    render: "table"
-    description: "Downstream instances with maturity, framework version, last sync, and drift"
-    columns: [id, name, type, maturity, framework_version, last_sync]
-
-  - name: "Skill Promotion Candidates"
-    show: true
-    source: "data/skills-matrix.yaml"
-    render: "list"
-    description: "Skills validated in ≥1 instance but not yet canonical — see docs/SKILL-PROMOTION.md"
-    filter:
-      promotion_status: candidate
-
-  - name: "Package Promotion Candidates"
-    show: true
-    source: "data/packages-matrix.yaml"
-    render: "list"
-    description: "Packages validated across instances, candidates for framework promotion"
-    filter:
-      promotion_status: candidate
