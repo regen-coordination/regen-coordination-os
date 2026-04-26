@@ -12,7 +12,7 @@ _(none — pick one of the queued plans below to activate)_
 
 ## Queued — earlier (network/framework)
 
-2. [regen-toolkit-org-os-embed](regen-toolkit-org-os-embed.md) — _**Superseded by PR #310**_ (in-flight at https://github.com/explorience/regen-toolkit/pull/310). Mark complete when PR merges.
+2. [regen-toolkit-org-os-embed](regen-toolkit-org-os-embed.md) — _**Superseded by branch `feature/org-os-overlay`**_ on `explorience/regen-toolkit` (PR #310 closed without merge — operating from the branch directly).
 3. [future-instance-specs](future-instance-specs.md) — Write specs for regen-coordination-os and regen-toolkit
 4. [federation-protocol](federation-protocol.md) — End-to-end federation exchange testing and docs
 
@@ -35,7 +35,7 @@ The 4 toolkit-specific plans previously drafted here have moved to their canonic
 |---|---|---|
 | Vault bootstrap | `repos/regen-toolkit/docs/plans/vault-bootstrap.md` | queued |
 | Org-os one-pager + LAYERS.md | `repos/regen-toolkit/docs/plans/onepager-and-layers.md` | queued |
-| Public sharing pack | `repos/regen-toolkit/docs/plans/public-sharing-pack.md` | queued (decisions resolved by mirroring CSIS + KOI docs into toolkit, db741a9 on PR #310) |
+| Public sharing pack | `repos/regen-toolkit/docs/plans/public-sharing-pack.md` | queued (decisions resolved by mirroring CSIS + KOI docs into toolkit, db741a9 on `feature/org-os-overlay`) |
 | Contributions pipeline (brainstorm) | `repos/regen-toolkit/docs/plans/contributions-pipeline.md` | open |
 
 The toolkit's own plan QUEUE: `repos/regen-toolkit/docs/plans/QUEUE.md`.
@@ -46,4 +46,4 @@ The toolkit's own plan QUEUE: `repos/regen-toolkit/docs/plans/QUEUE.md`.
 
 - **KOI federation** (gated): see `memory/koi_intake_blocked_on_refi_dao.md`. Plan A intentionally uses manual `meeting-processor` for now; designed to be replaceable by KOI sensors when refi-dao-os Wave 2 ships and extracts to `org-os/packages/koi/`.
 - **superpowers + karpathy**: now active in this instance as submodules (`.agents/skills/superpowers`, `.agents/skills/karpathy-skills`) — matches the regen-toolkit overlay pattern.
-- **Toolkit overlay (PR #310)**: 5 commits on `feature/org-os-overlay` of `explorience/regen-toolkit`; awaiting team review.
+- **Toolkit overlay**: 5 commits on `feature/org-os-overlay` of `explorience/regen-toolkit`. Operating from the branch directly — PR #310 closed (no merge gate). The team works against the branch; merge to `main` is a future decision, not a blocker.
