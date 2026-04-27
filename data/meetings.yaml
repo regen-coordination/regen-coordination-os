@@ -92,3 +92,340 @@ meetings:
       - "frame-language"
       - "hackathon"
       - "bread-co-op"
+
+  - id: "mtg-20250404-council"
+    title: "Regen Coordination Council Meet"
+    date: "2025-04-04"
+    type: "council"
+    participants:
+      - "Luuk"
+      - "Monty"
+      - "Antonio"
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/250404 Regen Coordination Council Meet.md"
+    summary: "Early council meeting on Regen Network partnership, Gardens.fund adoption, and ecocerts strategy. Regenerative.fi launch discussed."
+    decisions:
+      - "Shape up proposal for Regen Network partnership (tokens + rewards)"
+      - "Adopt gardens.fund for Regen Coordination"
+      - "Share about BioFi BCN event"
+      - "Create tokens partnership document building basket of tokens"
+    action_items:
+      - "Create tokens partnership document"
+      - "Build basket of tokens for Regen Coordination"
+      - "Set up Regen Coordination hub forum"
+      - "Share about BioFi BCN event"
+    tags:
+      - "governance"
+      - "funding"
+      - "regen-network"
+      - "gardens"
+      - "ecocerts"
+
+  - id: "mtg-20250613-council"
+    title: "Regen Coordination Council Meet"
+    date: "2025-06-13"
+    type: "council"
+    participants:
+      - "Monty"
+      - "Mahesh"
+      - "David DAO"
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/250613 Regen Coordination Council Meet.md"
+    summary: "Octant Epoch 9 strategy, onchain funding mechanisms, Gainforest/Deepgov alignment, workshop planning. Focus on keeping funds onchain."
+    decisions:
+      - "Pursue Octant Epoch 9 proposal for GLM distribution"
+      - "Fork SheFi model for incentivized tracks"
+      - "Create Gainforest guide for Local ReFi Toolkit"
+      - "Add KarmaGAP features to forum"
+    action_items:
+      - "Put up Octant Epoch 9 proposal"
+      - "Explore direct Octant partnership"
+      - "Add KarmaGAP to forum"
+      - "Create Gainforest guide"
+      - "Join Gainforest/Deepgov TG groups"
+      - "Prepare reference pages"
+      - "Explore Drips network"
+      - "Connect with Greenpill BR"
+    tags:
+      - "governance"
+      - "funding"
+      - "octant"
+      - "gainforest"
+      - "deepgov"
+      - "celo"
+      - "karmagap"
+
+  - id: "mtg-20250704-council"
+    title: "Regen Coordination Council Sync"
+    date: "2025-07-04"
+    type: council
+    participants: ["Monty Bryant", "Luiz Fernando", "Afo", "Scott Morris", "Matty Compost", "Trinity Morphy", "Lana Dingwall", "Token Jedi", "Caue Mtomaz", "Coi groweco"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/250704 Regen Coordination Council Sync.md"
+    summary: "GG24 DDA sensemaking, Ethereum localism domain design, workshop planning for council structure."
+    decisions: ["Position GG24 DDA report as sensemaking document", "DDA core team: subset of council + Open Civics + Ethereum localism.xyz"]
+    action_items: ["Monty: Redraft sensemaking report", "Scott: Schedule Figma canvas workshop"]
+    tags: ["governance", "funding", "gg24", "dda", "ethereum-localism"]
+
+  - id: "mtg-20250808-council"
+    title: "Regen Coordination Council Meet"
+    date: "2025-08-08"
+    type: council
+    participants: ["Luis", "Scott", "Afo", "Koi", "Monty", "Alpha", "Louise"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/250808 Regen Coordination Council Meet.md"
+    summary: "Quarterly strategy and GG24 planning. Four regen-aligned domains identified."
+    decisions: ["Four GG24 domains: Ethereum localism, ETH for the world, Regen web3, OpenCivics"]
+    action_items: ["Monty: Post Gitcoin documentation", "Koi: Set up Gardens pool"]
+    tags: ["governance", "funding", "gg24", "gardens", "strategy"]
+
+  - id: "mtg-20250822-council"
+    title: "Regen Coordination Council Sync"
+    date: "2025-08-22"
+    type: council
+    participants: ["Sam", "Rashmir", "Monty", "Trinity", "Louise", "Scott", "Coy"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/250822 Regen Coordination Council Sync.md"
+    summary: "Local ReFi Toolkit development and GG24 planning. Three-tier organizational structure defined."
+    decisions: ["Three-tier structure defined", "Bread Co-op integration preferred"]
+    action_items: ["Monty & Coy: Regen airdrop proposal"]
+    tags: ["governance", "toolkit", "gg24", "bread-co-op"]
+
+  - id: "mtg-20250829-council"
+    title: "Regen Coordination Council Sync"
+    date: "2025-08-29"
+    type: council
+    participants: ["Trinity", "Monty", "Alpha", "Luiz Fernando"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/250829 Regen Coordination Council Sync.md"
+    summary: "Council restructuring, Value Flow Compass completed, five GG24 domains confirmed."
+    decisions: ["Remove inactive members, add Bloom Network and Magenta", "Five GG24 domains confirmed"]
+    action_items: ["Luizfernando: Gardens pools specification"]
+    tags: ["governance", "gg24", "council-restructuring"]
+
+  - id: "mtg-20250905-council"
+    title: "Regen Coordination Council Sync"
+    date: "2025-09-05"
+    type: council
+    participants: ["Monty", "Matt", "Koi", "Trinity"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/250905 Regen Coordination Council Sync.md"
+    summary: "GG24 Local Funding Programs status. $125k matching budget secured."
+    decisions: ["$125k matching from external sponsors", "$15k operations fee", "Trust Graph Initiative integration"]
+    action_items: ["Montyb41: Create register of interest form"]
+    tags: ["governance", "gg24", "funding", "local-funding"]
+
+  - id: "mtg-20250912-council"
+    title: "Regen Coordination Council Sync"
+    date: "2025-09-12"
+    type: council
+    participants: ["Luizfernando", "Trinity", "Koi", "Afo", "Matt", "Scott"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/250912 Regen Coordination Council Sync.md"
+    summary: "ReFi Barcelona funding secured. Brazil local rounds proposed."
+    decisions: ["ReFi Barcelona: €11K local + €30K total pool", "Three Brazil local rounds proposed"]
+    action_items: ["Luizfernando: Ping Monty about call availability"]
+    tags: ["governance", "funding", "brazil", "barcelona"]
+
+  - id: "mtg-20250919-council"
+    title: "Regen Coordination Council Sync"
+    date: "2025-09-19"
+    type: council
+    participants: ["Alpha", "Monty", "Matt", "Trinity", "Nick", "Coil"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/250919 Regen Coordination Council Sync.md"
+    summary: "Council frustrations surfaced. GG24 leadership shifted to core team."
+    decisions: ["GG24 leadership shifted to core team", "Four funding tracks for nodes/chapters"]
+    action_items: ["Improve communication on leadership transitions"]
+    tags: ["governance", "gg24", "funding", "council-dynamics"]
+
+  - id: "mtg-20250926-council"
+    title: "Regen Coordination Council Sync"
+    date: "2025-09-26"
+    type: council
+    participants: ["Luizfernando", "Matt", "Trinity", "Alpha", "Nick", "Coil"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/250926 Regen Coordination Council Sync.md"
+    summary: "Survey incentive strategy. Cookie jar mechanism for compensation."
+    decisions: ["Survey incentive attachment", "Cookie jar mechanism", "Region coordination Bread Co-op member"]
+    action_items: ["Trinity/Alpha: Create cookie jar proposal"]
+    tags: ["governance", "compensation", "bread-co-op", "cookie-jar"]
+
+  - id: "mtg-20251003-council"
+    title: "Regen Coordination Council Sync"
+    date: "2025-10-03"
+    type: council
+    participants: ["Arthur", "Luizfernando", "Matt", "COI"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/251003 Regen Coordination Council Sync.md"
+    summary: "Impact Stake confirmation. 10 ETH target within 2 months."
+    decisions: ["Impact Stake: Tell JD we're in", "10 ETH deposits within 2 months"]
+    action_items: ["Luizfernando: Fill Octant alpha tester form"]
+    tags: ["governance", "impact-stake", "octant"]
+
+  - id: "mtg-20251031-council"
+    title: "Region Coordination Council Sync"
+    date: "2025-10-31"
+    type: council
+    participants: ["Monty", "Alpha", "Luizfernando", "Matt", "Scott"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/251031 Regen Coordination Council Sync.md"
+    summary: "Region Commons integration discussions. Emergent approach preferred."
+    decisions: ["Wait for Region Commons elections", "Emergent approach over pre-written proposal"]
+    action_items: ["Address website infrastructure"]
+    tags: ["governance", "region-commons", "integration"]
+
+  - id: "mtg-20251107-council"
+    title: "Region Coordination Council Sync"
+    date: "2025-11-07"
+    type: council
+    participants: ["Coy", "Luisa", "Gil", "Luizfernando"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/251107 Regen Coordination Council Sync.md"
+    summary: "Green Pool Gardens launch moved. Impact Miner Bounty extended."
+    decisions: ["Green Pool Gardens launch Nov 21", "Impact Miner Bounty extended"]
+    action_items: ["Complete Green Pool Gardens documentation"]
+    tags: ["governance", "green-pool", "gardens", "bounty"]
+
+  - id: "mtg-20251212-council"
+    title: "Region Coordination Council Sync"
+    date: "2025-12-12"
+    type: council
+    participants: ["Luizfernando", "Julius", "Giulio", "Matt", "Trinity"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/251212 Regen Coordination Council Sync.md"
+    summary: "End-of-year reflection workshop planning. Slido chosen for engagement."
+    decisions: ["End-of-year workshop: Slido interactive format", "Forum thread integration"]
+    action_items: ["Luizfernando: Setup Slido", "Julius: Reschedule funding call"]
+    tags: ["governance", "workshop", "end-of-year"]
+
+  - id: "mtg-20260109-council"
+    title: "Region Coordination Council Strategy"
+    date: "2026-01-09"
+    type: council
+    participants: ["Afo", "Luizfernando", "Trinity", "Matt", "Heenal"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/260109 Regen Coordination Council Sync.md"
+    summary: "Knowledge Commons WG connection. Toolkit taskforce launched."
+    decisions: ["Knowledge Commons WG connection", "Heenal leading taskforce (6 weeks to v1)"]
+    action_items: ["Book workshops with Scott and Regen Commons"]
+    tags: ["governance", "knowledge-commons", "toolkit"]
+
+  - id: "mtg-20260116-council"
+    title: "Regen Coordination Council"
+    date: "2026-01-16"
+    type: council
+    participants: ["Antonio", "Luizfernando", "Matt", "Trinity"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/260116 Regen Coordination Council Sync.md"
+    summary: "Quarterly calls preferred. Forest Sanctuary acquisition progress."
+    decisions: ["Quarterly coordination calls preferred", "Less is more approach"]
+    action_items: ["Antonio: Finalize Forest Sanctuary ownership"]
+    tags: ["governance", "funding", "forest-sanctuary"]
+
+  - id: "mtg-20260123-council"
+    title: "Region Coordination Council"
+    date: "2026-01-23"
+    type: council
+    participants: ["Luiz", "Matt", "Luisa"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/260123 Regen Coordination Council Sync.md"
+    summary: "Four Gardens pools launched. Bread Co-op integration strategy."
+    decisions: ["Four Gardens pools launched", "Bread Co-op: Pool Within preferred"]
+    action_items: ["Luisa: Create pool and voucher on Sarafu"]
+    tags: ["governance", "gardens", "bread-co-op", "brazil"]
+
+  - id: "mtg-20260130-council"
+    title: "Region Coordination Council"
+    date: "2026-01-30"
+    type: council
+    participants: ["Luiz", "Afo", "Magenta", "Mehdi"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/260130 Regen Coordination Council Sync.md"
+    summary: "Focus on concrete actions over strategic planning. Bloom Network integration."
+    decisions: ["Focus on concrete actions", "Toolkit prioritized over strategy"]
+    action_items: ["Schedule toolkit-focused workshop"]
+    tags: ["governance", "toolkit", "bloom-network"]
+
+  - id: "mtg-20260206-council"
+    title: "Regen Coordination Council Sync"
+    date: "2026-02-06"
+    type: council
+    participants: ["Matty", "Monty", "Caue", "Luiz", "Trinity", "Afo", "Antonio", "Imaginationhealer", "Magenta"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/260206 Regen Coordination Council Sync.md"
+    summary: "Bread distribution three-way split. Toolkit knowledge gardening focus."
+    decisions: ["Bread split: Bloom, ReFi DAO, Regen Coordination", "Toolkit knowledge gardening focus"]
+    action_items: ["Plan quarterly call scheduling", "Build coordination website"]
+    tags: ["governance", "toolkit", "knowledge-commons", "bloom"]
+
+  - id: "mtg-20260213-council"
+    title: "Green Pool NYC Funding Strategy"
+    date: "2026-02-13"
+    type: council
+    participants: ["Luciano", "Braven", "Ron", "Graydon", "Alpha", "Magenta"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/260213 Regen Coordination Council Sync.md"
+    summary: "Green Pool NYC mutual aid funding strategy. Octant Vault implementation."
+    decisions: ["Core focus: mutual aid orgs and software", "Initial $5k proof of concept", "DAI vault preferred over USDC"]
+    action_items: ["Deploy funds within days", "Coordinate Octant Arbitrum deployment"]
+    tags: ["governance", "green-pool", "nyc", "octant", "mutual-aid"]
+
+  - id: "mtg-20260220-council"
+    title: "Region Coordination Council"
+    date: "2026-02-20"
+    type: council
+    participants: ["Luizfernando", "Mary", "Magenta", "Alpha"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/260220 Regen Coordination Council Sync.md"
+    summary: "GitHub org created. Funding mechanisms analysis. Impact Stake exploration."
+    decisions: ["GitHub organization 'region-coordination' created", "Open source approach", "Impact Stake 1/3-1/3-1/3 split approach"]
+    action_items: ["Luizfernando: Review Superfluid campaigns", "Alpha: Set up Arbitrum strategies"]
+    tags: ["governance", "github", "impact-stake", "funding"]
+
+  - id: "mtg-20260403-council"
+    title: "Regen Coordination Council Sync"
+    date: "2026-04-03"
+    type: council
+    participants: ["Luiz Fernando", "Matty", "Afo", "Leo", "Antonio", "Regen Avocado"]
+    duration_minutes: null
+    recording_url: "https://docs.google.com/document/d/1BsRTOaUJwG0jnLKwxb-nK6BIizk57l0kgmI0_wQvfnE/edit"
+    transcript_path: "packages/operations/meetings/260326 Regen Coordination Council Sync.md"
+    summary: "Ecosystem mapping and financial sustainability focus. Formal grants over gamified funding."
+    decisions: ["Region coordination as platform for ecosystem weaving", "Prioritize formal grants over gamified funding", "Aggregate existing events and calendars"]
+    action_items: ["Luiz: Manage ReFi DAO transition through Q2", "Afo: Aggregate calendars", "Matty: Post Leo poll"]
+    tags: ["governance", "funding", "sustainability", "ecosystem"]
+
+  - id: "mtg-20260410-council"
+    title: "Regen Coordination Council Sync"
+    date: "2026-04-10"
+    type: council
+    participants: ["Luiz", "Leo", "Antonio", "Corey", "Matt"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/260410 Regen Coordination Council Sync.md"
+    summary: "Monthly growth working group. Simpler aggregator approach preferred. Service offerings framework."
+    decisions: ["Monthly growth working group", "Simpler aggregator approach over token coordination", "Association setup for fund movement"]
+    action_items: ["Leo: Send Tech for Palestine link", "Matt: Review Artizen draft", "All: Set up BlueSky accounts"]
+    tags: ["governance", "funding", "services", "growth"]

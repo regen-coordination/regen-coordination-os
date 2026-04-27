@@ -3,18 +3,144 @@
   "type": "ActivityLog",
   "activities": [
     {
-      "id": "mtg-20260305-coffee",
+      "id": "mtg-20250808-council",
       "type": "meeting",
-      "title": "Council Coffee Sync",
-      "date": "2026-03-05",
-      "summary": "Coop scope finalized, monorepo path agreed, immediate build execution initiated"
+      "title": "Regen Coordination Council Meet",
+      "date": "2025-08-08",
+      "summary": "Quarterly strategy and GG24 planning. Four regen-aligned domains identified."
+    },
+    {
+      "id": "mtg-20250822-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-08-22",
+      "summary": "Local ReFi Toolkit development and GG24 planning. Three-tier organizational structure defined."
+    },
+    {
+      "id": "mtg-20250829-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-08-29",
+      "summary": "Council restructuring, Value Flow Compass completed, five GG24 domains confirmed."
+    },
+    {
+      "id": "mtg-20250905-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-09-05",
+      "summary": "GG24 Local Funding Programs status. $125k matching budget secured."
+    },
+    {
+      "id": "mtg-20250912-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-09-12",
+      "summary": "ReFi Barcelona funding secured. Brazil local rounds proposed."
+    },
+    {
+      "id": "mtg-20250919-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-09-19",
+      "summary": "Council frustrations surfaced. GG24 leadership shifted to core team."
+    },
+    {
+      "id": "mtg-20250926-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-09-26",
+      "summary": "Survey incentive strategy. Cookie jar mechanism for compensation."
+    },
+    {
+      "id": "mtg-20251003-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-10-03",
+      "summary": "Impact Stake confirmation. 10 ETH target within 2 months."
+    },
+    {
+      "id": "mtg-20251031-council",
+      "type": "meeting",
+      "title": "Region Coordination Council Sync",
+      "date": "2025-10-31",
+      "summary": "Region Commons integration discussions. Emergent approach preferred."
+    },
+    {
+      "id": "mtg-20251107-council",
+      "type": "meeting",
+      "title": "Region Coordination Council Sync",
+      "date": "2025-11-07",
+      "summary": "Green Pool Gardens launch moved. Impact Miner Bounty extended."
+    },
+    {
+      "id": "mtg-20251212-council",
+      "type": "meeting",
+      "title": "Region Coordination Council Sync",
+      "date": "2025-12-12",
+      "summary": "End-of-year reflection workshop planning. Slido chosen for engagement."
+    },
+    {
+      "id": "mtg-20260109-council",
+      "type": "meeting",
+      "title": "Region Coordination Council Strategy",
+      "date": "2026-01-09",
+      "summary": "Knowledge Commons WG connection. Toolkit taskforce launched."
+    },
+    {
+      "id": "mtg-20260116-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council",
+      "date": "2026-01-16",
+      "summary": "Quarterly calls preferred. Forest Sanctuary acquisition progress."
+    },
+    {
+      "id": "mtg-20260123-council",
+      "type": "meeting",
+      "title": "Region Coordination Council",
+      "date": "2026-01-23",
+      "summary": "Four Gardens pools launched. Bread Co-op integration strategy."
+    },
+    {
+      "id": "mtg-20260130-council",
+      "type": "meeting",
+      "title": "Region Coordination Council",
+      "date": "2026-01-30",
+      "summary": "Focus on concrete actions over strategic planning. Bloom Network integration."
+    },
+    {
+      "id": "mtg-20260206-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync",
+      "date": "2026-02-06",
+      "summary": "Bread distribution three-way split. Toolkit knowledge gardening focus."
+    },
+    {
+      "id": "mtg-20260213-council",
+      "type": "meeting",
+      "title": "Green Pool NYC Funding Strategy",
+      "date": "2026-02-13",
+      "summary": "Green Pool NYC mutual aid funding strategy. Octant Vault implementation."
     },
     {
       "id": "mtg-20260220-council",
       "type": "meeting",
-      "title": "Regen Coordination Council Sync",
+      "title": "Region Coordination Council",
       "date": "2026-02-20",
-      "summary": "GitHub org created, OpenClaw selected for agents, domain-based funding pools agreed"
+      "summary": "GitHub org created. Funding mechanisms analysis. Impact Stake exploration."
+    },
+    {
+      "id": "mtg-20260403-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync",
+      "date": "2026-04-03",
+      "summary": "Ecosystem mapping and financial sustainability focus. Formal grants over gamified funding."
+    },
+    {
+      "id": "mtg-20260410-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync",
+      "date": "2026-04-10",
+      "summary": "Monthly growth working group. Simpler aggregator approach preferred. Service offerings framework."
     }
   ]
 }

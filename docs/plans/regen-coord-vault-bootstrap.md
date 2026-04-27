@@ -1,7 +1,7 @@
 ---
 title: "Regen Coordination — Vault Context Bootstrap"
 project: regen-coordination-os
-date: 2026-04-25
+date: 2026-04-26
 status: queued
 related:
   - docs/plans/regen-toolkit-vault-bootstrap.md  # parallel plan for toolkit
@@ -26,32 +26,35 @@ methodology:
 
 ---
 
-## Source meetings (vault inventory, 2026-04-25)
+## Source meetings (vault inventory, 2026-04-26)
 
 Sorted oldest → newest. `.bak` and `.termbak` files excluded (older copies).
 
-**Regen Coordination Council**
+**Regen Coordination Council — 24 meetings**
+- [ ] `250101 Q1'25/250404 Regen Coordination Council meet.md`
+- [ ] `250607 Berlin/250613 Regen Coordination Council Meet.md`
+- [ ] `250701 Regen Coordination/Regen Coordination Council Sync July 4 2025 Notes.md`
+- [ ] `250701 Q3'25/250808 Regen Coordination Council Meet.md`
+- [ ] `250701 Q3'25/250822 Regen Coordination Council Sync.md`
+- [ ] `250701 Q3'25/250829 Regen Coordination Council Sync.md`
+- [ ] `250701 Q3'25/250905 Regen Coordination Council Sync.md`
+- [ ] `250701 Q3'25/250912 Regen Coordination Council Sync.md`
+- [ ] `250701 Q3'25/250919 Regen Coordination Council Sync.md`
+- [ ] `250701 Q3'25/250926 Regen Coordination Council Sync.md`
 - [ ] `251003 Regen Coordination Council Sync.md`
+- [ ] `251031 Regen Coordination Council Sync.md`
+- [ ] `251107 Regen Coordination Council Sync.md`
+- [ ] `251212 Regen Coordination Council Sync.md`
+- [ ] `260109 Regen Coordination Council Sync.md`
+- [ ] `260116 Regen Coordination Council Sync.md`
+- [ ] `260123 Regen Coordination Council Sync.md`
+- [ ] `260130 Regen Coordination Council Sync.md`
 - [ ] `260206 Regen Coordination Council Sync.md`
+- [ ] `260213 Regen Coordination Council Sync.md`
+- [ ] `260220 Regen Coordination Council Sync.md`
+- [ ] `260326 Regen Coordination Council Sync.md`
+- [ ] `260410 Regen Coordination Council Sync.md`
 - [ ] `260424 Regen Coordination Council Sync.md`
-
-**ReFi DAO (network-relevant — Monty + global calls)**
-- [ ] `251001 ReFi DAO.md`
-- [ ] `251030 ReFi DAO Meeting with Monty.md` (only `.bak` exists — confirm)
-- [ ] `251105 ReFi DAO Global monthly call 🌐.md` (only `.bak` exists — confirm)
-- [ ] `260106 ReFi DAO Meeting with Monty.md`
-- [ ] `260113 ReFi DAO Meeting with Monty.md`
-- [ ] `260114 ReFi DAO - Monty meeting with John.md` (only `.bak` exists — confirm)
-- [ ] `260120 ReFi DAO Global monthly call.md` (only `.termbak` exists — confirm)
-- [ ] `260204 ReFi DAO Global monthly call.md` (only `.bak` exists — confirm)
-- [ ] `260210 ReFi DAO Meeting with Monty.md` (only `.termbak` exists — confirm)
-- [ ] `260217 ReFi DAO Meeting with Monty.md` (only `.termbak` exists — confirm)
-- [ ] `260401 ReFi DAO Global monthly call 🌐.md`
-- [ ] `260401 ReFi DAO Global monthly call 🌐 - ACTION ITEMS.md` (companion to 260401)
-
-**Regenerant Catalunya** (network-tangential — process if relevant context, skip otherwise)
-- [ ] `251031 Regenerant Catalunya.md`
-- [ ] `251022 Regenerant Catalunya meeting with partners.md` (only `.bak` exists)
 
 ---
 
@@ -134,9 +137,9 @@ For each `YYMMDD <Title>.md` in the inventory above:
 
 - Per meeting (well-formed transcript): 5–15 min
 - Per meeting (sparse notes only): 3–5 min  
-- Total inventory: ~15 confirmed meetings × ~10 min avg = **2–4 hours of focused processing**, splittable across sessions
+- Total inventory: ~24 council meetings × ~10 min avg = **4–6 hours of focused processing**, splittable across sessions
 
-Recommend: process Council meetings first (highest decision density), then ReFi DAO global calls, then Monty 1:1s, then Regenerant.
+Recommend: process oldest → newest (250404 → 260424).
 
 ---
 

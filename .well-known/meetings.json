@@ -1,0 +1,948 @@
+{
+  "@context": "https://www.daostar.org/schemas",
+  "type": "MeetingRegistry",
+  "meetings": [
+    {
+      "id": "mtg-20260305-coffee",
+      "type": "sync",
+      "title": "Council Coffee Sync",
+      "date": "2026-03-05",
+      "participants": [
+        "did:refi-bcn:luiz-fernando"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Coop launched under Regen Coordination as a product and organizational experiment"
+        },
+        {
+          "description": "Coop ownership model aligned as an equal-share co-op structure"
+        },
+        {
+          "description": "Experimentation-first approach adopted"
+        },
+        {
+          "description": "Organizational OS repositories approved for transfer into Regen Coordination GitHub organization"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Initialize Coop PL Genesis build cycle",
+          "status": "pending"
+        },
+        {
+          "description": "Set up organizational-os monorepo",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20260220-council",
+      "type": "council",
+      "title": "Regen Coordination Council Sync",
+      "date": "2026-02-20",
+      "participants": [
+        "did:refi-bcn:luiz-fernando",
+        "did:refi-bcn:refi-bcn"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Created regen-coordination GitHub organization"
+        },
+        {
+          "description": "Adopted Organizational OS v3.0 (OpenClaw-native) as coordination infrastructure"
+        },
+        {
+          "description": "Selected domain-based approach for funding pools"
+        },
+        {
+          "description": "OpenClaw as primary agent runtime; DePIN nodes for self-hosted deployment"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Set up ReFi BCN DePIN node as first active node",
+          "status": "pending"
+        },
+        {
+          "description": "Initialize knowledge commons design",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20260423-regen-web3-toolkit-planning",
+      "type": "planning",
+      "title": "Regen Web3 Toolkit Planning Call",
+      "date": "2026-04-23",
+      "participants": [
+        "did:refi-bcn:luiz-fernando",
+        "Matt",
+        "Drew Simon",
+        "Monty Bryant",
+        "Trinity Morphy",
+        "Afo",
+        "Heenal",
+        "Imaginationhealer",
+        "Rathermercurial",
+        "Caue Mtomaz",
+        "TokenJedi",
+        "Durgadas",
+        "Civilmonkey"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": "https://notes.granola.ai/t/306680b6-9b44-4199-9ee5-6dab4f2a34cc-00demib2",
+      "decisions": [
+        {
+          "description": "Rather's ontology adopted as the toolkit's standard ontology"
+        },
+        {
+          "description": "OrgoS used to consolidate toolkit workspace; master doc to migrate into structured repo"
+        },
+        {
+          "description": "Bread Co-op OS to be deployed using OrgoS, with explicit power-distribution intent"
+        },
+        {
+          "description": "Frame-language analysis (Durgadas) integrated as a critical lens on master doc"
+        },
+        {
+          "description": "Hackathon (May) targets confirmed: Geo Protocol, Ethereum Localism, Open Civics Consortium"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Matt: one more iteration push on master doc, then handoff",
+          "status": "pending"
+        },
+        {
+          "description": "Durgadas: frame-language companion doc + AI prompts; encode Dunbar + six-directional responsibility into next CSIS standards review",
+          "status": "pending"
+        },
+        {
+          "description": "Luiz: embed OrgoS into repos/regen-toolkit/ (per queued plan); initialize Bread Co-op OS",
+          "status": "pending"
+        },
+        {
+          "description": "Rather: invite Ethereum Localism via Telegram",
+          "status": "pending"
+        },
+        {
+          "description": "Luiz: join Open Civics Consortium chat via website",
+          "status": "pending"
+        },
+        {
+          "description": "Team: dedicated session to organize Resources tab",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20250404-council",
+      "type": "council",
+      "title": "Regen Coordination Council Meet",
+      "date": "2025-04-04",
+      "participants": [
+        "Luuk",
+        "Monty",
+        "Antonio"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Shape up proposal for Regen Network partnership (tokens + rewards)"
+        },
+        {
+          "description": "Adopt gardens.fund for Regen Coordination"
+        },
+        {
+          "description": "Share about BioFi BCN event"
+        },
+        {
+          "description": "Create tokens partnership document building basket of tokens"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Create tokens partnership document",
+          "status": "pending"
+        },
+        {
+          "description": "Build basket of tokens for Regen Coordination",
+          "status": "pending"
+        },
+        {
+          "description": "Set up Regen Coordination hub forum",
+          "status": "pending"
+        },
+        {
+          "description": "Share about BioFi BCN event",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20250613-council",
+      "type": "council",
+      "title": "Regen Coordination Council Meet",
+      "date": "2025-06-13",
+      "participants": [
+        "Monty",
+        "Mahesh",
+        "David DAO"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Pursue Octant Epoch 9 proposal for GLM distribution"
+        },
+        {
+          "description": "Fork SheFi model for incentivized tracks"
+        },
+        {
+          "description": "Create Gainforest guide for Local ReFi Toolkit"
+        },
+        {
+          "description": "Add KarmaGAP features to forum"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Put up Octant Epoch 9 proposal",
+          "status": "pending"
+        },
+        {
+          "description": "Explore direct Octant partnership",
+          "status": "pending"
+        },
+        {
+          "description": "Add KarmaGAP to forum",
+          "status": "pending"
+        },
+        {
+          "description": "Create Gainforest guide",
+          "status": "pending"
+        },
+        {
+          "description": "Join Gainforest/Deepgov TG groups",
+          "status": "pending"
+        },
+        {
+          "description": "Prepare reference pages",
+          "status": "pending"
+        },
+        {
+          "description": "Explore Drips network",
+          "status": "pending"
+        },
+        {
+          "description": "Connect with Greenpill BR",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20250704-council",
+      "type": "council",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-07-04",
+      "participants": [
+        "Monty Bryant",
+        "Luiz Fernando",
+        "Afo",
+        "Scott Morris",
+        "Matty Compost",
+        "Trinity Morphy",
+        "Lana Dingwall",
+        "Token Jedi",
+        "Caue Mtomaz",
+        "Coi groweco"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Position GG24 DDA report as sensemaking document"
+        },
+        {
+          "description": "DDA core team: subset of council + Open Civics + Ethereum localism.xyz"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Monty: Redraft sensemaking report",
+          "status": "pending"
+        },
+        {
+          "description": "Scott: Schedule Figma canvas workshop",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20250808-council",
+      "type": "council",
+      "title": "Regen Coordination Council Meet",
+      "date": "2025-08-08",
+      "participants": [
+        "Luis",
+        "Scott",
+        "Afo",
+        "Koi",
+        "Monty",
+        "Alpha",
+        "Louise"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Four GG24 domains: Ethereum localism, ETH for the world, Regen web3, OpenCivics"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Monty: Post Gitcoin documentation",
+          "status": "pending"
+        },
+        {
+          "description": "Koi: Set up Gardens pool",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20250822-council",
+      "type": "council",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-08-22",
+      "participants": [
+        "Sam",
+        "Rashmir",
+        "Monty",
+        "Trinity",
+        "Louise",
+        "Scott",
+        "Coy"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Three-tier structure defined"
+        },
+        {
+          "description": "Bread Co-op integration preferred"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Monty & Coy: Regen airdrop proposal",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20250829-council",
+      "type": "council",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-08-29",
+      "participants": [
+        "Trinity",
+        "Monty",
+        "Alpha",
+        "Luiz Fernando"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Remove inactive members, add Bloom Network and Magenta"
+        },
+        {
+          "description": "Five GG24 domains confirmed"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Luizfernando: Gardens pools specification",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20250905-council",
+      "type": "council",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-09-05",
+      "participants": [
+        "Monty",
+        "Matt",
+        "Koi",
+        "Trinity"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "$125k matching from external sponsors"
+        },
+        {
+          "description": "$15k operations fee"
+        },
+        {
+          "description": "Trust Graph Initiative integration"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Montyb41: Create register of interest form",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20250912-council",
+      "type": "council",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-09-12",
+      "participants": [
+        "Luizfernando",
+        "Trinity",
+        "Koi",
+        "Afo",
+        "Matt",
+        "Scott"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "ReFi Barcelona: \u20ac11K local + \u20ac30K total pool"
+        },
+        {
+          "description": "Three Brazil local rounds proposed"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Luizfernando: Ping Monty about call availability",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20250919-council",
+      "type": "council",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-09-19",
+      "participants": [
+        "Alpha",
+        "Monty",
+        "Matt",
+        "Trinity",
+        "Nick",
+        "Coil"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "GG24 leadership shifted to core team"
+        },
+        {
+          "description": "Four funding tracks for nodes/chapters"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Improve communication on leadership transitions",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20250926-council",
+      "type": "council",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-09-26",
+      "participants": [
+        "Luizfernando",
+        "Matt",
+        "Trinity",
+        "Alpha",
+        "Nick",
+        "Coil"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Survey incentive attachment"
+        },
+        {
+          "description": "Cookie jar mechanism"
+        },
+        {
+          "description": "Region coordination Bread Co-op member"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Trinity/Alpha: Create cookie jar proposal",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20251003-council",
+      "type": "council",
+      "title": "Regen Coordination Council Sync",
+      "date": "2025-10-03",
+      "participants": [
+        "Arthur",
+        "Luizfernando",
+        "Matt",
+        "COI"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Impact Stake: Tell JD we're in"
+        },
+        {
+          "description": "10 ETH deposits within 2 months"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Luizfernando: Fill Octant alpha tester form",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20251031-council",
+      "type": "council",
+      "title": "Region Coordination Council Sync",
+      "date": "2025-10-31",
+      "participants": [
+        "Monty",
+        "Alpha",
+        "Luizfernando",
+        "Matt",
+        "Scott"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Wait for Region Commons elections"
+        },
+        {
+          "description": "Emergent approach over pre-written proposal"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Address website infrastructure",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20251107-council",
+      "type": "council",
+      "title": "Region Coordination Council Sync",
+      "date": "2025-11-07",
+      "participants": [
+        "Coy",
+        "Luisa",
+        "Gil",
+        "Luizfernando"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Green Pool Gardens launch Nov 21"
+        },
+        {
+          "description": "Impact Miner Bounty extended"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Complete Green Pool Gardens documentation",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20251212-council",
+      "type": "council",
+      "title": "Region Coordination Council Sync",
+      "date": "2025-12-12",
+      "participants": [
+        "Luizfernando",
+        "Julius",
+        "Giulio",
+        "Matt",
+        "Trinity"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "End-of-year workshop: Slido interactive format"
+        },
+        {
+          "description": "Forum thread integration"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Luizfernando: Setup Slido",
+          "status": "pending"
+        },
+        {
+          "description": "Julius: Reschedule funding call",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20260109-council",
+      "type": "council",
+      "title": "Region Coordination Council Strategy",
+      "date": "2026-01-09",
+      "participants": [
+        "Afo",
+        "Luizfernando",
+        "Trinity",
+        "Matt",
+        "Heenal"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Knowledge Commons WG connection"
+        },
+        {
+          "description": "Heenal leading taskforce (6 weeks to v1)"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Book workshops with Scott and Regen Commons",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20260116-council",
+      "type": "council",
+      "title": "Regen Coordination Council",
+      "date": "2026-01-16",
+      "participants": [
+        "Antonio",
+        "Luizfernando",
+        "Matt",
+        "Trinity"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Quarterly coordination calls preferred"
+        },
+        {
+          "description": "Less is more approach"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Antonio: Finalize Forest Sanctuary ownership",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20260123-council",
+      "type": "council",
+      "title": "Region Coordination Council",
+      "date": "2026-01-23",
+      "participants": [
+        "Luiz",
+        "Matt",
+        "Luisa"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Four Gardens pools launched"
+        },
+        {
+          "description": "Bread Co-op: Pool Within preferred"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Luisa: Create pool and voucher on Sarafu",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20260130-council",
+      "type": "council",
+      "title": "Region Coordination Council",
+      "date": "2026-01-30",
+      "participants": [
+        "Luiz",
+        "Afo",
+        "Magenta",
+        "Mehdi"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Focus on concrete actions"
+        },
+        {
+          "description": "Toolkit prioritized over strategy"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Schedule toolkit-focused workshop",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20260206-council",
+      "type": "council",
+      "title": "Regen Coordination Council Sync",
+      "date": "2026-02-06",
+      "participants": [
+        "Matty",
+        "Monty",
+        "Caue",
+        "Luiz",
+        "Trinity",
+        "Afo",
+        "Antonio",
+        "Imaginationhealer",
+        "Magenta"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Bread split: Bloom, ReFi DAO, Regen Coordination"
+        },
+        {
+          "description": "Toolkit knowledge gardening focus"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Plan quarterly call scheduling",
+          "status": "pending"
+        },
+        {
+          "description": "Build coordination website",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20260213-council",
+      "type": "council",
+      "title": "Green Pool NYC Funding Strategy",
+      "date": "2026-02-13",
+      "participants": [
+        "Luciano",
+        "Braven",
+        "Ron",
+        "Graydon",
+        "Alpha",
+        "Magenta"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Core focus: mutual aid orgs and software"
+        },
+        {
+          "description": "Initial $5k proof of concept"
+        },
+        {
+          "description": "DAI vault preferred over USDC"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Deploy funds within days",
+          "status": "pending"
+        },
+        {
+          "description": "Coordinate Octant Arbitrum deployment",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20260220-council",
+      "type": "council",
+      "title": "Region Coordination Council",
+      "date": "2026-02-20",
+      "participants": [
+        "Luizfernando",
+        "Mary",
+        "Magenta",
+        "Alpha"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "GitHub organization 'region-coordination' created"
+        },
+        {
+          "description": "Open source approach"
+        },
+        {
+          "description": "Impact Stake 1/3-1/3-1/3 split approach"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Luizfernando: Review Superfluid campaigns",
+          "status": "pending"
+        },
+        {
+          "description": "Alpha: Set up Arbitrum strategies",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20260403-council",
+      "type": "council",
+      "title": "Regen Coordination Council Sync",
+      "date": "2026-04-03",
+      "participants": [
+        "Luiz Fernando",
+        "Matty",
+        "Afo",
+        "Leo",
+        "Antonio",
+        "Regen Avocado"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": "https://docs.google.com/document/d/1BsRTOaUJwG0jnLKwxb-nK6BIizk57l0kgmI0_wQvfnE/edit",
+      "decisions": [
+        {
+          "description": "Region coordination as platform for ecosystem weaving"
+        },
+        {
+          "description": "Prioritize formal grants over gamified funding"
+        },
+        {
+          "description": "Aggregate existing events and calendars"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Luiz: Manage ReFi DAO transition through Q2",
+          "status": "pending"
+        },
+        {
+          "description": "Afo: Aggregate calendars",
+          "status": "pending"
+        },
+        {
+          "description": "Matty: Post Leo poll",
+          "status": "pending"
+        }
+      ]
+    },
+    {
+      "id": "mtg-20260410-council",
+      "type": "council",
+      "title": "Regen Coordination Council Sync",
+      "date": "2026-04-10",
+      "participants": [
+        "Luiz",
+        "Leo",
+        "Antonio",
+        "Corey",
+        "Matt"
+      ],
+      "status": "completed",
+      "agenda": null,
+      "notes": null,
+      "decisions": [
+        {
+          "description": "Monthly growth working group"
+        },
+        {
+          "description": "Simpler aggregator approach over token coordination"
+        },
+        {
+          "description": "Association setup for fund movement"
+        }
+      ],
+      "actionItems": [
+        {
+          "description": "Leo: Send Tech for Palestine link",
+          "status": "pending"
+        },
+        {
+          "description": "Matt: Review Artizen draft",
+          "status": "pending"
+        },
+        {
+          "description": "All: Set up BlueSky accounts",
+          "status": "pending"
+        }
+      ]
+    }
+  ]
+}
