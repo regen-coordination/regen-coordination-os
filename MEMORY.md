@@ -17,6 +17,8 @@ _Key decisions, active context, and organizational history for the Regen Coordin
 
 ## Key Decisions
 
+- [2026-04-26] Toolkit consolidation: single canonical regen-toolkit clone at `repos/regen-toolkit/`; standalone at `../regen-toolkit/` deleted after preserving 133 files of work to `origin/luizfernando-refidao` (5 commits `e3c9b16..835c2ae`). `.stignore` added at Zettelkasten root excluding `repos/`, `regen-toolkit/`, `node_modules/`, `dist/`, `.astro/`, `coverage/` — git is the sync mechanism for code, not Syncthing.
+- [2026-04-25] Toolkit overlay: PR #310 closed (no merge); `feature/org-os-overlay` operates as the working branch directly. Avoids merge gating; team operates against the branch.
 - [2026-03-05] Coop launched under Regen Coordination as a product and organizational experiment (Chromium extension + PWA + anchor node)
 - [2026-03-05] Coop ownership model aligned as an equal-share co-op structure among founding builders
 - [2026-03-05] Experimentation-first approach adopted: prioritize rapid pilots over ontology-first architecture
