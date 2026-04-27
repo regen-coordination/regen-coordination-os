@@ -1,6 +1,6 @@
 # Plan Queue — org-os (framework + regen-coord instance)
 
-> Last updated: 2026-04-25
+> Last updated: 2026-04-26
 
 ## Active
 
@@ -39,6 +39,14 @@ The 4 toolkit-specific plans previously drafted here have moved to their canonic
 | Contributions pipeline (brainstorm) | `repos/regen-toolkit/docs/plans/contributions-pipeline.md` | open |
 
 The toolkit's own plan QUEUE: `repos/regen-toolkit/docs/plans/QUEUE.md`.
+
+---
+
+## Cross-instance plans (canonical home: peer org-os instances)
+
+| Plan | Canonical home | Status | Notes |
+|---|---|---|---|
+| Bread Co-op OS bootstrap | `03 Libraries/bread-coop-os/docs/QUEUE.md` | queued | Triggered by 2026-04-23 toolkit planning call. Luiz + Durgadas (CSIS power-distribution standards + AI prompts to counter Josh power-concentration concern flagged by Rather). Dependency: validate Durgadas's standards application approach on next call. |
 
 ---
 

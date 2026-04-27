@@ -19,6 +19,13 @@ _Key decisions, active context, and organizational history for the Regen Coordin
 
 - [2026-04-26] Toolkit consolidation: single canonical regen-toolkit clone at `repos/regen-toolkit/`; standalone at `../regen-toolkit/` deleted after preserving 133 files of work to `origin/luizfernando-refidao` (5 commits `e3c9b16..835c2ae`). `.stignore` added at Zettelkasten root excluding `repos/`, `regen-toolkit/`, `node_modules/`, `dist/`, `.astro/`, `coverage/` — git is the sync mechanism for code, not Syncthing.
 - [2026-04-25] Toolkit overlay: PR #310 closed (no merge); `feature/org-os-overlay` operates as the working branch directly. Avoids merge gating; team operates against the branch.
+- [2026-04-23] Toolkit ontology: Rather's ontology adopted as the standard for the Regen Web3 Toolkit (Matt clarified prior layer-allocation impression — no formal allocation; Rather's work becomes canonical, others take ownership voluntarily).
+- [2026-04-23] OrgoS adopted as the toolkit's consolidation framework: master-doc content migrates into structured repo enabling meeting processing, dashboard, task management. Same template deployed for Bread Co-op OS as a separate instance.
+- [2026-04-23] CSIS + OrgoS confirmed architecturally compatible — CSIS strict in Deployment layer, secondary in Feedback (per `memory/csis_reference.md`).
+- [2026-04-23] Frame-language analysis (Durgadas) recognized as a critical lens for the toolkit — current docs use Frame 1 (extractive/hierarchical) language to describe regenerative processes; Durgadas to produce companion doc + AI prompts; AI can only operate in Frame 1/2.
+- [2026-04-23] Bread Co-op OS deployment must explicitly encourage power distribution (Rather flagged Josh's concentrated power); Durgadas's CSIS power-distribution standards + AI prompts to be applied during bootstrap.
+- [2026-04-23] May hackathon target communities locked in: **Geo Protocol** (geobrowser.io — confirmed interest), **Ethereum Localism** (Rather → Telegram outreach), **Open Civics Consortium** (Luiz → join via website).
+- [2026-04-23] Two-pizza team principle reaffirmed for the core toolkit working group.
 - [2026-03-05] Coop launched under Regen Coordination as a product and organizational experiment (Chromium extension + PWA + anchor node)
 - [2026-03-05] Coop ownership model aligned as an equal-share co-op structure among founding builders
 - [2026-03-05] Experimentation-first approach adopted: prioritize rapid pilots over ontology-first architecture

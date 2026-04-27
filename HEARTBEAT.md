@@ -3,6 +3,15 @@
 # These tasks run on agent heartbeat (when polled)
 # Comment out or remove tasks to disable them
 
+## Active Action Items
+
+_Source: 2026-04-23 Regen Web3 Toolkit Planning Call — full set tracked in `packages/operations/projects/regen-web3-toolkit.md`._
+
+- [ ] Join Open Civics Consortium chat via website (Luiz) — coordinate May hackathon invitation
+- [ ] Validate OrgoS embed approach (`feature/org-os-overlay`) + Bread Co-op OS bootstrap with the team on next planning call (~2026-05-07)
+- [ ] Confirm May hackathon date once Matt's group locks it in
+- [ ] Initialize Bread Co-op OS instance using OrgoS template; surface Durgadas's CSIS power-distribution standards during deployment (Luiz + Durgadas) — `03 Libraries/bread-coop-os/`
+
 ## Weekly Tasks (Mondays)
 
 ### Knowledge Aggregation Check
