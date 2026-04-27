@@ -35,7 +35,7 @@ The 4 toolkit-specific plans previously drafted here have moved to their canonic
 |---|---|---|
 | Vault bootstrap | `repos/regen-toolkit/docs/plans/vault-bootstrap.md` | **completed 2026-04-26** |
 | Org-os one-pager + LAYERS.md | `repos/regen-toolkit/docs/plans/onepager-and-layers.md` | **completed 2026-04-26** |
-| Public sharing pack | `repos/regen-toolkit/docs/plans/public-sharing-pack.md` | queued (decisions resolved by mirroring CSIS + KOI docs into toolkit, db741a9 on `feature/org-os-overlay`) |
+| Public sharing pack | `repos/regen-toolkit/docs/plans/public-sharing-pack.md` | **drafted 2026-04-26 (pending operator send)** — draft at `repos/regen-toolkit/packages/operations/comms/2026-04-26-team-sharing-pack.md` |
 | Contributions pipeline (brainstorm) | `repos/regen-toolkit/docs/plans/contributions-pipeline.md` | open |
 
 The toolkit's own plan QUEUE: `repos/regen-toolkit/docs/plans/QUEUE.md`.
