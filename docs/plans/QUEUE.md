@@ -36,7 +36,8 @@ The 4 toolkit-specific plans previously drafted here have moved to their canonic
 | Vault bootstrap | `repos/regen-toolkit/docs/plans/vault-bootstrap.md` | **completed 2026-04-26** |
 | Org-os one-pager + LAYERS.md | `repos/regen-toolkit/docs/plans/onepager-and-layers.md` | **completed 2026-04-26** |
 | Public sharing pack | `repos/regen-toolkit/docs/plans/public-sharing-pack.md` | **drafted 2026-04-26 (pending operator send)** — draft at `repos/regen-toolkit/packages/operations/comms/2026-04-26-team-sharing-pack.md` |
-| Contributions pipeline (brainstorm) | `repos/regen-toolkit/docs/plans/contributions-pipeline.md` | open |
+| Contributions pipeline (brainstorm) | `repos/regen-toolkit/docs/plans/contributions-pipeline.md` | open (Tier 1 #1 promoted+completed 2026-04-26 — see resources-lift) |
+| Resources lift | `repos/regen-toolkit/docs/plans/resources-lift.md` | **completed 2026-04-26** — 738 entries → `data/resources.yaml`; pending Brandon curation |
 
 The toolkit's own plan QUEUE: `repos/regen-toolkit/docs/plans/QUEUE.md`.
 
