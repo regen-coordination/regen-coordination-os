@@ -294,13 +294,116 @@ Light-theme shadows (dark theme inverts opacity per tokens.css):
 
 ## 5. Iconography
 
-_(Task 6)_
+### 5.1 Primary icon set
+
+**Lucide React** (`lucide-react` npm package). Matches shadcn convention — every shadcn example uses Lucide. Stroke-based, consistent 24px grid.
+
+Stroke width: `1.75px` default (slightly heavier than Lucide's `1.5` default for better legibility on the warm gradient backdrop).
+
+### 5.2 Icon sizes
+
+| Token | rem | px | Use |
+|---|---|---|---|
+| `--icon-xs` | 0.75rem | 12 | Inline annotations, badges |
+| `--icon-sm` | 1rem | 16 | Inline with body text, table cells |
+| `--icon-md` | 1.25rem | 20 | Buttons, nav items |
+| `--icon-lg` | 1.5rem | 24 | Section headers, card icons |
+| `--icon-xl` | 2rem | 32 | Empty states, feature highlights |
+| `--icon-2xl` | 3rem | 48 | Marketing surfaces, large empty states |
+
+### 5.3 Brand mark variants
+
+The orb mark serves three purposes; each gets its own asset:
+
+| Variant | File | Use |
+|---|---|---|
+| Full orb (gradient + nodes) | `brand/logo-orb.jpg` (raster), `brand/orb-mark.svg` (vector) | Hero, favicon, large surfaces |
+| Mark-only (white nodes, no gradient) | `brand/orb-mark-white.svg` | Nav header, watermarks, dark-theme overlays |
+| Outline (single-color stroke) | `brand/orb-mark-outline.svg` | Print, monochrome contexts |
+
+### 5.4 Network-mark family
+
+Each federation peer (Bloom, Greenpill, ReFi DAO, etc.) gets a node-styled mark using its network color:
+
+```css
+.node-mark { fill: var(--network-color, var(--text-muted)); }
+.node-mark[data-network="refi-dao"] { --network-color: #4571e1; }
+.node-mark[data-network="greenpill"] { --network-color: #71e3ba; }
+.node-mark[data-network="bloom"]    { --network-color: #de9ae9; }
+.node-mark[data-network="rc"]       { --network-color: oklch(74% 0.125 77); }
+```
+
+These appear in the Network page node-graph (§8 NodeOrb pattern) and in inline network badges throughout.
 
 ---
 
 ## 6. Motion
 
-_(Task 6)_
+### 6.1 Easing curves
+
+| Token | CSS | Use |
+|---|---|---|
+| `--ease-in` | `cubic-bezier(0.4, 0, 1, 1)` | Element exits, dismissal |
+| `--ease-out` | `cubic-bezier(0, 0, 0.2, 1)` | Element entrances, emphasis |
+| `--ease-in-out` | `cubic-bezier(0.4, 0, 0.2, 1)` | Continuous motion (toggles, accordions) |
+| `--ease-emphasis` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Springy reveals (stat counters, hero entry) |
+
+### 6.2 Duration scale
+
+| Token | ms | Use |
+|---|---|---|
+| `--duration-instant` | 0 | No animation (prefers-reduced-motion default) |
+| `--duration-fast` | 150 | Hover states, micro-feedback |
+| `--duration-base` | 240 | Standard transitions (panels, tabs) |
+| `--duration-slow` | 400 | Page transitions, large reveals |
+| `--duration-deliberate` | 600 | Hero entrance, gradient hue-shift |
+
+### 6.3 Reduced-motion default
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+```
+
+This is the **base** behavior. Motion below is opt-in via `:not([data-reduced-motion])` or by querying `prefers-reduced-motion: no-preference` explicitly.
+
+### 6.4 Signature motions
+
+**Hero gradient hue-shift** — the brand gradient subtly drifts hue (sky cools, sun warms) over 60s, mimicking a long sunset. Disabled under reduced-motion.
+
+```css
+@keyframes brand-gradient-drift {
+  0%   { --grad-hue-shift: 0deg; }
+  50%  { --grad-hue-shift: -8deg; }
+  100% { --grad-hue-shift: 0deg; }
+}
+.gradient-hero[data-animate="true"] {
+  animation: brand-gradient-drift 60s var(--ease-in-out) infinite;
+}
+```
+
+**Orb node-pulse on hover** — when a network node in the orb mark is hovered, that node pulses (scale 1 → 1.15 → 1) with a soft glow.
+
+```css
+.node-mark:hover { animation: node-pulse 800ms var(--ease-emphasis); }
+@keyframes node-pulse {
+  0%   { transform: scale(1); filter: drop-shadow(0 0 0 transparent); }
+  50%  { transform: scale(1.15); filter: drop-shadow(0 0 8px var(--network-color)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 0 transparent); }
+}
+```
+
+**Stat counter roll-in** — homepage stats count up from 0 over 1.2s with `--ease-emphasis`. Triggered by IntersectionObserver entry; respects reduced-motion.
+
+### 6.5 Library
+
+Use `cmd-animate` from `impeccable.style` for keyframe utilities (entrance/exit primitives) when shadcn's `tailwindcss-animate` doesn't cover the case. Don't ship `framer-motion` — overkill for our motion budget.
 
 ---
 
