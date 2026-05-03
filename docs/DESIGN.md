@@ -32,7 +32,50 @@ If the design must change, edit this file first, then regenerate token CSS, then
 
 ## 1. Brand Foundations
 
-_(Task 2)_
+### 1.1 Identity
+
+**Wordmark:** Regen Coordination
+- Always two words, both capitalized
+- Never "RegenCoordination" / "regen-coordination" / "Regen CoordiNATION" (the all-caps NATION variant from earlier Figma exploration is deprecated)
+- Allowed shorthands in body copy: "RC" (after first full mention), "the network"
+
+**Tagline:** Collaborative Pathways to Regeneration
+- Use as a subtitle under the wordmark in hero treatments
+- Don't vary, paraphrase, or split across lines mid-phrase
+- Acceptable alternatives in long-form copy ONLY: "regeneration through coordination" (lowercase, descriptive)
+
+**Mark — the orb:** Connected white nodes (8–9) with edges, on the brand sky-to-sun gradient circle.
+- File: `docs/design-source/brand/logo-orb.jpg` (sampled), `docs/design-source/brand/orb-mark.svg` (vector, when extracted)
+- Stands for: connection across networks; the federation topology made visible
+- Variants:
+  - **Full orb** — gradient + nodes — for hero, favicon, large surfaces
+  - **Mark-only** — white nodes on transparent — for nav header, watermarks
+  - **Outline** — single-color stroke version — for monochrome contexts (print, faxed forms)
+- **Don't** rotate, recolor the gradient, add drop shadows, or place over busy photography.
+
+### 1.2 Voice & Tone
+
+| Trait | Do | Don't |
+|---|---|---|
+| Direct | "We coordinate funding across 7 networks." | "Our innovative cross-network funding orchestration platform leverages..." |
+| Grounded | "Council meets every two weeks. 23 meetings in 2026 so far." | "Continuously evolving governance touchpoints." |
+| Multilingual-ready | Plain syntax, short sentences, avoid idioms | Wordplay, US-cultural metaphors, jargon |
+| Anti-crypto-hype | "Funding routes through Octant vaults to vetted projects." | "Cutting-edge ReFi tokenomics unlock value flows." |
+
+**Pronouns:** "we" for the network speaking collectively; "you" for the operator/visitor. Avoid royal "we" in technical docs (use "this app" / "the aggregator").
+
+**Languages (by surface):**
+- Primary: English (EN)
+- Secondary, post-v1: Spanish (ES), Portuguese (PT), Catalan (CA) — for local nodes
+- All copy must be translatable: avoid English-specific puns, alliteration, idioms
+
+### 1.3 Naming Rules (system-wide)
+
+- **App names:** `regen-coordination` (RC instance), `regen-ecosystem` (open ecosystem fork) — kebab-case
+- **Package names:** `aggregator-ui`, `aggregator-data`, `aggregator-config` — kebab-case, no `@org-os/` prefix until Phase 6 promotion
+- **Page titles in nav:** Title Case, single word where possible (Home, Network, Capital, Initiatives, Activity, Calendar)
+- **Filename convention:** `kebab-case` for code, `Title Case` for content/markdown destined for direct human reading (council records, plans)
+- **Component names in code:** PascalCase (`<GradientHero />`, `<NodeOrb />`)
 
 ---
 
