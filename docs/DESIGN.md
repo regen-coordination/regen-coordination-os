@@ -330,7 +330,7 @@ Each federation peer (Bloom, Greenpill, ReFi DAO, etc.) gets a node-styled mark 
 .node-mark[data-network="refi-dao"] { --network-color: #4571e1; }
 .node-mark[data-network="greenpill"] { --network-color: #71e3ba; }
 .node-mark[data-network="bloom"]    { --network-color: #de9ae9; }
-.node-mark[data-network="rc"]       { --network-color: oklch(74% 0.125 77); }
+.node-mark[data-network="rc"]       { --network-color: var(--brand-sun-deep); }
 ```
 
 These appear in the Network page node-graph (§8 NodeOrb pattern) and in inline network badges throughout.
