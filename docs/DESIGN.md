@@ -502,7 +502,7 @@ Result groups query the same data sources the pages use (see `packages/aggregato
 
 **Anatomy:** `[tab list (horizontal) | tab panel]`.
 
-Variants: `underline` (default — bottom border under active), `pill` (active tab fills with primary at 10%), `segmented` (button-group style for binary/ternary toggles).
+Variants: `underline` (default — bottom border under active), `pill` (active tab: `bg-primary/10` fill), `segmented` (button-group style for binary/ternary toggles).
 
 Use `underline` for content-heavy pages (Network page sub-views), `pill` for filter-style switching, `segmented` for view-mode toggles (map ↔ list).
 
