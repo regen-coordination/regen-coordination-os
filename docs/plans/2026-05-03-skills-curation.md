@@ -34,13 +34,21 @@ Pulled from §6 of the design spec:
 
 11 unique candidates after dedup across sources. Triage criteria: direct domain match, no major framework conflict (works with Astro/React/shadcn or framework-agnostic), active maintenance, permissive license.
 
-| # | Skill | Source | Install command | Why this and not alternates |
-|---|---|---|---|---|
-| 1 | **oklch-skill** | oklch.fyi (jakubkrehel) | `npx skills add jakubkrehel/oklch-skill` | Direct OKLCH match — converts colors, generates palettes, checks contrast, sets fallbacks. Spec §5 entirely OKLCH-first; no alternate covers this. |
-| 2 | **frontend-design** | anthropics/skills | `/plugin marketplace add anthropics/skills` then `/plugin install example-skills@anthropic-agent-skills` | Production UI generation with explicit accessibility/typography/spacing discipline. Framework-agnostic CSS-var patterns work for Astro + React islands. Beats `vercel-react-best-practices` (Next-only) and `web-design-guidelines` (Vercel-opinionated, deferred). |
-| 3 | **webapp-testing** | anthropics/skills | `/plugin install example-skills@anthropic-agent-skills` | Playwright-based frontend testing including visual verification + screenshot capture. Covers spec §7 visual-regression deliverable. Apache 2.0. |
-| 4 | **brand-guidelines** | anthropics/skills | `/plugin install example-skills@anthropic-agent-skills` | Template for encoding the RC brand (sky-to-sun OKLCH palette, Poppins/Inter, orb mark) as a reusable skill. Once we customize it, the resulting `regen-coord-brand-guidelines` is itself a strong promotion candidate for org-os Phase 6. |
-| 5 | **deploy-to-vercel** | vercel-labs (skills.sh) | `npx skills add vercel-labs/agent-skills/deploy-to-vercel` | Astro is a supported framework; covers ecosystem-app deploy target. RC app stays on GitHub Pages (no skill found for that — manual workflow per spec §7). |
+| # | Skill | Source | Install command (used) | Installed at | Why this and not alternates |
+|---|---|---|---|---|---|
+| 1 | **oklch-skill** | oklch.fyi (jakubkrehel) | `npx skills add jakubkrehel/oklch-skill -y -a '*'` | `.agents/skills/oklch-skill/` ✓ | Direct OKLCH match — converts colors, generates palettes, checks contrast, sets fallbacks. Spec §5 entirely OKLCH-first; no alternate covers this. |
+| 2 | **frontend-design** | anthropics/skills | `npx skills add anthropics/skills -s frontend-design -y -a '*'` | `.agents/skills/frontend-design/` ✓ | Production UI generation with explicit accessibility/typography/spacing discipline. Framework-agnostic CSS-var patterns work for Astro + React islands. |
+| 3 | **webapp-testing** | anthropics/skills | `npx skills add anthropics/skills -s webapp-testing -y -a '*'` | `.agents/skills/webapp-testing/` ✓ | Playwright-based frontend testing including visual verification + screenshot capture. Covers spec §7 visual-regression deliverable. Apache 2.0. |
+| 4 | **brand-guidelines** | anthropics/skills | `npx skills add anthropics/skills -s brand-guidelines -y -a '*'` | `.agents/skills/brand-guidelines/` ✓ | Template for encoding the RC brand (sky-to-sun OKLCH palette, Poppins/Inter, orb mark) as a reusable skill. Once customized, `regen-coord-brand-guidelines` is a strong org-os promotion candidate. |
+| 5 | **deploy-to-vercel** | vercel-labs (skills.sh) | `npx skills add vercel-labs/agent-skills -s deploy-to-vercel -y -a '*'` | `.agents/skills/deploy-to-vercel/` ✓ | Astro is a supported framework; covers ecosystem-app deploy target. RC app stays on GitHub Pages (no skill found — manual workflow per spec §7). |
+
+**Install notes:**
+- All 5 installed via `npx skills add` (skills.sh CLI) — bypassing the `/plugin install` UI dependency.
+- `-a '*'` flag created harness-symlink directories at the repo root (~36 dirs: `.aider-desk/`, `.augment/`, `.codeartsdoer/`, etc.) — gitignored as regenerable via `npx skills experimental_sync`.
+- `skills/<name>` symlinks point to `.agents/skills/<name>/` (canonical location). Both committed for org-os skill-loader compatibility.
+- `skills-lock.json` committed for reproducibility (`npx skills experimental_install` restores from lockfile).
+- **All 5 SKILL.md files verified present** post-install.
+- Brief: review skills before use; they run with full agent permissions (per CLI warning).
 
 ## Implementation skills — DEFER
 
