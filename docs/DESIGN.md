@@ -131,7 +131,7 @@ The brand is a **sky-to-sun gradient**. Every other token in the system derives 
 | `--gradient-brand` | sky → horizon → sun | Hero backdrops, large brand surfaces |
 | `--gradient-cool` | sky → horizon (truncate) | Secondary heroes, glass card tints |
 | `--gradient-warm` | horizon → sun-deep | CTA buttons (subtle), accent fills |
-| `--gradient-night` | _(defined in §2.5 dark theme)_ | Dark-theme equivalent of brand |
+| `--gradient-night` | _(defined in §2.5 dark theme)_ | Subtle vertical wash for dark dashboard headers |
 
 ### 2.4 Dark theme — semantic tokens
 
