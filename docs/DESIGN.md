@@ -21,8 +21,7 @@ This document is the canonical design system for the Regen Coordination aggregat
 - Inspiration references: [`docs/design-source/inspiration-references.md`](design-source/inspiration-references.md)
 
 **Consumers:**
-- `packages/aggregator-ui/theme/tokens.css` — generated from §2 (color), §3 (typography), §4 (spacing)
-- `packages/aggregator-ui/theme/dark.css` — generated from §2 dark-theme tokens
+- `packages/aggregator-ui/theme/tokens.css` — single token file; light defaults under `:root`, dark overrides under `[data-theme="dark"]` (see §2.6 + §12.1)
 - `packages/aggregator-ui/components/` — shadcn-based components implementing §7 primitives
 - `apps/regen-coordination/`, `apps/regen-ecosystem/` — both apps consume the above
 
@@ -276,7 +275,7 @@ Light-theme shadows (dark theme inverts opacity per tokens.css):
 | `--shadow-md` | `0 4px 6px -1px oklch(0% 0 0 / 0.07), 0 2px 4px -2px oklch(0% 0 0 / 0.05)` | Cards, popovers |
 | `--shadow-lg` | `0 10px 15px -3px oklch(0% 0 0 / 0.07), 0 4px 6px -4px oklch(0% 0 0 / 0.05)` | Modals, command palette |
 | `--shadow-xl` | `0 20px 25px -5px oklch(0% 0 0 / 0.10), 0 8px 10px -6px oklch(0% 0 0 / 0.06)` | Featured cards, drawers |
-| `--shadow-glow` | `0 0 30px oklch(74% 0.125 77 / 0.30)` | Sun-deep glow for primary CTAs (use sparingly) |
+| `--shadow-glow` | `0 0 30px oklch(73.8% 0.125 77 / 0.30)` | Sun-deep glow for primary CTAs (use sparingly) |
 
 ### 4.4 Container widths
 
@@ -739,7 +738,7 @@ Visible focus ring on every interactive element. Default: 2px outline using `--b
 
 ```css
 *:focus-visible {
-  outline: 2px solid oklch(74% 0.125 77 / 0.6);
+  outline: 2px solid oklch(73.8% 0.125 77 / 0.6);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
