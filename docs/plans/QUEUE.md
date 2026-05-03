@@ -1,10 +1,20 @@
 # Plan Queue — org-os (framework + regen-coord instance)
 
-> Last updated: 2026-04-26
+> Last updated: 2026-05-03
 
 ## Active
 
-_(none — pick one of the queued plans below to activate)_
+### Aggregator initiative (per [`docs/superpowers/specs/2026-05-03-aggregator-design.md`](../superpowers/specs/2026-05-03-aggregator-design.md))
+
+Two paired Astro+React+shadcn aggregators (RC canonical + open ecosystem fork), monorepo with shared `aggregator-{ui,data,config}` packages, brand pivot to actual sky-to-sun gradient, light-default with dark variant.
+
+- ✅ **Phase 0** — Skills curation — completed 2026-05-03 — see [`docs/plans/2026-05-03-skills-curation.md`](2026-05-03-skills-curation.md). Installed: oklch-skill, frontend-design, webapp-testing, brand-guidelines, deploy-to-vercel.
+- ⏭ **Phase 1** — DESIGN.md drafting — **next plan to write** (invoke `superpowers:writing-plans` against spec §5)
+- ⏭ **Phase 2** — Monorepo scaffold + `aggregator-ui` foundation
+- ⏭ **Phase 3** — `aggregator-data` + RC app (6 nav pages)
+- ⏭ **Phase 4** — Open ecosystem app + 3 example instances
+- ⏭ **Phase 5** — Polish + a11y + launch
+- ⏭ **Phase 6** — Org-os promotion retrospective (post-launch async)
 
 ## Queued — regen-coord-instance plans
 
