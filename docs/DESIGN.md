@@ -623,13 +623,102 @@ Sorted reverse-chronological. Filter Combobox above: by attendee, by decision ke
 
 ## 9. Layout Templates
 
-_(Task 10)_
+Each template is a top-level layout in `apps/<app>/src/layouts/`. Pages compose by extending one.
+
+### 9.1 Marketing layout
+
+For Home pages and any landing surface.
+
+```
+[ Header (logo + nav + theme-toggle) ]
+[ GradientHero ]
+[ Section (alternating bg / surface-1) × N ]
+[ Footer (links + federation peers + license) ]
+```
+
+Container: `--container-2xl`, edge-padding `--space-8` (mobile `--space-4`).
+
+### 9.2 Browser layout
+
+For filterable index pages (Initiatives, Funding, Calls & Events, Nodes).
+
+```
+[ Header ]
+[ Page title row + breadcrumb + view-mode toggle ]
+[ FilterBar ]
+[ Grid (cards) | List (table) ]   ← view-mode determines
+[ Pagination ]
+[ Footer ]
+```
+
+Container: `--container-xl`, two-column on `xl+` (filter sidebar left, grid right).
+
+### 9.3 Detail layout
+
+For per-entity pages (single initiative, single fund, single meeting, single node).
+
+```
+[ Header ]
+[ Breadcrumb ]
+[ Entity hero (name + status + key metadata) ]
+[ Content (sections) ]
+[ Sidebar (related, links, contact) — sticky on lg+ ]
+[ Footer ]
+```
+
+Container: `--prose-max` (65ch) for the content column on `lg+`; full-width on mobile.
+
+### 9.4 Dashboard layout (future internal surfaces)
+
+For Phase 3+ when internal dashboards land (capital flow control panel, council ops view).
+
+```
+[ Header ]
+[ Stat row (4–6 stat cards) ]
+[ Chart grid (2 × 2 on lg, stacked on mobile) ]
+[ Table ]
+[ Footer ]
+```
+
+Container: `--container-xl`, dense padding `--space-3`.
 
 ---
 
 ## 10. Responsive
 
-_(Task 10)_
+### 10.1 Breakpoints
+
+| Token | Min-width | Use |
+|---|---|---|
+| `sm` | 640px | Larger phones, small tablets in portrait |
+| `md` | 768px | Tablets in landscape |
+| `lg` | 1024px | Small desktops, sidebar layouts |
+| `xl` | 1280px | Desktops |
+| `2xl` | 1536px | Large desktops, marketing heroes at full width |
+
+Mobile-first: write rules at base, override at `min-width` breakpoints. Avoid `max-width` queries.
+
+### 10.2 Grid
+
+Default 12-column grid on `lg+`, 4-column on mobile (`<lg`). Gap `--space-6` (24px) on `lg+`, `--space-4` (16px) on mobile.
+
+```css
+.grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space-6); }
+@media (max-width: 1023px) { .grid-12 { grid-template-columns: repeat(4, 1fr); gap: var(--space-4); } }
+```
+
+### 10.3 Touch targets
+
+Minimum 44×44px tap area for any interactive element on touch surfaces (mobile, tablet). Apply via min-height/min-width on the interactive box, not the visual content (e.g., a 24px icon button has 10px padding to reach 44px total).
+
+### 10.4 Responsive patterns per layout
+
+| Layout | Mobile (<lg) | Desktop (lg+) |
+|---|---|---|
+| Marketing | Single column, hero h-[60vh], stat row stacks 2×2 | Multi-column sections, hero h-screen, stat row 1×4 |
+| Browser | Filter accordion above grid, grid 1-col, no pagination dropdown (just prev/next) | Filter sidebar left, grid 2–3 col, pagination dropdown + page numbers |
+| Detail | Sidebar collapses to bottom of content column | Sidebar sticky right, content prose-max width |
+| Dashboard | Stat cards 2×3, charts stack, table → card-rows variant | Stat row 1×4–6, charts 2×2 grid, table full table |
 
 ---
 
