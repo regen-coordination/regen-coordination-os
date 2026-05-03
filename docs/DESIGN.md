@@ -120,7 +120,9 @@ The brand is a **sky-to-sun gradient**. Every other token in the system derives 
 | `--info` | `oklch(55% 0.10 236)` | `#2a7aa4` | Info status (derived from `--brand-sky`, deepened) |
 | `--info-foreground` | `oklch(98% 0.005 236)` | `#f5f9fb` | Text/icons on `--info` backgrounds |
 
-**WCAG verification:** Every fg/bg pair certified AA (≥ 4.5:1 normal text, ≥ 3:1 large/UI). Full report: [`docs/design-source/contrast-report.json`](design-source/contrast-report.json) (light theme + dark theme combined after Task 4).
+**On status hues:** `success` (h=142) and `danger` (h=25) use conventional semantic hues rather than the brand axis (h=70–104). Status legibility is universal-convention-driven (green=success, red=danger); brand-anchored status colors would compromise scannability. `info` (h=236) and `warning` (h=70/77) stay on the brand axis since cool-blue and warm-amber are both already brand-native and read correctly as their semantic roles.
+
+**WCAG verification:** Every fg/bg pair certified AA (≥ 4.5:1 normal text, ≥ 3:1 large/UI) in both light and dark themes. Full report: [`docs/design-source/contrast-report.json`](design-source/contrast-report.json).
 
 ### 2.3 Light theme — gradient utilities
 
@@ -130,6 +132,47 @@ The brand is a **sky-to-sun gradient**. Every other token in the system derives 
 | `--gradient-cool` | sky → horizon (truncate) | Secondary heroes, glass card tints |
 | `--gradient-warm` | horizon → sun-deep | CTA buttons (subtle), accent fills |
 | `--gradient-night` | _(defined in §2.5 dark theme)_ | Dark-theme equivalent of brand |
+
+### 2.4 Dark theme — semantic tokens
+
+The dark theme is **derived**, not hand-curated. Lightness inverted (L → 100−L), chroma dampened by ~25% to avoid neon glow. Same brand story (sky → sun) presented as "Regen Coordination at night."
+
+| Token | OKLCH | Hex | Role |
+|---|---|---|---|
+| `--bg` | `oklch(13% 0.008 75)` | `#090705` | App background — very dark warm-anchored neutral |
+| `--surface-1` | `oklch(17% 0.010 75)` | `#120f0b` | First elevation (cards, panels) |
+| `--surface-2` | `oklch(21% 0.012 75)` | `#1c1812` | Second elevation (modals, popovers) |
+| `--surface-3` | `oklch(25% 0.014 75)` | `#26211a` | Third elevation (sticky headers, nav rails) |
+| `--text-primary` | `oklch(96% 0.008 75)` | `#f5f1ec` | Body text, headings — warm-anchored near-white |
+| `--text-muted` | `oklch(72% 0.010 75)` | `#a8a49e` | Secondary text, captions, metadata |
+| `--border-default` | `oklch(52% 0.012 75)` | `#6d6861` | Default border for inputs, dividers, card outlines |
+| `--border-subtle` | `oklch(32% 0.010 75)` | `#36322d` | Hairline divider for low-emphasis separation |
+| `--primary` | `oklch(60% 0.155 77)` | `#b37000` | Primary action color — vibrant warm-orange (visibility on dark) |
+| `--primary-hover` | `oklch(66% 0.150 77)` | `#c58300` | Primary hover state (lighter — dark-theme convention) |
+| `--primary-active` | `oklch(72% 0.140 77)` | `#d59725` | Primary pressed/active state (lighter still) |
+| `--primary-foreground` | `oklch(15% 0.015 75)` | `#0f0a05` | Text/icons on `--primary` backgrounds — near-black for vibrancy |
+| `--accent` | `oklch(28% 0.072 104)` | `#2f2a00` | Accent surface — dark-derived from `--brand-pasture` |
+| `--accent-foreground` | `oklch(96% 0.008 104)` | `#f2f2ec` | Text/icons on `--accent` backgrounds |
+| `--success` | `oklch(62% 0.14 142)` | `#4f9b48` | Success status (lifted L for legibility on dark) |
+| `--success-foreground` | `oklch(15% 0.015 142)` | `#080d07` | Text/icons on `--success` backgrounds |
+| `--warning` | `oklch(75% 0.155 70)` | `#eb9a1f` | Warning status (vibrant amber stays bright) |
+| `--warning-foreground` | `oklch(18% 0.020 70)` | `#171008` | Text/icons on `--warning` backgrounds |
+| `--danger` | `oklch(63% 0.18 25)` | `#e1514e` | Danger/error status (lifted L for dark backgrounds) |
+| `--danger-foreground` | `oklch(15% 0.020 25)` | `#130807` | Text/icons on `--danger` backgrounds |
+| `--info` | `oklch(65% 0.11 236)` | `#4199c9` | Info status (cool slate, lifted from light theme) |
+| `--info-foreground` | `oklch(15% 0.015 236)` | `#060c11` | Text/icons on `--info` backgrounds |
+
+### 2.5 Dark theme — gradient utilities
+
+| Utility | Stops | Use |
+|---|---|---|
+| `--gradient-brand-dark` | sky-dark → horizon-dark → sun-dark | Hero backdrops on dark surfaces |
+| `--gradient-night` | sky-dark → bg | Subtle vertical wash for dashboard headers |
+| `--gradient-cta-dark` | sun-dark → sun-deep-dark | CTA button gradient on dark |
+
+### 2.6 Theme switching
+
+CSS variables defined under `:root` (light defaults) and `[data-theme="dark"]` (dark overrides). User preference stored in `localStorage.theme`; `prefers-color-scheme: dark` is the initial signal if no preference set. Surfaces opt out by adding `data-theme-lock="light"` or `data-theme-lock="dark"` to a parent (e.g., council-corpus pages may lock to light for legibility of long-form text).
 
 ---
 

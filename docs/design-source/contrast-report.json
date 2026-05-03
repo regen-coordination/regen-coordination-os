@@ -103,7 +103,8 @@
           "fg": "text-primary",
           "bg": "success",
           "ratio": 3.32,
-          "wcag": "AA-large"
+          "wcag": "FAIL",
+          "note": "text-primary is body-text-styled; pair fails AA for normal text. Use success-foreground on success bg."
         },
         {
           "fg": "text-primary",
@@ -115,19 +116,158 @@
           "fg": "text-primary",
           "bg": "danger",
           "ratio": 3.26,
-          "wcag": "AA-large"
+          "wcag": "FAIL",
+          "note": "text-primary is body-text-styled; pair fails AA for normal text. Use danger-foreground on danger bg."
         },
         {
           "fg": "text-primary",
           "bg": "info",
           "ratio": 3.64,
-          "wcag": "AA-large"
+          "wcag": "FAIL",
+          "note": "text-primary is body-text-styled; pair fails AA for normal text. Use info-foreground on info bg."
         },
         {
           "fg": "border-default",
           "bg": "bg",
           "ratio": 3.84,
-          "wcag": "AA-large"
+          "wcag": "AA-UI",
+          "note": "WCAG SC 1.4.11 (Non-text Contrast) — UI border on app bg, ≥ 3:1."
+        }
+      ],
+      "violations": []
+    },
+    "dark": {
+      "pairs": [
+        {
+          "fg": "text-primary",
+          "bg": "bg",
+          "ratio": 17.9,
+          "wcag": "AAA"
+        },
+        {
+          "fg": "text-primary",
+          "bg": "surface-1",
+          "ratio": 17.02,
+          "wcag": "AAA"
+        },
+        {
+          "fg": "text-primary",
+          "bg": "surface-2",
+          "ratio": 15.78,
+          "wcag": "AAA"
+        },
+        {
+          "fg": "text-primary",
+          "bg": "surface-3",
+          "ratio": 14.25,
+          "wcag": "AAA"
+        },
+        {
+          "fg": "text-muted",
+          "bg": "bg",
+          "ratio": 8.1,
+          "wcag": "AAA"
+        },
+        {
+          "fg": "text-muted",
+          "bg": "surface-1",
+          "ratio": 7.7,
+          "wcag": "AAA"
+        },
+        {
+          "fg": "text-muted",
+          "bg": "surface-2",
+          "ratio": 7.14,
+          "wcag": "AAA"
+        },
+        {
+          "fg": "text-muted",
+          "bg": "surface-3",
+          "ratio": 6.45,
+          "wcag": "AA"
+        },
+        {
+          "fg": "primary-foreground",
+          "bg": "primary",
+          "ratio": 4.85,
+          "wcag": "AA"
+        },
+        {
+          "fg": "primary-foreground",
+          "bg": "primary-hover",
+          "ratio": 6.18,
+          "wcag": "AA"
+        },
+        {
+          "fg": "primary-foreground",
+          "bg": "primary-active",
+          "ratio": 7.79,
+          "wcag": "AAA"
+        },
+        {
+          "fg": "accent-foreground",
+          "bg": "accent",
+          "ratio": 12.95,
+          "wcag": "AAA"
+        },
+        {
+          "fg": "success-foreground",
+          "bg": "success",
+          "ratio": 5.69,
+          "wcag": "AA"
+        },
+        {
+          "fg": "warning-foreground",
+          "bg": "warning",
+          "ratio": 8.22,
+          "wcag": "AAA"
+        },
+        {
+          "fg": "danger-foreground",
+          "bg": "danger",
+          "ratio": 5.17,
+          "wcag": "AA"
+        },
+        {
+          "fg": "info-foreground",
+          "bg": "info",
+          "ratio": 6.19,
+          "wcag": "AA"
+        },
+        {
+          "fg": "text-primary",
+          "bg": "success",
+          "ratio": 3.07,
+          "wcag": "FAIL",
+          "note": "text-primary is body-text-styled; pair fails AA for normal text. Use success-foreground on success bg."
+        },
+        {
+          "fg": "text-primary",
+          "bg": "warning",
+          "ratio": 2.04,
+          "wcag": "FAIL",
+          "note": "text-primary is body-text-styled; pair fails AA for normal text. Use warning-foreground on warning bg."
+        },
+        {
+          "fg": "text-primary",
+          "bg": "danger",
+          "ratio": 3.39,
+          "wcag": "FAIL",
+          "note": "text-primary is body-text-styled; pair fails AA for normal text. Use danger-foreground on danger bg."
+        },
+        {
+          "fg": "text-primary",
+          "bg": "info",
+          "ratio": 2.82,
+          "wcag": "FAIL",
+          "note": "text-primary is body-text-styled; pair fails AA for normal text. Use info-foreground on info bg."
+        },
+        {
+          "fg": "border-default",
+          "bg": "bg",
+          "ratio": 3.65,
+          "wcag": "AA-UI",
+          "note": "WCAG SC 1.4.11 (Non-text Contrast) — UI border on app bg, ≥ 3:1."
         }
       ],
       "violations": []
