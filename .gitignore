@@ -5,3 +5,4 @@ repos/
 .env
 .env.local
 docs/design-source/renders/
+.worktrees/
