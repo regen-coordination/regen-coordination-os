@@ -32,19 +32,66 @@ Pulled from §6 of the design spec:
 
 ## Implementation skills — INSTALL
 
-_(populated by Task 5)_
+11 unique candidates after dedup across sources. Triage criteria: direct domain match, no major framework conflict (works with Astro/React/shadcn or framework-agnostic), active maintenance, permissive license.
+
+| # | Skill | Source | Install command | Why this and not alternates |
+|---|---|---|---|---|
+| 1 | **oklch-skill** | oklch.fyi (jakubkrehel) | `npx skills add jakubkrehel/oklch-skill` | Direct OKLCH match — converts colors, generates palettes, checks contrast, sets fallbacks. Spec §5 entirely OKLCH-first; no alternate covers this. |
+| 2 | **frontend-design** | anthropics/skills | `/plugin marketplace add anthropics/skills` then `/plugin install example-skills@anthropic-agent-skills` | Production UI generation with explicit accessibility/typography/spacing discipline. Framework-agnostic CSS-var patterns work for Astro + React islands. Beats `vercel-react-best-practices` (Next-only) and `web-design-guidelines` (Vercel-opinionated, deferred). |
+| 3 | **webapp-testing** | anthropics/skills | `/plugin install example-skills@anthropic-agent-skills` | Playwright-based frontend testing including visual verification + screenshot capture. Covers spec §7 visual-regression deliverable. Apache 2.0. |
+| 4 | **brand-guidelines** | anthropics/skills | `/plugin install example-skills@anthropic-agent-skills` | Template for encoding the RC brand (sky-to-sun OKLCH palette, Poppins/Inter, orb mark) as a reusable skill. Once we customize it, the resulting `regen-coord-brand-guidelines` is itself a strong promotion candidate for org-os Phase 6. |
+| 5 | **deploy-to-vercel** | vercel-labs (skills.sh) | `npx skills add vercel-labs/agent-skills/deploy-to-vercel` | Astro is a supported framework; covers ecosystem-app deploy target. RC app stays on GitHub Pages (no skill found for that — manual workflow per spec §7). |
 
 ## Implementation skills — DEFER
 
-_(populated by Task 5)_
+| Skill | Source | Reason to defer | Revisit at |
+|---|---|---|---|
+| **theme-factory** | anthropics/skills | Hex-based; oklch-skill covers our color generation needs more directly. Useful only if we need on-the-fly theme variants (e.g., per-instance branding for ecosystem app). | Phase 4 (ecosystem instance branding) |
+| **canvas-design** | anthropics/skills | PNG/PDF visual artifact generation. Useful for design previews / promo material but not a build dependency. | Phase 5 (launch announcement assets) |
+| **web-design-guidelines** | vercel-labs | Vercel's interface guidelines audit. Overlaps with frontend-design; Vercel-opinionated may not match our brand voice. Useful as a second-pass a11y audit lens. | Phase 5 (a11y audit) |
 
 ## Candidates dropped
 
-_(populated by Task 5)_
+| Skill | Source | Reason |
+|---|---|---|
+| **vercel-react-best-practices** | vercel-labs | Next.js-only; rules don't apply cleanly to Astro islands. Astro has its own conventions (no SSR-by-default, content collections). |
+| **vercel-react-view-transitions** | vercel-labs | React-only; Astro has its own `<ViewTransitions>` primitive. Wrong layer for our Astro-first stack. |
+| **vercel-composition-patterns** | vercel-labs | Vague description, no shadcn fit signal, redundant with frontend-design's component-discipline coverage. |
 
-## Inspiration / library references (npm deps, not skills)
+## Gaps (no skill found)
 
-_(populated by Task 5 — copied from spec §6.3 with any additions found during research)_
+| Domain | Mitigation |
+|---|---|
+| **shadcn-installer** (wraps `npx shadcn-ui@latest add`) | No skill found. Manual `npx shadcn@latest init` in Phase 2. Document the install pattern in `docs/DESIGN.md` §12 so future instances follow the same approach. |
+| **astro-bootstrap** | No skill found. Manual `npm create astro@latest` per app in Phase 2. Document in same §12. |
+| **a11y-audit** (dedicated automated runner) | Partially covered by deferred `web-design-guidelines` + frontend-design's discipline lens. Use `axe-core` CI workflow per spec §7 (`a11y-audit.yml`). |
+| **Zod schema** | No skill found. Use Zod docs directly + existing TDD patterns. |
+| **GitHub/Gitcoin API adapters, iCal/CSV** | No skill found. Build directly with `octokit`, `papaparse`, `node-ical` per spec §6.2. |
+
+These gaps are NOT blocking — each has a manual mitigation. Surface in retrospective: candidates for new skills to author and promote to org-os.
+
+## Inspiration / library references (npm deps + design.md templates, not installable skills)
+
+| Reference | Cited in | Use |
+|---|---|---|
+| Supabase (`supabase.com`) | DESIGN.md §9 | Layout polish, content density, hover treatments |
+| shadcn/ui docs | DESIGN.md §7 | Component anatomy + variant philosophy |
+| OKLCH explainer (`oklch.com`) | DESIGN.md §2 | OKLCH-first reasoning |
+| Region Atlas | DESIGN.md §8 + RC Network page | Node-graph viz reference; possibly embed |
+| **Vercel DESIGN.md** (VoltAgent) | DESIGN.md §0/12 | Stitch-format 9-section design.md template — direct skeleton candidate for our DESIGN.md |
+| **Linear DESIGN.md** (VoltAgent) | DESIGN.md §0/12 | Closest available shadcn-aesthetic design.md |
+| awesome-design-md collection | DESIGN.md §0 | 71 ready-to-copy design.md docs from real products; browse during Phase 1 for closer matches |
+| `cmd-animate` (impeccable.style) | DESIGN.md §6 | Motion utilities |
+| Lucide icons | DESIGN.md §5 | Primary icon set (matches shadcn convention) |
+
+## Triage summary
+
+- **INSTALL: 5** — oklch-skill, frontend-design, webapp-testing, brand-guidelines, deploy-to-vercel
+- **DEFER: 3** — theme-factory, canvas-design, web-design-guidelines
+- **DROP: 3** — vercel-react-best-practices, vercel-react-view-transitions, vercel-composition-patterns
+- **GAPS: 5** — shadcn-installer, astro-bootstrap, a11y-audit (dedicated), Zod-skill, data-adapters — all with manual mitigations
+
+Within target distribution (4–6 install / 4–8 defer / rest drop).
 
 ## Promotion contract
 
