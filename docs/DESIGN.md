@@ -490,6 +490,58 @@ States: closed (default), open, searching (input focused), no-results, selected 
 **Use Combobox when:** the user might search by partial match (initiative names, fund names, node names).
 **Use Select when:** the option set is small and well-known (status filter, sort order).
 
+### 7.6 Command (⌘K palette)
+
+shadcn Command primitive (`cmdk`). Triggered by `⌘K` / `Ctrl+K` from anywhere. Provides global navigation + actions.
+
+**Anatomy:** `[search input | grouped result list (Pages, Initiatives, Funds, Council Meetings, Recent) | empty state | footer (keyboard hints)]`.
+
+Result groups query the same data sources the pages use (see `packages/aggregator-data/`). Recent: last 5 visited pages from localStorage.
+
+### 7.7 Tabs
+
+**Anatomy:** `[tab list (horizontal) | tab panel]`.
+
+Variants: `underline` (default — bottom border under active), `pill` (active tab fills with primary at 10%), `segmented` (button-group style for binary/ternary toggles).
+
+Use `underline` for content-heavy pages (Network page sub-views), `pill` for filter-style switching, `segmented` for view-mode toggles (map ↔ list).
+
+### 7.8 Accordion
+
+**Anatomy:** `[trigger row (label + caret) | collapsed panel]` × N. Single-expand or multi-expand mode.
+
+Use for: FAQ, governance decisions, council meeting summaries (each meeting an accordion item; expand to see decisions + attendees).
+
+### 7.9 Dialog
+
+shadcn Dialog (Radix Dialog). Modal — blocks page interaction. Use sparingly: confirmations, focused workflows, contributor forms.
+
+**Anatomy:** `[overlay (semi-opaque scrim) | panel ([header | body | footer (action buttons, primary right-aligned)])]`.
+
+Min width: 320px, max width: 600px (one-column) or 1024px (multi-step wizards). Close on overlay click + Escape.
+
+### 7.10 Popover
+
+shadcn Popover (Radix Popover). Non-modal — page remains interactive. Use for: filters, in-context details (hover an initiative to see funding breakdown), small forms.
+
+Width: content-width default, max 480px.
+
+### 7.11 Tooltip
+
+shadcn Tooltip (Radix Tooltip). Show on hover after 500ms delay. Use only when extra context is needed beyond label — never for critical info (touch users won't see it).
+
+Max width: 320px. Plain text or simple inline markup only.
+
+### 7.12 Table
+
+For sorting/filtering structured rows (Nodes, Funds, Initiatives table views, Council Meeting list).
+
+**Anatomy:** `[caption | thead (sortable column headers with sort indicator) | tbody (rows, optional row-click) | tfoot (pagination)]`.
+
+Variants: `default` (zebra-striped, generous padding), `compact` (no stripes, tight padding — for dense data like fund-amount lists), `card-rows` (each row is a Card — for mobile responsive fallback).
+
+Sort: client-side for ≤500 rows, server-pagination beyond. Filter: faceted via Combobox in column header. Empty state: helpful message + suggested action.
+
 ---
 
 ## 8. Composite Patterns (aggregator-specific)
