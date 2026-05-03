@@ -1,0 +1,691 @@
+{
+  "fetchedAt": "2026-05-02T23:12:54.884Z",
+  "colors": [
+    {
+      "color": "#ffffff",
+      "count": 949
+    },
+    {
+      "color": "#ffffff@0.00",
+      "count": 648
+    },
+    {
+      "color": "#02e2ac",
+      "count": 127
+    },
+    {
+      "color": "#11bc92",
+      "count": 70
+    },
+    {
+      "color": "#f1f0ff",
+      "count": 59
+    },
+    {
+      "color": "#343434",
+      "count": 56
+    },
+    {
+      "color": "#1e1e1e",
+      "count": 56
+    },
+    {
+      "color": "#0d1d46@0.20",
+      "count": 55
+    },
+    {
+      "color": "#4571e1",
+      "count": 31
+    },
+    {
+      "color": "#1b2731",
+      "count": 30
+    },
+    {
+      "color": "#d9d9d9",
+      "count": 20
+    },
+    {
+      "color": "#e5f2aa",
+      "count": 18
+    },
+    {
+      "color": "#ffffff@0.05",
+      "count": 16
+    },
+    {
+      "color": "#ff5900@0.30",
+      "count": 16
+    },
+    {
+      "color": "#ffcc00",
+      "count": 9
+    },
+    {
+      "color": "#000000",
+      "count": 9
+    },
+    {
+      "color": "#b3ffed",
+      "count": 7
+    },
+    {
+      "color": "#eeeeee",
+      "count": 7
+    },
+    {
+      "color": "#444444@0.27",
+      "count": 5
+    },
+    {
+      "color": "#ffeea8",
+      "count": 5
+    },
+    {
+      "color": "#172027",
+      "count": 4
+    },
+    {
+      "color": "#000000@0.18",
+      "count": 2
+    },
+    {
+      "color": "#363636@0.45",
+      "count": 2
+    },
+    {
+      "color": "#4ec19d",
+      "count": 1
+    },
+    {
+      "color": "#141c25",
+      "count": 1
+    },
+    {
+      "color": "#000000@0.90",
+      "count": 1
+    },
+    {
+      "color": "#010101@0.03",
+      "count": 1
+    }
+  ],
+  "gradients": [
+    {
+      "type": "GRADIENT_RADIAL",
+      "stops": [
+        {
+          "pos": 0,
+          "color": "#ffffff"
+        },
+        {
+          "pos": 1,
+          "color": "#ffffff"
+        }
+      ]
+    },
+    {
+      "type": "GRADIENT_RADIAL",
+      "stops": [
+        {
+          "pos": 0,
+          "color": "#becff4"
+        },
+        {
+          "pos": 0.8125,
+          "color": "#f6f9ff"
+        }
+      ]
+    },
+    {
+      "type": "GRADIENT_RADIAL",
+      "stops": [
+        {
+          "pos": 0,
+          "color": "#3343cf"
+        },
+        {
+          "pos": 1,
+          "color": "#3185fc"
+        }
+      ]
+    },
+    {
+      "type": "GRADIENT_RADIAL",
+      "stops": [
+        {
+          "pos": 0,
+          "color": "#16bfa8"
+        },
+        {
+          "pos": 1,
+          "color": "#97c1ff"
+        }
+      ]
+    },
+    {
+      "type": "GRADIENT_RADIAL",
+      "stops": [
+        {
+          "pos": 0,
+          "color": "#ffe600"
+        },
+        {
+          "pos": 1,
+          "color": "#ffe600"
+        }
+      ]
+    },
+    {
+      "type": "GRADIENT_RADIAL",
+      "stops": [
+        {
+          "pos": 0.00009999999747378752,
+          "color": "#d55eff"
+        },
+        {
+          "pos": 1,
+          "color": "#eb01ff"
+        }
+      ]
+    },
+    {
+      "type": "GRADIENT_RADIAL",
+      "stops": [
+        {
+          "pos": 0,
+          "color": "#8371f5"
+        },
+        {
+          "pos": 1,
+          "color": "#8371f5"
+        }
+      ]
+    },
+    {
+      "type": "GRADIENT_RADIAL",
+      "stops": [
+        {
+          "pos": 0.6197916865348816,
+          "color": "#ffffff"
+        },
+        {
+          "pos": 0.796875,
+          "color": "#ffffff"
+        },
+        {
+          "pos": 1,
+          "color": "#ffffff"
+        }
+      ]
+    },
+    {
+      "type": "GRADIENT_RADIAL",
+      "stops": [
+        {
+          "pos": 0,
+          "color": "#fffb97"
+        },
+        {
+          "pos": 1,
+          "color": "#fff500"
+        }
+      ]
+    },
+    {
+      "type": "GRADIENT_LINEAR",
+      "stops": [
+        {
+          "pos": 0,
+          "color": "#0a1e50"
+        },
+        {
+          "pos": 1,
+          "color": "#2e4377"
+        }
+      ]
+    },
+    {
+      "type": "GRADIENT_RADIAL",
+      "stops": [
+        {
+          "pos": 0,
+          "color": "#000000"
+        },
+        {
+          "pos": 1,
+          "color": "#ffffff"
+        }
+      ]
+    },
+    {
+      "type": "GRADIENT_LINEAR",
+      "stops": [
+        {
+          "pos": 0.5,
+          "color": "#656363"
+        },
+        {
+          "pos": 1,
+          "color": "#cbc6c6"
+        }
+      ]
+    }
+  ],
+  "fonts": [
+    {
+      "font": "Inter 400 25.757396697998047",
+      "count": 300
+    },
+    {
+      "font": "Inter 400 24",
+      "count": 145
+    },
+    {
+      "font": "Inter 700 25.757396697998047",
+      "count": 75
+    },
+    {
+      "font": "Inter 400 18.66666603088379",
+      "count": 27
+    },
+    {
+      "font": "Poppins 600 24.67901611328125",
+      "count": 18
+    },
+    {
+      "font": "Poppins 700 110",
+      "count": 13
+    },
+    {
+      "font": "Poppins 400 50",
+      "count": 12
+    },
+    {
+      "font": "Poppins 700 58",
+      "count": 10
+    },
+    {
+      "font": "Inter 700 34.343196868896484",
+      "count": 10
+    },
+    {
+      "font": "DM Serif Display 400 70",
+      "count": 9
+    },
+    {
+      "font": "Poppins 700 130",
+      "count": 8
+    },
+    {
+      "font": "Poppins 500 25",
+      "count": 8
+    },
+    {
+      "font": "Inter 700 32",
+      "count": 8
+    },
+    {
+      "font": "Poppins 400 32",
+      "count": 7
+    },
+    {
+      "font": "Inter 400 13.333333015441895",
+      "count": 7
+    },
+    {
+      "font": "Poppins 700 52.958377838134766",
+      "count": 6
+    },
+    {
+      "font": "Poppins 700 220.0691680908203",
+      "count": 6
+    },
+    {
+      "font": "Poppins 500 36.573307037353516",
+      "count": 5
+    },
+    {
+      "font": "Poppins 600 59.239097595214844",
+      "count": 5
+    },
+    {
+      "font": "Poppins 600 26.653335571289062",
+      "count": 5
+    },
+    {
+      "font": "Poppins 500 28.7627010345459",
+      "count": 4
+    },
+    {
+      "font": "Poppins 600 46.587982177734375",
+      "count": 4
+    },
+    {
+      "font": "Poppins 700 100",
+      "count": 4
+    },
+    {
+      "font": "Poppins 700 115",
+      "count": 4
+    },
+    {
+      "font": "Poppins 400 68.70291900634766",
+      "count": 4
+    },
+    {
+      "font": "Poppins 700 109.92466735839844",
+      "count": 4
+    },
+    {
+      "font": "Poppins 400 90.52325439453125",
+      "count": 4
+    },
+    {
+      "font": "Poppins 400 47.080326080322266",
+      "count": 3
+    },
+    {
+      "font": "Poppins 400 32.99893569946289",
+      "count": 2
+    },
+    {
+      "font": "Poppins 700 59.810569763183594",
+      "count": 2
+    },
+    {
+      "font": "Poppins 700 135",
+      "count": 2
+    },
+    {
+      "font": "Poppins 500 32",
+      "count": 2
+    },
+    {
+      "font": "Poppins 700 45",
+      "count": 2
+    },
+    {
+      "font": "Poppins 700 80.29935455322266",
+      "count": 2
+    },
+    {
+      "font": "DM Serif Display 400 700",
+      "count": 2
+    },
+    {
+      "font": "DM Serif Display 400 152.68116760253906",
+      "count": 2
+    },
+    {
+      "font": "Inter 400 32",
+      "count": 2
+    },
+    {
+      "font": "DM Serif Display 400 597.5206909179688",
+      "count": 2
+    },
+    {
+      "font": "DM Serif Display 400 130.32879638671875",
+      "count": 2
+    },
+    {
+      "font": "Poppins 700 145",
+      "count": 1
+    },
+    {
+      "font": "Poppins 700 105",
+      "count": 1
+    },
+    {
+      "font": "Poppins 400 72.34230041503906",
+      "count": 1
+    },
+    {
+      "font": "Poppins 700 115.74767303466797",
+      "count": 1
+    },
+    {
+      "font": "Poppins 400 66.20394134521484",
+      "count": 1
+    },
+    {
+      "font": "Poppins 700 105.92630004882812",
+      "count": 1
+    },
+    {
+      "font": "Poppins 400 67.48432922363281",
+      "count": 1
+    },
+    {
+      "font": "Poppins 700 107.97492980957031",
+      "count": 1
+    },
+    {
+      "font": "Poppins 700 120",
+      "count": 1
+    },
+    {
+      "font": "Poppins 500 30.73459815979004",
+      "count": 1
+    },
+    {
+      "font": "Poppins 400 42.599998474121094",
+      "count": 1
+    },
+    {
+      "font": "Poppins 400 50.08000183105469",
+      "count": 1
+    },
+    {
+      "font": "Poppins 500 114.0199966430664",
+      "count": 1
+    },
+    {
+      "font": "Poppins 500 27.899999618530273",
+      "count": 1
+    },
+    {
+      "font": "Poppins 400 62.6045036315918",
+      "count": 1
+    },
+    {
+      "font": "Poppins 500 94.02434539794922",
+      "count": 1
+    },
+    {
+      "font": "Poppins 500 32.900001525878906",
+      "count": 1
+    },
+    {
+      "font": "Poppins 600 34.68000030517578",
+      "count": 1
+    },
+    {
+      "font": "Poppins 600 35",
+      "count": 1
+    },
+    {
+      "font": "Poppins 400 25",
+      "count": 1
+    },
+    {
+      "font": "Poppins 700 50.02440643310547",
+      "count": 1
+    },
+    {
+      "font": "Poppins 700 60",
+      "count": 1
+    },
+    {
+      "font": "Poppins 400 40",
+      "count": 1
+    },
+    {
+      "font": "Poppins 400 30",
+      "count": 1
+    },
+    {
+      "font": "Poppins 400 78.12967681884766",
+      "count": 1
+    },
+    {
+      "font": "Poppins 700 125.00747680664062",
+      "count": 1
+    },
+    {
+      "font": "Poppins 700 170.17811584472656",
+      "count": 1
+    },
+    {
+      "font": "Poppins 400 111.65286254882812",
+      "count": 1
+    },
+    {
+      "font": "Poppins 700 131.8267059326172",
+      "count": 1
+    },
+    {
+      "font": "Poppins 700 123.3016357421875",
+      "count": 1
+    },
+    {
+      "font": "Poppins 700 106.68488311767578",
+      "count": 1
+    },
+    {
+      "font": "DM Serif Display 400 30",
+      "count": 1
+    },
+    {
+      "font": "Inter 400 20.48642349243164",
+      "count": 1
+    },
+    {
+      "font": "DM Serif Display 400 25.608028411865234",
+      "count": 1
+    }
+  ],
+  "textSamples": [
+    {
+      "t": "ReFi DAO",
+      "f": "Poppins",
+      "s": 24.67901611328125,
+      "w": 600
+    },
+    {
+      "t": "Regeneration Communities United",
+      "f": "Poppins",
+      "s": 50,
+      "w": 400
+    },
+    {
+      "t": "Regen\nCoordiNATION",
+      "f": "Poppins",
+      "s": 130,
+      "w": 700
+    },
+    {
+      "t": "Regeneration Networks United",
+      "f": "Poppins",
+      "s": 36.573307037353516,
+      "w": 500
+    },
+    {
+      "t": "Regen CoordiNATION",
+      "f": "Poppins",
+      "s": 59.239097595214844,
+      "w": 600
+    },
+    {
+      "t": "Regeneration Networks United",
+      "f": "Poppins",
+      "s": 28.7627010345459,
+      "w": 500
+    },
+    {
+      "t": "Regen CoordiNATION",
+      "f": "Poppins",
+      "s": 46.587982177734375,
+      "w": 600
+    },
+    {
+      "t": "Regeneration Communities United",
+      "f": "Poppins",
+      "s": 50,
+      "w": 400
+    },
+    {
+      "t": "Regen\nCoordiNATION",
+      "f": "Poppins",
+      "s": 130,
+      "w": 700
+    },
+    {
+      "t": "Regeneration Communities United",
+      "f": "Poppins",
+      "s": 50,
+      "w": 400
+    },
+    {
+      "t": "Regen\nCoordiNATION",
+      "f": "Poppins",
+      "s": 100,
+      "w": 700
+    },
+    {
+      "t": "Regeneration Communities United",
+      "f": "Poppins",
+      "s": 32,
+      "w": 400
+    },
+    {
+      "t": "Regen CoordiNATION",
+      "f": "Poppins",
+      "s": 58,
+      "w": 700
+    },
+    {
+      "t": "Regeneration Communities United",
+      "f": "Poppins",
+      "s": 32,
+      "w": 400
+    },
+    {
+      "t": "Regen CoordiNATION",
+      "f": "Poppins",
+      "s": 58,
+      "w": 700
+    },
+    {
+      "t": "Regen CoordiNATION\nGG21 Genesis Round",
+      "f": "Poppins",
+      "s": 58,
+      "w": 700
+    },
+    {
+      "t": "ReFi DAO",
+      "f": "Poppins",
+      "s": 24.67901611328125,
+      "w": 600
+    },
+    {
+      "t": "Regeneration Communities United",
+      "f": "Poppins",
+      "s": 50,
+      "w": 400
+    },
+    {
+      "t": "Regen\nCoordination",
+      "f": "Poppins",
+      "s": 130,
+      "w": 700
+    },
+    {
+      "t": "Regeneration Networks United",
+      "f": "Poppins",
+      "s": 36.573307037353516,
+      "w": 500
+    }
+  ]
+}

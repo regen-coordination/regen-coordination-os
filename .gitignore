@@ -2,3 +2,6 @@ node_modules/
 .DS_Store
 site/data/networkSnapshot.json
 repos/
+.env
+.env.local
+docs/design-source/renders/

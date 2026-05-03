@@ -1,0 +1,49 @@
+{
+  "extractedAt": "2026-05-02",
+  "source": {
+    "logo": "docs/design-source/brand/logo-orb.jpg",
+    "banner": "docs/design-source/brand/banner-hero.jpg"
+  },
+  "wordmark": "Regen Coordination",
+  "tagline": "Collaborative Pathways to Regeneration",
+  "mark": "Connected-node graph (orb) — 8–9 white nodes with edges, network/coordination motif",
+  "gradient": {
+    "name": "Sky-to-Sun",
+    "description": "Top: cool slate-blue (sky). Mid: pale warm neutral with subtle pasture-yellow band. Bottom: warm amber (sun/earth).",
+    "stops": [
+      { "pos": 0.05, "hex": "#aab8c1", "oklch": "oklch(77.5% 0.02 236)", "role": "sky" },
+      { "pos": 0.20, "hex": "#c3c7ca", "oklch": "oklch(82.7% 0.006 240)", "role": "high-neutral" },
+      { "pos": 0.35, "hex": "#c5c1b8", "oklch": "oklch(81.2% 0.013 87)", "role": "horizon-warm" },
+      { "pos": 0.50, "hex": "#d4c8b8", "oklch": "oklch(83.8% 0.026 75)", "role": "earth-pale" },
+      { "pos": 0.65, "hex": "#e3dd91", "oklch": "oklch(88.5% 0.097 104)", "role": "pasture-glow" },
+      { "pos": 0.80, "hex": "#d8bb9b", "oklch": "oklch(80.9% 0.055 70)", "role": "sand" },
+      { "pos": 0.95, "hex": "#e0b789", "oklch": "oklch(80.5% 0.077 70)", "role": "sun-warm" }
+    ],
+    "accent": { "hex": "#d69f44", "oklch": "oklch(73.8% 0.125 77)", "role": "sun-deep — most saturated brand hue" }
+  },
+  "dominantHues": {
+    "logo": [
+      { "hex": "#fbfbfa", "pct": 36.5, "role": "white-mark" },
+      { "hex": "#afb5b5", "pct": 24.1, "role": "slate-mid" },
+      { "hex": "#cec4af", "pct": 13.8, "role": "warm-neutral" },
+      { "hex": "#cea762", "pct": 10.7, "role": "amber-mid" }
+    ],
+    "banner": [
+      { "hex": "#d1c3b3", "pct": 28.8, "role": "sand-light" },
+      { "hex": "#d7bb97", "pct": 24.2, "role": "sand-warm" },
+      { "hex": "#dfdfdc", "pct": 18.4, "role": "neutral-light" },
+      { "hex": "#b6c3ca", "pct": 15.3, "role": "slate-cool" }
+    ]
+  },
+  "typography_observed": {
+    "wordmark_font_likely": "Poppins or similar geometric sans (700 weight)",
+    "tagline_font_likely": "Poppins or similar geometric sans (400 weight)"
+  },
+  "implications_for_design_md": [
+    "Pivot from MASTERPLAN's dark-tech aesthetic (#172027 + mint accents) to a light-bioregional aesthetic.",
+    "Signature gradient is sky→sun — must be a first-class design element, not just background.",
+    "Primary action color: derive from sun-deep amber #d69f44 (oklch 74% 0.125 77) — needs paired accessible variants for AA contrast on light bg.",
+    "Cool slate-blue is the supporting/secondary hue, not the primary brand color.",
+    "Connected-node mark (orb) is the core visual identity — should appear consistently as nav mark, favicon, loading states."
+  ]
+}

@@ -1,0 +1,2288 @@
+{
+  "fetchedAt": "2026-05-02T23:09:14.035Z",
+  "fileKey": "akutZ4biyOo2CEHlf8Fxd1",
+  "fileMeta": {
+    "name": "Regen CoordiNATION",
+    "lastModified": "2025-10-07T16:56:56Z",
+    "version": "2334125484861114590",
+    "role": "editor",
+    "editorType": "figma"
+  },
+  "pages": [
+    {
+      "id": "0:1",
+      "name": "Logos and Banners",
+      "type": "CANVAS",
+      "backgroundColor": {
+        "r": 0.11764705926179886,
+        "g": 0.11764705926179886,
+        "b": 0.11764705926179886,
+        "a": 1
+      },
+      "children": [
+        {
+          "id": "876:1543",
+          "name": "Rectangle 56",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 10423,
+            "y": 12634,
+            "width": 534,
+            "height": 125
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "509:126",
+          "name": "Orb",
+          "type": "GROUP",
+          "bounds": {
+            "x": 2965.9999389648438,
+            "y": 858,
+            "width": 731.0000610351562,
+            "height": 726.359375
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "509:139",
+          "name": "Orb",
+          "type": "GROUP",
+          "bounds": {
+            "x": 3804.9999389648438,
+            "y": 857,
+            "width": 731.0000610351562,
+            "height": 726.359375
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "509:148",
+          "name": "Group 5550917",
+          "type": "GROUP",
+          "bounds": {
+            "x": 3870,
+            "y": 1131,
+            "width": 397.54034423828125,
+            "height": 181.96749877929688
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "509:214",
+          "name": "celo-celo-logo 2",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 4298.76953125,
+            "y": 1141.012939453125,
+            "width": 168.604736328125,
+            "height": 168.604736328125
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "IMAGE",
+              "scaleMode": "FILL",
+              "imageRef": "7c47c344ba93faeb1c47718046b97237d7bf49e7"
+            }
+          ]
+        },
+        {
+          "id": "509:138",
+          "name": "celo-celo-logo 2",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 3395,
+            "y": 1222,
+            "width": 200,
+            "height": 200
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "IMAGE",
+              "scaleMode": "FILL",
+              "imageRef": "7c47c344ba93faeb1c47718046b97237d7bf49e7"
+            }
+          ]
+        },
+        {
+          "id": "542:61",
+          "name": "ReFi DAO_Logo_Combined 3",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 2743,
+            "y": 623,
+            "width": 127,
+            "height": 127
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "IMAGE",
+              "scaleMode": "FILL",
+              "imageRef": "19f3c180ef951a1a9b2f49e217d41ee5c08a67fc"
+            }
+          ]
+        },
+        {
+          "id": "1:317",
+          "name": "logo",
+          "type": "FRAME",
+          "bounds": {
+            "x": 3005,
+            "y": -433,
+            "width": 240,
+            "height": 240
+          },
+          "backgroundColor": {
+            "r": 0.9450980424880981,
+            "g": 0.9411764740943909,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.9450980424880981,
+                "g": 0.9411764740943909,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "509:34",
+          "name": "Group 5550998",
+          "type": "GROUP",
+          "bounds": {
+            "x": 3055,
+            "y": -10,
+            "width": 750.0001220703125,
+            "height": 750
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "509:37",
+          "name": "01 1",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 3217,
+            "y": 152,
+            "width": 425,
+            "height": 425
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "IMAGE",
+              "scaleMode": "FILL",
+              "imageRef": "4703c7e7c1576a73f26fcfa83c9b15f2fde101a2"
+            }
+          ]
+        },
+        {
+          "id": "509:135",
+          "name": "01 2",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 3021,
+            "y": 1164,
+            "width": 337,
+            "height": 337
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "IMAGE",
+              "scaleMode": "FILL",
+              "imageRef": "4703c7e7c1576a73f26fcfa83c9b15f2fde101a2"
+            }
+          ]
+        },
+        {
+          "id": "509:38",
+          "name": "Group 5550999",
+          "type": "GROUP",
+          "bounds": {
+            "x": 3858,
+            "y": -10,
+            "width": 750.0001220703125,
+            "height": 750
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "509:41",
+          "name": "Group 5551000",
+          "type": "GROUP",
+          "bounds": {
+            "x": 4032,
+            "y": 164,
+            "width": 401.01202392578125,
+            "height": 401.01202392578125
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "509:137",
+          "name": "ReFi DAO_Wordmark_White 1",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 3190,
+            "y": 998,
+            "width": 279,
+            "height": 166
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "IMAGE",
+              "scaleMode": "FILL",
+              "imageRef": "7e3c02b821aa24543179da5b23b654d28957195f"
+            }
+          ]
+        },
+        {
+          "id": "524:306",
+          "name": "BwVP8PqZ_400x400 1",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 2218,
+            "y": 424,
+            "width": 400,
+            "height": 398
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "IMAGE",
+              "scaleMode": "FILL",
+              "imageRef": "76c5b6b7b3cbd78f715efe260b53272e344f5892"
+            }
+          ]
+        },
+        {
+          "id": "585:61",
+          "name": "Banner 1000 x 1005",
+          "type": "FRAME",
+          "bounds": {
+            "x": 7400,
+            "y": 1278,
+            "width": 1200,
+            "height": 1200
+          },
+          "backgroundColor": {
+            "r": 0.9450980424880981,
+            "g": 0.9411764740943909,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.9450980424880981,
+                "g": 0.9411764740943909,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "585:135",
+          "name": "Mask group",
+          "type": "GROUP",
+          "bounds": {
+            "x": 5744,
+            "y": 3162,
+            "width": 900,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "585:136",
+          "name": "Text",
+          "type": "GROUP",
+          "bounds": {
+            "x": 6004,
+            "y": 3355,
+            "width": 695,
+            "height": 522
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "585:139",
+          "name": "Line 1",
+          "type": "LINE",
+          "bounds": {
+            "x": 5925,
+            "y": 3349,
+            "width": 0,
+            "height": 526.0037841796875
+          },
+          "strokes": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "585:140",
+          "name": "Mask group",
+          "type": "GROUP",
+          "bounds": {
+            "x": 6218,
+            "y": 1938,
+            "width": 900,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "585:157",
+          "name": "Text",
+          "type": "GROUP",
+          "bounds": {
+            "x": 6471,
+            "y": 2145,
+            "width": 695,
+            "height": 486
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "585:159",
+          "name": "Line 2",
+          "type": "LINE",
+          "bounds": {
+            "x": 6414,
+            "y": 2125,
+            "width": 0,
+            "height": 526.0037841796875
+          },
+          "strokes": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "585:222",
+          "name": "Group 5551002",
+          "type": "GROUP",
+          "bounds": {
+            "x": 7903,
+            "y": 3162,
+            "width": 900,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "585:223",
+          "name": "Group 5551003",
+          "type": "GROUP",
+          "bounds": {
+            "x": 6830,
+            "y": 3180,
+            "width": 900,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "585:238",
+          "name": "Group 5551004",
+          "type": "GROUP",
+          "bounds": {
+            "x": 9608,
+            "y": 2201,
+            "width": 900,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "585:254",
+          "name": "Vector",
+          "type": "VECTOR",
+          "bounds": {
+            "x": 9678,
+            "y": 2352,
+            "width": 380,
+            "height": 731
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "585:261",
+          "name": "Vector",
+          "type": "VECTOR",
+          "bounds": {
+            "x": 8664,
+            "y": 1947,
+            "width": 627,
+            "height": 751
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "585:310",
+          "name": "Group 5551005",
+          "type": "GROUP",
+          "bounds": {
+            "x": 5682,
+            "y": 4197,
+            "width": 962.0001220703125,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "591:96",
+          "name": "Group 5551006",
+          "type": "GROUP",
+          "bounds": {
+            "x": 6830,
+            "y": 4189,
+            "width": 948.8360595703125,
+            "height": 908
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "591:121",
+          "name": "Text",
+          "type": "GROUP",
+          "bounds": {
+            "x": 5684,
+            "y": 3180,
+            "width": 120,
+            "height": 142
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "591:124",
+          "name": "Text",
+          "type": "GROUP",
+          "bounds": {
+            "x": 5699,
+            "y": 3180,
+            "width": 2324,
+            "height": 1159
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "592:568",
+          "name": "Group 5551007",
+          "type": "GROUP",
+          "bounds": {
+            "x": 7903,
+            "y": 4197,
+            "width": 900,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "590:60",
+          "name": "Text",
+          "type": "GROUP",
+          "bounds": {
+            "x": 9853,
+            "y": 3568,
+            "width": 575,
+            "height": 393
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "590:62",
+          "name": "Vector",
+          "type": "VECTOR",
+          "bounds": {
+            "x": 9532.000276153914,
+            "y": 3499,
+            "width": 404.311092805372,
+            "height": 531.6585859098923
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "590:64",
+          "name": "Vector",
+          "type": "VECTOR",
+          "bounds": {
+            "x": 10334.000154478214,
+            "y": 3499,
+            "width": 404.311092805372,
+            "height": 531.6585859098923
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "591:66",
+          "name": "Text",
+          "type": "GROUP",
+          "bounds": {
+            "x": 9853,
+            "y": 4198,
+            "width": 575,
+            "height": 393
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "591:68",
+          "name": "Vector",
+          "type": "VECTOR",
+          "bounds": {
+            "x": 9539.000276153914,
+            "y": 4129,
+            "width": 404.311092805372,
+            "height": 531.6585859098923
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "591:69",
+          "name": "Vector",
+          "type": "VECTOR",
+          "bounds": {
+            "x": 10335.000154478214,
+            "y": 4129,
+            "width": 404.311092805372,
+            "height": 531.6585859098923
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "592:139",
+          "name": "V1",
+          "type": "SECTION",
+          "bounds": {
+            "x": -3122,
+            "y": 2442,
+            "width": 7730,
+            "height": 2686
+          },
+          "fills": [
+            {
+              "opacity": 0.26669999957084656,
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.2666666805744171,
+                "g": 0.2666666805744171,
+                "b": 0.2666666805744171,
+                "a": 1
+              }
+            }
+          ],
+          "strokes": [
+            {
+              "opacity": 0.10000000149011612,
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "592:141",
+          "name": "V1",
+          "type": "SECTION",
+          "bounds": {
+            "x": -3122,
+            "y": 5666,
+            "width": 9024,
+            "height": 2686
+          },
+          "fills": [
+            {
+              "opacity": 0.26669999957084656,
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.2666666805744171,
+                "g": 0.2666666805744171,
+                "b": 0.2666666805744171,
+                "a": 1
+              }
+            }
+          ],
+          "strokes": [
+            {
+              "opacity": 0.10000000149011612,
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "758:60",
+          "name": "Citizen Round Results",
+          "type": "FRAME",
+          "bounds": {
+            "x": -2973,
+            "y": 15690,
+            "width": 1721,
+            "height": 2012
+          },
+          "backgroundColor": {
+            "r": 0.9450980424880981,
+            "g": 0.9411764740943909,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.9450980424880981,
+                "g": 0.9411764740943909,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "848:287",
+          "name": "Citizen Round Results",
+          "type": "FRAME",
+          "bounds": {
+            "x": -832,
+            "y": 15690,
+            "width": 1721,
+            "height": 2012
+          },
+          "backgroundColor": {
+            "r": 0.9450980424880981,
+            "g": 0.9411764740943909,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.9450980424880981,
+                "g": 0.9411764740943909,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "612:836",
+          "name": "Social Media Banner (Adjusted for Luma)",
+          "type": "FRAME",
+          "bounds": {
+            "x": -2973,
+            "y": 8524,
+            "width": 2000,
+            "height": 1000
+          },
+          "backgroundColor": {
+            "r": 0.9450980424880981,
+            "g": 0.9411764740943909,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.9450980424880981,
+                "g": 0.9411764740943909,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "612:989",
+          "name": "Regen Coordination Banner 2.0",
+          "type": "FRAME",
+          "bounds": {
+            "x": -2973,
+            "y": 9660,
+            "width": 2000,
+            "height": 1000
+          },
+          "backgroundColor": {
+            "r": 0.9450980424880981,
+            "g": 0.9411764740943909,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.9450980424880981,
+                "g": 0.9411764740943909,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "617:202",
+          "name": "Regen Coordination Banner 2.0",
+          "type": "FRAME",
+          "bounds": {
+            "x": -2973,
+            "y": 11932,
+            "width": 2000,
+            "height": 1000
+          },
+          "backgroundColor": {
+            "r": 0.9450980424880981,
+            "g": 0.9411764740943909,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.9450980424880981,
+                "g": 0.9411764740943909,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "617:60",
+          "name": "Regen Coordination Banner 2.0",
+          "type": "FRAME",
+          "bounds": {
+            "x": -2973,
+            "y": 10796,
+            "width": 2000,
+            "height": 1000
+          },
+          "backgroundColor": {
+            "r": 0.9450980424880981,
+            "g": 0.9411764740943909,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.9450980424880981,
+                "g": 0.9411764740943909,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "617:130",
+          "name": "Regen Coordination Banner 2.0",
+          "type": "FRAME",
+          "bounds": {
+            "x": -933,
+            "y": 10796,
+            "width": 2000,
+            "height": 1000
+          },
+          "backgroundColor": {
+            "r": 0.9450980424880981,
+            "g": 0.9411764740943909,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.9450980424880981,
+                "g": 0.9411764740943909,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "612:1059",
+          "name": "Social Media Banner (Adjusted for Luma)",
+          "type": "FRAME",
+          "bounds": {
+            "x": -933,
+            "y": 9660,
+            "width": 2000,
+            "height": 1000
+          },
+          "backgroundColor": {
+            "r": 0.9450980424880981,
+            "g": 0.9411764740943909,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.9450980424880981,
+                "g": 0.9411764740943909,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "612:919",
+          "name": "Social Media Banner (Adjusted for Luma)",
+          "type": "FRAME",
+          "bounds": {
+            "x": -933,
+            "y": 8524,
+            "width": 2000,
+            "height": 1000
+          },
+          "backgroundColor": {
+            "r": 0.9450980424880981,
+            "g": 0.9411764740943909,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.9450980424880981,
+                "g": 0.9411764740943909,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "592:614",
+          "name": "ReFi DAO_Avatar_xtraSpace@2 1",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 3825,
+            "y": 5482,
+            "width": 129,
+            "height": 129
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "IMAGE",
+              "scaleMode": "STRETCH",
+              "imageRef": "dd279ba5b4e03cd76c3032d8805db2904c94c881",
+              "imageTransform": [
+                [
+                  0.7404579520225525,
+                  0,
+                  0.12977097928524017
+                ],
+                [
+                  0,
+                  0.7404580116271973,
+                  0.12977099418640137
+                ]
+              ]
+            }
+          ],
+          "strokes": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "592:140",
+          "name": "V0.1",
+          "type": "FRAME",
+          "bounds": {
+            "x": -3122,
+            "y": -712,
+            "width": 4696,
+            "height": 2818
+          },
+          "backgroundColor": {
+            "r": 0.2666666805744171,
+            "g": 0.2666666805744171,
+            "b": 0.2666666805744171,
+            "a": 0.2666666805744171
+          },
+          "fills": [
+            {
+              "opacity": 0.2666666805744171,
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.2666666805744171,
+                "g": 0.2666666805744171,
+                "b": 0.2666666805744171,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "793:308",
+          "name": "Group 5551012",
+          "type": "GROUP",
+          "bounds": {
+            "x": 6239,
+            "y": 5849,
+            "width": 900,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "799:306",
+          "name": "Group 5551014",
+          "type": "GROUP",
+          "bounds": {
+            "x": 7442,
+            "y": 5849,
+            "width": 900,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "812:308",
+          "name": "Group 5551015",
+          "type": "GROUP",
+          "bounds": {
+            "x": 6239,
+            "y": 7197,
+            "width": 900,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "816:287",
+          "name": "Group 5551016",
+          "type": "GROUP",
+          "bounds": {
+            "x": -541,
+            "y": 12268,
+            "width": 2160,
+            "height": 1080
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "816:370",
+          "name": "GG23",
+          "type": "FRAME",
+          "bounds": {
+            "x": 1775,
+            "y": 12308,
+            "width": 2000,
+            "height": 1000
+          },
+          "backgroundColor": {
+            "r": 0.9450980424880981,
+            "g": 0.9411764740943909,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.9450980424880981,
+                "g": 0.9411764740943909,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "819:329",
+          "name": "Group 5551018",
+          "type": "GROUP",
+          "bounds": {
+            "x": 7727,
+            "y": 7151,
+            "width": 1522.5673828125,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "819:383",
+          "name": "Group 5551022",
+          "type": "GROUP",
+          "bounds": {
+            "x": 9299,
+            "y": 7215,
+            "width": 2705,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "819:358",
+          "name": "Group 5551020",
+          "type": "GROUP",
+          "bounds": {
+            "x": 8725,
+            "y": 8980,
+            "width": 2705,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "819:417",
+          "name": "Group 5551023",
+          "type": "GROUP",
+          "bounds": {
+            "x": 5650,
+            "y": 8981,
+            "width": 2705,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "822:327",
+          "name": "Group 5551028",
+          "type": "GROUP",
+          "bounds": {
+            "x": 5556,
+            "y": 11068,
+            "width": 2821,
+            "height": 1066
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "821:293",
+          "name": "Group 5551026",
+          "type": "GROUP",
+          "bounds": {
+            "x": 5647,
+            "y": 10028,
+            "width": 900,
+            "height": 900
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "824:352",
+          "name": "Group 5551030",
+          "type": "GROUP",
+          "bounds": {
+            "x": 7062,
+            "y": 10103,
+            "width": 2459,
+            "height": 750.8578491210938
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "824:353",
+          "name": "Group 5551031",
+          "type": "GROUP",
+          "bounds": {
+            "x": 9826,
+            "y": 10065,
+            "width": 2459,
+            "height": 750.8578491210938
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "826:460",
+          "name": "Group 5551034",
+          "type": "GROUP",
+          "bounds": {
+            "x": 287,
+            "y": 13820,
+            "width": 2160,
+            "height": 1080
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "826:461",
+          "name": "Group 5551035",
+          "type": "GROUP",
+          "bounds": {
+            "x": 2632,
+            "y": 13805,
+            "width": 2160,
+            "height": 1080
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "831:286",
+          "name": "Group 5551037",
+          "type": "GROUP",
+          "bounds": {
+            "x": 7322,
+            "y": 13805,
+            "width": 2160,
+            "height": 1080
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "826:554",
+          "name": "Group 5551036",
+          "type": "GROUP",
+          "bounds": {
+            "x": 4977,
+            "y": 13813,
+            "width": 2160,
+            "height": 1080
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "834:402",
+          "name": "Group 5551040",
+          "type": "GROUP",
+          "bounds": {
+            "x": 9757,
+            "y": 13805,
+            "width": 1536,
+            "height": 1024
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "849:1466",
+          "name": "GG23 Regen Coordination Global Results - ALL",
+          "type": "FRAME",
+          "bounds": {
+            "x": 1877,
+            "y": 15690,
+            "width": 1787,
+            "height": 3585
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "850:2237",
+          "name": "GG23 Regen Coordination Global Results - Top 25",
+          "type": "FRAME",
+          "bounds": {
+            "x": 3754,
+            "y": 15690,
+            "width": 1787,
+            "height": 2266
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "867:1564",
+          "name": "Frame",
+          "type": "FRAME",
+          "bounds": {
+            "x": 6373,
+            "y": 18045,
+            "width": 1920,
+            "height": 1080
+          },
+          "backgroundColor": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:6aff4223b86b3022f206251b022d9239ea90aaf3/1:2"
+                }
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "867:1644",
+          "name": "Frame",
+          "type": "FRAME",
+          "bounds": {
+            "x": 8464,
+            "y": 18080,
+            "width": 1920,
+            "height": 1080
+          },
+          "backgroundColor": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:6aff4223b86b3022f206251b022d9239ea90aaf3/1:2"
+                }
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "867:1664",
+          "name": "Frame",
+          "type": "FRAME",
+          "bounds": {
+            "x": 10624,
+            "y": 18080,
+            "width": 1920,
+            "height": 1080
+          },
+          "backgroundColor": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:6aff4223b86b3022f206251b022d9239ea90aaf3/1:2"
+                }
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "867:1668",
+          "name": "Regen Coordiantion - Output Deliverables & Metrics",
+          "type": "FRAME",
+          "bounds": {
+            "x": 8313,
+            "y": 21044,
+            "width": 2988,
+            "height": 1080
+          },
+          "backgroundColor": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:6aff4223b86b3022f206251b022d9239ea90aaf3/1:2"
+                }
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "867:1714",
+          "name": "Regen Coordiantion - Activity & Output reporting",
+          "type": "FRAME",
+          "bounds": {
+            "x": 8317,
+            "y": 19802,
+            "width": 3412,
+            "height": 1080
+          },
+          "backgroundColor": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:6aff4223b86b3022f206251b022d9239ea90aaf3/1:2"
+                }
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "867:1746",
+          "name": "Frame",
+          "type": "FRAME",
+          "bounds": {
+            "x": 6219,
+            "y": 19294,
+            "width": 1920,
+            "height": 1080
+          },
+          "backgroundColor": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              },
+              "boundVariables": {
+                "color": {
+                  "type": "VARIABLE_ALIAS",
+                  "id": "VariableID:6aff4223b86b3022f206251b022d9239ea90aaf3/1:2"
+                }
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "876:1540",
+          "name": "Mask group",
+          "type": "GROUP",
+          "bounds": {
+            "x": 10455,
+            "y": 12659,
+            "width": 98,
+            "height": 80
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "876:1531",
+          "name": "Screenshot 2025-05-19 at 5.46.53 pm 2",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 10448,
+            "y": 12178,
+            "width": 483,
+            "height": 80
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "IMAGE",
+              "scaleMode": "FILL",
+              "imageRef": "9ac25bd7f8d4e4e520bdb4cf2c5db85864bc8b14"
+            }
+          ]
+        },
+        {
+          "id": "876:1546",
+          "name": "Screenshot 2025-05-19 at 5.46.53 pm 5",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 10552,
+            "y": 12659,
+            "width": 386,
+            "height": 80
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "IMAGE",
+              "scaleMode": "STRETCH",
+              "imageRef": "9ac25bd7f8d4e4e520bdb4cf2c5db85864bc8b14",
+              "imageTransform": [
+                [
+                  0.7991718649864197,
+                  0,
+                  0.2008281648159027
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "id": "876:1530",
+          "name": "Rectangle 55",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 10426,
+            "y": 12419,
+            "width": 534,
+            "height": 125
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "876:1541",
+          "name": "Screenshot 2025-05-19 at 5.46.53 pm 3",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 10455,
+            "y": 12442,
+            "width": 483,
+            "height": 80
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "IMAGE",
+              "scaleMode": "FILL",
+              "imageRef": "9ac25bd7f8d4e4e520bdb4cf2c5db85864bc8b14"
+            }
+          ]
+        },
+        {
+          "id": "900:1529",
+          "name": "Screenshot 2025-06-03 at 10.57.01 am 1",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 11329,
+            "y": 12622,
+            "width": 1313,
+            "height": 1023
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "IMAGE",
+              "scaleMode": "FILL",
+              "imageRef": "e6fd6d96d3216229a304ad2d99c72d8bfd6cd712"
+            }
+          ]
+        },
+        {
+          "id": "878:1550",
+          "name": "Mask group",
+          "type": "GROUP",
+          "bounds": {
+            "x": 12017,
+            "y": 13259.3076171875,
+            "width": 557,
+            "height": 385.6153869628906
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "900:1536",
+          "name": "Group 5551043",
+          "type": "GROUP",
+          "bounds": {
+            "x": 11349,
+            "y": 12633,
+            "width": 274,
+            "height": 63.93333435058594
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "902:1540",
+          "name": "Mask group",
+          "type": "GROUP",
+          "bounds": {
+            "x": 12888,
+            "y": 13104,
+            "width": 182,
+            "height": 181
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "902:1541",
+          "name": "Screenshot 2025-06-03 at 11.39.12 am 1",
+          "type": "RECTANGLE",
+          "bounds": {
+            "x": 13131,
+            "y": 12615,
+            "width": 1298,
+            "height": 1030
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "type": "IMAGE",
+              "scaleMode": "FILL",
+              "imageRef": "1f4fbb52c54b5d6ce7667fa87517730078057ef2"
+            }
+          ]
+        },
+        {
+          "id": "902:1542",
+          "name": "Mask group",
+          "type": "GROUP",
+          "bounds": {
+            "x": 13635,
+            "y": 12881,
+            "width": 182,
+            "height": 181
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "870:1529",
+      "name": "Impact Evaluation",
+      "type": "CANVAS",
+      "backgroundColor": {
+        "r": 0.11764705926179886,
+        "g": 0.11764705926179886,
+        "b": 0.11764705926179886,
+        "a": 1
+      },
+      "children": []
+    },
+    {
+      "id": "758:128",
+      "name": "Table Creator",
+      "type": "CANVAS",
+      "backgroundColor": {
+        "r": 0.9607843160629272,
+        "g": 0.9607843160629272,
+        "b": 0.9607843160629272,
+        "a": 1
+      },
+      "children": [
+        {
+          "id": "758:176",
+          "name": ".Tooltip",
+          "type": "INSTANCE",
+          "bounds": {
+            "x": 3189.0595703125,
+            "y": 9113.048828125,
+            "width": 457,
+            "height": 116
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "758:188",
+          "name": ".Tooltip",
+          "type": "INSTANCE",
+          "bounds": {
+            "x": 3189.0595703125,
+            "y": 9338.048828125,
+            "width": 457,
+            "height": 53
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "758:200",
+          "name": ".Tooltip",
+          "type": "INSTANCE",
+          "bounds": {
+            "x": 3189.0595703125,
+            "y": 9493.048828125,
+            "width": 457,
+            "height": 95
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "children": []
+        },
+        {
+          "id": "758:136",
+          "name": "Row",
+          "type": "COMPONENT",
+          "bounds": {
+            "x": 2869.0595703125,
+            "y": 9348.048828125,
+            "width": 240,
+            "height": 36
+          },
+          "backgroundColor": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 0.00009999999747378752
+          },
+          "fills": [
+            {
+              "opacity": 0.00009999999747378752,
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "758:135",
+          "name": "Cell",
+          "type": "COMPONENT_SET",
+          "bounds": {
+            "x": 2853.0595703125,
+            "y": 9487.048828125,
+            "width": 272,
+            "height": 68
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "strokes": [
+            {
+              "blendMode": "NORMAL",
+              "type": "SOLID",
+              "color": {
+                "r": 0.7254902124404907,
+                "g": 0.7254902124404907,
+                "b": 0.7254902124404907,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "758:143",
+          "name": "Table 1",
+          "type": "COMPONENT",
+          "bounds": {
+            "x": 2869.0595703125,
+            "y": 9123.048828125,
+            "width": 240,
+            "height": 108
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "visible": false,
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "758:253",
+          "name": "Table 1",
+          "type": "FRAME",
+          "bounds": {
+            "x": 3792,
+            "y": 9204,
+            "width": 496,
+            "height": 444
+          },
+          "backgroundColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0
+          },
+          "fills": [
+            {
+              "blendMode": "NORMAL",
+              "visible": false,
+              "type": "SOLID",
+              "color": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              }
+            }
+          ],
+          "children": []
+        },
+        {
+          "id": "759:1339",
+          "name": "Slice 1",
+          "type": "SLICE",
+          "bounds": {
+            "x": 3709,
+            "y": 9310,
+            "width": 100,
+            "height": 100
+          }
+        }
+      ]
+    }
+  ],
+  "styleRefs": {
+    "1:7": {
+      "key": "47ea87cddab225e9967c7f2fd113f40db8b1fc7f",
+      "name": "ReFi Cloud",
+      "styleType": "FILL",
+      "remote": true,
+      "description": ""
+    }
+  },
+  "componentRefs": {
+    "758:170": {
+      "key": "18c3faddc782f66883d25eb2b3629f2035d8c6cb",
+      "name": ".Tooltip",
+      "description": "",
+      "remote": false,
+      "documentationLinks": []
+    },
+    "758:182": {
+      "key": "a1a233e23da4d0a52ee0ed8cd33e5161863bc1e6",
+      "name": ".Tooltip",
+      "description": "",
+      "remote": false,
+      "documentationLinks": []
+    },
+    "758:194": {
+      "key": "e30f2b417e0b614a892786430a9c97f8ca7adc08",
+      "name": ".Tooltip",
+      "description": "",
+      "remote": false,
+      "documentationLinks": []
+    },
+    "758:136": {
+      "key": "95756321feda45c556f46e3f98b5a5946e196908",
+      "name": "Row",
+      "description": "",
+      "remote": false,
+      "documentationLinks": []
+    },
+    "758:143": {
+      "key": "4308bb2ffa4c8d4d187762d3b974d8ff86b84b9d",
+      "name": "Table 1",
+      "description": "",
+      "remote": false,
+      "documentationLinks": []
+    }
+  },
+  "componentSetRefs": {
+    "758:135": {
+      "key": "95ece5a095908fb148f8d0a54f852d03c34ae160",
+      "name": "Cell",
+      "description": "",
+      "documentationLinks": []
+    }
+  },
+  "styles": [],
+  "components": [],
+  "variables": {
+    "unavailable": true,
+    "status": 403,
+    "hint": "Variables endpoint requires Figma Enterprise plan; will derive tokens from styles + frames instead."
+  }
+}
