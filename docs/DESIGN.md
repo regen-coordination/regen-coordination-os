@@ -546,7 +546,78 @@ Sort: client-side for ≤500 rows, server-pagination beyond. Filter: faceted via
 
 ## 8. Composite Patterns (aggregator-specific)
 
-_(Task 9)_
+> Composite patterns combine primitives into the recurring aggregator-specific shapes. Each lives in `packages/aggregator-ui/components/<PatternName>.tsx`.
+
+### 8.1 GradientHero
+
+The signature opening surface — every Home page (RC and ecosystem instances) uses this pattern.
+
+**Anatomy:** Full-bleed gradient backdrop (`--gradient-brand`) with the orb mark left-aligned, wordmark + tagline center-set, optional 4-stat row below, optional CTA button.
+
+Variants: `full` (h-screen, marketing only), `compact` (h-[60vh], default), `slim` (h-[40vh], dashboard surfaces).
+
+The gradient subtly hue-shifts per §6.4 motion (60s loop). Disable on dashboards (`<GradientHero animate={false} />`).
+
+### 8.2 NodeOrb
+
+Interactive network graph using the orb mark scaled up. Each node is a federation peer; edges show coordination relationships.
+
+**Anatomy:** SVG `<g>` with `<circle>` nodes (color-coded per network) and `<path>` edges. Each node clickable → opens node-detail Popover. Hover triggers `node-pulse` animation (§6.4).
+
+Data shape: `{ nodes: NetworkNode[], edges: NetworkEdge[] }` from `aggregator-data/adapters/federation.ts`.
+
+Used on: RC Network page (large), Home (small preview).
+
+### 8.3 InitiativeCard
+
+Card pattern for displaying an initiative on the Initiatives page or Home active-programs row.
+
+**Anatomy:** Card variant `default` containing:
+- Header: name + network badge(s)
+- Body: 2–3 line description, status badge, key metric (e.g., "$84k routed", "23 meetings")
+- Footer: outbound link to project's own site/repo + inbound link to canonical RC project page
+
+### 8.4 FundingCard
+
+Card pattern for funding pools / opportunities.
+
+**Anatomy:** Card variant `elevated` containing:
+- Header: pool/opportunity name + status badge (active, applied, closed)
+- Body: amount available, deadline (with countdown when <30 days), eligibility one-liner
+- Footer: "Apply →" CTA (primary) + Karma GAP link
+
+### 8.5 EventCard
+
+Card pattern for calls/events on Calendar pages.
+
+**Anatomy:** Card variant `default` containing:
+- Header: date + time (with timezone), recurrence indicator (weekly/monthly icon)
+- Body: title, attendees/network badge(s), location (link or "online")
+- Footer: "Add to calendar →" (iCal/Google links) + RSVP link if external
+
+### 8.6 FilterBar
+
+Faceted filter surface for any browser page (Initiatives, Funding, Calls & Events, Nodes).
+
+**Anatomy:** Horizontal row of Combobox filters + active-filter pills below. Each active filter is a removable Badge variant `default` with an `×` icon. "Clear all" link appears when ≥1 filter active.
+
+### 8.7 CapitalFlowDiagram
+
+Inflow → outflow visualization for the Capital page.
+
+**Anatomy:** Sankey-style diagram (D3 + svg) showing capital sources (Bread Coop, Octant, Impact Stake, grants) on the left and destinations (per-network, per-initiative funding) on the right. Edge thickness proportional to amount. Hover highlights edge + endpoints.
+
+Library: `@nivo/sankey` (React, ~30KB) — only loaded on Capital page (Astro island).
+
+### 8.8 CouncilTimelineEntry
+
+Timeline pattern for the Activity page council corpus (23+ meetings).
+
+**Anatomy:** Vertical timeline with date markers; each entry is an Accordion item:
+- Trigger row: date + meeting title + attendee count + key-decisions count
+- Expanded panel: attendees list, decisions extracted, link to canonical record (`packages/operations/meetings/`), link to KOI export (when available)
+
+Sorted reverse-chronological. Filter Combobox above: by attendee, by decision keyword, by date range.
 
 ---
 
