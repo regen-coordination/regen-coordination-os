@@ -87,11 +87,11 @@ The brand is a **sky-to-sun gradient**. Every other token in the system derives 
 
 | Token | OKLCH | Hex | Role |
 |---|---|---|---|
-| `--brand-sky` | `oklch(78% 0.02 236)` | `#aab8c1` | Cool slate-blue (top of gradient) |
-| `--brand-horizon` | `oklch(84% 0.026 75)` | `#d4c8b8` | Pale warm sand (middle transition) |
+| `--brand-sky` | `oklch(77.5% 0.02 236)` | `#aab8c1` | Cool slate-blue (top of gradient) |
+| `--brand-horizon` | `oklch(83.8% 0.026 75)` | `#d4c8b8` | Pale warm sand (middle transition) |
 | `--brand-pasture` | `oklch(88.5% 0.097 104)` | `#e3dd91` | Subtle yellow-green band (lower-mid) |
 | `--brand-sun` | `oklch(80.5% 0.077 70)` | `#e0b789` | Warm sand-orange (lower) |
-| `--brand-sun-deep` | `oklch(74% 0.125 77)` | `#d69f44` | Most-saturated brand hue — primary action color |
+| `--brand-sun-deep` | `oklch(73.8% 0.125 77)` | `#d69f44` | Most-saturated brand hue — primary action color |
 
 ### 2.2 Light theme — semantic tokens
 
@@ -105,9 +105,9 @@ The brand is a **sky-to-sun gradient**. Every other token in the system derives 
 | `--text-muted` | `oklch(45% 0.012 75)` | `#59544e` | Secondary text, captions, metadata |
 | `--border-default` | `oklch(60% 0.015 75)` | `#867f77` | Default border for inputs, dividers, card outlines |
 | `--border-subtle` | `oklch(88% 0.010 75)` | `#dbd7d0` | Hairline divider for low-emphasis separation |
-| `--primary` | `oklch(74% 0.125 77)` | `#d7a045` | Primary action color — equals `--brand-sun-deep` |
-| `--primary-hover` | `oklch(68% 0.135 77)` | `#c68c1c` | Primary hover state (darker, slightly more saturated) |
-| `--primary-active` | `oklch(62% 0.135 77)` | `#b37900` | Primary pressed/active state |
+| `--primary` | `oklch(73.8% 0.125 77)` | `#d69f44` | Primary action color — equals `--brand-sun-deep` |
+| `--primary-hover` | `oklch(67.8% 0.135 77)` | `#c68b1b` | Primary hover state (darker, slightly more saturated) |
+| `--primary-active` | `oklch(61.8% 0.135 77)` | `#b27900` | Primary pressed/active state |
 | `--primary-foreground` | `oklch(18% 0.02 75)` | `#171008` | Text/icons on `--primary` backgrounds — warm near-black |
 | `--accent` | `oklch(88.5% 0.097 104)` | `#e3dd91` | Accent surface — equals `--brand-pasture` |
 | `--accent-foreground` | `oklch(22% 0.02 104)` | `#1c1b10` | Text/icons on `--accent` backgrounds |
