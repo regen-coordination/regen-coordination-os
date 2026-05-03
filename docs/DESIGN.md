@@ -178,13 +178,117 @@ CSS variables defined under `:root` (light defaults) and `[data-theme="dark"]` (
 
 ## 3. Typography
 
-_(Task 5)_
+### 3.1 Type families
+
+| Family | Role | Source |
+|---|---|---|
+| **Poppins** | Display + headlines | Confirmed from Figma export (display sizes 24–220, weights 400/500/600/700) |
+| **Inter** | Body text + UI labels | Confirmed from Figma export (sizes ~13–25, weights 400/700) |
+| **JetBrains Mono** | Code, addresses, numerical data | shadcn convention; matches the technical surface (fund addresses, on-chain identifiers) |
+
+Loaded via `@fontsource/poppins`, `@fontsource/inter`, `@fontsource/jetbrains-mono` (subset variants only — Latin + Latin-Ext for ES/PT/CA support).
+
+### 3.2 Type scale (modular, ratio 1.250 — major third)
+
+Base: `1rem = 16px` at default browser settings.
+
+| Token | rem | px | Use |
+|---|---|---|---|
+| `--text-xs` | 0.64rem | 10.24px | Caption, micro-labels |
+| `--text-sm` | 0.8rem | 12.8px | Helper text, secondary metadata |
+| `--text-base` | 1rem | 16px | Body default |
+| `--text-md` | 1.25rem | 20px | Lead paragraphs, prominent body |
+| `--text-lg` | 1.563rem | 25px | Card titles, subsection headings |
+| `--text-xl` | 1.953rem | 31.25px | Section headings (h3) |
+| `--text-2xl` | 2.441rem | 39.06px | Page sub-headings (h2) |
+| `--text-3xl` | 3.052rem | 48.83px | Page titles (h1) |
+| `--text-4xl` | 3.815rem | 61.04px | Hero secondary lines |
+| `--text-5xl` | 4.768rem | 76.29px | Hero display |
+| `--text-6xl` | 5.96rem | 95.37px | Marketing hero (rare, top of homepage only) |
+
+### 3.3 Line height + letter spacing
+
+| Role | Line-height | Letter-spacing |
+|---|---|---|
+| Display (4xl–6xl) | 1.05 | -0.025em |
+| Headings (xl–3xl) | 1.2 | -0.015em |
+| Body (base–lg) | 1.55 | 0 |
+| UI labels (xs–sm) | 1.4 | 0.01em |
+| Mono | 1.45 | 0 |
+
+### 3.4 Weight pairings
+
+| Pairing | Display | Body |
+|---|---|---|
+| Hero | Poppins 700 | Inter 400 |
+| Headline | Poppins 600 | Inter 400 |
+| Body | Inter 400 | Inter 400 |
+| Caption | Inter 500 | — |
+| Mono inline | JetBrains Mono 400 | — |
 
 ---
 
 ## 4. Spatial System
 
-_(Task 5)_
+### 4.1 Spacing scale
+
+Base unit: `0.25rem = 4px`. Multipliers form a doubling-friendly scale.
+
+| Token | rem | px |
+|---|---|---|
+| `--space-0` | 0 | 0 |
+| `--space-px` | 0.0625rem | 1 |
+| `--space-0.5` | 0.125rem | 2 |
+| `--space-1` | 0.25rem | 4 |
+| `--space-1.5` | 0.375rem | 6 |
+| `--space-2` | 0.5rem | 8 |
+| `--space-3` | 0.75rem | 12 |
+| `--space-4` | 1rem | 16 |
+| `--space-5` | 1.25rem | 20 |
+| `--space-6` | 1.5rem | 24 |
+| `--space-8` | 2rem | 32 |
+| `--space-10` | 2.5rem | 40 |
+| `--space-12` | 3rem | 48 |
+| `--space-16` | 4rem | 64 |
+| `--space-20` | 5rem | 80 |
+| `--space-24` | 6rem | 96 |
+| `--space-32` | 8rem | 128 |
+
+### 4.2 Border radius
+
+| Token | rem | px | Use |
+|---|---|---|---|
+| `--radius-none` | 0 | 0 | Tables, full-width sections |
+| `--radius-sm` | 0.25rem | 4 | Inputs, small buttons |
+| `--radius-md` | 0.5rem | 8 | Standard buttons, badges, small cards |
+| `--radius-lg` | 0.75rem | 12 | Cards, modals |
+| `--radius-xl` | 1.25rem | 20 | Hero cards, large surfaces |
+| `--radius-pill` | 9999px | — | Pills, network-color badges |
+| `--radius-full` | 50% | — | Avatars, the orb mark, circular icons |
+
+### 4.3 Shadow
+
+Light-theme shadows (dark theme inverts opacity per tokens.css):
+
+| Token | Value | Use |
+|---|---|---|
+| `--shadow-sm` | `0 1px 2px 0 oklch(0% 0 0 / 0.05)` | Subtle button lift |
+| `--shadow-md` | `0 4px 6px -1px oklch(0% 0 0 / 0.07), 0 2px 4px -2px oklch(0% 0 0 / 0.05)` | Cards, popovers |
+| `--shadow-lg` | `0 10px 15px -3px oklch(0% 0 0 / 0.07), 0 4px 6px -4px oklch(0% 0 0 / 0.05)` | Modals, command palette |
+| `--shadow-xl` | `0 20px 25px -5px oklch(0% 0 0 / 0.10), 0 8px 10px -6px oklch(0% 0 0 / 0.06)` | Featured cards, drawers |
+| `--shadow-glow` | `0 0 30px oklch(74% 0.125 77 / 0.30)` | Sun-deep glow for primary CTAs (use sparingly) |
+
+### 4.4 Container widths
+
+| Token | px | Use |
+|---|---|---|
+| `--container-xs` | 480 | Single-column forms, login |
+| `--container-sm` | 640 | Narrow content (article body) |
+| `--container-md` | 768 | Standard prose pages |
+| `--container-lg` | 1024 | Browser pages (initiative grid, council timeline) |
+| `--container-xl` | 1280 | Dashboards, wide tables |
+| `--container-2xl` | 1536 | Marketing heroes, full-width visualizations |
+| `--prose-max` | `65ch` | Long-form reading (council records, blog posts) — overrides container width for inner text columns |
 
 ---
 
