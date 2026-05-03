@@ -703,8 +703,8 @@ Mobile-first: write rules at base, override at `min-width` breakpoints. Avoid `m
 Default 12-column grid on `lg+`, 4-column on mobile (`<lg`). Gap `--space-6` (24px) on `lg+`, `--space-4` (16px) on mobile.
 
 ```css
-.grid-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space-6); }
-@media (max-width: 1023px) { .grid-12 { grid-template-columns: repeat(4, 1fr); gap: var(--space-4); } }
+.grid-12 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); }
+@media (min-width: 1024px) { .grid-12 { grid-template-columns: repeat(12, 1fr); gap: var(--space-6); } }
 ```
 
 ### 10.3 Touch targets
