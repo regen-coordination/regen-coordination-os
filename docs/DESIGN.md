@@ -409,7 +409,86 @@ Use `cmd-animate` from `impeccable.style` for keyframe utilities (entrance/exit 
 
 ## 7. Component Primitives (shadcn-aligned)
 
-_(Task 7 — first half, Task 8 — second half)_
+> All primitives use shadcn/ui as the architectural baseline. We re-export shadcn components from `packages/aggregator-ui/primitives/<Component>.tsx` with our token CSS classes layered on. When shadcn updates, our primitives stay in sync via the shadcn CLI.
+
+### 7.1 Button
+
+**Anatomy:** `[icon? | label | icon?]` inside a styled `<button>`. Min height 44px (touch target).
+
+**Variants:**
+
+| Variant | Use | Visual |
+|---|---|---|
+| `primary` | Single primary action per surface | `--brand-sun-deep` bg, white fg, shadow-glow on hover |
+| `secondary` | Companion actions | Surface-2 bg, text-primary fg |
+| `outline` | Tertiary actions, in-card actions | Transparent bg, border-default, text-primary |
+| `ghost` | In-row actions, nav items | Transparent bg + transparent border, text-primary, surface-2 on hover |
+| `destructive` | Delete, irreversible actions | Danger bg, danger-foreground fg |
+
+**Sizes:** `sm` (h-8 / 32px), `md` (h-11 / 44px, default), `lg` (h-14 / 56px).
+
+**States:** default, hover, active (pressed), focus-visible (ring), disabled (50% opacity + cursor-not-allowed), loading (spinner replaces leading icon, label dimmed).
+
+**Do:**
+- One `primary` per surface
+- Match icon size to button size (`md` button → `--icon-md` icon)
+
+**Don't:**
+- Stack two `primary` buttons side by side
+- Use `destructive` for "Cancel" — that's `outline` or `ghost`
+- Pair `--shadow-glow` with `secondary` (overuses the brand action color)
+
+### 7.2 Card
+
+**Anatomy:** `[header? | media? | body | footer?]` inside a bordered container.
+
+**Variants:**
+
+| Variant | Background | Border | Use |
+|---|---|---|---|
+| `default` | surface-1 | border-default | Standard card |
+| `elevated` | surface-1 | shadow-md, no border | Featured cards (homepage active programs) |
+| `glass` | gradient-cool tint at 8% opacity, `backdrop-filter: blur(12px)` | border-subtle | Hero overlays, hovered state highlights |
+
+Padding: `--space-6` (24px) default, `--space-4` (16px) compact variant.
+
+**States:** static (default), interactive (`role="button"` or wrapped in `<a>` — adds hover surface-2 lift + cursor-pointer), selected (`border-primary` + `bg-primary/5%`).
+
+### 7.3 Badge
+
+**Anatomy:** `[icon? | label]` in a pill or rounded rectangle.
+
+**Variants:**
+
+| Variant | Style | Use |
+|---|---|---|
+| `default` | surface-2 bg, text-primary fg | Generic tag |
+| `network` | Network color fill at 10% opacity, network color text | Per-network labels (ReFi DAO, Greenpill, Bloom, RC) |
+| `status` | Color-coded by status | 🟢 active, 🟡 bootstrapping, ⚪ observer, 🔴 paused |
+| `count` | Surface-3 bg, text-primary fg, mono numeric | Counter (e.g., "23 meetings") |
+
+Sizes: `sm` (h-5 / 20px, text-xs), `md` (h-6 / 24px, text-sm, default).
+
+### 7.4 Input
+
+**Anatomy:** `[label | hint? | <input> | error?]` stacked.
+
+States: default, focus (ring + border-primary), error (border-danger + danger hint), disabled (50% opacity), readonly (no border, surface-2 bg).
+
+Always pair with `<label>` (visible) — placeholder is not a label substitute.
+
+### 7.5 Select / Combobox
+
+**Select:** Native `<select>` styled to match Input — for ≤7 options, deterministic.
+
+**Combobox:** shadcn Combobox primitive (Radix Popover + Command) — for searchable lists, async results, or >7 options.
+
+Anatomy (Combobox): `[trigger button (label + caret) | popover (search input + result list + empty state + footer hint)]`.
+
+States: closed (default), open, searching (input focused), no-results, selected (chevron replaced by check on row).
+
+**Use Combobox when:** the user might search by partial match (initiative names, fund names, node names).
+**Use Select when:** the option set is small and well-known (status filter, sort order).
 
 ---
 
