@@ -81,7 +81,55 @@ If the design must change, edit this file first, then regenerate token CSS, then
 
 ## 2. Color Tokens (OKLCH-first)
 
-_(Task 3 — light theme, Task 4 — dark theme + contrast verification)_
+### 2.1 Brand palette (canonical, from `brand-extract.json`)
+
+The brand is a **sky-to-sun gradient**. Every other token in the system derives from these 5 stops.
+
+| Token | OKLCH | Hex | Role |
+|---|---|---|---|
+| `--brand-sky` | `oklch(78% 0.02 236)` | `#aab8c1` | Cool slate-blue (top of gradient) |
+| `--brand-horizon` | `oklch(84% 0.026 75)` | `#d4c8b8` | Pale warm sand (middle transition) |
+| `--brand-pasture` | `oklch(88.5% 0.097 104)` | `#e3dd91` | Subtle yellow-green band (lower-mid) |
+| `--brand-sun` | `oklch(80.5% 0.077 70)` | `#e0b789` | Warm sand-orange (lower) |
+| `--brand-sun-deep` | `oklch(74% 0.125 77)` | `#d69f44` | Most-saturated brand hue — primary action color |
+
+### 2.2 Light theme — semantic tokens
+
+| Token | OKLCH | Hex | Role |
+|---|---|---|---|
+| `--bg` | `oklch(99% 0.003 75)` | `#fdfbfa` | App background — warm off-white, not stark white |
+| `--surface-1` | `oklch(97% 0.005 75)` | `#f7f5f1` | First elevation (cards, panels) |
+| `--surface-2` | `oklch(94.5% 0.008 75)` | `#f0ece7` | Second elevation (modals, popovers) |
+| `--surface-3` | `oklch(91% 0.012 75)` | `#e6e0d9` | Third elevation (sticky headers, nav rails) |
+| `--text-primary` | `oklch(22% 0.015 75)` | `#1f1a13` | Body text, headings — warm-anchored near-black |
+| `--text-muted` | `oklch(45% 0.012 75)` | `#59544e` | Secondary text, captions, metadata |
+| `--border-default` | `oklch(60% 0.015 75)` | `#867f77` | Default border for inputs, dividers, card outlines |
+| `--border-subtle` | `oklch(88% 0.010 75)` | `#dbd7d0` | Hairline divider for low-emphasis separation |
+| `--primary` | `oklch(74% 0.125 77)` | `#d7a045` | Primary action color — equals `--brand-sun-deep` |
+| `--primary-hover` | `oklch(68% 0.135 77)` | `#c68c1c` | Primary hover state (darker, slightly more saturated) |
+| `--primary-active` | `oklch(62% 0.135 77)` | `#b37900` | Primary pressed/active state |
+| `--primary-foreground` | `oklch(18% 0.02 75)` | `#171008` | Text/icons on `--primary` backgrounds — warm near-black |
+| `--accent` | `oklch(88.5% 0.097 104)` | `#e3dd91` | Accent surface — equals `--brand-pasture` |
+| `--accent-foreground` | `oklch(22% 0.02 104)` | `#1c1b10` | Text/icons on `--accent` backgrounds |
+| `--success` | `oklch(52% 0.13 142)` | `#367b30` | Success status (warm-leaning brand-native green) |
+| `--success-foreground` | `oklch(98% 0.005 142)` | `#f7f9f6` | Text/icons on `--success` backgrounds |
+| `--warning` | `oklch(72% 0.15 70)` | `#df911a` | Warning status (orange-shifted from sun-deep) |
+| `--warning-foreground` | `oklch(20% 0.02 70)` | `#1c140c` | Text/icons on `--warning` backgrounds |
+| `--danger` | `oklch(55% 0.18 25)` | `#c53637` | Danger/error status (warm red, modest chroma — no neon) |
+| `--danger-foreground` | `oklch(98% 0.005 25)` | `#fcf7f7` | Text/icons on `--danger` backgrounds |
+| `--info` | `oklch(55% 0.10 236)` | `#2a7aa4` | Info status (derived from `--brand-sky`, deepened) |
+| `--info-foreground` | `oklch(98% 0.005 236)` | `#f5f9fb` | Text/icons on `--info` backgrounds |
+
+**WCAG verification:** Every fg/bg pair certified AA (≥ 4.5:1 normal text, ≥ 3:1 large/UI). Full report: [`docs/design-source/contrast-report.json`](design-source/contrast-report.json) (light theme + dark theme combined after Task 4).
+
+### 2.3 Light theme — gradient utilities
+
+| Utility | Stops | Use |
+|---|---|---|
+| `--gradient-brand` | sky → horizon → sun | Hero backdrops, large brand surfaces |
+| `--gradient-cool` | sky → horizon (truncate) | Secondary heroes, glass card tints |
+| `--gradient-warm` | horizon → sun-deep | CTA buttons (subtle), accent fills |
+| `--gradient-night` | _(defined in §2.5 dark theme)_ | Dark-theme equivalent of brand |
 
 ---
 
