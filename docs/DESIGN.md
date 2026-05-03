@@ -452,7 +452,7 @@ Use `cmd-animate` from `impeccable.style` for keyframe utilities (entrance/exit 
 
 Padding: `--space-6` (24px) default, `--space-4` (16px) compact variant.
 
-**States:** static (default), interactive (`role="button"` or wrapped in `<a>` — adds hover surface-2 lift + cursor-pointer), selected (`border-primary` + `bg-primary/5%`).
+**States:** static (default), interactive (`role="button"` or wrapped in `<a>` — adds hover surface-2 lift + cursor-pointer), selected (`border-primary` + `bg-primary/5`).
 
 ### 7.3 Badge
 
