@@ -12,17 +12,71 @@
  *   node scripts/initialize.mjs --format=json     # Explicit JSON (default)
  */
 
-import "dotenv/config";
 import fs from "fs";
 import path from "path";
-import yaml from "js-yaml";
-import matter from "gray-matter";
 import { fileURLToPath } from "url";
 import { execSync } from "child_process";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, "..");
+
+// ── Preflight: install dependencies if missing ───────────────────────────────
+// Runs once on first invocation. Keeps `/initialize` truly one-step — no
+// separate `npm install` needed before the first session.
+const nodeModulesPath = path.join(rootDir, "node_modules");
+const pkgJsonPath = path.join(rootDir, "package.json");
+if (fs.existsSync(pkgJsonPath) && !fs.existsSync(nodeModulesPath)) {
+  process.stderr.write(
+    "[bootstrap] First run — installing dependencies (npm install)…\n",
+  );
+  try {
+    execSync("npm install", { cwd: rootDir, stdio: "inherit" });
+  } catch (err) {
+    process.stderr.write(
+      `[bootstrap] npm install failed: ${err.message}\n` +
+        "Run `npm install` manually, then retry.\n",
+    );
+    process.exit(1);
+  }
+}
+
+// ── Preflight: clone linked repos if missing ─────────────────────────────────
+// On a fresh checkout, repos/ contains only README.md (everything else is
+// gitignored). If no linked repo is yet cloned, run clone-linked-repos.mjs.
+// Subsequent runs are no-ops; manual updates use `npm run clone:repos`.
+const reposDir = path.join(rootDir, "repos");
+const manifestPath = path.join(rootDir, "repos.manifest.json");
+const cloneScript = path.join(__dirname, "clone-linked-repos.mjs");
+function hasAnyClonedRepo(dir) {
+  if (!fs.existsSync(dir)) return false;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    if (fs.existsSync(path.join(dir, entry.name, ".git"))) return true;
+  }
+  return false;
+}
+if (
+  fs.existsSync(manifestPath) &&
+  fs.existsSync(cloneScript) &&
+  !hasAnyClonedRepo(reposDir)
+) {
+  process.stderr.write(
+    "[bootstrap] Cloning linked repos from repos.manifest.json…\n",
+  );
+  try {
+    execSync(`node "${cloneScript}"`, { cwd: rootDir, stdio: "inherit" });
+  } catch (err) {
+    process.stderr.write(
+      `[bootstrap] clone:repos failed: ${err.message}\n` +
+        "Run `npm run clone:repos` manually, then retry.\n",
+    );
+    // Non-fatal — initialize can still render dashboard from local data.
+  }
+}
+
+const yaml = (await import("js-yaml")).default;
+const matter = (await import("gray-matter")).default;
 
 const args = process.argv.slice(2);
 const formatArg = args.find((a) => a.startsWith("--format="));
@@ -128,11 +182,24 @@ function getFileModifiedAge(filePath) {
 
 function daysUntil(dateStr) {
   if (!dateStr) return Infinity;
-  const date = new Date(dateStr);
+  const date = parseLocalDate(dateStr);
   const now = new Date();
   now.setHours(0, 0, 0, 0);
   date.setHours(0, 0, 0, 0);
   return Math.ceil((date - now) / 86400000);
+}
+
+// Parse a date value as a local-time Date.
+// Bare "YYYY-MM-DD" strings are otherwise interpreted as UTC midnight by the
+// JS Date constructor, which shifts them backward by a day in negative-UTC
+// timezones (e.g. BRT) and wrecks calendar/day-of-week comparisons.
+function parseLocalDate(value) {
+  if (value instanceof Date) return new Date(value);
+  if (typeof value === "string") {
+    const m = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (m) return new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+  }
+  return new Date(value);
 }
 
 // ── Identity ─────────────────────────────────────────────────────────────────
@@ -156,7 +223,7 @@ function loadIdentity(federation, toolsMd) {
   let notionWorkspaceUrl = null;
   if (toolsMd) {
     const notionMatch = toolsMd.match(
-      /Workspace URL:\s*(https:\/\/(?:www\.)?notion\.so\/[^\s]+)/i,
+      /Workspace URL:\s*(https:\/\/notion\.so\/[^\s]+)/i,
     );
     if (
       notionMatch &&
@@ -352,15 +419,15 @@ function loadEvents() {
       relatedProject: e.related_project || null,
       status: e.status || "upcoming",
     }))
-    .sort((a, b) => new Date(a.date) - new Date(b.date));
+    .sort((a, b) => parseLocalDate(a.date) - parseLocalDate(b.date));
 
   const thisWeek = events.filter((e) => {
-    const d = new Date(e.date);
+    const d = parseLocalDate(e.date);
     return d >= weekStart && d < weekEnd;
   });
 
   const upcomingEvents = events
-    .filter((e) => new Date(e.date) >= weekEnd)
+    .filter((e) => parseLocalDate(e.date) >= weekEnd)
     .slice(0, 5);
 
   return { thisWeek, upcoming: upcomingEvents };
@@ -421,7 +488,7 @@ function loadMeetings() {
     }
   }
 
-  meetings.sort((a, b) => new Date(a.date) - new Date(b.date));
+  meetings.sort((a, b) => parseLocalDate(a.date) - parseLocalDate(b.date));
 
   const now = new Date();
   const weekStart = new Date(now);
@@ -431,12 +498,12 @@ function loadMeetings() {
   weekEnd.setDate(weekStart.getDate() + 7);
 
   const thisWeek = meetings.filter((m) => {
-    const d = new Date(m.date);
+    const d = parseLocalDate(m.date);
     return d >= weekStart && d < weekEnd;
   });
 
   const upcomingMeetings = meetings
-    .filter((m) => new Date(m.date) >= weekEnd)
+    .filter((m) => parseLocalDate(m.date) >= weekEnd)
     .slice(0, 5);
 
   return { thisWeek, upcoming: upcomingMeetings };
@@ -512,7 +579,6 @@ function loadRecentMemory() {
     const lines = content
       .split("\n")
       .filter((l) => l.trim() && !l.startsWith("#") && !l.startsWith("---"))
-      .map((l) => l.replace(/^[-*]\s+/, ""))
       .slice(0, 2)
       .join(" ")
       .trim();
@@ -539,7 +605,6 @@ function loadFederation(federation) {
     name: p.name || p.id,
     url: p.url || p.repository || null,
     role: p.role || null,
-    trust: p.trust || null,
   }));
 
   const upstream = (fedSection.upstream || federation.upstream || []).map(
@@ -569,15 +634,13 @@ function loadFederation(federation) {
   return {
     network: fedSection.network || federation.network || null,
     networks,
-    identityType: federation.identity?.type || null,
     role: fedSection.role || null,
     peers,
     upstream,
     repos,
     packages: federation.packages || agentSection.packages || {},
     knowledgeCommons: knowledgeCommons.enabled || false,
-    knowledgeCommonsProtocol: knowledgeCommons["sync-protocol"] || null,
-    publishedDomains: knowledgeCommons["shared-domains"] || knowledgeCommons.published_domains || [],
+    publishedDomains: knowledgeCommons.published_domains || [],
   };
 }
 
@@ -950,9 +1013,7 @@ function loadDashboardConfig() {
 
 async function fetchNotionData(toolsMd) {
   const apiKey = process.env.NOTION_API_KEY;
-  if (!apiKey) {
-    return { status: "no-key", projects: [], meetings: [], members: [] };
-  }
+  if (!apiKey) return null;
 
   if (!toolsMd) return null;
 
@@ -1098,12 +1159,12 @@ function mergeData(local, notion) {
     weekEnd.setDate(weekStart.getDate() + 7);
 
     local.meetings.thisWeek = merged.filter((m) => {
-      const d = new Date(m.date);
+      const d = parseLocalDate(m.date);
       return d >= weekStart && d < weekEnd;
     });
     local.meetings.upcoming = merged
       .filter((m) => {
-        const d = new Date(m.date);
+        const d = parseLocalDate(m.date);
         return d >= weekEnd;
       })
       .slice(0, 5);
@@ -1157,41 +1218,31 @@ async function main() {
     warnings,
   };
 
-  // Render dashboard immediately with local data
+  let notionTimer;
+  const notionData = await Promise.race([
+    fetchNotionData(toolsMd).then((v) => { clearTimeout(notionTimer); return v; }),
+    new Promise((resolve) => {
+      notionTimer = setTimeout(() => {
+        process.stderr.write("[warn] Notion API timed out after 8s\n");
+        resolve(null);
+      }, 8000);
+    }),
+  ]);
+  if (notionData) {
+    state = mergeData(state, notionData);
+    state.status.notionConnected = true;
+  } else {
+    state.status.notionConnected = false;
+    if (process.env.NOTION_API_KEY) warnings.push("Notion API returned no data");
+  }
+  if (!git) warnings.push("git status unavailable");
+  else if (git.note) warnings.push(git.note);
+
   if (format === "markdown") {
     console.log(renderMarkdown(state));
   } else {
     console.log(JSON.stringify(state, null, 2));
   }
-
-  // Fetch Notion data in parallel (after dashboard is rendered)
-  // This ensures dashboard loads fast even if Notion API is slow
-  process.stderr.write("[info] Dashboard loaded from local data. Checking Notion API...\n");
-
-  let notionTimeout;
-  const notionData = await Promise.race([
-    fetchNotionData(toolsMd).then((r) => { clearTimeout(notionTimeout); return r; }),
-    new Promise((resolve) => {
-      notionTimeout = setTimeout(() => {
-        process.stderr.write("[warn] Notion API timed out after 5s — dashboard uses local data only\n");
-        resolve(null);
-      }, 5000);
-    }),
-  ]);
-
-  // Report Notion status only to stderr (doesn't block display)
-  if (notionData?.status === "no-key") {
-    process.stderr.write(
-      "[info] NOTION_API_KEY not set — dashboard uses local YAML data only. " +
-      "To sync Notion, copy .env.example to .env and add your NOTION_API_KEY.\n"
-    );
-  } else if (notionData && Object.keys(notionData).length > 0) {
-    // Notion data available
-    process.stderr.write("[info] ✓ Notion API connected and synced\n");
-  } else if (process.env.NOTION_API_KEY) {
-    process.stderr.write("[warn] Notion API issue (no data) — using local YAML data. Check database permissions in Notion.\n");
-  }
-  if (!git) process.stderr.write("[warn] git status unavailable\n");
 }
 
 // ── Visual Helpers ───────────────────────────────────────────────────────────
@@ -1213,36 +1264,13 @@ function normalizeOwner(raw) {
   return raw;
 }
 
-function stripMarkdown(str) {
-  return str
-    .replace(/\*\*([^*]+)\*\*/g, "$1")   // **bold**
-    .replace(/\*([^*]+)\*/g, "$1")        // *italic*
-    .replace(/__([^_]+)__/g, "$1")        // __bold__
-    .replace(/_([^_]+)_/g, "$1")          // _italic_
-    .replace(/`([^`]+)`/g, "$1")          // `code`
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") // [text](url)
-    .replace(/^[-*]\s+/gm, "");           // list markers
-}
-
 function safeTruncate(str, len) {
-  // Measure visible length (without markdown markers) for truncation decision
-  const visible = stripMarkdown(str);
-  if (visible.length <= len) return str;
-
-  // Walk the raw string, tracking visible chars consumed
-  let visCount = 0;
-  let i = 0;
-  while (i < str.length && visCount < len - 1) {
-    if (str[i] === "*" && str[i + 1] === "*") { i += 2; continue; }
-    if (str[i] === "`") { i += 1; continue; }
-    visCount++;
-    i++;
-  }
-  let result = str.substring(0, i) + "…";
-  // Close any unclosed ** pairs
+  if (str.length <= len) return str;
+  let result = str.substring(0, len - 1) + "…";
+  // Close unclosed ** bold markers to prevent formatting bleed
   const boldCount = (result.match(/\*\*/g) || []).length;
   if (boldCount % 2 !== 0) result += "**";
-  // Close any unclosed backtick
+  // Close unclosed backtick code spans
   const btCount = (result.match(/`/g) || []).length;
   if (btCount % 2 !== 0) result += "`";
   return result;
@@ -1267,24 +1295,51 @@ function sectionHeader(title) {
 
 // ── Pipeline Bar Renderer ─────────────────────────────────────────────────
 
+const FILLS = ["░", "▒", "▓", "█"];
+
+function pipelineFill(stageIndex, totalStages) {
+  if (totalStages <= 1) return "█";
+  const ratio = stageIndex / (totalStages - 1);
+  return FILLS[
+    Math.min(Math.round(ratio * (FILLS.length - 1)), FILLS.length - 1)
+  ];
+}
+
 function renderPipelineBar(p) {
+  const barW = W - 4;
   const barTotal = p.stages.reduce((sum, s) => sum + (p.counts[s] || 0), 0);
-  const maxCount = Math.max(...p.stages.map((s) => p.counts[s] || 0), 1);
-  const barSlots = 4; // fixed mini-bar width per stage
 
   // Title line
   const totalStr = ` ${barTotal} total`;
   const dashes = W - p.label.length - totalStr.length - 5;
   let out = `  ${p.label} ${"─".repeat(Math.max(3, dashes))}${totalStr}\n`;
 
-  // Inline mini-bars: ███░ stage (N) → ████ stage (N) → ...
-  const parts = p.stages.map((s) => {
-    const count = p.counts[s] || 0;
-    const filled = count === 0 ? 0 : Math.max(1, Math.round((count / maxCount) * barSlots));
-    const bar = "█".repeat(filled) + "░".repeat(barSlots - filled);
-    return `${bar} ${s} (${count})`;
-  });
-  out += `  ${parts.join(" → ")}\n`;
+  // Segmented bar
+  if (barTotal === 0) {
+    out += `  ${"·".repeat(barW)}\n`;
+  } else {
+    let bar = "";
+    let used = 0;
+    for (let i = 0; i < p.stages.length; i++) {
+      const count = p.counts[p.stages[i]] || 0;
+      if (count === 0) continue;
+      const isLast =
+        i === p.stages.length - 1 ||
+        p.stages.slice(i + 1).every((s) => (p.counts[s] || 0) === 0);
+      const segW = isLast
+        ? barW - used
+        : Math.round((count / barTotal) * barW);
+      bar += pipelineFill(i, p.stages.length).repeat(segW);
+      used += segW;
+    }
+    out += `  ${bar}\n`;
+  }
+
+  // Stage labels line
+  const labels = p.stages
+    .map((s) => `${s} ${p.counts[s] || 0}`)
+    .join(" → ");
+  out += `  ${labels}\n`;
 
   return out;
 }
@@ -1342,7 +1397,7 @@ function generateAsciiBanner(name) {
     }
   }
 
-  const fullText = displayName.toUpperCase() + "  OS";
+  const fullText = displayName.toUpperCase();
   const lines = ["", "", "", "", ""];
   for (const char of fullText) {
     const glyph = font[char] || font[" "];
@@ -1370,8 +1425,12 @@ function renderMarkdown(state) {
   // ── Header ──────────────────────────────────────────────────────────────
   if (config.header?.show !== false) {
     const bannerLines = generateAsciiBanner(identity.name || "ORG");
+    // Add "OS" label to last banner line
+    const bannerWithOS = bannerLines.map((bl, i) =>
+      i === bannerLines.length - 1 ? bl + "    OS" : bl,
+    );
     const rebuilt = [""];
-    for (const bl of bannerLines) {
+    for (const bl of bannerWithOS) {
       rebuilt.push("   " + bl);
     }
     rebuilt.push("");
@@ -1386,7 +1445,7 @@ function renderMarkdown(state) {
     const allDeadlines = [
       ...(events?.thisWeek || []),
       ...(events?.upcoming || []),
-    ].filter((e) => e.type === "deadline" && new Date(e.date) >= today);
+    ].filter((e) => e.type === "deadline" && parseLocalDate(e.date) >= today);
     const nearest = allDeadlines[0];
     const deadlineStr = nearest
       ? `Next: ${nearest.date.split("T")[0].slice(5)}`
@@ -1394,28 +1453,14 @@ function renderMarkdown(state) {
 
     const fundingCount = (funding?.upcoming?.length || 0) + (funding?.active?.length || 0);
 
-    // Meta line — identity type, git state, Notion
-    const meta = [identity.type || "Organization"];
-    if (git?.note) meta.push(git.note);
-    else if (git?.dirty === false) meta.push("clean");
-    else if (git?.dirty === true) meta.push("dirty");
-    else meta.push("local");
-    if (status.notionConnected) meta.push("Notion \u2197");
-    rebuilt.push("   " + meta.join(" \u00b7 "));
-
-    // Stats line — tasks, funding, deadlines, skills, memory
     const statsLine = [
       taskStr,
       fundingCount > 0 ? `${fundingCount} funding` : null,
       deadlineStr,
-      status.skillCount > 0 ? `Skills: ${status.skillCount}` : null,
       status.lastMemoryAge ? `Memory: ${status.lastMemoryAge}` : null,
     ].filter(Boolean).join(" · ");
 
     rebuilt.push("   " + statsLine);
-    if (identity.notionUrl) {
-      rebuilt.push("   " + identity.notionUrl);
-    }
     rebuilt.push("");
 
     out += renderPanel(rebuilt);
@@ -1437,9 +1482,9 @@ function renderMarkdown(state) {
       out += pad("  AREAS", 34) + pad("OWNER", 10) + "FOCUS\n";
       for (const a of areas.sort(sortByStage)) {
         const icon = a.stage === "active" ? "●" : "○";
-        const name = pad(`  ${icon}  ${truncate(stripMarkdown(a.name), 24)}`, 34);
+        const name = pad(`  ${icon}  ${truncate(a.name, 24)}`, 34);
         const owner = pad(truncate(normalizeOwner(a.owner), 8), 10);
-        const desc = truncate(stripMarkdown(a.description || ""), 32);
+        const desc = truncate(a.description || "", 32);
         out += `${name}${owner}${desc}\n`;
       }
       out += "\n";
@@ -1460,10 +1505,10 @@ function renderMarkdown(state) {
       for (const p of visible.sort(sortByStage).slice(0, maxShow)) {
         const isActive = ["active", "integrate", "in-progress"].includes(p.stage?.toLowerCase());
         const icon = isActive ? "●" : "○";
-        const name = pad(`  ${icon}  ${truncate(stripMarkdown(p.name), 24)}`, 34);
+        const name = pad(`  ${icon}  ${truncate(p.name, 24)}`, 34);
         const owner = pad(truncate(normalizeOwner(p.owner), 8), 10);
         const stage = pad(p.stage || "idea", 14);
-        const desc = truncate(stripMarkdown(p.description || ""), 18);
+        const desc = truncate(p.description || "", 18);
         out += `${name}${owner}${stage}${desc}\n`;
       }
 
@@ -1515,21 +1560,21 @@ function renderMarkdown(state) {
 
     for (const t of tasks.critical.slice(0, maxPerTier)) {
       const due = t.due ? ` (due ${t.due})` : "";
-      out += `  ⚡ ${truncate(stripMarkdown(t.text), 60)}${due}    CRITICAL\n`;
+      out += `  ⚡ ${safeTruncate(t.text, 60)}${due}    CRITICAL\n`;
     }
     if (tasks.critical.length > maxPerTier) {
       out += `  ... +${tasks.critical.length - maxPerTier} more critical\n`;
     }
     for (const t of tasks.urgent.slice(0, maxPerTier)) {
       const days = t.daysLeft != null ? ` — ${t.daysLeft}d` : "";
-      out += `  ◆  ${truncate(stripMarkdown(t.text), 58)}${days}    URGENT\n`;
+      out += `  ◆  ${safeTruncate(t.text, 58)}${days}    URGENT\n`;
     }
     if (tasks.urgent.length > maxPerTier) {
       out += `  ... +${tasks.urgent.length - maxPerTier} more urgent\n`;
     }
     const upcomingMax = config.tasks?.max_upcoming || 5;
     for (const t of tasks.upcoming.slice(0, upcomingMax)) {
-      out += `  ◇  ${truncate(stripMarkdown(t.text), 68)}\n`;
+      out += `  ◇  ${safeTruncate(t.text, 68)}\n`;
     }
     if (tasks.upcoming.length > upcomingMax) {
       out += `  ... +${tasks.upcoming.length - upcomingMax} more upcoming\n`;
@@ -1537,7 +1582,7 @@ function renderMarkdown(state) {
 
     if (config.tasks?.show_completed && tasks.completed.length > 0) {
       for (const t of tasks.completed.slice(0, 3)) {
-        out += `  ✓  ${truncate(stripMarkdown(t.text), 68)}\n`;
+        out += `  ✓  ${safeTruncate(t.text, 68)}\n`;
       }
     }
 
@@ -1553,7 +1598,7 @@ function renderMarkdown(state) {
     const weekItems = [
       ...meetings.thisWeek.map((m) => ({ ...m, source: "meeting" })),
       ...(events?.thisWeek || []).map((e) => ({ ...e, source: "event" })),
-    ].sort((a, b) => new Date(a.date) - new Date(b.date));
+    ].sort((a, b) => parseLocalDate(a.date) - parseLocalDate(b.date));
 
     const weekStart = new Date(today);
     weekStart.setDate(today.getDate() - today.getDay() + 1);
@@ -1568,13 +1613,13 @@ function renderMarkdown(state) {
       const marker = isToday ? "  ← today" : "";
 
       const dayItems = weekItems.filter(
-        (m) => new Date(m.date).toDateString() === day.toDateString(),
+        (m) => parseLocalDate(m.date).toDateString() === day.toDateString(),
       );
 
       if (dayItems.length > 0) {
         for (const m of dayItems) {
           const link = m.notionUrl || m.url ? `  → ${m.relatedProject || "link"}` : "";
-          out += `  ${dayStr} ${dateNum}  │  ■ ${stripMarkdown(m.title)}${link}${marker}\n`;
+          out += `  ${dayStr} ${dateNum}  │  ■ ${m.title}${link}${marker}\n`;
         }
       } else {
         out += `  ${dayStr} ${dateNum}  │${marker}\n`;
@@ -1585,16 +1630,16 @@ function renderMarkdown(state) {
     const upcomingItems = [
       ...(events?.upcoming || []),
       ...(meetings?.upcoming || []),
-    ].sort((a, b) => new Date(a.date) - new Date(b.date)).slice(0, 3);
+    ].sort((a, b) => parseLocalDate(a.date) - parseLocalDate(b.date)).slice(0, 3);
 
     if (upcomingItems.length > 0) {
       out += "\n  Coming up:\n";
       for (const item of upcomingItems) {
-        const d = new Date(item.date);
+        const d = parseLocalDate(item.date);
         const mon = d.toLocaleString("en", { month: "short" });
         const dateNum = String(d.getDate()).padStart(2, " ");
         const related = item.relatedProject ? `  ${item.relatedProject}` : "";
-        out += `  ${mon} ${dateNum}  │  ■ ${stripMarkdown(item.title)}${related}\n`;
+        out += `  ${mon} ${dateNum}  │  ■ ${item.title}${related}\n`;
       }
     }
   }
@@ -1609,12 +1654,12 @@ function renderMarkdown(state) {
     if (withinHorizon.length > 0 || funding.active.length > 0) {
       out += sectionHeader("Funding");
       for (const f of withinHorizon.slice(0, 8)) {
-        const name = stripMarkdown(f.name || f.title || f.fund || f.platform || "Unknown");
+        const name = f.name || f.title || f.fund || f.platform || "Unknown";
         const icon = f.daysLeft <= 7 ? "⚠" : "◇";
         out += `  ${icon}  ${name} — ${f.daysLeft}d left\n`;
       }
       for (const f of funding.active.slice(0, 3)) {
-        const name = stripMarkdown(f.name || f.title || f.fund || f.platform || "Unknown");
+        const name = f.name || f.title || f.fund || f.platform || "Unknown";
         out += `  ●  ${name} — ${f.status}\n`;
       }
     }
@@ -1625,7 +1670,7 @@ function renderMarkdown(state) {
     out += sectionHeader("Recent Context");
     const max = config.context?.max_entries || 3;
     for (const entry of recentMemory.slice(0, max)) {
-      out += `  ${entry.date}: ${truncate(stripMarkdown(entry.summary), 62)}\n`;
+      out += `  ${entry.date}: ${safeTruncate(entry.summary, 62)}\n`;
     }
   }
 
@@ -1635,14 +1680,14 @@ function renderMarkdown(state) {
     if (plans.active.length > 0) {
       out += "  ACTIVE\n";
       for (const p of plans.active) {
-        out += `  ●  ${stripMarkdown(p.title)} — ${stripMarkdown(p.description)}\n`;
+        out += `  ●  ${p.title} — ${p.description}\n`;
       }
     }
     const preview = config.plans?.queued_preview || 2;
     if (plans.queued.length > 0) {
       out += "\n  QUEUED" + (plans.queued.length > preview ? ` (next ${preview})` : "") + "\n";
       for (const p of plans.queued.slice(0, preview)) {
-        out += `  ○  ${stripMarkdown(p.title)} — ${stripMarkdown(p.description)}\n`;
+        out += `  ○  ${p.title} — ${p.description}\n`;
       }
     }
     const remaining = Math.max(0, plans.queued.length - preview);
@@ -1694,51 +1739,30 @@ function renderMarkdown(state) {
   // ── Federation ──────────────────────────────────────────────────────────
   if (config.federation?.show !== false && federation) {
     out += sectionHeader("Federation");
-
-    // Summary line — identity type + networks + knowledge commons
-    const summaryParts = [federation.identityType || "Node"];
     if (federation.networks?.length > 0) {
       const networkParts = federation.networks.map((n) =>
         n.role ? `${n.name} (${n.role})` : n.name
       );
-      summaryParts.push(networkParts.join(", "));
+      out += `  Networks: ${networkParts.join(", ")}\n`;
     } else {
-      summaryParts.push(federation.network || "none");
+      out += `  Network: ${federation.network || "none"}\n`;
     }
-    if (federation.knowledgeCommons) {
-      const kcStr = federation.knowledgeCommonsProtocol
-        ? `Knowledge Commons: on (${federation.knowledgeCommonsProtocol} sync)`
-        : "Knowledge Commons: on";
-      summaryParts.push(kcStr);
-    }
-    out += `  ${summaryParts.join(" · ")}\n`;
-
-    // Upstream
     if (federation.upstream?.length > 0) {
       const up = federation.upstream[0];
-      const repoName = up.repository?.split("/").pop() || up.repository;
-      out += `  Upstream: ${repoName} · Last sync: ${up.lastSync || "never"}\n`;
+      out += `  Upstream: ${up.repository} · Last sync: ${up.lastSync || "never"}\n`;
     }
-    out += "\n";
-
-    // Peer table with trust levels
     if (federation.peers?.length > 0) {
-      out += pad("  PEER", 36) + "TRUST\n";
-      for (const p of federation.peers) {
-        const name = pad(`  ${truncate(p.name, 30)}`, 36);
-        out += `${name}${p.trust || "—"}\n`;
-      }
+      const names = federation.peers.map((p) => p.name).join(", ");
+      out += `  Peers: ${names}\n`;
     }
-
-    // Repos table
     if (federation.repos?.length > 0) {
-      out += "\n";
-      out += pad("  REPO", 36) + "ROLE\n";
-      for (const r of federation.repos) {
-        const name = pad(`  ${truncate(r.name, 30)}`, 36);
-        out += `${name}${r.role || "—"}\n`;
-      }
+      const repoNames = federation.repos.map((r) => r.name).join(", ");
+      out += `  Repos: ${repoNames}\n`;
     }
+    const extras = [];
+    extras.push(`Skills: ${status.skillCount} active`);
+    if (federation.knowledgeCommons) extras.push("Knowledge Commons: on");
+    out += `  ${extras.join(" · ")}\n`;
   }
 
   // ── Warnings ────────────────────────────────────────────────────────────
@@ -1777,13 +1801,13 @@ function generateSuggestions(state, count) {
   // Priority 1: Critical/overdue tasks
   for (const t of tasks.critical) {
     const due = t.due ? ` (due ${t.due})` : "";
-    suggestions.push(`⚡ ${stripMarkdown(t.text)}${due}`);
+    suggestions.push(`⚡ ${t.text}${due}`);
   }
 
   // Priority 2: Upcoming funding deadlines (within 14 days)
   for (const f of (funding?.upcoming || []).slice(0, 2)) {
     if (f.daysLeft <= 14) {
-      const name = stripMarkdown(f.name || f.title || f.fund || f.platform || "Funding");
+      const name = f.name || f.title || f.fund || f.platform || "Funding";
       suggestions.push(`◆  ${name} — ${f.daysLeft}d left`);
     }
   }
@@ -1798,12 +1822,12 @@ function generateSuggestions(state, count) {
   // Priority 4: Urgent tasks
   for (const t of tasks.urgent.slice(0, 2)) {
     const days = t.daysLeft != null ? ` — ${t.daysLeft}d` : "";
-    suggestions.push(`◆  ${stripMarkdown(t.text)}${days}`);
+    suggestions.push(`◆  ${t.text}${days}`);
   }
 
   // Priority 5: Upcoming events
   for (const e of (events?.thisWeek || []).slice(0, 1)) {
-    suggestions.push(`◇  Prepare for ${stripMarkdown(e.title)}`);
+    suggestions.push(`◇  Prepare for ${e.title}`);
   }
 
   // Fallbacks if nothing urgent

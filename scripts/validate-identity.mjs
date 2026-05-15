@@ -22,7 +22,9 @@ const requiredFiles = [
   'data/members.yaml',
   'data/projects.yaml',
   'data/finances.yaml',
-  'data/meetings.yaml'
+  'data/meetings.yaml',
+  'data/orgs.yaml',
+  'schemas/orgs.schema.json'
 ];
 
 let hasErrors = false;
