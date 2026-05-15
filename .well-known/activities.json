@@ -3,27 +3,6 @@
   "type": "ActivityLog",
   "activities": [
     {
-      "id": "mtg-20250808-council",
-      "type": "meeting",
-      "title": "Regen Coordination Council Meet",
-      "date": "2025-08-08",
-      "summary": "Quarterly strategy and GG24 planning. Four regen-aligned domains identified."
-    },
-    {
-      "id": "mtg-20250822-council",
-      "type": "meeting",
-      "title": "Regen Coordination Council Sync",
-      "date": "2025-08-22",
-      "summary": "Local ReFi Toolkit development and GG24 planning. Three-tier organizational structure defined."
-    },
-    {
-      "id": "mtg-20250829-council",
-      "type": "meeting",
-      "title": "Regen Coordination Council Sync",
-      "date": "2025-08-29",
-      "summary": "Council restructuring, Value Flow Compass completed, five GG24 domains confirmed."
-    },
-    {
       "id": "mtg-20250905-council",
       "type": "meeting",
       "title": "Regen Coordination Council Sync",
@@ -141,6 +120,27 @@
       "title": "Regen Coordination Council Sync",
       "date": "2026-04-10",
       "summary": "Monthly growth working group. Simpler aggregator approach preferred. Service offerings framework."
+    },
+    {
+      "id": "mtg-20260424-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync — Social finance, Artizen, network collab",
+      "date": "2026-04-24",
+      "summary": "Two Artizen apps already submitted (Frontier + Terminus). Coy proposes RC pivot to funding pass-through, not concrete org. KOI implementation underway. Bread spotlight reframe to network achievements. Region Pollination partnership pursued. 20% Artizen fund manager fees flagged."
+    },
+    {
+      "id": "mtg-20260428-greenpill-growth",
+      "type": "meeting",
+      "title": "Greenpill Growth Sync (ReFi DAO + Regional Coordination)",
+      "date": "2026-04-28",
+      "summary": "Collective Governance Fund app due 2026-04-29; Bahia regional shift to live inside GreenPill Brazil; House of Governance staking secured; Artizen pipeline quiet (no new submissions); ReFi Med EU-grants call tomorrow with OrgoS demo."
+    },
+    {
+      "id": "mtg-20260508-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync — Toolkit handoff, Ma Earth fund, project aggregation, brand legitimacy",
+      "date": "2026-05-08",
+      "summary": "Matt completed toolkit master doc (markdown handoff); Luiz processes into repo today. Ma Earth $500k matching pool opening next week (eligibility: nonprofit/fiscal sponsor; sweet spot <$20k grants, >$20k lending). Project aggregation strategy: per-individual balance to prevent multi-project gaming. Jane Ukraine = partners not chapter. Region Commons finally opening to community. Luiz personal overload + Coi Green Goods tensions — Durgadas coordination suite recommended."
     }
   ]
 }
