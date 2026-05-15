@@ -1,0 +1,150 @@
+{
+  "generated_utc": "2026-04-25T01:15:49Z",
+  "source_audit": "skills/meeting-notes-transcription-fixer/last-audit.json",
+  "summary": {
+    "issues_total": 9,
+    "metadata_queue": 0,
+    "semantic_queue": 0,
+    "term_queue": 2,
+    "conflict_queue": 0
+  },
+  "queues": {
+    "metadata": [],
+    "semantic": [],
+    "terminology": [
+      {
+        "path": "260217 ReFi DAO Meeting with Monty.md",
+        "has_frontmatter": true,
+        "has_meetings_category": true,
+        "has_projects": true,
+        "projects_is_list": true,
+        "has_date_field": true,
+        "nonstandard_name": false,
+        "conflict_like_name": false,
+        "missing_sections": [
+          "agenda",
+          "next_steps"
+        ],
+        "term_counts": {
+          "Luis": 0,
+          "ReFIDAO": 0,
+          "ReFiDAO": 4,
+          "ReFIDAL": 0,
+          "RefIDal": 0,
+          "Greenpeal": 0,
+          "Zargon": 0,
+          "COI": 0
+        },
+        "transcript_markers": {
+          "transcript_header": 0,
+          "speaker_line": 3,
+          "timestamp": 0,
+          "repeated_word": 0
+        },
+        "severity": 6
+      },
+      {
+        "path": "260204 ReFi DAO Global Monthly Call.md",
+        "has_frontmatter": true,
+        "has_meetings_category": true,
+        "has_projects": true,
+        "projects_is_list": true,
+        "has_date_field": true,
+        "nonstandard_name": false,
+        "conflict_like_name": false,
+        "missing_sections": [
+          "agenda",
+          "next_steps"
+        ],
+        "term_counts": {
+          "Luis": 0,
+          "ReFIDAO": 0,
+          "ReFiDAO": 1,
+          "ReFIDAL": 0,
+          "RefIDal": 0,
+          "Greenpeal": 0,
+          "Zargon": 0,
+          "COI": 0
+        },
+        "transcript_markers": {
+          "transcript_header": 0,
+          "speaker_line": 3,
+          "timestamp": 0,
+          "repeated_word": 0
+        },
+        "severity": 3
+      }
+    ],
+    "conflicts": []
+  },
+  "batches": {
+    "metadata": [],
+    "semantic": [],
+    "terminology": [
+      [
+        {
+          "path": "260217 ReFi DAO Meeting with Monty.md",
+          "has_frontmatter": true,
+          "has_meetings_category": true,
+          "has_projects": true,
+          "projects_is_list": true,
+          "has_date_field": true,
+          "nonstandard_name": false,
+          "conflict_like_name": false,
+          "missing_sections": [
+            "agenda",
+            "next_steps"
+          ],
+          "term_counts": {
+            "Luis": 0,
+            "ReFIDAO": 0,
+            "ReFiDAO": 4,
+            "ReFIDAL": 0,
+            "RefIDal": 0,
+            "Greenpeal": 0,
+            "Zargon": 0,
+            "COI": 0
+          },
+          "transcript_markers": {
+            "transcript_header": 0,
+            "speaker_line": 3,
+            "timestamp": 0,
+            "repeated_word": 0
+          },
+          "severity": 6
+        },
+        {
+          "path": "260204 ReFi DAO Global Monthly Call.md",
+          "has_frontmatter": true,
+          "has_meetings_category": true,
+          "has_projects": true,
+          "projects_is_list": true,
+          "has_date_field": true,
+          "nonstandard_name": false,
+          "conflict_like_name": false,
+          "missing_sections": [
+            "agenda",
+            "next_steps"
+          ],
+          "term_counts": {
+            "Luis": 0,
+            "ReFIDAO": 0,
+            "ReFiDAO": 1,
+            "ReFIDAL": 0,
+            "RefIDal": 0,
+            "Greenpeal": 0,
+            "Zargon": 0,
+            "COI": 0
+          },
+          "transcript_markers": {
+            "transcript_header": 0,
+            "speaker_line": 3,
+            "timestamp": 0,
+            "repeated_word": 0
+          },
+          "severity": 3
+        }
+      ]
+    ]
+  }
+}

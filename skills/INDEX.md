@@ -19,11 +19,63 @@ Consolidated skills catalog for the Regen Coordination network. Use this for bac
 
 ## Implemented Skills
 
-| Skill | Path | Description | Category |
-|-------|------|-------------|----------|
-| **Meeting Processor** | [meeting-processor/](meeting-processor/) | Process meeting transcripts into structured organizational records | operations |
-| **Funding Scout** | [funding-scout/](funding-scout/) | Network-wide funding opportunity tracking for nodes | coordination |
-| **Knowledge Curator** | [knowledge-curator/](knowledge-curator/) | Aggregate and curate knowledge from Discourse forum, meeting notes, and network sources | operations |
+### Org-OS Framework (canonical from `../org-os`)
+
+| Skill | Path | Category |
+|-------|------|----------|
+| **bootstrap-interviewer** | [bootstrap-interviewer/](bootstrap-interviewer/) | onboarding |
+| **capital-flow** | [capital-flow/](capital-flow/) | finance |
+| **funding-scout** | [funding-scout/](funding-scout/) | coordination |
+| **heartbeat-monitor** | [heartbeat-monitor/](heartbeat-monitor/) | operations |
+| **idea-scout** | [idea-scout/](idea-scout/) | operations |
+| **initialize** | [initialize/](initialize/) | session-lifecycle |
+| **knowledge-curator** | [knowledge-curator/](knowledge-curator/) | operations |
+| **meeting-processor** | [meeting-processor/](meeting-processor/) | operations |
+| **org-os-init** | [org-os-init/](org-os-init/) | session-lifecycle |
+| **schema-generator** | [schema-generator/](schema-generator/) | data |
+| **skills-curator** | [skills-curator/](skills-curator/) | meta |
+| **workspace-improver** | [workspace-improver/](workspace-improver/) | meta |
+
+### Cross-cutting (from `../refi-bcn-os` & `../refi-dao-os`)
+
+| Skill | Source | Path | Category |
+|-------|--------|------|----------|
+| **artifacts-builder** | refi-bcn-os | [artifacts-builder/](artifacts-builder/) | content |
+| **mcp-builder** | refi-bcn-os | [mcp-builder/](mcp-builder/) | tooling |
+| **research** | refi-bcn-os | [research/](research/) | research |
+| **skill-creator** | refi-bcn-os | [skill-creator/](skill-creator/) | meta |
+| **meeting-notes-transcription-fixer** | refi-dao-os | [meeting-notes-transcription-fixer/](meeting-notes-transcription-fixer/) | operations |
+
+### Methodology — Karpathy / Feynman expert lenses
+
+| Skill | Path | Category |
+|-------|------|----------|
+| **expert-feynman** | [expert-feynman/](expert-feynman/) | research |
+| **karpathy-guidelines** | [karpathy-guidelines/](karpathy-guidelines/) | engineering |
+
+### Superpowers (Claude Code disciplines)
+
+| Skill | Path | Category |
+|-------|------|----------|
+| **superpowers-brainstorming** | [superpowers-brainstorming/](superpowers-brainstorming/) | discipline |
+| **superpowers-executing-plans** | [superpowers-executing-plans/](superpowers-executing-plans/) | discipline |
+| **superpowers-finishing-a-development-branch** | [superpowers-finishing-a-development-branch/](superpowers-finishing-a-development-branch/) | discipline |
+| **superpowers-requesting-code-review** | [superpowers-requesting-code-review/](superpowers-requesting-code-review/) | discipline |
+| **superpowers-subagent-driven-development** | [superpowers-subagent-driven-development/](superpowers-subagent-driven-development/) | discipline |
+| **superpowers-systematic-debugging** | [superpowers-systematic-debugging/](superpowers-systematic-debugging/) | discipline |
+| **superpowers-test-driven-development** | [superpowers-test-driven-development/](superpowers-test-driven-development/) | discipline |
+| **superpowers-using-git-worktrees** | [superpowers-using-git-worktrees/](superpowers-using-git-worktrees/) | discipline |
+| **superpowers-writing-plans** | [superpowers-writing-plans/](superpowers-writing-plans/) | discipline |
+
+### Instance-specific (Phase 0 design curation, kept local)
+
+| Skill | Path | Category |
+|-------|------|----------|
+| **brand-guidelines** | [brand-guidelines/](brand-guidelines/) | design |
+| **deploy-to-vercel** | [deploy-to-vercel/](deploy-to-vercel/) | tooling |
+| **frontend-design** | [frontend-design/](frontend-design/) | design |
+| **oklch-skill** | [oklch-skill/](oklch-skill/) | design |
+| **webapp-testing** | [webapp-testing/](webapp-testing/) | tooling |
 
 ---
 
@@ -92,4 +144,5 @@ These are protocols or tools the network may integrate. Skills would wrap or doc
 
 ## Changelog
 
+- **2026-05-15** — Sync from network: +18 framework skills (org-os canonical: 4 new + 9 superpowers; refi-bcn: 4; refi-dao: 1) + bumped org-os-init to v2.2.0 (Hermes/OpenCode platform support)
 - **2026-02-20** — Created INDEX; integrated Afo's skills from [coop/CLAUDE.md](https://github.com/regen-coordination/coop/blob/main/CLAUDE.md)

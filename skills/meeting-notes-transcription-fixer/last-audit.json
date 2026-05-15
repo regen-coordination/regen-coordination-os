@@ -1,0 +1,382 @@
+{
+  "summary": {
+    "meeting_files": 9,
+    "missing_frontmatter": 0,
+    "missing_meetings_category": 0,
+    "missing_projects": 0,
+    "projects_not_list": 0,
+    "missing_date_field": 0,
+    "nonstandard_name": 0,
+    "conflict_like_name": 0,
+    "section_missing": {
+      "attendees": 2,
+      "agenda": 7,
+      "next_steps": 6
+    },
+    "term_counts": {
+      "ReFiDAO": 5
+    },
+    "transcript_markers": {
+      "speaker_line": 23,
+      "timestamp": 2
+    },
+    "examples": {
+      "missing_meetings_category": [],
+      "missing_projects": [],
+      "projects_not_list": [],
+      "conflict_like_name": [],
+      "nonstandard_name": []
+    },
+    "top_severity": [
+      {
+        "path": "260217 ReFi DAO Meeting with Monty.md",
+        "severity": 6,
+        "missing_projects": false,
+        "missing_meetings_category": false,
+        "missing_date_field": false,
+        "conflict_like_name": false
+      },
+      {
+        "path": "260204 ReFi DAO Global Monthly Call.md",
+        "severity": 3,
+        "missing_projects": false,
+        "missing_meetings_category": false,
+        "missing_date_field": false,
+        "conflict_like_name": false
+      },
+      {
+        "path": "260204 ReFi DAO Website Development and Community Transition Sync.md",
+        "severity": 2,
+        "missing_projects": false,
+        "missing_meetings_category": false,
+        "missing_date_field": false,
+        "conflict_like_name": false
+      },
+      {
+        "path": "260424 ReFi KOI Integration Discovery Call.md",
+        "severity": 2,
+        "missing_projects": false,
+        "missing_meetings_category": false,
+        "missing_date_field": false,
+        "conflict_like_name": false
+      },
+      {
+        "path": "260304 ReFi DAO Global Monthly Call.md",
+        "severity": 2,
+        "missing_projects": false,
+        "missing_meetings_category": false,
+        "missing_date_field": false,
+        "conflict_like_name": false
+      },
+      {
+        "path": "260204 ReFi DAO Global Strategy and Governance Alignment.md",
+        "severity": 2,
+        "missing_projects": false,
+        "missing_meetings_category": false,
+        "missing_date_field": false,
+        "conflict_like_name": false
+      },
+      {
+        "path": "260204 ReFi DAO Meeting with Monty.md",
+        "severity": 2,
+        "missing_projects": false,
+        "missing_meetings_category": false,
+        "missing_date_field": false,
+        "conflict_like_name": false
+      },
+      {
+        "path": "260401 ReFi DAO Global Monthly Call.md",
+        "severity": 1,
+        "missing_projects": false,
+        "missing_meetings_category": false,
+        "missing_date_field": false,
+        "conflict_like_name": false
+      },
+      {
+        "path": "260210 ReFi DAO Meeting with Monty.md",
+        "severity": 0,
+        "missing_projects": false,
+        "missing_meetings_category": false,
+        "missing_date_field": false,
+        "conflict_like_name": false
+      }
+    ]
+  },
+  "issues": [
+    {
+      "path": "260204 ReFi DAO Website Development and Community Transition Sync.md",
+      "has_frontmatter": true,
+      "has_meetings_category": true,
+      "has_projects": true,
+      "projects_is_list": true,
+      "has_date_field": true,
+      "nonstandard_name": false,
+      "conflict_like_name": false,
+      "missing_sections": [
+        "attendees",
+        "agenda"
+      ],
+      "term_counts": {
+        "Luis": 0,
+        "ReFIDAO": 0,
+        "ReFiDAO": 0,
+        "ReFIDAL": 0,
+        "RefIDal": 0,
+        "Greenpeal": 0,
+        "Zargon": 0,
+        "COI": 0
+      },
+      "transcript_markers": {
+        "transcript_header": 0,
+        "speaker_line": 0,
+        "timestamp": 0,
+        "repeated_word": 0
+      },
+      "severity": 2
+    },
+    {
+      "path": "260401 ReFi DAO Global Monthly Call.md",
+      "has_frontmatter": true,
+      "has_meetings_category": true,
+      "has_projects": true,
+      "projects_is_list": true,
+      "has_date_field": true,
+      "nonstandard_name": false,
+      "conflict_like_name": false,
+      "missing_sections": [
+        "next_steps"
+      ],
+      "term_counts": {
+        "Luis": 0,
+        "ReFIDAO": 0,
+        "ReFiDAO": 0,
+        "ReFIDAL": 0,
+        "RefIDal": 0,
+        "Greenpeal": 0,
+        "Zargon": 0,
+        "COI": 0
+      },
+      "transcript_markers": {
+        "transcript_header": 0,
+        "speaker_line": 3,
+        "timestamp": 1,
+        "repeated_word": 0
+      },
+      "severity": 1
+    },
+    {
+      "path": "260204 ReFi DAO Global Monthly Call.md",
+      "has_frontmatter": true,
+      "has_meetings_category": true,
+      "has_projects": true,
+      "projects_is_list": true,
+      "has_date_field": true,
+      "nonstandard_name": false,
+      "conflict_like_name": false,
+      "missing_sections": [
+        "agenda",
+        "next_steps"
+      ],
+      "term_counts": {
+        "Luis": 0,
+        "ReFIDAO": 0,
+        "ReFiDAO": 1,
+        "ReFIDAL": 0,
+        "RefIDal": 0,
+        "Greenpeal": 0,
+        "Zargon": 0,
+        "COI": 0
+      },
+      "transcript_markers": {
+        "transcript_header": 0,
+        "speaker_line": 3,
+        "timestamp": 0,
+        "repeated_word": 0
+      },
+      "severity": 3
+    },
+    {
+      "path": "260210 ReFi DAO Meeting with Monty.md",
+      "has_frontmatter": true,
+      "has_meetings_category": true,
+      "has_projects": true,
+      "projects_is_list": true,
+      "has_date_field": true,
+      "nonstandard_name": false,
+      "conflict_like_name": false,
+      "missing_sections": [],
+      "term_counts": {
+        "Luis": 0,
+        "ReFIDAO": 0,
+        "ReFiDAO": 0,
+        "ReFIDAL": 0,
+        "RefIDal": 0,
+        "Greenpeal": 0,
+        "Zargon": 0,
+        "COI": 0
+      },
+      "transcript_markers": {
+        "transcript_header": 0,
+        "speaker_line": 3,
+        "timestamp": 0,
+        "repeated_word": 0
+      },
+      "severity": 0
+    },
+    {
+      "path": "260424 ReFi KOI Integration Discovery Call.md",
+      "has_frontmatter": true,
+      "has_meetings_category": true,
+      "has_projects": true,
+      "projects_is_list": true,
+      "has_date_field": true,
+      "nonstandard_name": false,
+      "conflict_like_name": false,
+      "missing_sections": [
+        "agenda",
+        "next_steps"
+      ],
+      "term_counts": {
+        "Luis": 0,
+        "ReFIDAO": 0,
+        "ReFiDAO": 0,
+        "ReFIDAL": 0,
+        "RefIDal": 0,
+        "Greenpeal": 0,
+        "Zargon": 0,
+        "COI": 0
+      },
+      "transcript_markers": {
+        "transcript_header": 0,
+        "speaker_line": 3,
+        "timestamp": 0,
+        "repeated_word": 0
+      },
+      "severity": 2
+    },
+    {
+      "path": "260304 ReFi DAO Global Monthly Call.md",
+      "has_frontmatter": true,
+      "has_meetings_category": true,
+      "has_projects": true,
+      "projects_is_list": true,
+      "has_date_field": true,
+      "nonstandard_name": false,
+      "conflict_like_name": false,
+      "missing_sections": [
+        "agenda",
+        "next_steps"
+      ],
+      "term_counts": {
+        "Luis": 0,
+        "ReFIDAO": 0,
+        "ReFiDAO": 0,
+        "ReFIDAL": 0,
+        "RefIDal": 0,
+        "Greenpeal": 0,
+        "Zargon": 0,
+        "COI": 0
+      },
+      "transcript_markers": {
+        "transcript_header": 0,
+        "speaker_line": 5,
+        "timestamp": 1,
+        "repeated_word": 0
+      },
+      "severity": 2
+    },
+    {
+      "path": "260204 ReFi DAO Global Strategy and Governance Alignment.md",
+      "has_frontmatter": true,
+      "has_meetings_category": true,
+      "has_projects": true,
+      "projects_is_list": true,
+      "has_date_field": true,
+      "nonstandard_name": false,
+      "conflict_like_name": false,
+      "missing_sections": [
+        "attendees",
+        "agenda"
+      ],
+      "term_counts": {
+        "Luis": 0,
+        "ReFIDAO": 0,
+        "ReFiDAO": 0,
+        "ReFIDAL": 0,
+        "RefIDal": 0,
+        "Greenpeal": 0,
+        "Zargon": 0,
+        "COI": 0
+      },
+      "transcript_markers": {
+        "transcript_header": 0,
+        "speaker_line": 0,
+        "timestamp": 0,
+        "repeated_word": 0
+      },
+      "severity": 2
+    },
+    {
+      "path": "260217 ReFi DAO Meeting with Monty.md",
+      "has_frontmatter": true,
+      "has_meetings_category": true,
+      "has_projects": true,
+      "projects_is_list": true,
+      "has_date_field": true,
+      "nonstandard_name": false,
+      "conflict_like_name": false,
+      "missing_sections": [
+        "agenda",
+        "next_steps"
+      ],
+      "term_counts": {
+        "Luis": 0,
+        "ReFIDAO": 0,
+        "ReFiDAO": 4,
+        "ReFIDAL": 0,
+        "RefIDal": 0,
+        "Greenpeal": 0,
+        "Zargon": 0,
+        "COI": 0
+      },
+      "transcript_markers": {
+        "transcript_header": 0,
+        "speaker_line": 3,
+        "timestamp": 0,
+        "repeated_word": 0
+      },
+      "severity": 6
+    },
+    {
+      "path": "260204 ReFi DAO Meeting with Monty.md",
+      "has_frontmatter": true,
+      "has_meetings_category": true,
+      "has_projects": true,
+      "projects_is_list": true,
+      "has_date_field": true,
+      "nonstandard_name": false,
+      "conflict_like_name": false,
+      "missing_sections": [
+        "agenda",
+        "next_steps"
+      ],
+      "term_counts": {
+        "Luis": 0,
+        "ReFIDAO": 0,
+        "ReFiDAO": 0,
+        "ReFIDAL": 0,
+        "RefIDal": 0,
+        "Greenpeal": 0,
+        "Zargon": 0,
+        "COI": 0
+      },
+      "transcript_markers": {
+        "transcript_header": 0,
+        "speaker_line": 3,
+        "timestamp": 0,
+        "repeated_word": 0
+      },
+      "severity": 2
+    }
+  ]
+}
