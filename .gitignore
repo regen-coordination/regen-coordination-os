@@ -46,3 +46,9 @@ docs/design-source/renders/
 .vibe/
 .windsurf/
 .zencoder/
+
+# Brainstorming visual companion (mockups + state)
+.superpowers/
+
+# Per-user Obsidian workspace state (not framework — never tracked here)
+.obsidian/
