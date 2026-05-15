@@ -429,3 +429,114 @@ meetings:
     decisions: ["Monthly growth working group", "Simpler aggregator approach over token coordination", "Association setup for fund movement"]
     action_items: ["Leo: Send Tech for Palestine link", "Matt: Review Artizen draft", "All: Set up BlueSky accounts"]
     tags: ["governance", "funding", "services", "growth"]
+
+  - id: "mtg-20260424-council"
+    title: "Regen Coordination Council Sync — Social finance, Artizen, network collab"
+    date: "2026-04-24"
+    type: council
+    participants: ["Luiz Fernando", "Matt", "Coy", "Leo", "Magenta"]
+    duration_minutes: null
+    recording_url: "https://notes.granola.ai/t/ee1dc6bc-a06c-4ebf-829b-71de04058e4b-00demib2"
+    transcript_path: "packages/operations/meetings/260424 Regen Coordination Council Sync.md"
+    summary: "Two Artizen apps already submitted (Frontier + Terminus). Coy proposes RC pivot to funding pass-through, not concrete org. KOI implementation underway. Bread spotlight reframe to network achievements. Region Pollination partnership pursued. 20% Artizen fund manager fees flagged."
+    decisions:
+      - "Artizen Season 6: Common Frontier Fund + Terminus Fund for Network States submitted as 'most fitting' from available options"
+      - "Strategic pivot proposed: RC reframes as funding pass-through, channel resources to nodes rather than gatekeep"
+      - "KOI (Block Science) implementation for RC; test integration with OrgoS"
+      - "Bread Co-op spotlight in ~1 month, reframed to highlight Green Pill / ReFi DAO / Bloom achievements"
+      - "Pursue Region Pollination partnership via Europe-focused call"
+      - "1 poll/week under 'Region Coordination Poll' banner across network TG groups"
+      - "Hub funding consensus: continue current arrangement"
+    action_items:
+      - "Luiz: Apply to Artizen Collective Governance Fund (Matt manages; Gardens-based governance angle)"
+      - "Luiz: Email Venus@Artisan.fund for fund recommendations"
+      - "Luiz: Contact Renee via Telegram for Monday call access (10am Pacific)"
+      - "Luiz: Complete Karma GAP activities report"
+      - "Luiz: Permissions transfer from Monty (Twitter/LinkedIn/Telegram)"
+      - "Matt: Synthesis doc on budget proposals + RC focus areas"
+      - "Matt: First poll questions for council review"
+      - "Leo: Set up Region Pollination partnership; add Luiz to GP growth WG"
+      - "Coy: Collaborate with Matt on poll creation"
+    tags:
+      - "governance"
+      - "funding"
+      - "artizen"
+      - "koi"
+      - "bread-spotlight"
+      - "region-pollination"
+      - "rc-pass-through"
+      - "brand-appropriation"
+
+  - id: "mtg-20260428-greenpill-growth"
+    title: "Greenpill Growth Sync (ReFi DAO + Regional Coordination)"
+    date: "2026-04-28"
+    type: growth
+    participants: ["Luiz Fernando"]
+    duration_minutes: null
+    recording_url: "https://notes.granola.ai/t/6a9d3b50-d100-4418-8c62-661f59814a74-00demib2"
+    transcript_path: "packages/operations/meetings/260428 Greenpill Growth Sync.md"
+    summary: "Collective Governance Fund app due 2026-04-29; Bahia regional shift to live inside GreenPill Brazil; House of Governance staking secured; Artizen pipeline quiet (no new submissions); ReFi Med EU-grants call tomorrow with OrgoS demo."
+    decisions:
+      - "Submit Collective Governance Fund application by 2026-04-29 (do not wait on approvals)"
+      - "Adopt Bahia-focused regional hub within GreenPill Brazil (not a new national node)"
+      - "Demo OrgoS as funding-aggregation tool at ReFi Mediterranean call 2026-04-29"
+      - "Accept House of Governance invitation (HIFAS / Marcelo); ~$700/month expected"
+    action_items:
+      - "Luiz: Submit Collective Governance Fund application by 2026-04-29"
+      - "Luiz: ReFi Mediterranean call tomorrow — OrgoS demo + EU grants"
+      - "Luiz: Align with Marcelo (HIFAS) on Bahia coordination — Friday or next Wed"
+      - "Luiz: Follow up with Sam on GoodDollar contract details"
+      - "Luiz: Investigate Barcelona creative fund (deadline 2026-05-10)"
+      - "Stephen John: Participate in community call before next Artizen submission step"
+    tags:
+      - "growth"
+      - "funding"
+      - "artizen"
+      - "eu-grants"
+      - "good-dollar"
+      - "bahia"
+      - "house-of-governance"
+      - "koi"
+
+  - id: "mtg-20260508-council"
+    title: "Regen Coordination Council Sync — Toolkit handoff, Ma Earth fund, project aggregation, brand legitimacy"
+    date: "2026-05-08"
+    type: council
+    participants: ["Luiz Fernando", "Afo", "Matt", "Coi", "Renee"]
+    duration_minutes: null
+    recording_url: null
+    transcript_path: "packages/operations/meetings/260508 Regen Coordination Council Sync.md"
+    summary: "Matt completed toolkit master doc (markdown handoff); Luiz processes into repo today. Ma Earth $500k matching pool opening next week (eligibility: nonprofit/fiscal sponsor; sweet spot <$20k grants, >$20k lending). Project aggregation strategy: per-individual balance to prevent multi-project gaming. Jane Ukraine = partners not chapter. Region Commons finally opening to community. Luiz personal overload + Coi Green Goods tensions — Durgadas coordination suite recommended."
+    decisions:
+      - "Toolkit master doc handoff: Matt completed final version; converted to markdown due to GPT freezing on heavy doc; Luiz processes into repo today (next call ~2 weeks)"
+      - "Ma Earth Fund: $500k matching pool every 6 months going forward; applications open ~next week through June; up to 100 projects; eligibility requires nonprofit/501c3/charity/NGO/fiscal sponsor (Stripe payments); sweet spot <$20k grants, >$20k lending"
+      - "Project aggregation strategy for Artisans: per-individual balance — everyone gets same amount regardless of project count; ask preference on which project gets most matching"
+      - "Jane Ukraine framing: partners model, not Green Pill chapter (Maxim's network already organized outside Web3)"
+      - "Region Commons opening to community after months of back-and-forth; Bloom Network + Riffeydao likely membership candidates"
+      - "Coordination suite (Durgadas) recommended as strategic-analysis frame; potential specialized service offering"
+    action_items:
+      - "Luiz: Process toolkit into repository today (target accessible before next call ~2 weeks)"
+      - "Luiz: Apply Durgadas coordination-suite prompts to overload/role situation; consult Durgadas as mentor"
+      - "Luiz: Evaluate/finalize Bonfires Fund application for OrgoS project (draft exists at docs/260429 Artizen Bonfires Fund - Application.md)"
+      - "Luiz: Consider governance/coordination consulting positioning as service offering"
+      - "Team: Map legal entity status across all chapters for Ma Earth eligibility (24 days runway; track as registry category)"
+      - "Team: Blast Ma Earth opportunity to network circles; get people to next week's Ma Earth call"
+      - "Team: Build comprehensive project-aggregation strategy for Artisans (per-individual balance)"
+      - "Team: Draft brand guidelines for region coordination (avoid micromanagement; protect from appropriation)"
+      - "Team: Follow up on Region Commons membership pathway discussion"
+      - "Team: Register for monthly KOI calls (Region Pollination cadence)"
+    tags:
+      - "governance"
+      - "funding"
+      - "ma-earth-fund"
+      - "regen-toolkit"
+      - "artizen"
+      - "bonfire-fund"
+      - "koi"
+      - "region-commons"
+      - "jane-ukraine"
+      - "legal-entity-mapping"
+      - "project-aggregation"
+      - "brand-legitimacy"
+      - "luiz-overload"
+      - "coordination-suite"
