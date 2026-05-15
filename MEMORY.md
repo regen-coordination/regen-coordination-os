@@ -17,6 +17,7 @@ _Key decisions, active context, and organizational history for the Regen Coordin
 
 ## Key Decisions
 
+- [2026-05-15] Framework sync to v3.0.0: pulled latest skills (+18) and infrastructure from canonical `../org-os` (release/v3.5-design) and sister instances `../refi-bcn-os` + `../refi-dao-os`. Total 33 skills (28 framework + 5 instance-specific Phase 0 design preserved). Selective file-copy strategy chosen over `git merge upstream/main` (unrelated histories). `package.json` bumped 2.0.0 → 3.0.0; `org-os-init` skill bumped 2.0.0 → 2.2.0 (Hermes/OpenCode platform support). 42 commits pushed to origin/main (`1ba48ee..c4696da`). SOUL.md left untouched — instance/framework divergence is intentional.
 - [2026-04-26] Toolkit consolidation: single canonical regen-toolkit clone at `repos/regen-toolkit/`; standalone at `../regen-toolkit/` deleted after preserving 133 files of work to `origin/luizfernando-refidao` (5 commits `e3c9b16..835c2ae`). `.stignore` added at Zettelkasten root excluding `repos/`, `regen-toolkit/`, `node_modules/`, `dist/`, `.astro/`, `coverage/` — git is the sync mechanism for code, not Syncthing.
 - [2026-04-25] Toolkit overlay: PR #310 closed (no merge); `feature/org-os-overlay` operates as the working branch directly. Avoids merge gating; team operates against the branch.
 - [2026-04-23] Toolkit ontology: Rather's ontology adopted as the standard for the Regen Web3 Toolkit (Matt clarified prior layer-allocation impression — no formal allocation; Rather's work becomes canonical, others take ownership voluntarily).
