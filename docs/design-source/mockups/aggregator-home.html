@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="Regen Coordination — Collaborative Pathways to Regeneration. A pass-through coordination layer routing capital, knowledge, and shared infrastructure across leading regenerative networks." />
+<title>Regen Coordination — Collaborative Pathways to Regeneration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ════════════════════════════════════════════════════════════════════════
+   1. TOKENS — derived from docs/DESIGN.md (OKLCH-first)
+   ──────────────────────────────────────────────────────────────────────── */
+:root{
+  /* Brand palette */
+  --brand-sky:        oklch(77.5% 0.020 236);
+  --brand-horizon:    oklch(83.8% 0.026 75);
+  --brand-pasture:    oklch(88.5% 0.097 104);
+  --brand-sun:        oklch(80.5% 0.077 70);
+  --brand-sun-deep:   oklch(73.8% 0.125 77);
+
+  /* Light theme — semantic */
+  --bg:               oklch(99% 0.003 75);
+  --text-primary:     oklch(24% 0.015 75);
+  --text-muted:       oklch(48% 0.012 75);
+  --text-faint:       oklch(62% 0.012 75);
+  --border-subtle:    oklch(60% 0.010 75 / 0.10);
+
+  --primary:          oklch(70% 0.13 77);
+  --primary-hover:    oklch(64% 0.14 77);
+  --primary-fg:       oklch(18% 0.02 75);
+
+  --success:          oklch(54% 0.11 142);
+  --warning:          oklch(70% 0.13 75);
+  --info:             oklch(55% 0.09 236);
+
+  /* Section card — outer frosted container */
+  --section-bg:       rgba(255,255,255,0.62);
+  --section-border:   rgba(255,255,255,0.85);
+  --section-shadow:   inset 0 1px 0 rgba(255,255,255,0.9), 0 8px 24px -10px rgba(31,26,19,0.06);
+  --section-blur:     blur(28px) saturate(125%);
+
+  /* Soft inner card — flatter, sits inside an already-blurred parent */
+  --card-bg:          rgba(255,255,255,0.45);
+  --card-border:      rgba(255,255,255,0.95);
+  --card-edge:        oklch(60% 0.012 75 / 0.10);
+
+  /* Network colors — for node dots + legend */
+  --net-refi:         oklch(62% 0.12 236);
+  --net-greenpill:    oklch(64% 0.14 142);
+  --net-bloom:        oklch(70% 0.12 30);
+  --net-brazil:       oklch(66% 0.13 110);
+  --net-rc:           oklch(70% 0.13 77);
+
+  /* Spatial */
+  --container:        1140px;
+  --container-narrow: 720px;
+  --gutter:           clamp(14px, 3vw, 28px);
+  --section-y:        clamp(20px, 3vw, 36px);
+  --radius-card:      20px;
+  --radius-pill:      999px;
+  --radius-md:        10px;
+  --radius-sm:        8px;
+}
+
+[data-theme="dark"]{
+  --bg:               oklch(15% 0.008 75);
+  --text-primary:     oklch(94% 0.008 75);
+  --text-muted:       oklch(68% 0.010 75);
+  --text-faint:       oklch(50% 0.010 75);
+  --border-subtle:    oklch(80% 0.010 75 / 0.06);
+
+  --primary:          oklch(72% 0.135 77);
+  --primary-fg:       oklch(15% 0.015 75);
+
+  --section-bg:       rgba(20,16,12,0.55);
+  --section-border:   rgba(255,255,255,0.07);
+  --section-shadow:   inset 0 1px 0 rgba(255,255,255,0.04), 0 8px 32px -8px rgba(0,0,0,0.5);
+  --card-bg:          rgba(255,255,255,0.04);
+  --card-border:      rgba(255,255,255,0.10);
+  --card-edge:        rgba(255,255,255,0.04);
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   2. RESET + BASE
+   ──────────────────────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  font-size:16px;line-height:1.55;
+  color:var(--text-primary);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  background:var(--bg);
+  position:relative;
+  overflow-x:hidden;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--primary)}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--primary);color:var(--primary-fg)}
+
+/* Backdrop — pale, warm sky-to-sun continuous gradient */
+body::before{
+  content:"";
+  position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(80% 55% at 85% -5%,  oklch(91% 0.040 236) 0%, transparent 60%),
+    radial-gradient(75% 55% at 105% 105%, oklch(86% 0.105 75)  0%, transparent 55%),
+    radial-gradient(60% 45% at -5% 75%,  oklch(91% 0.040 240) 0%, transparent 60%),
+    radial-gradient(40% 30% at 30% 35%,  oklch(95% 0.018 80)  0%, transparent 60%),
+    linear-gradient(180deg,
+      oklch(92% 0.025 236) 0%,
+      oklch(93% 0.018 240) 20%,
+      oklch(94% 0.014 75)  40%,
+      oklch(92% 0.038 80)  62%,
+      oklch(89% 0.072 75)  82%,
+      oklch(85% 0.105 77)  100%);
+}
+[data-theme="dark"] body::before{
+  background:
+    radial-gradient(80% 55% at 85% -5%,  oklch(28% 0.06 236) 0%, transparent 60%),
+    radial-gradient(75% 55% at 105% 105%, oklch(32% 0.11 77)  0%, transparent 55%),
+    radial-gradient(60% 45% at -5% 75%,  oklch(24% 0.05 240) 0%, transparent 60%),
+    linear-gradient(180deg,
+      oklch(16% 0.020 236) 0%,
+      oklch(15% 0.014 240) 25%,
+      oklch(15% 0.014 75)  55%,
+      oklch(19% 0.040 77)  85%,
+      oklch(23% 0.075 77)  100%);
+}
+
+/* Subtle film grain — adds tactile feel */
+body::after{
+  content:"";
+  position:fixed;inset:0;z-index:-1;
+  pointer-events:none;
+  opacity:0.5;
+  mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.50 0 0 0 0 0.42 0 0 0 0.85 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+[data-theme="dark"] body::after{ opacity:0.35; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   3. LAYOUT PRIMITIVES
+   ──────────────────────────────────────────────────────────────────────── */
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 var(--gutter);
+}
+
+.section{ padding:calc(var(--section-y) / 2) 0; }
+.section:first-child{ padding-top:clamp(40px,5vw,72px); }
+.section:last-child{ padding-bottom:clamp(28px,4vw,56px); }
+
+.section-card{
+  background:var(--section-bg);
+  backdrop-filter:var(--section-blur);
+  -webkit-backdrop-filter:var(--section-blur);
+  border:1px solid var(--section-border);
+  border-radius:var(--radius-card);
+  box-shadow:var(--section-shadow);
+  padding:clamp(20px,3vw,32px);
+  position:relative;
+  overflow:hidden;
+}
+.section-card::before{
+  content:"";
+  position:absolute;top:0;left:8%;right:8%;height:1px;
+  background:linear-gradient(90deg, transparent, oklch(73.8% 0.125 77 / 0.45), transparent);
+  pointer-events:none;
+}
+.section-card::after{
+  content:"";
+  position:absolute;left:-15%;top:-30%;
+  width:50%;height:60%;
+  background:radial-gradient(circle, oklch(85% 0.08 236 / 0.18) 0%, transparent 60%);
+  filter:blur(40px);
+  pointer-events:none;
+  z-index:-1;
+}
+[data-theme="dark"] .section-card::after{
+  background:radial-gradient(circle, oklch(40% 0.10 236 / 0.25) 0%, transparent 60%);
+}
+
+.section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:18px;flex-wrap:wrap;
+  margin-bottom:20px;
+}
+.section-head .lhs{ max-width:600px; }
+.section-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--text-muted);
+  margin-bottom:7px;
+}
+.section-eyebrow::before{
+  content:"";width:14px;height:1px;
+  background:var(--primary);
+  box-shadow:0 0 6px var(--primary);
+}
+.section-title{
+  font-family:'Poppins',sans-serif;
+  font-weight:600;font-size:clamp(22px,2.8vw,30px);
+  line-height:1.15;letter-spacing:-0.02em;
+  color:var(--text-primary);
+  margin:0;
+}
+.section-action{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 14px;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-pill);
+  font-size:12px;font-weight:600;color:var(--text-primary);
+  transition:transform .2s, background .2s;
+  flex:0 0 auto;
+}
+.section-action:hover{ transform:translateY(-1px); background:rgba(255,255,255,0.7); color:var(--text-primary); }
+
+/* Subsection — used inside merged sections */
+.subsection{ margin-top:24px; }
+.subsection:first-of-type{ margin-top:0; }
+.subsection-head{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:14px;flex-wrap:wrap;
+  margin-bottom:14px;
+  padding-bottom:10px;
+  border-bottom:1px solid var(--border-subtle);
+}
+.subsection-title{
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;
+  letter-spacing:.06em;text-transform:uppercase;
+  color:var(--text-muted);
+  margin:0;
+  display:flex;align-items:center;gap:8px;
+}
+.subsection-title .ct{
+  font-size:11px;font-weight:500;
+  padding:2px 8px;
+  background:oklch(73% 0.13 77 / 0.10);
+  border:1px solid oklch(73% 0.13 77 / 0.25);
+  border-radius:var(--radius-pill);
+  color:var(--primary);
+  letter-spacing:0;text-transform:none;
+}
+
+/* Soft inner card — sleek bordered tile */
+.soft-card{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-md);
+  position:relative;
+  transition:transform .2s, background .2s, border-color .2s, box-shadow .2s;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.55),
+    0 0 0 1px var(--card-edge),
+    0 1px 2px rgba(31,26,19,0.03);
+}
+.soft-card:hover{
+  transform:translateY(-1px);
+  background:rgba(255,255,255,0.65);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.75),
+    0 0 0 1px oklch(73% 0.13 77 / 0.30),
+    0 6px 16px -3px oklch(73% 0.13 77 / 0.18),
+    0 2px 6px -2px rgba(31,26,19,0.06);
+}
+[data-theme="dark"] .soft-card{
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 0 0 1px var(--card-edge),
+    0 1px 2px rgba(0,0,0,0.25);
+}
+[data-theme="dark"] .soft-card:hover{
+  background:rgba(255,255,255,0.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 0 0 1px oklch(73% 0.13 77 / 0.30),
+    0 6px 16px -3px oklch(73% 0.13 77 / 0.20),
+    0 2px 6px -2px rgba(0,0,0,0.4);
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   4. ELEMENTS — buttons, pills, kcard, theme toggle, orb
+   ──────────────────────────────────────────────────────────────────────── */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 20px;
+  border-radius:var(--radius-pill);
+  font-size:14px;font-weight:600;
+  border:1px solid transparent;cursor:pointer;
+  transition:transform .2s, box-shadow .2s, background .2s;
+  text-decoration:none;
+}
+.btn-primary{
+  background:var(--primary);color:var(--primary-fg);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4);
+}
+.btn-primary:hover{ transform:translateY(-1px);background:var(--primary-hover);color:var(--primary-fg); }
+.btn-ghost{
+  background:var(--card-bg);
+  border-color:var(--card-border);
+  color:var(--text-primary);
+}
+.btn-ghost:hover{ background:rgba(255,255,255,0.7); transform:translateY(-1px); color:var(--text-primary); }
+[data-theme="dark"] .btn-ghost:hover{ background:rgba(255,255,255,0.08); }
+.btn-sm{ padding:7px 14px;font-size:12px; }
+
+.pill{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:3px 10px;
+  border-radius:var(--radius-pill);
+  font-size:11px;font-weight:500;
+  background:rgba(255,255,255,0.4);
+  border:1px solid var(--border-subtle);
+  color:var(--text-muted);
+}
+[data-theme="dark"] .pill{ background:rgba(255,255,255,0.04); }
+.pill-active{ color:var(--success); border-color:oklch(52% 0.13 142 / 0.25); background:oklch(52% 0.13 142 / 0.07); }
+.pill-inprogress{ color:var(--warning); border-color:oklch(72% 0.15 70 / 0.25); background:oklch(72% 0.15 70 / 0.07); }
+.pill-bootstrapping{ color:var(--info); border-color:oklch(55% 0.10 236 / 0.25); background:oklch(55% 0.10 236 / 0.07); }
+.pill-planning,.pill-proposed{ color:var(--text-faint); }
+
+.kcard{
+  position:absolute;top:10px;right:10px;
+  width:22px;height:22px;border-radius:50%;
+  background:rgba(255,255,255,0.5);
+  border:1px solid var(--card-border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:var(--text-faint);
+  cursor:help;
+  transition:background .2s, color .2s;
+}
+.kcard:hover{ background:var(--primary);color:var(--primary-fg); }
+[data-theme="dark"] .kcard{ background:rgba(255,255,255,0.06); }
+
+.theme-toggle{
+  position:fixed;top:16px;right:16px;
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid var(--section-border);
+  display:flex;align-items:center;justify-content:center;
+  z-index:50;font-size:14px;
+  transition:transform .2s, background .2s;
+}
+.theme-toggle:hover{ transform:scale(1.04); }
+[data-theme="dark"] .theme-toggle{ background:rgba(20,16,12,0.55); }
+.theme-toggle .icon-moon{ display:none; }
+[data-theme="dark"] .theme-toggle .icon-sun{ display:none; }
+[data-theme="dark"] .theme-toggle .icon-moon{ display:inline; }
+
+.orb{
+  position:relative;border-radius:50%;
+  background:linear-gradient(160deg,
+    oklch(82% 0.018 236) 0%,
+    oklch(86% 0.026 75)  50%,
+    oklch(75% 0.115 77)  100%);
+  flex:0 0 auto;
+  box-shadow:0 2px 10px oklch(73.8% 0.125 77 / 0.18), inset 0 1px 1px rgba(255,255,255,0.4);
+}
+.orb svg{ position:absolute;inset:0;width:100%;height:100%; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   5. AGGREGATOR TOOLBAR — search, sort, filter chips
+   ──────────────────────────────────────────────────────────────────────── */
+.toolbar{
+  display:flex;gap:8px;align-items:center;flex-wrap:wrap;
+  margin-bottom:14px;
+}
+.search{
+  flex:1;min-width:180px;
+  padding:7px 12px 7px 32px;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-pill);
+  font:inherit;font-size:12px;
+  color:var(--text-primary);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23867f77' stroke-width='2' viewBox='0 0 24 24'><circle cx='11' cy='11' r='7'/><line x1='21' y1='21' x2='16.65' y2='16.65'/></svg>");
+  background-repeat:no-repeat;background-position:10px center;background-size:14px;
+  transition:border-color .2s, box-shadow .2s;
+}
+.search:focus{ outline:none;border-color:var(--primary);box-shadow:0 0 0 3px oklch(73.8% 0.125 77 / 0.15); }
+.search::placeholder{ color:var(--text-faint); }
+
+.sort-select{
+  padding:7px 28px 7px 12px;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-pill);
+  font:inherit;font-size:11px;font-weight:500;
+  color:var(--text-muted);
+  cursor:pointer;
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23867f77' stroke-width='2' viewBox='0 0 24 24'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat:no-repeat;background-position:right 8px center;background-size:12px;
+}
+.sort-select:hover{ color:var(--text-primary); }
+
+.filter-chip{
+  padding:5px 11px;font-size:11px;font-weight:500;
+  border-radius:var(--radius-pill);
+  background:transparent;
+  border:1px solid var(--border-subtle);
+  color:var(--text-muted);cursor:pointer;
+  transition:background .2s, color .2s, border-color .2s;
+  font-family:inherit;
+}
+.filter-chip.active,.filter-chip:hover{
+  background:var(--card-bg);
+  border-color:var(--card-border);
+  color:var(--text-primary);
+}
+
+.meta-stamp{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;
+  color:var(--text-faint);
+  margin-bottom:14px;
+}
+.meta-stamp::before{
+  content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--success);box-shadow:0 0 6px var(--success);
+  animation:pulse-live 2.4s ease-in-out infinite;
+}
+@keyframes pulse-live{ 0%,100%{opacity:.7} 50%{opacity:1} }
+
+/* ════════════════════════════════════════════════════════════════════════
+   §1 HERO
+   ──────────────────────────────────────────────────────────────────────── */
+.hero-card{
+  display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center;
+  padding:clamp(28px,4vw,48px) clamp(24px,3.5vw,44px);
+}
+.hero-h1{
+  font-family:'Poppins',sans-serif;font-weight:600;
+  font-size:clamp(34px,5.5vw,56px);
+  letter-spacing:-0.035em;line-height:1.02;
+  color:var(--text-primary);
+  margin:0 0 10px;
+}
+.hero-h1 em{
+  font-style:normal;
+  background:linear-gradient(135deg, var(--text-primary) 0%, var(--brand-sun-deep) 90%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-tagline{
+  font-family:'Poppins',sans-serif;font-weight:400;
+  font-size:clamp(16px,2.1vw,22px);
+  letter-spacing:-0.01em;
+  color:var(--text-muted);
+  margin:0 0 16px;
+}
+.hero-ctas{ display:flex;gap:8px;flex-wrap:wrap; }
+.hero-orb-wrap{
+  display:flex;align-items:center;justify-content:center;
+  position:relative;min-height:200px;
+}
+.hero-orb-wrap::before{
+  content:"";
+  position:absolute;width:80%;height:80%;
+  background:radial-gradient(circle, oklch(85% 0.10 77 / 0.45) 0%, oklch(85% 0.06 236 / 0.20) 35%, transparent 70%);
+  filter:blur(28px);
+  z-index:0;pointer-events:none;
+}
+.hero-orb{
+  width:min(220px,48vw);
+  aspect-ratio:1;
+  position:relative;z-index:1;
+  filter:drop-shadow(0 10px 28px oklch(73.8% 0.125 77 / 0.30));
+  animation:hero-float 7s ease-in-out infinite;
+}
+@keyframes hero-float{
+  0%,100%{ transform:translateY(0) rotate(0deg); }
+  50%{ transform:translateY(-5px) rotate(-1.5deg); }
+}
+@media (max-width:880px){
+  .hero-card{ grid-template-columns:1fr;gap:18px; }
+  .hero-orb-wrap{ min-height:auto;order:-1; }
+  .hero-orb{ width:min(150px,40vw); }
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   §2 ABOUT
+   ──────────────────────────────────────────────────────────────────────── */
+.about-card{ max-width:var(--container-narrow);margin:0 auto; }
+.about-card .lead{
+  font-family:'Poppins',sans-serif;font-weight:400;
+  font-size:clamp(17px,1.8vw,20px);
+  line-height:1.5;letter-spacing:-0.01em;
+  color:var(--text-primary);
+  margin:0 0 14px;
+  padding:6px 0 6px 16px;
+  border-left:3px solid;
+  border-image:linear-gradient(180deg, var(--primary) 0%, oklch(85% 0.06 236) 100%) 1;
+}
+.about-card .lead strong{
+  font-weight:500;
+  background:linear-gradient(135deg, var(--text-primary) 0%, var(--brand-sun-deep) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+
+.pillars{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+  margin-top:16px;padding-top:16px;
+  border-top:1px solid var(--border-subtle);
+}
+.pillar{ padding:12px 14px;display:flex;flex-direction:column;gap:4px; }
+.pillar-icon{
+  width:30px;height:30px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;margin-bottom:2px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 2px rgba(31,26,19,0.05);
+}
+.pillar:nth-child(1) .pillar-icon{ background:linear-gradient(135deg, oklch(92% 0.045 236), oklch(82% 0.10 236)); }
+.pillar:nth-child(2) .pillar-icon{ background:linear-gradient(135deg, oklch(92% 0.055 142), oklch(82% 0.10 142)); }
+.pillar:nth-child(3) .pillar-icon{ background:linear-gradient(135deg, oklch(92% 0.050 77),  oklch(82% 0.11 77));  }
+.pillar-name{
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;
+  color:var(--text-primary);margin:0;
+}
+.pillar-desc{ font-size:12px;color:var(--text-muted);line-height:1.45;margin:0; }
+@media (max-width:640px){ .pillars{ grid-template-columns:1fr; } }
+
+/* ════════════════════════════════════════════════════════════════════════
+   §3 LEADING ORGS & PARTNERS
+   ──────────────────────────────────────────────────────────────────────── */
+.networks-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+}
+@media (max-width:720px){ .networks-grid{ grid-template-columns:1fr; } }
+.net-card{ padding:16px 16px;display:flex;flex-direction:column;gap:9px; }
+.net-card .orb{ width:36px;height:36px; }
+.net-card-name{
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;
+  letter-spacing:-0.01em;color:var(--text-primary);margin:0;
+}
+.net-card-role{
+  font-size:9px;font-weight:600;letter-spacing:.10em;text-transform:uppercase;
+  color:var(--text-muted);
+}
+.net-card-desc{ font-size:12px;line-height:1.5;color:var(--text-muted);margin:0;flex:1; }
+.net-card-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:8px;
+  border-top:1px solid var(--border-subtle);
+  font-size:10.5px;
+}
+.net-card-stat{ color:var(--text-muted); }
+.net-card-stat strong{ color:var(--text-primary);font-weight:600; }
+.net-card-link{ color:var(--primary);font-weight:600; }
+
+.partners-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;
+}
+.partner-tile{
+  padding:14px 12px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  text-align:center;min-height:88px;
+}
+.partner-mark{
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:12px;
+  color:#fff;flex:0 0 auto;
+}
+.partner-name{
+  font-family:'Poppins',sans-serif;font-weight:500;font-size:12px;
+  color:var(--text-primary);line-height:1.3;
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   §4 NODES & CHAPTERS — map, list, search
+   ──────────────────────────────────────────────────────────────────────── */
+.nodes-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px;
+}
+.nodes-stat{
+  padding:14px;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-md);
+  display:flex;flex-direction:column;gap:2px;
+}
+.nodes-stat-num{
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:24px;
+  background:linear-gradient(135deg, var(--text-primary) 0%, var(--brand-sun-deep) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  letter-spacing:-0.02em;line-height:1.1;
+}
+.nodes-stat-label{ font-size:11px;color:var(--text-muted);font-weight:500;letter-spacing:.04em; }
+@media (max-width:640px){ .nodes-stats{ grid-template-columns:repeat(2,1fr); } }
+
+.nodes-toggle{
+  display:flex;gap:4px;
+  padding:3px;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-pill);
+  width:fit-content;
+}
+.nodes-toggle button{
+  padding:6px 14px;font-size:12px;font-weight:500;
+  border-radius:var(--radius-pill);
+  border:none;background:transparent;color:var(--text-muted);
+  cursor:pointer;transition:background .2s,color .2s;
+}
+.nodes-toggle button.active{ background:rgba(255,255,255,0.7);color:var(--text-primary); }
+[data-theme="dark"] .nodes-toggle button.active{ background:rgba(255,255,255,0.10); }
+
+.nodes-view .map-view,.nodes-view .list-view{ display:none; }
+.nodes-view[data-view="map"] .map-view{ display:block; }
+.nodes-view[data-view="list"] .list-view{ display:block; }
+
+.map-wrap{
+  position:relative;width:100%;
+  aspect-ratio:16/9;max-height:480px;
+  overflow:hidden;border-radius:var(--radius-md);
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+}
+.map-svg{ width:100%;height:100%;display:block; }
+.map-continent{
+  fill:var(--text-muted);fill-opacity:.06;
+  stroke:var(--text-muted);stroke-opacity:.14;
+  stroke-width:.6;stroke-linejoin:round;
+}
+[data-theme="dark"] .map-continent{ fill-opacity:.10;stroke-opacity:.18; }
+.map-node{ cursor:pointer;transform-box:fill-box;transform-origin:center; }
+.map-node circle.dot{ transition:r .2s; filter:drop-shadow(0 0 4px currentColor); }
+.map-node:hover circle.dot{ r:7; filter:drop-shadow(0 0 8px currentColor); }
+.map-node.refi-dao{ color:var(--net-refi); }
+.map-node.greenpill{ color:var(--net-greenpill); }
+.map-node.bloom{ color:var(--net-bloom); }
+.map-node.green-brazil{ color:var(--net-brazil); }
+.map-node.regen-coordination{ color:var(--net-rc); }
+
+.map-tooltip{
+  position:absolute;pointer-events:none;opacity:0;
+  transform:translate(-50%,-120%);
+  padding:8px 12px;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(8px);
+  border:1px solid var(--card-border);
+  border-radius:8px;
+  font-size:11px;color:var(--text-primary);
+  transition:opacity .15s;white-space:nowrap;z-index:5;
+}
+[data-theme="dark"] .map-tooltip{ background:rgba(20,16,12,0.92); }
+.map-tooltip.visible{ opacity:1; }
+.map-tooltip-name{ font-weight:600; }
+.map-tooltip-meta{ color:var(--text-muted);font-size:10px;margin-top:1px; }
+
+.map-legend{
+  display:flex;flex-wrap:wrap;gap:14px;
+  margin-top:14px;padding:10px 14px;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-pill);
+  font-size:11px;
+}
+.legend-item{ display:flex;align-items:center;gap:6px;color:var(--text-muted); }
+.legend-dot{ width:8px;height:8px;border-radius:50%;background:currentColor; }
+
+.nodes-list{ display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px; }
+.node-row{
+  padding:12px 14px;display:flex;align-items:center;gap:12px;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-sm);
+  transition:background .2s;
+}
+.node-row:hover{ background:rgba(255,255,255,0.55); }
+[data-theme="dark"] .node-row:hover{ background:rgba(255,255,255,0.06); }
+.node-row .legend-dot{ width:10px;height:10px;flex:0 0 auto; }
+.node-row-body{ flex:1;min-width:0; }
+.node-row-name{
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;
+  color:var(--text-primary);margin:0;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.node-row-meta{
+  font-size:11px;color:var(--text-muted);margin:0;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   §5 INITIATIVES
+   ──────────────────────────────────────────────────────────────────────── */
+.init-filters{ display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px; }
+.initiatives-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;
+}
+.init-card{ padding:14px 14px;display:flex;flex-direction:column;gap:7px; }
+.init-card-name{
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;
+  letter-spacing:-0.01em;color:var(--text-primary);margin:0;
+}
+.init-card-meta{ display:flex;gap:4px;flex-wrap:wrap; }
+.init-card-desc{ font-size:12px;line-height:1.5;color:var(--text-muted);margin:0;flex:1; }
+.init-card-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:6px;
+  border-top:1px solid var(--border-subtle);
+  font-size:11px;
+}
+.init-card-link{ color:var(--primary);font-weight:600; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   §6 FUNDS — tabs, pools, opps, flow
+   ──────────────────────────────────────────────────────────────────────── */
+.funds-tabs{
+  display:flex;gap:4px;padding:3px;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-pill);
+  width:fit-content;
+}
+.funds-tabs button{
+  padding:7px 16px;font-size:12px;font-weight:500;
+  border-radius:var(--radius-pill);
+  border:none;background:transparent;color:var(--text-muted);
+  cursor:pointer;transition:background .2s,color .2s;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.funds-tabs button.active{ background:rgba(255,255,255,0.75);color:var(--text-primary); }
+[data-theme="dark"] .funds-tabs button.active{ background:rgba(255,255,255,0.10); }
+.funds-tabs button .ct{
+  font-size:10px;padding:2px 6px;border-radius:var(--radius-pill);
+  background:rgba(255,255,255,0.5);color:var(--text-muted);
+}
+.funds-tabs button.active .ct{ background:var(--primary);color:var(--primary-fg); }
+
+.funds-pane{ display:none; }
+.funds-pane.active{ display:block; }
+.funds-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;
+}
+.fund-card{ padding:13px 14px;display:flex;flex-direction:column;gap:6px; }
+.fund-card-head{ display:flex;justify-content:space-between;align-items:flex-start;gap:10px; }
+.fund-card-name{
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:14px;
+  letter-spacing:-0.01em;color:var(--text-primary);margin:0;
+}
+.fund-card-type{
+  font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--text-muted);margin-top:2px;
+}
+.fund-card-meta{ font-size:12px;line-height:1.5;color:var(--text-muted);margin:0; }
+
+.fund-flow{
+  margin-top:14px;padding:18px;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-md);
+  display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;
+}
+.fund-flow-side{ display:flex;flex-direction:column;gap:6px; }
+.fund-flow-side h5{
+  margin:0;font-size:11px;font-weight:600;letter-spacing:.10em;text-transform:uppercase;
+  color:var(--text-muted);
+}
+.fund-flow-side ul{ list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px;font-size:13px; }
+.fund-flow-side li{ color:var(--text-primary);display:flex;justify-content:space-between;gap:8px; }
+.fund-flow-side li span{ color:var(--text-muted);font-size:11px; }
+.fund-flow-arrow{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--primary);color:var(--primary-fg);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:600;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4), 0 4px 12px oklch(73% 0.13 77 / 0.30);
+}
+@media (max-width:640px){
+  .fund-flow{ grid-template-columns:1fr; }
+  .fund-flow-arrow{ transform:rotate(90deg);justify-self:center; }
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   §7 EVENTS — Lu.ma sources + compact rows
+   ──────────────────────────────────────────────────────────────────────── */
+.luma-sources{
+  display:flex;gap:6px;flex-wrap:wrap;
+  margin-bottom:10px;
+  font-size:11px;color:var(--text-muted);
+  align-items:center;
+}
+.luma-sources-label{
+  display:inline-flex;align-items:center;gap:6px;
+  font-weight:500;color:var(--text-muted);font-size:10px;
+  letter-spacing:.06em;text-transform:uppercase;
+  margin-right:4px;
+}
+.luma-sources-label::before{
+  content:"";width:8px;height:8px;border-radius:50%;
+  background:linear-gradient(135deg,#ec4899,#a855f7);
+}
+.luma-source-chip{
+  padding:3px 10px;font-size:10px;font-weight:500;
+  background:transparent;
+  border:1px solid var(--border-subtle);
+  border-radius:var(--radius-pill);
+  color:var(--text-muted);cursor:pointer;
+  transition:background .2s, color .2s, border-color .2s;
+  font-family:inherit;
+}
+.luma-source-chip:hover{ color:var(--text-primary);border-color:var(--card-border); }
+.luma-source-chip.active{
+  background:var(--card-bg);
+  border-color:var(--card-border);
+  color:var(--text-primary);
+}
+
+.events-list{ display:flex;flex-direction:column;gap:4px; }
+.event-row{
+  display:grid;grid-template-columns:auto 1fr auto auto;
+  gap:14px;align-items:center;padding:8px 12px;
+}
+.event-date{
+  display:flex;flex-direction:column;align-items:center;
+  min-width:38px;padding:4px 6px;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:8px;
+}
+.event-date-month{
+  font-size:9px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;
+  color:var(--primary);
+}
+.event-date-day{
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:15px;
+  letter-spacing:-0.02em;color:var(--text-primary);line-height:1;
+}
+.event-body{ min-width:0;display:flex;flex-direction:column;gap:1px; }
+.event-title{
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;
+  color:var(--text-primary);margin:0;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.event-meta{
+  font-size:11px;color:var(--text-muted);margin:0;
+  display:flex;gap:8px;align-items:center;
+}
+.event-source{ display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--text-muted); }
+.event-source-mark{ width:7px;height:7px;border-radius:50%; }
+.event-time{ font-size:11px;color:var(--text-muted);font-variant-numeric:tabular-nums; }
+.event-actions{ display:flex;gap:6px; }
+@media (max-width:640px){
+  .event-row{ grid-template-columns:auto 1fr auto; }
+  .event-time{ display:none; }
+}
+
+.events-export{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:8px;
+  margin-top:12px;padding-top:10px;
+  border-top:1px solid var(--border-subtle);
+  font-size:11px;color:var(--text-muted);
+}
+.events-export-actions{ display:flex;gap:5px;flex-wrap:wrap; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   §8 RESOURCES — 4 link tiles
+   ──────────────────────────────────────────────────────────────────────── */
+.resources-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;
+}
+.res-card{
+  padding:14px 16px;
+  display:flex;align-items:center;gap:12px;
+  text-decoration:none;color:inherit;
+}
+.res-card:hover{ color:inherit; }
+.res-icon{
+  width:34px;height:34px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;flex:0 0 auto;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.55), 0 1px 2px rgba(31,26,19,0.04);
+}
+.resources-grid > .res-card:nth-child(1) .res-icon{ background:linear-gradient(135deg, oklch(90% 0.05 236), oklch(80% 0.11 236)); }
+.resources-grid > .res-card:nth-child(2) .res-icon{ background:linear-gradient(135deg, oklch(90% 0.06 80),  oklch(80% 0.11 77));  }
+.resources-grid > .res-card:nth-child(3) .res-icon{ background:linear-gradient(135deg, oklch(90% 0.06 142), oklch(80% 0.10 142)); }
+.resources-grid > .res-card:nth-child(4) .res-icon{ background:linear-gradient(135deg, oklch(90% 0.06 30),  oklch(80% 0.11 30));  }
+.res-card-body{ flex:1;min-width:0; }
+.res-name{
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;
+  color:var(--text-primary);margin:0 0 2px;
+  display:flex;align-items:center;gap:6px;
+}
+.res-name .wip-badge{
+  font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:1px 6px;background:oklch(72% 0.15 70 / 0.12);
+  color:var(--warning);border-radius:4px;
+}
+.res-desc{ font-size:11px;color:var(--text-muted);line-height:1.45;margin:0; }
+.res-arrow{ color:var(--text-faint);font-size:14px;flex:0 0 auto; }
+.res-card:hover .res-arrow{ color:var(--primary);transform:translateX(2px);transition:color .2s, transform .2s; }
+
+/* ════════════════════════════════════════════════════════════════════════
+   §9 GET INVOLVED — three cards with numbered steps
+   ──────────────────────────────────────────────────────────────────────── */
+.involve-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;
+}
+.involve-card{
+  padding:24px 22px;
+  display:flex;flex-direction:column;gap:14px;
+  counter-reset:step;
+}
+.involve-icon{
+  width:42px;height:42px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:19px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.55), 0 2px 6px -2px rgba(31,26,19,0.08);
+}
+.involve-grid > .involve-card:nth-child(1) .involve-icon{ background:linear-gradient(135deg, oklch(88% 0.05 236), oklch(78% 0.12 236)); }
+.involve-grid > .involve-card:nth-child(2) .involve-icon{ background:linear-gradient(135deg, oklch(88% 0.06 142), oklch(78% 0.12 142)); }
+.involve-grid > .involve-card:nth-child(3) .involve-icon{ background:linear-gradient(135deg, oklch(88% 0.06 77),  oklch(78% 0.13 77));  }
+.involve-title{
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:17px;
+  letter-spacing:-0.01em;color:var(--text-primary);margin:0;
+}
+.involve-steps{
+  list-style:none;padding:0;margin:0;
+  display:flex;flex-direction:column;gap:6px;
+  font-size:12px;color:var(--text-primary);
+}
+.involve-steps li{ display:flex;gap:8px;align-items:flex-start; }
+.involve-steps li::before{
+  content:counter(step);counter-increment:step;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:600;color:var(--text-muted);
+  flex:0 0 auto;
+}
+.involve-cta{
+  display:inline-flex;align-items:center;gap:6px;margin-top:auto;
+  padding:9px 16px;
+  background:var(--primary);color:var(--primary-fg);
+  border-radius:var(--radius-pill);
+  font-size:12px;font-weight:600;align-self:flex-start;
+  transition:background .2s, transform .2s;
+}
+.involve-cta:hover{ background:var(--primary-hover);color:var(--primary-fg);transform:translateY(-1px); }
+
+/* ════════════════════════════════════════════════════════════════════════
+   §10 CONTACT / FOOTER
+   ──────────────────────────────────────────────────────────────────────── */
+.contact-grid{
+  display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;
+}
+.contact-brand{ display:flex;flex-direction:column;gap:10px;max-width:340px; }
+.contact-brand .orb{ width:40px;height:40px; }
+.contact-wordmark{
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:18px;
+  letter-spacing:-0.01em;color:var(--text-primary);margin:6px 0 0;
+}
+.contact-tag{ font-size:12px;color:var(--text-muted);margin:0; }
+.contact-channels{ display:flex;gap:6px;margin-top:6px;flex-wrap:wrap; }
+.contact-channel-pill{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:5px 10px;
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius-pill);
+  font-size:11px;font-weight:500;color:var(--text-primary);
+}
+.contact-col h4{
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:11px;
+  letter-spacing:.10em;text-transform:uppercase;color:var(--text-muted);
+  margin:0 0 12px;
+}
+.contact-col ul{ list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:7px; }
+.contact-col a{
+  font-size:13px;color:var(--text-primary);
+  display:inline-flex;align-items:center;gap:6px;
+  transition:color .2s;
+}
+.contact-col a:hover{ color:var(--primary); }
+.contact-col a .ext{ opacity:.5;font-size:10px; }
+.footer-strip{
+  margin-top:24px;padding:16px 0 0;
+  border-top:1px solid var(--border-subtle);
+  display:flex;justify-content:space-between;align-items:center;
+  gap:12px;flex-wrap:wrap;
+  font-size:11px;color:var(--text-faint);
+}
+@media (max-width:880px){ .contact-grid{ grid-template-columns:1fr 1fr;gap:24px; } }
+@media (max-width:540px){ .contact-grid{ grid-template-columns:1fr;gap:20px; } }
+
+/* ════════════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ──────────────────────────────────────────────────────────────────────── */
+.reveal{
+  opacity:0;transform:translateY(16px);
+  transition:opacity .7s cubic-bezier(.2,.6,.2,1), transform .7s cubic-bezier(.2,.6,.2,1);
+}
+.reveal.in{ opacity:1;transform:translateY(0); }
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation:none !important; transition-duration:.01ms !important; }
+  .reveal{ opacity:1;transform:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── SVG asset library ─────────────────────────────────────────────── -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="orb-nodes" viewBox="0 0 100 100">
+      <g fill="#fff" stroke="#fff" stroke-width="1.5" stroke-linecap="round">
+        <line x1="50" y1="50" x2="50" y2="22"/>
+        <line x1="50" y1="50" x2="74" y2="36"/>
+        <line x1="50" y1="50" x2="74" y2="64"/>
+        <line x1="50" y1="50" x2="50" y2="80"/>
+        <line x1="50" y1="50" x2="26" y2="64"/>
+        <line x1="50" y1="50" x2="26" y2="36"/>
+        <line x1="26" y1="36" x2="50" y2="22"/>
+        <line x1="50" y1="22" x2="74" y2="36"/>
+        <line x1="74" y1="36" x2="74" y2="64"/>
+        <line x1="74" y1="64" x2="50" y2="80"/>
+        <line x1="50" y1="80" x2="26" y2="64"/>
+        <line x1="26" y1="64" x2="26" y2="36"/>
+        <circle cx="50" cy="50" r="6"/>
+        <circle cx="50" cy="22" r="5"/>
+        <circle cx="74" cy="36" r="5"/>
+        <circle cx="74" cy="64" r="5"/>
+        <circle cx="50" cy="80" r="5"/>
+        <circle cx="26" cy="64" r="5"/>
+        <circle cx="26" cy="36" r="5"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+  <span class="icon-sun">☀</span>
+  <span class="icon-moon">☾</span>
+</button>
+
+<main>
+
+<!-- ═════════════ §1 HERO ═════════════ -->
+<section class="section" id="top">
+  <div class="container">
+    <div class="section-card hero-card reveal">
+      <div class="hero-text">
+        <span class="meta-stamp">Live · 3 networks · 20 nodes · 9 initiatives · 16 funds · 28 events</span>
+        <h1 class="hero-h1">Regen <em>Coordination</em></h1>
+        <p class="hero-tagline">Collaborative Pathways to Regeneration</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#networks">Explore the network</a>
+          <a class="btn btn-ghost" href="#funds">Funds ↗</a>
+        </div>
+      </div>
+      <div class="hero-orb-wrap">
+        <div class="orb hero-orb"><svg viewBox="0 0 100 100" aria-label="Regen Coordination orb mark"><use href="#orb-nodes"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ §2 ABOUT ═════════════ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-card about-card reveal">
+      <span class="kcard" title="Knowledge card · coming soon">ⓘ</span>
+      <div class="section-eyebrow">§2 About</div>
+      <p class="lead">
+        A pass-through coordination layer routing <strong>capital</strong>,
+        <strong>knowledge</strong>, and <strong>shared infrastructure</strong>
+        across leading regenerative networks.
+      </p>
+      <div class="pillars">
+        <div class="pillar soft-card">
+          <div class="pillar-icon">💧</div>
+          <p class="pillar-name">Routes capital</p>
+          <p class="pillar-desc">Octant vaults, Gardens pools, Impact Stake — capital flows from co-funders to vetted projects.</p>
+        </div>
+        <div class="pillar soft-card">
+          <div class="pillar-icon">🧭</div>
+          <p class="pillar-name">Coordinates governance</p>
+          <p class="pillar-desc">Weekly council sync, public records, consensus across articulation orgs.</p>
+        </div>
+        <div class="pillar soft-card">
+          <div class="pillar-icon">📚</div>
+          <p class="pillar-name">Curates knowledge</p>
+          <p class="pillar-desc">Shared playbooks, federated learning, KOI-net knowledge infra — open by default.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ §3 LEADING ORGS & PARTNERS ═════════════ -->
+<section class="section" id="networks">
+  <div class="container">
+    <div class="section-card reveal">
+      <div class="section-head">
+        <div class="lhs">
+          <div class="section-eyebrow">§3 Leading orgs &amp; partners</div>
+          <h2 class="section-title">The articulation layer</h2>
+        </div>
+        <a class="section-action" href="#">Federation manifest <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-head">
+          <h3 class="subsection-title">Leading orgs <span class="ct">3</span></h3>
+        </div>
+        <div class="networks-grid">
+          <article class="net-card soft-card">
+            <span class="kcard" title="Knowledge card · coming soon">ⓘ</span>
+            <div class="orb"><svg viewBox="0 0 100 100"><use href="#orb-nodes"/></svg></div>
+            <div>
+              <p class="net-card-name">ReFi DAO</p>
+              <span class="net-card-role">Articulation org</span>
+            </div>
+            <p class="net-card-desc">Global ReFi coordination. Chapters, funding rounds, cross-network governance.</p>
+            <div class="net-card-foot">
+              <span class="net-card-stat"><strong>4</strong> nodes</span>
+              <a class="net-card-link" href="https://refi.dao" target="_blank" rel="noopener">refi.dao ↗</a>
+            </div>
+          </article>
+          <article class="net-card soft-card">
+            <span class="kcard" title="Knowledge card · coming soon">ⓘ</span>
+            <div class="orb" style="background:linear-gradient(160deg, oklch(82% 0.08 142), oklch(80% 0.10 110), oklch(75% 0.12 90))"><svg viewBox="0 0 100 100"><use href="#orb-nodes"/></svg></div>
+            <div>
+              <p class="net-card-name">Greenpill Network</p>
+              <span class="net-card-role">Articulation org</span>
+            </div>
+            <p class="net-card-desc">Umbrella for Greenpill chapters worldwide. NYC, Asia, Cape Town, London-Ontario.</p>
+            <div class="net-card-foot">
+              <span class="net-card-stat"><strong>5</strong> chapters</span>
+              <a class="net-card-link" href="https://greenpill.network" target="_blank" rel="noopener">greenpill.network ↗</a>
+            </div>
+          </article>
+          <article class="net-card soft-card">
+            <span class="kcard" title="Knowledge card · coming soon">ⓘ</span>
+            <div class="orb" style="background:linear-gradient(160deg, oklch(82% 0.08 30), oklch(80% 0.10 50), oklch(75% 0.12 75))"><svg viewBox="0 0 100 100"><use href="#orb-nodes"/></svg></div>
+            <div>
+              <p class="net-card-name">Bloom Network</p>
+              <span class="net-card-role">Articulation org</span>
+            </div>
+            <p class="net-card-desc">Bioregional regenerator network. Earth.live × Bloom federated learning MOU signed.</p>
+            <div class="net-card-foot">
+              <span class="net-card-stat"><strong>2</strong> nodes</span>
+              <a class="net-card-link" href="#">Visit ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="subsection" id="partners">
+        <div class="subsection-head">
+          <h3 class="subsection-title">Partners <span class="ct" id="partnersCount">16</span></h3>
+        </div>
+        <div class="partners-grid" id="partnersGrid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ §4 NODES & CHAPTERS ═════════════ -->
+<section class="section" id="nodes">
+  <div class="container">
+    <div class="section-card reveal">
+      <div class="section-head">
+        <div class="lhs">
+          <div class="section-eyebrow">§4 Nodes &amp; chapters</div>
+          <h2 class="section-title">Twenty places, one mesh</h2>
+        </div>
+        <a class="section-action" href="#">Browse all nodes <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="nodes-stats">
+        <div class="nodes-stat"><span class="nodes-stat-num">20</span><span class="nodes-stat-label">Total nodes</span></div>
+        <div class="nodes-stat"><span class="nodes-stat-num">14</span><span class="nodes-stat-label">Active</span></div>
+        <div class="nodes-stat"><span class="nodes-stat-num">4</span><span class="nodes-stat-label">Continents</span></div>
+        <div class="nodes-stat"><span class="nodes-stat-num">5</span><span class="nodes-stat-label">Networks</span></div>
+      </div>
+
+      <div class="toolbar">
+        <input class="search" id="nodesSearch" type="search" placeholder="Search nodes by name, location, or network…" />
+        <select class="sort-select" id="nodesSort">
+          <option value="net">Sort: Network</option>
+          <option value="name">Sort: Name</option>
+          <option value="loc">Sort: Location</option>
+          <option value="status">Sort: Status</option>
+        </select>
+        <div class="nodes-toggle" role="tablist">
+          <button class="active" data-view="map">🗺 Map</button>
+          <button data-view="list">≡ List</button>
+        </div>
+      </div>
+
+      <div class="nodes-view" data-view="map" id="nodesView">
+        <div class="map-view">
+          <div class="map-wrap" id="mapWrap">
+            <svg class="map-svg" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet" aria-label="World map of nodes">
+              <g>
+                <path class="map-continent" d="M 95 110 L 165 80 L 240 90 L 290 130 L 270 175 L 230 200 L 180 215 L 145 235 L 130 220 L 110 195 L 92 165 Z"/>
+                <path class="map-continent" d="M 230 230 L 270 215 L 305 235 L 320 280 L 305 335 L 290 380 L 280 415 L 260 425 L 245 395 L 240 350 L 230 305 Z"/>
+                <path class="map-continent" d="M 460 105 L 510 95 L 555 110 L 580 145 L 555 170 L 520 175 L 485 180 L 460 165 L 445 140 Z"/>
+                <path class="map-continent" d="M 470 200 L 530 195 L 575 215 L 595 270 L 580 320 L 555 365 L 525 395 L 495 380 L 475 340 L 465 285 L 462 235 Z"/>
+                <path class="map-continent" d="M 580 90 L 690 80 L 790 110 L 850 135 L 870 175 L 845 210 L 800 230 L 740 215 L 685 205 L 635 190 L 590 165 L 575 130 Z"/>
+                <path class="map-continent" d="M 770 245 L 820 240 L 850 260 L 855 285 L 825 295 L 790 290 L 770 270 Z"/>
+                <path class="map-continent" d="M 815 330 L 870 325 L 905 345 L 905 380 L 870 395 L 835 390 L 815 370 Z"/>
+              </g>
+              <g stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 4" opacity="0.14" fill="none" style="color:var(--text-muted)">
+                <line x1="495" y1="135" x2="498" y2="148"/>
+                <line x1="495" y1="135" x2="475" y2="138"/>
+                <line x1="220" y1="180" x2="495" y2="135"/>
+                <line x1="220" y1="180" x2="280" y2="350"/>
+                <line x1="280" y1="350" x2="270" y2="380"/>
+              </g>
+              <g class="map-node refi-dao" data-name="ReFi BCN" data-meta="refi-dao · Barcelona, Spain · active"><circle class="dot" cx="495" cy="135" r="5"/></g>
+              <g class="map-node refi-dao" data-name="ReFi Mediterranean" data-meta="refi-dao · regional · active"><circle class="dot" cx="498" cy="148" r="5"/></g>
+              <g class="map-node refi-dao" data-name="ReFi Provence" data-meta="refi-dao · Provence, France · to-verify"><circle class="dot" cx="475" cy="138" r="5"/></g>
+              <g class="map-node refi-dao" data-name="Ukraine Node" data-meta="refi-dao · Ukraine · to-verify"><circle class="dot" cx="585" cy="125" r="5"/></g>
+              <g class="map-node greenpill" data-name="GreenPill Network" data-meta="greenpill · umbrella · active"><circle class="dot" cx="710" cy="160" r="6"/></g>
+              <g class="map-node greenpill" data-name="GreenPill NYC" data-meta="greenpill · New York, USA · active"><circle class="dot" cx="220" cy="180" r="5"/></g>
+              <g class="map-node greenpill" data-name="GreenPill Asia" data-meta="greenpill · Asia · active"><circle class="dot" cx="780" cy="180" r="5"/></g>
+              <g class="map-node greenpill" data-name="GreenPill Cape Town" data-meta="greenpill · Cape Town · active"><circle class="dot" cx="555" cy="350" r="5"/></g>
+              <g class="map-node greenpill" data-name="GreenPill London-Ontario" data-meta="greenpill · London, ON, Canada · active"><circle class="dot" cx="195" cy="170" r="5"/></g>
+              <g class="map-node green-brazil" data-name="Green Brazil" data-meta="green-brazil · umbrella · active"><circle class="dot" cx="290" cy="335" r="6"/></g>
+              <g class="map-node green-brazil" data-name="Green Brazil Rio" data-meta="green-brazil · Rio de Janeiro · active"><circle class="dot" cx="280" cy="350" r="5"/></g>
+              <g class="map-node green-brazil" data-name="Green Brazil Bahia" data-meta="green-brazil · Bahia · active"><circle class="dot" cx="288" cy="335" r="5"/></g>
+              <g class="map-node green-brazil" data-name="Green Brazil São Paulo" data-meta="green-brazil · São Paulo · active"><circle class="dot" cx="270" cy="362" r="5"/></g>
+              <g class="map-node bloom" data-name="Bloom Network" data-meta="bloom · umbrella · active"><circle class="dot" cx="240" cy="200" r="6"/></g>
+              <g class="map-node bloom" data-name="Bloom Liberia" data-meta="bloom · Liberia · active"><circle class="dot" cx="475" cy="270" r="5"/></g>
+              <g class="map-node regen-coordination" data-name="Regenerant Catalunya" data-meta="regen-coordination · Catalonia · active"><circle class="dot" cx="490" cy="142" r="5"/></g>
+              <g class="map-node regen-coordination" data-name="NYC Node" data-meta="regen-coordination · New York · bootstrapping"><circle class="dot" cx="225" cy="186" r="5"/></g>
+            </svg>
+            <div class="map-tooltip" id="mapTooltip">
+              <div class="map-tooltip-name"></div>
+              <div class="map-tooltip-meta"></div>
+            </div>
+          </div>
+          <div class="map-legend">
+            <div class="legend-item" style="color:var(--net-refi)"><span class="legend-dot"></span>ReFi DAO</div>
+            <div class="legend-item" style="color:var(--net-greenpill)"><span class="legend-dot"></span>Greenpill</div>
+            <div class="legend-item" style="color:var(--net-bloom)"><span class="legend-dot"></span>Bloom</div>
+            <div class="legend-item" style="color:var(--net-brazil)"><span class="legend-dot"></span>Green Brazil</div>
+            <div class="legend-item" style="color:var(--net-rc)"><span class="legend-dot"></span>Regen Coordination</div>
+          </div>
+        </div>
+        <div class="list-view">
+          <div class="nodes-list" id="nodesList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ §5 INITIATIVES ═════════════ -->
+<section class="section" id="initiatives">
+  <div class="container">
+    <div class="section-card reveal">
+      <div class="section-head">
+        <div class="lhs">
+          <div class="section-eyebrow">§5 Initiatives</div>
+          <h2 class="section-title">Cross-network programs</h2>
+        </div>
+        <a class="section-action" href="#">All initiatives <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="toolbar">
+        <input class="search" id="initSearch" type="search" placeholder="Search initiatives…" />
+        <select class="sort-select" id="initSort">
+          <option value="status">Sort: Status</option>
+          <option value="name">Sort: Name</option>
+        </select>
+      </div>
+      <div class="init-filters" id="initFilters">
+        <button class="filter-chip active" data-status="all">All</button>
+        <button class="filter-chip" data-status="active">Active</button>
+        <button class="filter-chip" data-status="in-progress">In progress</button>
+        <button class="filter-chip" data-status="bootstrapping">Bootstrapping</button>
+        <button class="filter-chip" data-status="planning">Planning</button>
+        <button class="filter-chip" data-status="proposed">Proposed</button>
+      </div>
+      <div class="initiatives-grid" id="initiativesGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ §6 FUNDS ═════════════ -->
+<section class="section" id="funds">
+  <div class="container">
+    <div class="section-card reveal">
+      <div class="section-head">
+        <div class="lhs">
+          <div class="section-eyebrow">§6 Funds</div>
+          <h2 class="section-title">Where capital lives &amp; flows</h2>
+        </div>
+        <a class="section-action" href="#">Capital flow report <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="toolbar">
+        <div class="funds-tabs" id="fundsTabs">
+          <button class="active" data-pane="pools">Pools <span class="ct">6</span></button>
+          <button data-pane="opps">Opportunities <span class="ct">10</span></button>
+          <button data-pane="flow">Flow</button>
+        </div>
+        <input class="search" id="fundsSearch" type="search" placeholder="Search by name or chain…" />
+      </div>
+
+      <div class="funds-pane active" data-pane="pools">
+        <div class="funds-grid">
+          <article class="fund-card soft-card">
+            <span class="kcard" title="Knowledge card · coming soon">ⓘ</span>
+            <div class="fund-card-head">
+              <div>
+                <h4 class="fund-card-name">RC Impact Stake</h4>
+                <span class="fund-card-type">Impact-stake · mainnet</span>
+              </div>
+              <span class="pill pill-active">● Active</span>
+            </div>
+            <p class="fund-card-meta">10 ETH target · 1/3-1/3-1/3 split with ReFi DAO, Greenpill, Bloom.</p>
+          </article>
+          <article class="fund-card soft-card">
+            <span class="kcard" title="Knowledge card · coming soon">ⓘ</span>
+            <div class="fund-card-head">
+              <div>
+                <h4 class="fund-card-name">RC Octant Vault</h4>
+                <span class="fund-card-type">Octant-vault · mainnet</span>
+              </div>
+              <span class="pill pill-planning">● Planned</span>
+            </div>
+            <p class="fund-card-meta">ETH staking yield. 1/3-1/3-1/3 split exploration. Needs co-funders.</p>
+          </article>
+          <article class="fund-card soft-card">
+            <span class="kcard" title="Knowledge card · coming soon">ⓘ</span>
+            <div class="fund-card-head">
+              <div>
+                <h4 class="fund-card-name">NYC Octant Vault</h4>
+                <span class="fund-card-type">Octant-vault · mainnet</span>
+              </div>
+              <span class="pill pill-bootstrapping">● Pilot</span>
+            </div>
+            <p class="fund-card-meta">Stablecoin + ETH. Yield to Decentral Park &amp; mutual aid software.</p>
+          </article>
+          <article class="fund-card soft-card">
+            <span class="kcard" title="Knowledge card · coming soon">ⓘ</span>
+            <div class="fund-card-head">
+              <div>
+                <h4 class="fund-card-name">NYC Garden Pool</h4>
+                <span class="fund-card-type">Gardens-pool · gnosis</span>
+              </div>
+              <span class="pill pill-active">● Active</span>
+            </div>
+            <p class="fund-card-meta">Spinach Fry $2 reward enrolled.</p>
+          </article>
+          <article class="fund-card soft-card">
+            <span class="kcard" title="Knowledge card · coming soon">ⓘ</span>
+            <div class="fund-card-head">
+              <div>
+                <h4 class="fund-card-name">GreenPill Dev Guild Pool</h4>
+                <span class="fund-card-type">Gardens-pool · gnosis</span>
+              </div>
+              <span class="pill pill-active">● Active</span>
+            </div>
+            <p class="fund-card-meta">UberSwap campaign: 10% USDC APY + OOBA rewards.</p>
+          </article>
+          <article class="fund-card soft-card">
+            <span class="kcard" title="Knowledge card · coming soon">ⓘ</span>
+            <div class="fund-card-head">
+              <div>
+                <h4 class="fund-card-name">Artisan Season 6 Pools</h4>
+                <span class="fund-card-type">Artisan-pool · season 6</span>
+              </div>
+              <span class="pill pill-active">● Active</span>
+            </div>
+            <p class="fund-card-meta">Network States · Region Rebels · Green Pill Asia.</p>
+          </article>
+        </div>
+      </div>
+
+      <div class="funds-pane" data-pane="opps">
+        <div class="funds-grid" id="oppsGrid"></div>
+      </div>
+
+      <div class="funds-pane" data-pane="flow">
+        <div class="fund-flow">
+          <div class="fund-flow-side">
+            <h5>Inflows</h5>
+            <ul>
+              <li>Octant ETH yield <span>~$8.4k / yr</span></li>
+              <li>Gardens conviction <span>$500 / node</span></li>
+              <li>Co-funders (council) <span>10 ETH target</span></li>
+              <li>Spinach Fry rewards <span>~$50 / mo</span></li>
+              <li>UberSwap APY (10%) <span>variable</span></li>
+            </ul>
+          </div>
+          <div class="fund-flow-arrow">→</div>
+          <div class="fund-flow-side">
+            <h5>Outflows</h5>
+            <ul>
+              <li>Local nodes <span>via Localism Fund</span></li>
+              <li>Regenerant Catalunya <span>bioregional</span></li>
+              <li>Mutual aid software <span>NYC route</span></li>
+              <li>Decentral Park <span>NYC route</span></li>
+              <li>Council ops <span>treasury</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ §7 EVENTS ═════════════ -->
+<section class="section" id="events">
+  <div class="container">
+    <div class="section-card reveal">
+      <div class="section-head">
+        <div class="lhs">
+          <div class="section-eyebrow">§7 Events &amp; calls</div>
+          <h2 class="section-title">What's happening this month</h2>
+        </div>
+        <a class="section-action" href="#">Full calendar <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="toolbar">
+        <input class="search" id="eventsSearch" type="search" placeholder="Search events…" />
+      </div>
+      <div class="luma-sources" id="eventsSources">
+        <span class="luma-sources-label">Lu.ma</span>
+        <button class="luma-source-chip active" data-src="all">All <span style="opacity:.5">7</span></button>
+        <button class="luma-source-chip" data-src="rc">regen-coordination</button>
+        <button class="luma-source-chip" data-src="refidao">refidao</button>
+        <button class="luma-source-chip" data-src="greenpill">greenpill</button>
+        <button class="luma-source-chip" data-src="bloom">bloom</button>
+        <button class="luma-source-chip" data-src="refibcn">refibcn</button>
+        <button class="luma-source-chip" data-src="gp-asia">gp-asia</button>
+      </div>
+      <div class="events-list" id="eventsList"></div>
+      <div class="events-export">
+        <div>Next 5 of 28 — <a href="#" style="color:var(--primary);font-weight:600">all →</a></div>
+        <div class="events-export-actions">
+          <a class="btn btn-ghost btn-sm" href="#">⤓ iCal</a>
+          <a class="btn btn-ghost btn-sm" href="#">📡 RSS</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ §8 RESOURCES ═════════════ -->
+<section class="section" id="resources">
+  <div class="container">
+    <div class="section-card reveal">
+      <div class="section-head">
+        <div class="lhs">
+          <div class="section-eyebrow">§8 Resources</div>
+          <h2 class="section-title">Open by default</h2>
+        </div>
+        <a class="section-action" href="#">Knowledge commons <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="resources-grid">
+        <a class="res-card soft-card" href="https://hub.regencoordination.xyz" target="_blank" rel="noopener">
+          <div class="res-icon">💬</div>
+          <div class="res-card-body">
+            <p class="res-name">Hub forum</p>
+            <p class="res-desc">hub.regencoordination.xyz · open discourse</p>
+          </div>
+          <span class="res-arrow">↗</span>
+        </a>
+        <a class="res-card soft-card" href="#">
+          <div class="res-icon">🧰</div>
+          <div class="res-card-body">
+            <p class="res-name">Regen Web3 Toolkit <span class="wip-badge">WIP</span></p>
+            <p class="res-desc">Master doc + org-os overlay · explorience/regen-toolkit</p>
+          </div>
+          <span class="res-arrow">→</span>
+        </a>
+        <a class="res-card soft-card" href="#">
+          <div class="res-icon">📊</div>
+          <div class="res-card-body">
+            <p class="res-name">Activity reports</p>
+            <p class="res-desc">Karma GAP · grants &amp; impact accounting</p>
+          </div>
+          <span class="res-arrow">↗</span>
+        </a>
+        <a class="res-card soft-card" href="#contact">
+          <div class="res-icon">📨</div>
+          <div class="res-card-body">
+            <p class="res-name">Community channels</p>
+            <p class="res-desc">Telegram, GitHub, mailing list</p>
+          </div>
+          <span class="res-arrow">↓</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ §9 GET INVOLVED ═════════════ -->
+<section class="section" id="involve">
+  <div class="container">
+    <div class="section-card reveal">
+      <div class="section-head">
+        <div class="lhs">
+          <div class="section-eyebrow">§9 Get involved</div>
+          <h2 class="section-title">Three doors in</h2>
+        </div>
+      </div>
+
+      <div class="involve-grid">
+        <article class="involve-card soft-card">
+          <div class="involve-icon">💬</div>
+          <h3 class="involve-title">Join the conversation</h3>
+          <ol class="involve-steps">
+            <li>Open the Hub forum</li>
+            <li>Introduce yourself in #welcome</li>
+            <li>RSVP to the next council sync on Lu.ma</li>
+          </ol>
+          <a class="involve-cta" href="#">Open forum <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="involve-card soft-card">
+          <div class="involve-icon">🌱</div>
+          <h3 class="involve-title">Bring your network in</h3>
+          <ol class="involve-steps">
+            <li>Read the federation protocol</li>
+            <li>Fork the org-os template</li>
+            <li>Submit a federation PR with your manifest</li>
+          </ol>
+          <a class="involve-cta" href="#">Become a node <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="involve-card soft-card">
+          <div class="involve-icon">💧</div>
+          <h3 class="involve-title">Fund a pool</h3>
+          <ol class="involve-steps">
+            <li>Pick a pool from the Funds section</li>
+            <li>Connect your wallet</li>
+            <li>Stake or sponsor — flows are public</li>
+          </ol>
+          <a class="involve-cta" href="#funds">View pools <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ §10 CONTACT / FOOTER ═════════════ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-card reveal">
+      <div class="contact-grid">
+        <div class="contact-brand">
+          <div class="orb"><svg viewBox="0 0 100 100"><use href="#orb-nodes"/></svg></div>
+          <p class="contact-wordmark">Regen Coordination</p>
+          <p class="contact-tag">Collaborative Pathways to Regeneration</p>
+          <div class="contact-channels">
+            <a class="contact-channel-pill" href="#">💬 Forum</a>
+            <a class="contact-channel-pill" href="#">📨 Telegram</a>
+            <a class="contact-channel-pill" href="#">🛠 GitHub</a>
+          </div>
+        </div>
+        <div class="contact-col">
+          <h4>Sections</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#networks">Networks &amp; partners</a></li>
+            <li><a href="#nodes">Nodes &amp; chapters</a></li>
+            <li><a href="#initiatives">Initiatives</a></li>
+            <li><a href="#funds">Funds</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#resources">Resources</a></li>
+          </ul>
+        </div>
+        <div class="contact-col">
+          <h4>Channels</h4>
+          <ul>
+            <li><a href="https://hub.regencoordination.xyz" target="_blank" rel="noopener">Hub forum <span class="ext">↗</span></a></li>
+            <li><a href="#">RC Open · Telegram <span class="ext">↗</span></a></li>
+            <li><a href="https://github.com/regen-coordination" target="_blank" rel="noopener">GitHub <span class="ext">↗</span></a></li>
+            <li><a href="#">Lu.ma calendar <span class="ext">↗</span></a></li>
+            <li><a href="#">RSS feed <span class="ext">↗</span></a></li>
+          </ul>
+        </div>
+        <div class="contact-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:hello@regencoordination.xyz">hello@regencoordination.xyz</a></li>
+            <li><a href="#">Press &amp; partnerships</a></li>
+            <li><a href="#">Become a node</a></li>
+            <li><a href="#">Support a pool</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-strip">
+        <div>© 2026 Regen Coordination · Pass-through coordination layer</div>
+        <div>v1.0 mockup · <a href="#" style="text-decoration:underline">edit on GitHub</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+/* ════════════════════════════════════════════════════════════════════════
+   Theme toggle — persisted
+   ──────────────────────────────────────────────────────────────────────── */
+(function(){
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const stored = localStorage.getItem('rc-theme');
+  const initial = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  root.setAttribute('data-theme', initial);
+  btn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('rc-theme', next);
+  });
+})();
+
+/* ════════════════════════════════════════════════════════════════════════
+   Reveal on scroll
+   ──────────────────────────────────────────────────────────────────────── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting){ e.target.classList.add('in'); revealObserver.unobserve(e.target); }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ════════════════════════════════════════════════════════════════════════
+   Partners — static grid
+   ──────────────────────────────────────────────────────────────────────── */
+(function(){
+  const partners = [
+    { name:'Coop',            mark:'C',  hue:75  },
+    { name:'Common Approach', mark:'CA', hue:236 },
+    { name:'MA Earth',        mark:'M',  hue:142 },
+    { name:'Agroforest DAO',  mark:'AF', hue:110 },
+    { name:'KOI-net',         mark:'KO', hue:200 },
+    { name:'Regen Toolkit',   mark:'RT', hue:80  },
+    { name:'OpenClaw',        mark:'OC', hue:50  },
+    { name:'Karma GAP',       mark:'KG', hue:160 },
+    { name:'Gardens',         mark:'G',  hue:130 },
+    { name:'Octant',          mark:'O',  hue:250 },
+    { name:'Artizen',         mark:'AZ', hue:0   },
+    { name:'Bread Coop',      mark:'BC', hue:70  },
+    { name:'Region Atlas',    mark:'RA', hue:180 },
+    { name:'Superfluid',      mark:'SF', hue:210 },
+    { name:'Inverter',        mark:'IV', hue:280 },
+    { name:'Localism Fund',   mark:'LF', hue:90  },
+  ];
+  const grid = document.getElementById('partnersGrid');
+  document.getElementById('partnersCount').textContent = partners.length;
+  partners.forEach(p => {
+    const el = document.createElement('div');
+    el.className = 'partner-tile soft-card';
+    el.innerHTML = `
+      <div class="partner-mark" style="background:linear-gradient(135deg, oklch(72% 0.10 ${p.hue}), oklch(60% 0.14 ${p.hue}))">${p.mark}</div>
+      <div class="partner-name">${p.name}</div>
+    `;
+    grid.appendChild(el);
+  });
+})();
+
+/* ════════════════════════════════════════════════════════════════════════
+   Nodes — map tooltip + list view + search/sort
+   ──────────────────────────────────────────────────────────────────────── */
+(function(){
+  const view = document.getElementById('nodesView');
+  document.querySelectorAll('.nodes-toggle button').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.nodes-toggle button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      view.dataset.view = b.dataset.view;
+    });
+  });
+
+  const wrap = document.getElementById('mapWrap');
+  const tooltip = document.getElementById('mapTooltip');
+  const tName = tooltip.querySelector('.map-tooltip-name');
+  const tMeta = tooltip.querySelector('.map-tooltip-meta');
+  document.querySelectorAll('.map-node').forEach(node => {
+    node.addEventListener('mouseenter', () => {
+      const wrapRect = wrap.getBoundingClientRect();
+      const dotRect = node.querySelector('.dot').getBoundingClientRect();
+      tooltip.style.left = (dotRect.left + dotRect.width/2 - wrapRect.left) + 'px';
+      tooltip.style.top  = (dotRect.top - wrapRect.top) + 'px';
+      tName.textContent = node.dataset.name || '';
+      tMeta.textContent = node.dataset.meta || '';
+      tooltip.classList.add('visible');
+    });
+    node.addEventListener('mouseleave', () => tooltip.classList.remove('visible'));
+  });
+
+  const nodes = [
+    { name:'ReFi BCN',                  net:'refi-dao',           loc:'Barcelona, Spain',   status:'active'},
+    { name:'ReFi Mediterranean',        net:'refi-dao',           loc:'Mediterranean',      status:'active'},
+    { name:'ReFi Provence',             net:'refi-dao',           loc:'Provence, France',   status:'to-verify'},
+    { name:'Ukraine Node',              net:'refi-dao',           loc:'Ukraine',            status:'to-verify'},
+    { name:'GreenPill Network',         net:'greenpill',          loc:'Umbrella · global',  status:'active'},
+    { name:'GreenPill NYC',             net:'greenpill',          loc:'New York, USA',      status:'active'},
+    { name:'GreenPill Asia',            net:'greenpill',          loc:'Asia',               status:'active'},
+    { name:'GreenPill Cape Town',       net:'greenpill',          loc:'Cape Town, ZA',      status:'active'},
+    { name:'GreenPill London-Ontario',  net:'greenpill',          loc:'London, ON, CA',     status:'active'},
+    { name:'Green Brazil',              net:'green-brazil',       loc:'Umbrella · BR',      status:'active'},
+    { name:'Green Brazil Rio',          net:'green-brazil',       loc:'Rio de Janeiro, BR', status:'active'},
+    { name:'Green Brazil Bahia',        net:'green-brazil',       loc:'Bahia, BR',          status:'active'},
+    { name:'Green Brazil São Paulo',    net:'green-brazil',       loc:'São Paulo, BR',      status:'active'},
+    { name:'Bloom Network',             net:'bloom',              loc:'Umbrella · global',  status:'active'},
+    { name:'Bloom Liberia',             net:'bloom',              loc:'Liberia',            status:'active'},
+    { name:'Regenerant Catalunya',      net:'regen-coordination', loc:'Catalonia, ES',      status:'active'},
+    { name:'Local ReFi Toolkit',        net:'regen-coordination', loc:'Resource node',      status:'active'},
+    { name:'NYC Node',                  net:'regen-coordination', loc:'New York, USA',      status:'bootstrapping'},
+    { name:'Coop',                      net:'regen-coordination', loc:'Global · product',   status:'bootstrapping'},
+    { name:'Regen Coordination',        net:'regen-coordination', loc:'Hub · global',       status:'active'},
+  ];
+  const colors = {
+    'refi-dao':'var(--net-refi)','greenpill':'var(--net-greenpill)','bloom':'var(--net-bloom)',
+    'green-brazil':'var(--net-brazil)','regen-coordination':'var(--net-rc)'
+  };
+  const list = document.getElementById('nodesList');
+  const searchEl = document.getElementById('nodesSearch');
+  const sortEl = document.getElementById('nodesSort');
+  const state = { q:'', sort:'net' };
+  const netOrder = ['regen-coordination','refi-dao','greenpill','bloom','green-brazil'];
+
+  function renderList(){
+    list.innerHTML = '';
+    let set = nodes.slice();
+    if(state.q){
+      const q = state.q.toLowerCase();
+      set = set.filter(n => (n.name + ' ' + n.loc + ' ' + n.net).toLowerCase().includes(q));
+    }
+    if(state.sort === 'name') set.sort((a,b) => a.name.localeCompare(b.name));
+    else if(state.sort === 'loc') set.sort((a,b) => a.loc.localeCompare(b.loc));
+    else if(state.sort === 'status') set.sort((a,b) => a.status.localeCompare(b.status));
+    else set.sort((a,b) => netOrder.indexOf(a.net) - netOrder.indexOf(b.net));
+    set.forEach(n => {
+      const row = document.createElement('div');
+      row.className = 'node-row';
+      row.innerHTML = `
+        <span class="legend-dot" style="color:${colors[n.net]}"></span>
+        <div class="node-row-body">
+          <p class="node-row-name">${n.name}</p>
+          <p class="node-row-meta">${n.net} · ${n.loc} · ${n.status}</p>
+        </div>
+      `;
+      list.appendChild(row);
+    });
+    document.querySelectorAll('.map-node').forEach(el => {
+      const matches = !state.q || (el.dataset.name + ' ' + el.dataset.meta).toLowerCase().includes(state.q.toLowerCase());
+      el.style.opacity = matches ? '' : '0.18';
+    });
+  }
+  renderList();
+  searchEl.addEventListener('input', e => { state.q = e.target.value; renderList(); });
+  sortEl.addEventListener('change', e => { state.sort = e.target.value; renderList(); });
+})();
+
+/* ════════════════════════════════════════════════════════════════════════
+   Initiatives — search + sort + status filter
+   ──────────────────────────────────────────────────────────────────────── */
+(function(){
+  const initiatives = [
+    { name:'Localism Fund',              status:'active',         networks:['Regen Coordination'],  desc:'Supports credible local networks and place-based groups.'},
+    { name:'Regenerant Catalunya',       status:'active',         networks:['ReFi BCN','RC'],       desc:'Bioregional funding program for Catalonia. First fully bootstrapped node-program pairing.'},
+    { name:'Local ReFi Toolkit',         status:'active',         networks:['Regen Coordination'],  desc:'Playbooks and frameworks for local ReFi nodes — the canonical bootstrap kit.'},
+    { name:'Green Goods',                status:'active',         networks:['Greenpill'],            desc:'Protocol deployment; Impact Stake builder. Cross-network goods registry.'},
+    { name:'Earth.live × Bloom',         status:'active',         networks:['Bloom'],                desc:'Federated learning environmental data; MOU signed.'},
+    { name:'ReFi DAO + Greenpill merger',status:'in-progress',    networks:['ReFi DAO','Greenpill'], desc:'Formal steward discussion post-March 5 ReRe workshop.'},
+    { name:'NYC Local Funding',          status:'bootstrapping',  networks:['NYC Node'],             desc:'Stablecoin + ETH on mainnet; yield to Decentral Park & mutual aid software.'},
+    { name:'Domain-based funding pools', status:'planning',       networks:['Regen Coordination'],  desc:'StreamVote governance, Karma Gap + DAOIP-5 impact accounting.'},
+    { name:'Regen Writers Guild',        status:'proposed',       networks:['Regen Coordination'],  desc:'Rename from GreenPill Writers Guild; include ReFi DAO.'},
+  ];
+  const grid = document.getElementById('initiativesGrid');
+  const searchEl = document.getElementById('initSearch');
+  const sortEl = document.getElementById('initSort');
+  const filtersEl = document.getElementById('initFilters');
+  const state = { status:'all', q:'', sort:'status' };
+  const statusOrder = ['active','in-progress','bootstrapping','planning','proposed'];
+
+  function pillClass(s){return s==='active'?'pill-active':s==='in-progress'?'pill-inprogress':s==='bootstrapping'?'pill-bootstrapping':s==='planning'?'pill-planning':'pill-proposed';}
+  function render(){
+    grid.innerHTML = '';
+    let set = initiatives.slice();
+    if(state.status !== 'all') set = set.filter(i => i.status === state.status);
+    if(state.q){
+      const q = state.q.toLowerCase();
+      set = set.filter(i => (i.name + ' ' + i.desc + ' ' + i.networks.join(' ')).toLowerCase().includes(q));
+    }
+    if(state.sort === 'name') set.sort((a,b) => a.name.localeCompare(b.name));
+    else set.sort((a,b) => statusOrder.indexOf(a.status) - statusOrder.indexOf(b.status));
+    set.forEach(i => {
+      const el = document.createElement('article');
+      el.className = 'init-card soft-card';
+      el.innerHTML = `
+        <span class="kcard" title="Knowledge card · coming soon">ⓘ</span>
+        <h3 class="init-card-name">${i.name}</h3>
+        <div class="init-card-meta">
+          <span class="pill ${pillClass(i.status)}">● ${i.status}</span>
+          ${i.networks.map(n => `<span class="pill">${n}</span>`).join('')}
+        </div>
+        <p class="init-card-desc">${i.desc}</p>
+        <div class="init-card-foot">
+          <span style="color:var(--text-muted)">Cross-network</span>
+          <a class="init-card-link" href="#">Details →</a>
+        </div>
+      `;
+      grid.appendChild(el);
+    });
+    if(set.length === 0){
+      grid.innerHTML = '<p style="font-size:12px;color:var(--text-faint);padding:18px">No initiatives match.</p>';
+    }
+  }
+  render();
+  filtersEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-chip');
+    if(!btn) return;
+    filtersEl.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    state.status = btn.dataset.status;
+    render();
+  });
+  searchEl.addEventListener('input', e => { state.q = e.target.value; render(); });
+  sortEl.addEventListener('change', e => { state.sort = e.target.value; render(); });
+})();
+
+/* ════════════════════════════════════════════════════════════════════════
+   Funds — tabs + search across panes + opps render
+   ──────────────────────────────────────────────────────────────────────── */
+(function(){
+  const opps = [
+    { name:'Artisan Season 6',     status:'active',      mech:'Artifact-based donations + matching · ~3 months · $10M+ endowment.'},
+    { name:'Octant Vaults',        status:'active',      mech:'ETH staking yield (2-3% post Lido) · multi-strategy vaults.'},
+    { name:'Superfluid Campaigns', status:'active',      mech:'Flow-based SUB token distribution · Season 5 ending, 6 TBD.'},
+    { name:'Gardens Pools',        status:'active',      mech:'Conviction voting on proposals · $500 kickstarter for new nodes.'},
+    { name:'Spinach Fry',          status:'active',      mech:'Monthly renewal · ~$50/month for ReFi DAO.'},
+    { name:'Celo Public Goods',    status:'planning',    mech:'Ecosystem grants · $350k for H1 2025.'},
+    { name:'Arbitrum Grants',      status:'planning',    mech:'Ecosystem grants.'},
+    { name:'Inverter Network',     status:'planning',    mech:'DAO-to-DAO coordination by PrimeDow, Bloom, TEC.'},
+    { name:'Gitcoin / GG Rounds',  status:'active',      mech:'Quadratic funding.'},
+    { name:'Impact Stake',         status:'in-progress', mech:'1/3-1/3-1/3 split. Pending final approval.'},
+  ];
+  function pillClass(s){return s==='active'?'pill-active':s==='in-progress'?'pill-inprogress':'pill-planning';}
+  const grid = document.getElementById('oppsGrid');
+  opps.forEach(o => {
+    const el = document.createElement('article');
+    el.className = 'fund-card soft-card';
+    el.dataset.searchable = (o.name + ' ' + o.mech).toLowerCase();
+    el.innerHTML = `
+      <span class="kcard" title="Knowledge card · coming soon">ⓘ</span>
+      <div class="fund-card-head">
+        <div><h4 class="fund-card-name">${o.name}</h4></div>
+        <span class="pill ${pillClass(o.status)}">● ${o.status}</span>
+      </div>
+      <p class="fund-card-meta">${o.mech}</p>
+    `;
+    grid.appendChild(el);
+  });
+  document.querySelectorAll('.funds-pane[data-pane="pools"] .fund-card').forEach(el => {
+    el.dataset.searchable = el.textContent.toLowerCase();
+  });
+
+  document.getElementById('fundsTabs').addEventListener('click', (e) => {
+    const btn = e.target.closest('button');
+    if(!btn) return;
+    document.querySelectorAll('#fundsTabs button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.funds-pane').forEach(p => p.classList.remove('active'));
+    document.querySelector(`.funds-pane[data-pane="${btn.dataset.pane}"]`).classList.add('active');
+  });
+
+  document.getElementById('fundsSearch').addEventListener('input', e => {
+    const q = e.target.value.toLowerCase();
+    document.querySelectorAll('.funds-pane .fund-card').forEach(el => {
+      const matches = !q || (el.dataset.searchable || '').includes(q);
+      el.style.display = matches ? '' : 'none';
+    });
+  });
+})();
+
+/* ════════════════════════════════════════════════════════════════════════
+   Events — Lu.ma-style mock data + source filter + search
+   In production: fetch from Lu.ma API per source calendar.
+   ──────────────────────────────────────────────────────────────────────── */
+(function(){
+  const sources = {
+    'rc':       { name:'Regen Coordination', color:'oklch(72% 0.13 77)' },
+    'refidao':  { name:'ReFi DAO',           color:'oklch(62% 0.12 236)' },
+    'greenpill':{ name:'Greenpill',          color:'oklch(64% 0.14 142)' },
+    'bloom':    { name:'Bloom',              color:'oklch(70% 0.12 30)' },
+    'refibcn':  { name:'ReFi BCN',           color:'oklch(60% 0.13 220)' },
+    'gp-asia':  { name:'GreenPill Asia',     color:'oklch(66% 0.14 165)' },
+  };
+  const events = [
+    { date:'2026-05-13', time:'15:00', title:'RC Council Sync',           loc:'Online',     source:'rc' },
+    { date:'2026-05-14', time:'17:00', title:'ReFi DAO Wednesday',         loc:'Online',     source:'refidao' },
+    { date:'2026-05-16', time:'10:00', title:'ReFi BCN Open Meetup',       loc:'Barcelona',  source:'refibcn' },
+    { date:'2026-05-21', time:'14:00', title:'Greenpill Steward Sync',     loc:'Online',     source:'greenpill' },
+    { date:'2026-05-22', time:'09:00', title:'GreenPill Asia Workshop',    loc:'Singapore',  source:'gp-asia' },
+  ];
+  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const list = document.getElementById('eventsList');
+  const state = { src:'all', q:'' };
+
+  function render(){
+    list.innerHTML = '';
+    let set = events.filter(ev => state.src === 'all' || ev.source === state.src);
+    if(state.q){
+      const q = state.q.toLowerCase();
+      set = set.filter(ev => (ev.title + ' ' + ev.loc + ' ' + ev.source).toLowerCase().includes(q));
+    }
+    set.forEach(ev => {
+      const d = new Date(ev.date+'T00:00:00');
+      const src = sources[ev.source] || { name:ev.source, color:'oklch(60% 0.05 75)' };
+      const row = document.createElement('article');
+      row.className = 'event-row soft-card';
+      row.innerHTML = `
+        <div class="event-date">
+          <span class="event-date-month">${months[d.getMonth()]}</span>
+          <span class="event-date-day">${d.getDate()}</span>
+        </div>
+        <div class="event-body">
+          <p class="event-title">${ev.title}</p>
+          <p class="event-meta">
+            <span>${ev.loc}</span>
+            <span class="event-source">
+              <span class="event-source-mark" style="background:${src.color}"></span>
+              ${src.name}
+            </span>
+          </p>
+        </div>
+        <span class="event-time">${ev.time}</span>
+        <div class="event-actions">
+          <a class="btn btn-ghost btn-sm" href="#">RSVP</a>
+        </div>
+      `;
+      list.appendChild(row);
+    });
+    if(set.length === 0){
+      list.innerHTML = '<p style="font-size:12px;color:var(--text-faint);padding:14px">No events match.</p>';
+    }
+  }
+  render();
+  document.getElementById('eventsSources').addEventListener('click', (e) => {
+    const btn = e.target.closest('.luma-source-chip');
+    if(!btn) return;
+    document.querySelectorAll('#eventsSources .luma-source-chip').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    state.src = btn.dataset.src;
+    render();
+  });
+  document.getElementById('eventsSearch').addEventListener('input', e => {
+    state.q = e.target.value;
+    render();
+  });
+})();
+</script>
+
+</body>
+</html>
