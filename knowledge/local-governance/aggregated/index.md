@@ -1,3 +1,3 @@
 # Local-governance — Aggregated Knowledge
 
-_Auto-generated from node contributions. Last updated: 2026-06-15_
+_Auto-generated from node contributions. Last updated: 2026-06-22_
