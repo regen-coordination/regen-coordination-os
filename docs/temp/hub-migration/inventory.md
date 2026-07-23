@@ -144,3 +144,43 @@ Pre-existing backups on the hosted instance (`admin/backups.json`), newest first
 - Custom `allowed_iframes` (Google Maps/Calendar, OpenStreetMap, CodePen, Instagram,
   discobot certificate) — carry over.
 - Full non-default set (65 settings) in `nondefault-settings.json`.
+
+---
+
+## Backup payload (Task 2) — STATUS: BLOCKED (manual download required)
+
+- **Backup triggered successfully** (`POST /admin/backups.json with_uploads=true` →
+  `{"success":"OK"}`). Fresh backup produced server-side:
+  - **Filename:** `regen-coordination-hub-2026-07-23-130030-v20260721080424.sql.gz`
+  - **Size:** 57,205,436 bytes (~54.6 MB), created 2026-07-23T13:00:37Z
+  - sha256: not yet computable (file not downloaded — see below)
+- **Scripted download FAILED / BLOCKED.** The backup download in this Discourse
+  version (`2026.7.0-latest`) requires a one-time `token`, and the token-minting
+  routes are not API-accessible here:
+  - `GET /admin/backups/<FN>` (no token) → HTTP 400 `param is missing: token`
+  - `PUT|POST /admin/backups/<FN>/download` and `.../download.json` → HTTP 404
+  - `PUT /admin/email-backup-token.json` → HTTP 404
+  - The token is delivered by EMAIL (one-time link), by design; it cannot be minted
+    from an API-key session. This is the anticipated fallback, not a Cloudflare 403.
+- **OPERATOR ACTION REQUIRED:** log into `https://hub.regencoordination.xyz/admin/backups`
+  in a browser as an admin and click Download on
+  `regen-coordination-hub-2026-07-23-130030-v20260721080424.sql.gz`
+  (this emails/opens the tokenized link). Save it, then record its sha256 here.
+
+### ⚠️ CRITICAL migration finding: uploads are NOT in the backup
+
+Despite requesting `with_uploads=true`, the backup is a **`.sql.gz` (DB-only)**, not a
+`.tar.gz`. Reason: on the CDCK-managed hosting, **uploads live on an external S3/CDN**
+(`canada1.discourse-cdn.com` / `cdck-file-uploads-canada1...amazonaws.com`, path
+`flex004/uploads/greenpill_hub/...`) — NOT on local disk. So `with_uploads` had nothing
+local to bundle. (This is why `enable_s3_uploads` reads default-false in site settings
+yet assets are on S3: the host uses a global/env-level S3 config, not the site setting.)
+
+Implications for migration:
+- The DB backup alone will restore posts/users/settings but leave **image/attachment
+  links pointing at the hosted CDN**, which will rot once off hosted.
+- The uploads must be pulled SEPARATELY (e.g. mirror the `greenpill_hub` upload tree
+  from the CDN, or request an uploads export from CDCK support before hosting ends),
+  then rebaked/rehosted on the self-host after restore.
+- Confirm with the hosting provider whether a true full-uploads export is available;
+  the standard admin backup will not include them.
