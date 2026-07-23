@@ -1,0 +1,146 @@
+# Hosted Discourse Inventory — hub.regencoordination.xyz
+
+Phase 0 discovery for the migration off Discourse hosted → self-hosted server.
+Read-only against the live forum (except the standard backup trigger in Task 2).
+Gathered: 2026-07-23. Base URL: `https://hub.regencoordination.xyz`.
+
+Raw JSON alongside this file: `plugins.json`, `themes.json`, `nondefault-settings.json`
+(the settings file has all secret-ish values REDACTED before it ever hit disk).
+
+---
+
+## Discourse version
+
+- **Installed:** `Discourse 2026.7.0-latest`
+- git sha: `0ba2b5a76b38f8ec61004b14f63b3105bc1b3ba4`
+- Source: HTML `<meta name="generator">` tag on `/`. `admin/dashboard.json` did NOT
+  expose a `version` block for this API user (only `updated_at`), so the meta tag
+  is the authoritative signal.
+- Implication: pin the self-host `Discourse_hub` image to this same version (or the
+  closest stable `tests-passed`) so the bundled-plugin set matches (see Plugins).
+
+## Basic scale (from `about.json` → `about.stats`)
+
+| Metric | Count |
+|--------|-------|
+| Users  | 187 |
+| Topics | 160 |
+| Posts  | 936 |
+| Likes  | 1013 |
+| Chat messages | 13 (14 channels, 4 chat users) |
+
+Small, low-traffic forum. Active users 30d ≈ 19. Recent posting is light
+(13 posts / 30d). Consistent with the RC wind-down.
+
+## Plugins
+
+**All ENABLED plugins are OFFICIAL Discourse plugins (`is_official: true`). None are
+third-party / community plugins.** In this Discourse version most of these live in
+the core monorepo (`discourse/discourse/plugins/*`), so a same-version self-host
+image inherits them automatically; only genuinely standalone repos need explicit
+declaration in `app.yml`.
+
+Enabled (14):
+
+| Plugin | Version | Official | Ships in core repo? (per plugin `url`) |
+|--------|---------|----------|-----------------------------------------|
+| discourse-ai | 0.0.1 | yes | core (`/plugins/discourse-ai`) — needs LLM API keys configured |
+| chat | 0.4 | yes | core |
+| discourse-github | 0.3 | yes | core |
+| discourse-cakeday | 0.3 | yes | core |
+| discourse-reactions | 0.5 | yes | core |
+| discourse-narrative-bot | 1.0 | yes | core |
+| discourse-presence | 2.0 | yes | core |
+| discourse-local-dates | 0.1 | yes | url null (bundled core) |
+| discourse-details | 0.4 | yes | core |
+| checklist | 1.0 | yes | core |
+| footnote | 1.0 | yes | core |
+| poll | 1.0 | yes | core |
+| spoiler-alert | 1.1.0 | yes | core |
+| **discourse-lazy-videos** | 0.1 | yes | **STANDALONE repo** (`github.com/discourse/discourse-lazy-videos`) — most likely needs an explicit `app.yml` clone line |
+
+Action for new `app.yml`: pin the same Discourse version so the core-bundled set
+matches, then verify each of the 14 is present after boot. Explicitly declare any
+that are NOT bundled in your chosen image — `discourse-lazy-videos` is the one flagged
+as a standalone repo; the rest resolve to the core `/plugins/*` tree.
+
+Notable disabled plugins (present but `enabled:false`, NOT needed): discourse-adplugin,
+discourse-assign, discourse-calendar, discourse-data-explorer, discourse-solved,
+discourse-subscriptions, discourse-oauth2-basic, discourse-openid-connect, and ~24
+others (full list in `plugins.json`). Do not carry these over unless re-enabled.
+
+## Themes
+
+5 themes installed (`themes.json`). Default active theme is **`01`**. Also present:
+`Brand Header`, `Easy Responsive Footer`, `Foundation`, `Horizon`. None are marked
+`user_selectable`. Themes come across in the backup restore, but custom theme
+components/remote themes may need re-import; verify after restore.
+
+Custom fonts set via site settings: `base_font = nunito`, `heading_font = noto_sans_jp`.
+
+## Email / SMTP
+
+- **No `smtp_*` settings appear in site settings** → outbound SMTP is configured at
+  the hosting/container level (Discourse hosted manages it), NOT in the DB. This means
+  the new server needs its OWN SMTP provider configured in `app.yml`
+  (`DISCOURSE_SMTP_ADDRESS`, `_PORT`, `_USER_NAME`, `_PASSWORD`). **Pick an SMTP
+  provider as part of migration.**
+- Non-default mail-related site settings present:
+  - `reply_by_email_enabled = true` → **inbound** email replies are ON. Currently
+    handled by the host's inbound mail pipeline. Self-host will need an inbound email
+    setup (POP3 polling or mail receiver, e.g. via the provider's inbound routing)
+    to preserve this. If you don't provision inbound mail, disable this to avoid
+    broken reply handling.
+  - `email_subject = %{site_name}: %{topic_title}`
+  - `max_tags_per_email_subject = 7`
+- `notification_email` is at default (not overridden) — set an appropriate
+  `DISCOURSE_DEVELOPER_EMAILS` / notification sender on the new box.
+
+## SSO / social login
+
+- **`enable_discord_logins = true`** — Discord OAuth is the ONLY social/SSO provider
+  enabled. `discord_client_id = 1290768492445827153` (public client id, fine to note).
+  `discord_secret` is set (REDACTED). To preserve Discord login, port the client id
+  and re-supply the secret on the new server, and update the OAuth redirect URI if
+  the hostname changes.
+- No Google/GitHub/SAML/OIDC/Apple/Microsoft logins enabled.
+- `enforce_second_factor = staff` (2FA required for staff) — carry over.
+- Local logins are at default (enabled).
+
+## S3 uploads
+
+- **`enable_s3_uploads` is at DEFAULT = FALSE.** Uploads are stored locally, so they
+  are captured inside the `with_uploads=true` backup — no separate S3 bucket to
+  migrate. Good: the backup tarball is the complete payload.
+- Note: current logo/favicon/large_icon URLs point at the hosted managed CDN
+  (`cdck-file-uploads-canada1.s3...amazonaws.com/.../greenpill_hub/...`). These are
+  absolute external URLs baked into site settings; after restore, re-upload the
+  logo/favicon locally (or the CDN links may rot once off hosted).
+- `purge_deleted_uploads_grace_period_days = 180` (non-default, informational).
+
+## Uploads / backup size signal (Task 1c)
+
+Pre-existing backups on the hosted instance (`admin/backups.json`), newest first:
+
+| Filename | Size | Modified |
+|----------|------|----------|
+| greenpill-network-2024-12-25-223029-v20241212113000.tar.gz | 54.77 MB | 2024-12-25 |
+| greenpill-network-2024-11-27-222102-v20241120182858.tar.gz | 49.39 MB | 2024-11-27 |
+| greenpill-network-2024-09-13-184606-v20240909121255.sql.gz | 24.94 MB | 2024-09-13 |
+
+- **Size signal: ~55 MB** for a full with-uploads backup (as of the last one, Dec 2024).
+  Well under the 2 GB ceiling. The fresh backup (Task 2) will be similar-order.
+- Note: backup filename prefix is `greenpill-network` / `greenpill_hub` — the instance
+  was previously the Greenpill Network hub before becoming Regen Coordination Hub.
+
+## Other notable non-default settings (context for new server)
+
+- discourse-ai active: `ai_bot_enabled_llms = -4`, `ai_spam_detection_enabled = true`,
+  `ai_translation_backfill_hourly_rate = 100` → new server needs LLM provider API keys
+  configured for AI features to work.
+- Content localization ON: `content_localization_enabled = true`, supported locales
+  `pt|fr|es`, allowed groups `1|2|44`.
+- `enable_discourse_github_plugin = true`, `cakeday_enabled = true`.
+- Custom `allowed_iframes` (Google Maps/Calendar, OpenStreetMap, CodePen, Instagram,
+  discobot certificate) — carry over.
+- Full non-default set (65 settings) in `nondefault-settings.json`.

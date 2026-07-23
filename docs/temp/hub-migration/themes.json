@@ -1,0 +1,27 @@
+[
+  {
+    "name": "01",
+    "user_selectable": false,
+    "default": true
+  },
+  {
+    "name": "Brand Header",
+    "user_selectable": false,
+    "default": null
+  },
+  {
+    "name": "Easy Responsive Footer",
+    "user_selectable": false,
+    "default": null
+  },
+  {
+    "name": "Foundation",
+    "user_selectable": false,
+    "default": null
+  },
+  {
+    "name": "Horizon",
+    "user_selectable": false,
+    "default": null
+  }
+]

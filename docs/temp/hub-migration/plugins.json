@@ -1,0 +1,237 @@
+[
+  {
+    "name": "discourse-adplugin",
+    "enabled": false,
+    "version": "1.2.5"
+  },
+  {
+    "name": "discourse-affiliate",
+    "enabled": false,
+    "version": "0.2"
+  },
+  {
+    "name": "discourse-ai",
+    "enabled": true,
+    "version": "0.0.1"
+  },
+  {
+    "name": "discourse-apple-auth",
+    "enabled": false,
+    "version": "1.0"
+  },
+  {
+    "name": "discourse-assign",
+    "enabled": false,
+    "version": "1.0.1"
+  },
+  {
+    "name": "automation",
+    "enabled": false,
+    "version": "0.1"
+  },
+  {
+    "name": "discourse-cakeday",
+    "enabled": true,
+    "version": "0.3"
+  },
+  {
+    "name": "discourse-calendar",
+    "enabled": false,
+    "version": "0.5"
+  },
+  {
+    "name": "discourse-captcha",
+    "enabled": false,
+    "version": "0.0.1"
+  },
+  {
+    "name": "chat",
+    "enabled": true,
+    "version": "0.4"
+  },
+  {
+    "name": "discourse-chat-integration",
+    "enabled": false,
+    "version": "0.1"
+  },
+  {
+    "name": "checklist",
+    "enabled": true,
+    "version": "1.0"
+  },
+  {
+    "name": "discourse-data-explorer",
+    "enabled": false,
+    "version": "0.3"
+  },
+  {
+    "name": "discourse-details",
+    "enabled": true,
+    "version": "0.4"
+  },
+  {
+    "name": "discourse-docs",
+    "enabled": false,
+    "version": "0.1"
+  },
+  {
+    "name": "discourse-doc-categories",
+    "enabled": false,
+    "version": "0.0.1"
+  },
+  {
+    "name": "footnote",
+    "enabled": true,
+    "version": "1.0"
+  },
+  {
+    "name": "discourse-gamification",
+    "enabled": false,
+    "version": "0.0.1"
+  },
+  {
+    "name": "discourse-github",
+    "enabled": true,
+    "version": "0.3"
+  },
+  {
+    "name": "discourse-graphviz",
+    "enabled": false,
+    "version": "0.0.1"
+  },
+  {
+    "name": "discourse-lazy-videos",
+    "enabled": true,
+    "version": "0.1"
+  },
+  {
+    "name": "discourse-local-dates",
+    "enabled": true,
+    "version": "0.1"
+  },
+  {
+    "name": "discourse-oauth2-basic",
+    "enabled": false,
+    "version": "0.3"
+  },
+  {
+    "name": "discourse-login-with-amazon",
+    "enabled": false,
+    "version": "0.0.1"
+  },
+  {
+    "name": "discourse-lti",
+    "enabled": false,
+    "version": "1.0"
+  },
+  {
+    "name": "discourse-math",
+    "enabled": false,
+    "version": "0.9"
+  },
+  {
+    "name": "discourse-microsoft-auth",
+    "enabled": false,
+    "version": "2.0"
+  },
+  {
+    "name": "discourse-narrative-bot",
+    "enabled": true,
+    "version": "1.0"
+  },
+  {
+    "name": "discourse-openid-connect",
+    "enabled": false,
+    "version": "1.0"
+  },
+  {
+    "name": "discourse-patreon",
+    "enabled": false,
+    "version": "2.0"
+  },
+  {
+    "name": "discourse-policy",
+    "enabled": false,
+    "version": "0.1.1"
+  },
+  {
+    "name": "poll",
+    "enabled": true,
+    "version": "1.0"
+  },
+  {
+    "name": "discourse-post-voting",
+    "enabled": false,
+    "version": "0.0.1"
+  },
+  {
+    "name": "discourse-presence",
+    "enabled": true,
+    "version": "2.0"
+  },
+  {
+    "name": "discourse-reactions",
+    "enabled": true,
+    "version": "0.5"
+  },
+  {
+    "name": "discourse-rewind",
+    "enabled": false,
+    "version": "2025.12.0"
+  },
+  {
+    "name": "discourse-rss-polling",
+    "enabled": false,
+    "version": "0.0.1"
+  },
+  {
+    "name": "discourse-solved",
+    "enabled": false,
+    "version": "0.1"
+  },
+  {
+    "name": "spoiler-alert",
+    "enabled": true,
+    "version": "1.1.0"
+  },
+  {
+    "name": "styleguide",
+    "enabled": false,
+    "version": "0.2"
+  },
+  {
+    "name": "discourse-subscriptions",
+    "enabled": false,
+    "version": "2.8.1"
+  },
+  {
+    "name": "discourse-templates",
+    "enabled": false,
+    "version": "2.5.0"
+  },
+  {
+    "name": "discourse-topic-voting",
+    "enabled": false,
+    "version": "0.5"
+  },
+  {
+    "name": "discourse-user-notes",
+    "enabled": false,
+    "version": "0.0.2"
+  },
+  {
+    "name": "discourse-workflows",
+    "enabled": false,
+    "version": "0.1"
+  },
+  {
+    "name": "discourse-yearly-review",
+    "enabled": false,
+    "version": "0.2"
+  },
+  {
+    "name": "discourse-zendesk-plugin",
+    "enabled": false,
+    "version": "1.0.1"
+  }
+]

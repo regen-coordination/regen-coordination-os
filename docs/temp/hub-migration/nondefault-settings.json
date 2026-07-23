@@ -1,0 +1,262 @@
+[
+  {
+    "setting": "title",
+    "value": "Regen Coordination Hub"
+  },
+  {
+    "setting": "site_description",
+    "value": "Building a CoordiNation across Nations & Cultures."
+  },
+  {
+    "setting": "logo",
+    "value": "//cdck-file-uploads-canada1.s3.dualstack.ca-central-1.amazonaws.com/flex004/uploads/greenpill_hub/original/1X/d3a81853bce6ac71fe11497f6885cabde4759647.png"
+  },
+  {
+    "setting": "logo_small",
+    "value": "//cdck-file-uploads-canada1.s3.dualstack.ca-central-1.amazonaws.com/flex004/uploads/greenpill_hub/original/1X/d3a81853bce6ac71fe11497f6885cabde4759647.png"
+  },
+  {
+    "setting": "large_icon",
+    "value": "//cdck-file-uploads-canada1.s3.dualstack.ca-central-1.amazonaws.com/flex004/uploads/greenpill_hub/original/1X/d3a81853bce6ac71fe11497f6885cabde4759647.png"
+  },
+  {
+    "setting": "favicon",
+    "value": "//cdck-file-uploads-canada1.s3.dualstack.ca-central-1.amazonaws.com/flex004/uploads/greenpill_hub/original/1X/d3a81853bce6ac71fe11497f6885cabde4759647.png"
+  },
+  {
+    "setting": "display_local_time_in_user_card",
+    "value": "true"
+  },
+  {
+    "setting": "set_locale_from_accept_language_header",
+    "value": "true"
+  },
+  {
+    "setting": "set_locale_from_cookie",
+    "value": "true"
+  },
+  {
+    "setting": "set_locale_from_param",
+    "value": "true"
+  },
+  {
+    "setting": "categories_topics",
+    "value": "16"
+  },
+  {
+    "setting": "suggested_topics",
+    "value": "4"
+  },
+  {
+    "setting": "top_menu",
+    "value": "categories|latest|hot|new|unread"
+  },
+  {
+    "setting": "share_links",
+    "value": "twitter|email|facebook"
+  },
+  {
+    "setting": "fixed_category_positions",
+    "value": "true"
+  },
+  {
+    "setting": "enable_badges",
+    "value": "false"
+  },
+  {
+    "setting": "show_badges_in_post_header",
+    "value": "false"
+  },
+  {
+    "setting": "hidden_post_visible_groups",
+    "value": "1|2|14"
+  },
+  {
+    "setting": "base_font",
+    "value": "nunito"
+  },
+  {
+    "setting": "heading_font",
+    "value": "noto_sans_jp"
+  },
+  {
+    "setting": "enable_discord_logins",
+    "value": "true"
+  },
+  {
+    "setting": "discord_client_id",
+    "value": "1290768492445827153"
+  },
+  {
+    "setting": "discord_secret",
+    "value": "REDACTED"
+  },
+  {
+    "setting": "reserved_usernames",
+    "value": "admin|moderator|administrator|mod|sys|system|you|name|username|user|nickname|discourse|discourseorg|discourseforum|all|here|community|info|support"
+  },
+  {
+    "setting": "full_name_requirement",
+    "value": "optional_at_signup"
+  },
+  {
+    "setting": "max_emojis_in_title",
+    "value": "4"
+  },
+  {
+    "setting": "default_emoji_reactions",
+    "value": "+1|heart|tada|green_book|green_heart"
+  },
+  {
+    "setting": "post_edit_time_limit",
+    "value": "0"
+  },
+  {
+    "setting": "tl2_post_edit_time_limit",
+    "value": "0"
+  },
+  {
+    "setting": "delete_removed_posts_after",
+    "value": "48"
+  },
+  {
+    "setting": "newuser_max_links",
+    "value": "1000"
+  },
+  {
+    "setting": "newuser_max_embedded_media",
+    "value": "1000"
+  },
+  {
+    "setting": "klipy_content_filter",
+    "value": "low"
+  },
+  {
+    "setting": "content_localization_enabled",
+    "value": "true"
+  },
+  {
+    "setting": "content_localization_allowed_groups",
+    "value": "1|2|44"
+  },
+  {
+    "setting": "content_localization_supported_locales",
+    "value": "pt|fr|es"
+  },
+  {
+    "setting": "email_subject",
+    "value": "%{site_name}: %{topic_title}"
+  },
+  {
+    "setting": "reply_by_email_enabled",
+    "value": "true"
+  },
+  {
+    "setting": "purge_deleted_uploads_grace_period_days",
+    "value": "180"
+  },
+  {
+    "setting": "enforce_second_factor",
+    "value": "staff"
+  },
+  {
+    "setting": "allowed_iframes",
+    "value": "https://www.google.com/maps/embed?|https://www.openstreetmap.org/export/embed.html?|https://calendar.google.com/calendar/embed?|https://codepen.io/*/embed/preview/|https://www.instagram.com/|http://hub.regencoordination.xyz/discobot/certificate.svg|http://hub.regencoordination.xyz/discobot/certificate.svg|https://hub.regencoordination.xyz/discobot/certificate.svg|https://hub.regencoordination.xyz/discobot/certificate.svg"
+  },
+  {
+    "setting": "navigation_menu",
+    "value": "header dropdown"
+  },
+  {
+    "setting": "default_navigation_menu_categories",
+    "value": "4|20|21|3"
+  },
+  {
+    "setting": "topic_post_like_heat_low",
+    "value": "1.09"
+  },
+  {
+    "setting": "topic_post_like_heat_medium",
+    "value": "2.1"
+  },
+  {
+    "setting": "topic_post_like_heat_high",
+    "value": "3.5"
+  },
+  {
+    "setting": "default_composer_category",
+    "value": "4"
+  },
+  {
+    "setting": "enable_powered_by_discourse",
+    "value": "true"
+  },
+  {
+    "setting": "enable_welcome_banner",
+    "value": "false"
+  },
+  {
+    "setting": "default_categories_watching",
+    "value": "4|20|21|9"
+  },
+  {
+    "setting": "default_sidebar_show_count_of_new_items",
+    "value": "true"
+  },
+  {
+    "setting": "default_other_enable_markdown_monospace_font",
+    "value": "false"
+  },
+  {
+    "setting": "tag_style",
+    "value": "bullet"
+  },
+  {
+    "setting": "max_tags_per_topic",
+    "value": "7"
+  },
+  {
+    "setting": "max_tags_per_email_subject",
+    "value": "7"
+  },
+  {
+    "setting": "max_tag_length",
+    "value": "27"
+  },
+  {
+    "setting": "max_tag_search_results",
+    "value": "20"
+  },
+  {
+    "setting": "tags_listed_by_group",
+    "value": "true"
+  },
+  {
+    "setting": "ai_bot_enabled_llms",
+    "value": "-4"
+  },
+  {
+    "setting": "ai_spam_detection_enabled",
+    "value": "true"
+  },
+  {
+    "setting": "ai_translation_backfill_hourly_rate",
+    "value": "100"
+  },
+  {
+    "setting": "cakeday_enabled",
+    "value": "true"
+  },
+  {
+    "setting": "cakeday_birthday_enabled",
+    "value": "true"
+  },
+  {
+    "setting": "enable_discourse_github_plugin",
+    "value": "true"
+  },
+  {
+    "setting": "solved_enabled",
+    "value": "false"
+  }
+]
