@@ -239,3 +239,201 @@ A 2 GB swap file was added to give `./launcher rebuild app` headroom, since a re
 briefly runs the new container alongside the running one.
 
 `nbg1` was the only datacenter with `cx23` capacity.
+
+---
+
+## Phase 2 — staging install + restore
+
+Performed 2026-07-27 22:00–22:50 UTC on `91.99.139.14` (cx23, nbg1). Staging install is
+deliberately **HTTP-only, no real SMTP** — DNS and mail provider are not yet available, and
+the point of this pass was to surface restore failures early.
+
+### Discourse version installed
+
+| | |
+|---|---|
+| Base image | `discourse/base:2.0.20260726-0220` |
+| Discourse version | **`2026.7.0-latest`** (`lib/version.rb` → `STRING`) |
+| Source version | `2026.7.0-latest` |
+| Match | ✅ exact — not older than source, so no downgrade risk on restore |
+
+### `containers/app.yml`
+
+Standard `postgres` + `redis` + `web` + `web.ratelimited` templates. **No `ssl` /
+`letsencrypt` templates** — intentional, since `hub-staging.regencoordination.xyz` has no A
+record yet. `UNICORN_WORKERS: 3`, `db_shared_buffers: 1024MB`. SMTP is a placeholder
+(`smtp.placeholder.invalid`).
+
+All HTTP verification below was done by IP with an explicit `Host:` header, e.g.
+`curl -H "Host: hub-staging.regencoordination.xyz" http://91.99.139.14/...`.
+
+### Bootstrap
+
+**First attempt FAILED** (exit 128, ~2 min in):
+
+```
+cd /var/www/discourse/plugins && git clone --depth 1 https://github.com/discourse/discourse-lazy-videos.git
+fatal: destination path 'discourse-lazy-videos' already exists and is not an empty directory.
+```
+
+**Finding — the plan's premise about `discourse-lazy-videos` was wrong.** At this version it
+*does* ship in the base image; the explicit clone is not needed and actively breaks the
+bootstrap. Verified directly:
+
+```
+docker run --rm --entrypoint /bin/bash discourse/base:2.0.20260726-0220 -c "ls /var/www/discourse/plugins"
+→ 44 plugins, including discourse-lazy-videos, footnote, poll, spoiler-alert
+```
+
+Cross-checked against `plugins.json`: **all 14 enabled source plugins**
+(`discourse-ai`, `discourse-cakeday`, `chat`, `checklist`, `discourse-details`, `footnote`,
+`discourse-github`, `discourse-lazy-videos`, `discourse-local-dates`,
+`discourse-narrative-bot`, `poll`, `discourse-presence`, `discourse-reactions`,
+`spoiler-alert`) are present in the base image. **No external plugin clones are required for
+this site.** The `after_code` hook now only guards `docker_manager`:
+
+```yaml
+- test -d docker_manager || git clone --depth 1 https://github.com/discourse/docker_manager.git
+- test -d discourse-lazy-videos || git clone --depth 1 https://github.com/discourse/discourse-lazy-videos.git
+```
+
+**Second attempt SUCCEEDED** — ~6 min (22:12–22:18 UTC; base image was already pulled).
+Peak RAM ~1.9 GB of 3.7 GB, swap usage peaked at ~1 MB. **No memory pressure** — the 2 GB
+swap file was never meaningfully touched. `docker ps` → `app  Up`. `GET /` → **200**.
+
+### Restore
+
+```
+docker exec app discourse enable_restore
+docker exec app discourse restore regen-coordination-hub-2026-07-27-214859-v20260723013754.tar.gz
+docker exec app discourse disable_restore
+```
+
+Backup staged to `/var/discourse/shared/standalone/backups/default/`, `chown 1000:1000`;
+sha256 re-verified after copy = `282f9aa7c9b23abf4fbaad65e6be93d9c95d39d7135b08d4a2dd05c42909329c`
+(matches source). The original at `/root/migration/` was left untouched.
+
+**SUCCEEDED** in ~2 min (22:26–22:28 UTC). Log ends:
+
+```
+Restoring uploads, this may take a while...
+Optimizing site icons...
+Executing the after_restore_hook...
+Marking restore as finished...
+Finished!
+[SUCCESS]
+Restore done.
+```
+
+No errors or warnings of substance.
+
+### CDN remap
+
+**Discourse's restore did the CDN remap automatically** — this was not anticipated by the
+plan. The restore log shows it rewriting, on its own:
+
+```
+Remapping 'https://canada1.discourse-cdn.com/flex004/' → 'https://hub-staging.regencoordination.xyz/'
+Remapping 'canada1.discourse-cdn.com'                  → 'hub-staging.regencoordination.xyz'
+Remapping 'https://yyz2.discourse-cdn.com/flex004/'    → 'https://hub-staging.regencoordination.xyz/'
+Remapping 'yyz2.discourse-cdn.com'                     → 'hub-staging.regencoordination.xyz'
+Remapping '/uploads/greenpill_hub/'                    → '/uploads/default/'
+Remapping (regex) '//cdck-file-uploads-canada1.s3.amazonaws.com/flex004/' → '/'
+```
+
+Note it also caught **`yyz2.discourse-cdn.com`** and the **`cdck-file-uploads-canada1.s3`**
+bucket, neither of which was in the plan.
+
+The explicit remap was then run anyway, in the `--regex` form (with `--force` to skip the
+interactive confirm):
+
+```
+discourse remap --regex --force "//canada1.discourse-cdn.com/flex004/uploads/greenpill_hub" \
+                               "//hub-staging.regencoordination.xyz/uploads/default"
+→ "Remapping tables on default... Done"  —  0 rows changed (no table/count lines emitted)
+```
+
+0 changed is the expected and correct outcome: the restore had already remapped everything.
+
+### Rebake
+
+```
+rake posts:rebake  →  "937 posts done!"   (~2 min, no errors)
+```
+
+Necessary: immediately after restore, `raw` was already clean (0 CDN refs) but **351 posts
+still had `discourse-cdn.com` in their cooked HTML**, because cooked was baked on the hosted
+side. The rebake cleared all of them.
+
+### Post-restore settings
+
+| Setting | Value | Note |
+|---|---|---|
+| `reply_by_email_enabled` | `false` | Set per operator decision — no inbound mail on self-host |
+| `disable_emails` | `non-staff` | Set automatically by `discourse restore` (its default) |
+| `manual_polling_enabled` | `false` | |
+| `pop3_polling_enabled` | `false` | |
+| Discord login | untouched | Secret not available; deliberately not configured |
+| discourse-ai features | untouched | Nothing enabled |
+
+### Verification
+
+| Check | Expected | **Actual** | |
+|---|---|---|---|
+| `about.stats.users_count` | ~187 | **188** | ✅ |
+| `about.stats.topics_count` | ~160 | **160** | ✅ |
+| `about.stats.posts_count` | ~936 | **937** | ✅ |
+| `about.version` | 2026.7.0 | **2026.7.0-latest** | ✅ |
+| `latest.json` topics returned | 30 | **30** | ✅ |
+| Categories | — | **4** | ✅ |
+| `Upload.count` | — | **540** | ✅ |
+| Uploads with a CDN url | 0 | **0** | ✅ |
+| Posts with `discourse-cdn.com` in **raw** | 0 | **0** | ✅ |
+| Posts with `discourse-cdn.com` in **cooked** | 0 | **0** (was 351 pre-rebake) | ✅ |
+| Posts with `baked_version IS NULL` | 0 | **0** | ✅ |
+| nginx 5xx responses | 0 | **0** | ✅ |
+
+Real topic titles come through (`Welcome to Regen Coordination Hub! 👋`,
+`Welcome to Greenpill Network! :wave:`,
+`Farmblock ReFi Initiative. A ReFi DAO Network initiative draft Proposal`,
+`See you when I see you 🌱`,
+`🍳 What should we cook? Building a shared recipe for impact`).
+
+**Uploads proof.** 129 posts contain locally-hosted `<img>` tags, spanning 1,195 distinct
+upload URLs. A random sample of **60 of those URLs was fetched over HTTP: 60/60 returned
+200** with correct image content-types and real byte sizes, e.g.
+
+```
+/uploads/default/original/1X/bbfa5f9…9cd9.jpeg          → 200 image/jpeg 950151B
+/uploads/default/optimized/1X/0af6027…1902_2_690x359.jpeg → 200 image/jpeg  48954B
+/uploads/default/original/1X/23c8e6a…d235a.png          → 200 image/png     1301B
+```
+
+On disk: `/var/discourse/shared/standalone/uploads/default` = **154 MB, 1,933 files**.
+Server at 29% disk (11 G of 38 G), 2.0 Gi RAM used, 273 Mi swap.
+
+### STILL PENDING — deferred to a later rebuild
+
+- **TLS** — no `ssl` / `letsencrypt` template in `app.yml`. Blocked on the
+  `hub-staging.regencoordination.xyz` A record, which is blocked on `CF_API_TOKEN`. Must be
+  **unproxied (grey cloud)** for HTTP-01 to validate.
+- **Real SMTP** — currently `smtp.placeholder.invalid`. No outbound mail works. Blocked on
+  choosing/provisioning a mail provider.
+- **Discord login secret** — not configured; `discourse-oauth2`/Discord settings left exactly
+  as restored.
+
+All three require re-running `./launcher rebuild app` after `app.yml` is updated. The restore
+does **not** need to be repeated — the data lives in the `shared/` volume and survives a
+rebuild.
+
+### Follow-ups to handle before pointing real DNS here
+
+1. `DISCOURSE_HOSTNAME` is currently `hub-staging.regencoordination.xyz`, and the restore
+   baked that hostname into post content via its auto-remap. Cutting over to the real
+   `hub.regencoordination.xyz` will need **another `discourse remap`** from the staging
+   hostname to the production one, plus a rebake.
+2. `disable_emails` is `non-staff`, so **staff notifications will still attempt delivery**
+   against the placeholder SMTP host and fail into the Sidekiq retry queue. Consider setting
+   it to `yes` until real SMTP exists.
+3. `Upload.count` went 504 → 540 across the rebake. Worth a glance — likely
+   `download_remote_images_to_local` pulling in externally-hosted images during rebake.
