@@ -265,6 +265,14 @@ curl -s -A "$UA" $S/t/1.json | jq '.title'                                      
 
 ## Phase 3 — Cutover (complete before July 30)
 
+> ### ⚠️ Corrections learned during the staging build — DO NOT SKIP
+>
+> 1. **Do NOT `git clone discourse-lazy-videos`.** It already ships in the base image at this version; the explicit clone **fails the bootstrap** (`destination path already exists`, exit 128). All 14 source plugins are bundled in `discourse/base` — **no external plugin clones are needed at all**. The hook is now guarded with `test -d X || git clone`.
+> 2. **The staging hostname is baked into post content.** Discourse's restore auto-remapped CDN URLs → `hub-staging.regencoordination.xyz`. Cutover therefore needs `discourse remap --force hub-staging.regencoordination.xyz hub.regencoordination.xyz` **followed by `rake posts:rebake`**. (Restore's own remap is broader than expected — it also caught `yyz2.discourse-cdn.com` and the `cdck-file-uploads-canada1.s3.amazonaws.com` bucket.)
+> 3. **`disable_emails` is currently `yes`** (set deliberately, so staff mail doesn't retry against the placeholder SMTP and flood Sidekiq). **MUST be set back to `no` at cutover**, after real SMTP is configured — otherwise the live forum sends no notifications at all.
+> 4. **`rails runner` must run as the `discourse` user**, not root: `docker exec -u discourse -w /var/www/discourse app bundle exec rails runner /shared/script.rb`. As root it fails with `ActiveRecord::NoDatabaseError`.
+> 5. Rebake matters: post-restore, `raw` was clean but **351 posts still had CDN URLs in cooked HTML** until `rake posts:rebake` ran.
+
 ### Task 9: Pre-cutover prep (1–2 days before)
 
 - [ ] **Step 1 (agent): Lower production DNS TTL + record rollback value**
