@@ -9,7 +9,11 @@
 
 **Goal:** Move `hub.regencoordination.xyz` (Discourse `2026.7.0`, 187 users / 936 posts / 160 topics) from Discourse managed hosting (~$100/mo) to a self-hosted official Docker install on Hetzner CX32 (~$8/mo), with zero data loss and near-zero user-visible disruption, before the July 30 decommission.
 
-**Architecture:** Single Hetzner CX32 (Ubuntu 24.04) running the official `discourse_docker` all-in-one container (Postgres+Redis+Rails+nginx), Let's Encrypt TLS, transactional SMTP, Cloudflare DNS. Staging dry-run on `hub-staging.` subdomain, then cutover; hosted instance is the live rollback until July 30.
+**Architecture:** Single Hetzner **CX23** (Ubuntu 24.04, 2 vCPU / 4 GB / 40 GB + 2 GB swap, €6.49/mo, nbg1) running the official `discourse_docker` all-in-one container (Postgres+Redis+Rails+nginx), Let's Encrypt TLS, transactional SMTP, Cloudflare DNS. Staging dry-run on `hub-staging.` subdomain, then cutover; hosted instance is the live rollback until July 30.
+
+> **Server type history:** plan originally specified `cx32` → retired in Hetzner's CX renumbering; successor `cx33` → **no capacity in any datacenter worldwide** (entire new CX line capacity-starved, `fsn1` offering zero types); **`cx23` selected** — meets Discourse's official *recommended* production spec (2 cores / 4 GB) at **lower cost than planned**, with a 2 GB swap file for `launcher rebuild` headroom. Forum is 187 users / <200 MB, so 40 GB is ~200× site size.
+
+> **⚠️ Shell gotcha (macOS zsh):** the `SSH="ssh ..."` then `$SSH '...'` pattern **fails under zsh** (no word-splitting of unquoted vars → tries to exec the whole string, exit 127). Use explicit full invocations: `ssh -i ~/.ssh/regen-hub root@$SERVER_IP '...'`.
 
 **Tech Stack:** `discourse_docker` launcher · `hcloud` CLI · Cloudflare API · Discourse admin API · scp
 
@@ -103,7 +107,11 @@ curl -s -H "Authorization: Bearer $CF_API_TOKEN" \
 
 Expected: zone object, `status: active`. Save `zone id` → `$ZID` in inventory.md. (Hetzner token already validated — `curl -s -H "Authorization: Bearer $HCLOUD_TOKEN" https://api.hetzner.cloud/v1/servers` returned 0 servers.)
 
-### Task 4: Create the server
+### Task 4: Create the server ✅ DONE (commit 0e3f7ed)
+
+**Result:** `regen-hub` @ **91.99.139.14** (IPv6 `2a01:4f8:1c1a:32b7::1`), cx23 / nbg1, Ubuntu 24.04.4, x86_64, Docker 29.6.2, fail2ban active, 3.7 Gi RAM + 2 Gi swap, 32 G free. SSH: `ssh -i ~/.ssh/regen-hub root@91.99.139.14`. Firewall `regen-hub-fw` (22/80/443) applied. Staging DNS **still pending `CF_API_TOKEN`**.
+
+<details><summary>Original steps (superseded — kept for reference)</summary>
 
 - [ ] **Step 1 (agent): SSH key + firewall + CX32**
 
@@ -142,6 +150,23 @@ dig +short hub-staging.regencoordination.xyz    # after ~1 min → $SERVER_IP
 ```
 
 - [ ] **Step 4: Commit** inventory update (`migration(1): CX32 provisioned, staging DNS live`).
+
+</details>
+
+**Remaining from Task 4 — staging DNS (⛔ needs `CF_API_TOKEN`):**
+
+```bash
+set -a; source ~/.secrets/regen-hub-migration.env; set +a
+ZID=$(curl -s -H "Authorization: Bearer $CF_API_TOKEN" \
+  "https://api.cloudflare.com/client/v4/zones?name=regencoordination.xyz" | jq -r '.result[0].id')
+curl -s -X POST -H "Authorization: Bearer $CF_API_TOKEN" -H "Content-Type: application/json" \
+  "https://api.cloudflare.com/client/v4/zones/$ZID/dns_records" \
+  -d '{"type":"A","name":"hub-staging.regencoordination.xyz","content":"91.99.139.14","ttl":300,"proxied":false}' \
+  | jq '{success, name: .result.name, content: .result.content, proxied: .result.proxied}'
+dig +short hub-staging.regencoordination.xyz   # → 91.99.139.14
+```
+
+**Manual alternative (no token needed):** in the Cloudflare dashboard → `regencoordination.xyz` → DNS → Add record: **A**, name `hub-staging`, IPv4 `91.99.139.14`, TTL 5 min, **Proxy status: DNS only (grey cloud)**. The grey cloud is mandatory — Let's Encrypt HTTP-01 validation fails behind Cloudflare's proxy.
 
 ---
 
