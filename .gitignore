@@ -4,6 +4,11 @@ site/data/networkSnapshot.json
 repos/
 .env
 .env.local
+
+# Discourse migration payloads — contain the full forum DB + member uploads.
+# NEVER commit these (128MB+, private member data).
+docs/temp/hub-migration/*.tar.gz
+docs/temp/hub-migration/*.sql.gz
 docs/design-source/renders/
 .worktrees/
 
