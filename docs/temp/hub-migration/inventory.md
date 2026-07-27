@@ -184,3 +184,58 @@ Implications for migration:
   then rebaked/rehosted on the self-host after restore.
 - Confirm with the hosting provider whether a true full-uploads export is available;
   the standard admin backup will not include them.
+
+---
+
+## Server (Phase 1)
+
+Provisioned 2026-07-27. Hetzner Cloud, x86.
+
+| Field | Value |
+|---|---|
+| Server name | `regen-hub` |
+| Hetzner server ID | 155961215 |
+| Type | **cx23** (2 vCPU / 4 GB RAM / 40 GB disk, x86, €6.49/mo) |
+| Location | `nbg1` (Nuremberg, DE) |
+| **Public IPv4** | **91.99.139.14** |
+| Public IPv6 | `2a01:4f8:1c1a:32b7::1` (network `2a01:4f8:1c1a:32b7::/64`) |
+| OS | Ubuntu 24.04.4 LTS (kernel 6.8.0-117-generic) |
+| Architecture | `x86_64` (verified via `uname -m` — required for Discourse containers) |
+| Docker | 29.6.2 (build dfc4efb) + Compose v5.3.1, service active + enabled |
+| RAM verified | `free -h` → 3.7 Gi total |
+| Disk verified | `df -h /` → 38 G total, 4.1 G used, 32 G available (12%) |
+| Swap | 2 GB `/swapfile`, persistent via `/etc/fstab`, `vm.swappiness=10` |
+| Timezone | UTC |
+| fail2ban | active + enabled |
+| SSH key | `~/.ssh/regen-hub` (ed25519, fingerprint `SHA256:FrRuDOK3LwEcWXYJofY89G9mDOq0RyNWz+qdRgBaiwI`) |
+| Hetzner SSH key | `regen-hub` (ID 115917758) |
+| Firewall | `regen-hub-fw` (ID 11378807) — inbound TCP 22/80/443 from `0.0.0.0/0` + `::/0`; confirmed applied to server |
+
+Access: `ssh -i ~/.ssh/regen-hub root@91.99.139.14`
+
+### Staging DNS — PENDING (blocked on operator)
+
+The `hub-staging.regencoordination.xyz` A record was **not** created: `CF_API_TOKEN` is
+absent from `~/.secrets/regen-hub-migration.env`. Blocked-pending-operator.
+
+When the token is supplied (or the record is made by hand), it must be an **A record to
+`91.99.139.14`, TTL 300, and UNPROXIED** (grey cloud). Unproxied is required so Let's
+Encrypt HTTP-01 validation succeeds during Discourse setup.
+
+### Note on server type (why this differs from the plan doc)
+
+The plan specified `cx32`. That type no longer exists — Hetzner renumbered the shared-vCPU
+CX line, and the current generation is `cx23 / cx33 / cx43 / cx53`. `cx33`
+(4 vCPU / 8 GB / 80 GB, €8.99/mo) was selected as the direct successor and an exact match
+for the plan's intended spec, but it had **no capacity in any Hetzner datacenter worldwide**
+at provisioning time — five create attempts across `fsn1`/`nbg1`/`hel1` all returned
+`resource_unavailable`, and `/v1/datacenters` confirmed the entire new CX generation was
+unplaceable (`fsn1` was offering zero server types of any kind).
+
+`cx23` was chosen instead: it meets Discourse's **recommended 4 GB production spec**
+(official minimum is 2 GB), and at 187 users / ~1 post per day / <200 MB of content the
+40 GB disk is roughly 200x the site size. It is also cheaper than planned (€6.49 vs €8.99).
+A 2 GB swap file was added to give `./launcher rebuild app` headroom, since a rebuild
+briefly runs the new container alongside the running one.
+
+`nbg1` was the only datacenter with `cx23` capacity.
