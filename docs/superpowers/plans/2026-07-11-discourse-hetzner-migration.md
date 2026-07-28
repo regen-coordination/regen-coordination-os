@@ -272,6 +272,16 @@ curl -s -A "$UA" $S/t/1.json | jq '.title'                                      
 > 3. **`disable_emails` is currently `yes`** (set deliberately, so staff mail doesn't retry against the placeholder SMTP and flood Sidekiq). **MUST be set back to `no` at cutover**, after real SMTP is configured — otherwise the live forum sends no notifications at all.
 > 4. **`rails runner` must run as the `discourse` user**, not root: `docker exec -u discourse -w /var/www/discourse app bundle exec rails runner /shared/script.rb`. As root it fails with `ActiveRecord::NoDatabaseError`.
 > 5. Rebake matters: post-restore, `raw` was clean but **351 posts still had CDN URLs in cooked HTML** until `rake posts:rebake` ran.
+> 6. **`force_https` was restored as `true`** (inherited from hosted) and was set to **`false`** so staging works over plain HTTP. **MUST be set back to `true` at cutover once Let's Encrypt TLS is live** — otherwise the production forum serves insecure http and leaks session cookies. Pair it with re-enabling `disable_emails=no` (item 3) in the same step.
+>
+> **Cutover site-settings checklist (all four, after TLS + SMTP are live):**
+> ```ruby
+> SiteSetting.force_https = true          # was false for staging
+> SiteSetting.disable_emails = "no"       # was "yes" while SMTP was a placeholder
+> SiteSetting.reply_by_email_enabled = false   # stays false (no inbound mail on self-host)
+> # then: discourse remap --force hub-staging.regencoordination.xyz hub.regencoordination.xyz
+> #       rake posts:rebake
+> ```
 
 ### Task 9: Pre-cutover prep (1–2 days before)
 
