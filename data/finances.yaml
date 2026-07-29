@@ -10,6 +10,12 @@ budgets:
     currency: "USD"
     totalAllocated: 50000
     description: "General network coordination and operations"
+  - id: "budget-2026-q2q3-council"
+    name: "Council Core Functions Budget (Q2-Q3 2026)"
+    period: "2026-Q2/Q3"
+    currency: "USD"
+    totalAllocated: 2450
+    description: "Timeboxed council scope/budget per Matt's core-functions synthesis (project rc-scope-budget). Lines: toolkit/knowledge commoning $800, network connection + hub $350, long-term treasury $250, hub self-hosting $250, activity reports/Karma GAP $250, hub setup retro (Afo) $150, meeting distillation $100, polls/community $100, infra $100, operations $100. Capital available ~$2,600; surplus distributed as retro. UPDATE 2026-07-29: hub self-hosting line ($250 placeholder) resolved — migration complete, actual infra cost ~$8.40/mo (~$100/yr) vs ~$100/mo on Discourse managed hosting, saving ~$1,100/yr; the $250 line now covers labour (build + ongoing ops), not hosting."
 
 expenses:
   - id: "expense-001"

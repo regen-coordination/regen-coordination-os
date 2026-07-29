@@ -181,6 +181,10 @@ channels:
     name: "Regen Coordination Hub"
     url: "https://hub.regencoordination.xyz"
     api: "https://hub.regencoordination.xyz/latest.json"
+    # Self-hosted since 2026-07-29 (migrated off Discourse managed hosting).
+    # Hetzner cx23 @ 91.99.139.14 · runbook: docs/runbooks/discourse-hub-ops.md
+    hosting: "self-hosted"
+    ops_owners: ["afo", "matty"]
     categories:
       - id: 4
         slug: "regen-coordination"
