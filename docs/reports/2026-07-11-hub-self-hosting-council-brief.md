@@ -1,3 +1,7 @@
+> **⚠️ SUPERSEDED — this was the pre-migration proposal.** The migration completed on 2026-07-29.
+> Current announcement: [`2026-07-29-hub-self-hosting-complete.md`](2026-07-29-hub-self-hosting-complete.md).
+> Kept for the record.
+
 # Proposal: Move the Regen Coordination Hub to Self-Hosting
 
 **For:** Regen Coordination Council
