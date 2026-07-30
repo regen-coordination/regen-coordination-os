@@ -98,6 +98,33 @@ docker exec -u discourse -w /var/www/discourse app bundle exec rails runner /sha
 
 ---
 
+## 4b. Watchdog (auto-recovery)
+
+`/usr/local/bin/hub-watchdog.sh`, run by cron every 5 minutes. If `http://127.0.0.1/srv/status` doesn't return 200 it appends diagnostics (memory, disk, load, container status, OOM lines from `dmesg`, last 30 lines of container log) to **`/var/log/hub-watchdog.log`** and then runs `./launcher restart app`.
+
+Added 2026-07-30 after the incident below. **If the hub misbehaves, read `/var/log/hub-watchdog.log` first** — it's the only place failure-time state is captured.
+
+---
+
+## 4c. Incident log
+
+### 2026-07-30 — ~2h outage, root cause UNKNOWN
+
+**Symptoms:** site stopped serving (`ECONNREFUSED` on 443 from outside; kernel alive and answering TCP, CPU active 5–11%, but no web service). Began sometime between 10:44 and 12:45 UTC. Last known-good: Hetzner snapshot at 10:44 UTC; Afo browsing at 10:30.
+
+**Resolution:** rebuilt the server from the **2026-07-29 13:39** snapshot (the post-cutover verified-good image). Restoring the *10:44 today* snapshot first did **not** fix it — suggesting that snapshot already captured the broken state.
+
+**Cost:** no data loss (no posts since 2026-07-20). Only regression was `backup_frequency`/`maximum_backups` reverting to defaults, since those were set after the restored snapshot — re-applied.
+
+**Root cause: not determined.** Today's logs were destroyed by the rebuild. Leading hypotheses, none confirmed: memory exhaustion/swap thrashing on the 4 GB box, or a wedged Docker/container state. The watchdog exists specifically to capture this next time.
+
+**Process lessons (important):**
+- **Do not diagnose from a filtered network.** The coworking wifi blocked outbound port 22 *and* dropped traffic to the server, making a service outage look like a totally dead machine. Three power-cycles were issued on that false signal, which likely made recovery harder. **Verify from an independent vantage point before touching production** — an external fetch, a phone hotspot on cellular, or a VPN.
+- `nc -z -w 5 github.com 22` is a quick test of whether the current network permits SSH at all.
+- Hetzner reporting `status=running` means the *VM* is running — it says nothing about whether the OS or services are healthy.
+
+---
+
 ## 5. Incidents
 
 | Symptom | Fix |
