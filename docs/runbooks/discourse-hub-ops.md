@@ -100,9 +100,17 @@ docker exec -u discourse -w /var/www/discourse app bundle exec rails runner /sha
 
 ## 4b. Watchdog (auto-recovery)
 
-`/usr/local/bin/hub-watchdog.sh`, run by cron every 5 minutes. If `http://127.0.0.1/srv/status` doesn't return 200 it appends diagnostics (memory, disk, load, container status, OOM lines from `dmesg`, last 30 lines of container log) to **`/var/log/hub-watchdog.log`** and then runs `./launcher restart app`.
+`/usr/local/bin/hub-watchdog.sh`, run by cron every 5 minutes.
 
-Added 2026-07-30 after the incident below. **If the hub misbehaves, read `/var/log/hub-watchdog.log` first** — it's the only place failure-time state is captured.
+It checks **HTTPS over loopback** with correct SNI:
+```bash
+curl --resolve hub.regencoordination.xyz:443:127.0.0.1 https://hub.regencoordination.xyz/srv/status
+```
+Any **2xx or 3xx** counts as healthy. Only after **3 consecutive failures** (~15 min) does it dump diagnostics — memory, disk, load, container status, `dmesg` OOM lines, last 40 lines of container log — to **`/var/log/hub-watchdog.log`** and run `./launcher restart app`. A counter lives at `/var/run/hub-watchdog.fails` and resets on recovery.
+
+**If the hub misbehaves, read `/var/log/hub-watchdog.log` first** — it's the only place failure-time state is captured.
+
+> ⚠️ **Bug to not repeat (2026-07-30 → 07-31).** The first version checked plain `http://127.0.0.1/srv/status` and treated anything ≠ 200 as unhealthy. With `force_https=true`, Discourse correctly answers **301**, so the watchdog read healthy redirects as failures and restarted the container **283 times over ~24 hours** (roughly 30–60s of downtime every 5 minutes). Two lessons baked into the current version: **accept 3xx**, and **require consecutive failures** before restarting. The buggy log is preserved at `/var/log/hub-watchdog.log.buggy-20260731`.
 
 ---
 
