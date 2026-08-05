@@ -37,11 +37,12 @@ _Meeting record: `packages/operations/meetings/260724 Regen Coordination Council
 - [ ] Matt: Process reimbursements — submit a transaction for outstanding expenses + request signatures
 - [ ] Matt: Update budget doc — earmark funds toward Regen Coordination + toolkit; reflect outputs-vs-outcomes framing; **scope for remainder of Q3**; notify Telegram when updated (connects to `rc-scope-budget`; supersedes the 260710 "clean up budget doc" item below)
 - [x] ~~Luiz: Request the Discourse full-data backup from the current managed provider~~ — **DONE 2026-07-29: migration complete.** `hub.regencoordination.xyz` now self-hosted on Hetzner cx23 (€6.49/mo + €1.30 snapshots) — from ~$100/mo, ~**$1,100/yr saved**. Same domain/logins/content, zero data loss; email (Brevo) + Discord login verified. Runbook: `docs/runbooks/discourse-hub-ops.md`
+  - **7-day check 2026-08-05: stable.** 200 in 0.44s, uptime 5d22h, swap effectively unused (6 MB), watchdog 0 incidents, daily Discourse backups + Hetzner snapshots both confirmed running. Two incidents resolved en route: a ~2h outage on 07-30 (root cause undetermined; recovered from snapshot) and a self-inflicted watchdog restart loop on 07-30→31 (283 restarts; fixed + documented).
 - [ ] **Luiz → Afo/Matty: hub ops handoff** — add both to the Hetzner + Cloudflare accounts, walk through the runbook, agree monthly `./launcher rebuild app` rotation
 - [ ] Luiz: Hub offsite backups → Cloudflare R2 (`backup_location=s3`). Currently backups live on the same server; Hetzner snapshots are the only off-box copy
 - [ ] Luiz: Hub uptime monitoring + alerts to Afo/Luiz
 - [ ] **Luiz → Monty: confirm `regencoordination.xyz` auto-renew — domain expires 2026-10-10** (Namecheap, Monty is owner). If it lapses the hub goes down regardless of hosting
-- [ ] Luiz: Convert the Artizen project → **Regen Toolkit project** and join it to the new fund; open a ReFi DAO project if useful _(→ **conflicts with Matt's 08-01 map** — see risk R4 in the August drive section above; do not execute until resolved)_
+- [x] ~~Luiz: Convert the Artizen project → **Regen Toolkit project** and join it to the new fund; open a ReFi DAO project if useful~~ — **SUPERSEDED, resolved 2026-08-03/05:** `regen-coordination` → **Matt** (transfer done 08-05), Toolkit profile → **Rather**, ReFi DAO project → **Luiz creates fresh** (still open — see the August drive section above)
 - [ ] Luiz: Bring Artizen contribution sizing + split model to next week's ReFi two-orgs council
 - [ ] Luiz: Apply for Regen Commons membership — submit the form (long overdue; reaffirmed again 260724)
 - [ ] Team: Coordinate Artizen boosts + funds within a **single high-matching weekly drive** (drives end Thursday) — matching is artifact-only; boosts drive cash prizes _(→ **this is that week** — executing via the August drive section above)_
@@ -86,7 +87,7 @@ _Matt's core-functions synthesis + $2,450 Q2/Q3 council budget, now a tracked pr
 - [ ] Team: Draft forum thread on hub re: future structure + potential elections (end-of-year election signal)
 - [ ] Afo: Add missing Regen Commons logo to hub
 - [ ] Afo: Share Green Pill website preview to group by Monday for feedback
-- [ ] Investigate Discourse self-hosting on VPS (Fly.io / Google Cloud) — cut $100/mo custom-domain cost
+- [x] ~~Investigate Discourse self-hosting on VPS (Fly.io / Google Cloud) — cut $100/mo custom-domain cost~~ — **DONE 2026-07-29.** Landed on Hetzner (not Fly/GCP); see the 260724 section above.
 
 ### Gardens public-goods proposal (260515)
 - [ ] Coi: Update Gardens-integration Gitcoin proposal vote
