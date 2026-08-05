@@ -57,3 +57,6 @@ docs/design-source/renders/
 
 # Per-user Obsidian workspace state (not framework — never tracked here)
 .obsidian/
+
+# Artizen candidate renders — only the chosen master is committed, beside its prompt
+docs/artizen/assets/

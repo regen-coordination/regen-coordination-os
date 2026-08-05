@@ -33,7 +33,8 @@
     "paperclip": "cd packages/paperclip-agents-app && npm run dev",
     "paperclip:server": "cd packages/paperclip-agents-app && npm run dev:server",
     "paperclip:build": "cd packages/paperclip-agents-app && npm run build:ui",
-    "deploy:pages": "node scripts/deploy-pages.mjs"
+    "deploy:pages": "node scripts/deploy-pages.mjs",
+    "artifact": "node scripts/generate-artifact.mjs"
   },
   "engines": {
     "npm": ">=10.9.2",
