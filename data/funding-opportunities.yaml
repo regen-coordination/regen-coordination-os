@@ -3,15 +3,27 @@
 # Last updated: 2026-02-20
 
 funding_opportunities:
-  - id: artisan-season6
-    name: "Artisan Season 6"
+  - id: artizen-season7
+    name: "Artizen Season 7"
     type: "platform"
     status: active
     duration: "~3 months"
-    mechanism: "artifact-based donations + matching"
+    mechanism: "artifact-based donations + matching; weekly fund drives (close Thursdays) award cash prizes"
     total_endowment: "$10M+ (RevNet)"
     networks: [refi-dao, greenpill, bloom]
-    notes: "Multiple funds: Network States, Region Rebels, Green Pill Asia. Projects apply to multiple funds."
+    notes: >
+      Season 7 confirmed live 2026-08-05. RC entities: Regen Coordination Fund (Afo manager; Luiz + Matt
+      curators), Regen Coordination project (transferred to Matt 2026-08-05), Regen Toolkit project (Rather),
+      ReFi DAO project (Luiz, to create). Matching is unlocked by artifact purchases only; boosts affect
+      cash-prize ranking only. See docs/260803 Artizen August Drive - Action Plan.md.
+
+  - id: artisan-season6
+    name: "Artizen Season 6"
+    type: "platform"
+    status: concluded
+    mechanism: "artifact-based donations + matching"
+    networks: [refi-dao, greenpill, bloom]
+    notes: "Concluded. Funds: Common Frontier + Terminus for Network States submitted; Collective Governance Fund revamped into the Regen Coordination Fund."
 
   - id: octant-vaults
     name: "Octant Vaults"

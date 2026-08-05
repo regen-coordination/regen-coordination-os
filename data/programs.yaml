@@ -3,11 +3,17 @@
 
 programs:
   funding:
-    - id: artisan-season6
-      name: "Artisan Season 6"
+    - id: artizen-season7
+      name: "Artizen Season 7"
       type: "artifact-based"
       status: active
       duration: "~3 months"
+      notes: "Season 7 confirmed live 2026-08-05 (project URLs carry ?season=7). Season 6 concluded. Weekly fund drives close Thursdays; matching unlocked by artifact purchases only, boosts drive cash prizes."
+
+    - id: artisan-season6
+      name: "Artizen Season 6"
+      type: "artifact-based"
+      status: concluded
 
     - id: octant-vaults
       name: "Octant Vaults"

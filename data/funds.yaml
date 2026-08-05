@@ -72,9 +72,22 @@ funds:
     status: winding-down
 
   - id: artisan-season6-pools
-    name: "Artisan Season 6 Pools"
+    name: "Artizen Season 6 Pools"
     type: "artisan-pool"
     season: 6
-    status: active
+    status: concluded
     available_pools: ["Network States", "Region Rebels", "Green Pill Asia"]
-    notes: "Projects can apply to multiple pools"
+    notes: "Projects can apply to multiple pools. Season concluded — superseded by season 7."
+
+  - id: regen-coordination-fund
+    name: "Regen Coordination Fund"
+    type: "artizen-fund"
+    season: 7
+    status: active
+    manager: "Afo"
+    curators: ["Luiz Fernando", "Matt"]
+    notes: >
+      Revamped from the Collective Governance Fund (Renee OK'd, 260724). Curated to 5-10 projects; Afo's
+      initial list: ReFi DAO, Greenpill Network, Bread Coop, Bloom Network, Regen Commons, Grassroot
+      Economics, Regen Coordination, Regen Toolkit. Open question: remaining pool size, and whether 90%
+      splitting equally across curated projects dilutes match-per-project at 8-wide.

@@ -17,6 +17,7 @@ _Key decisions, active context, and organizational history for the Regen Coordin
 
 ## Key Decisions
 
+- [2026-08-05] **Artizen Season 7 live** (Season 6 concluded) — registries corrected; repo had carried Season 6 as active since March. **Ownership map settled** (Afo, superseding the 260724 reading): `regen-coordination` project → **Matt** (transfer executed 2026-08-05 via email to `venus@artizen.fund`, which is how transfers are handled); Regen Toolkit profile → **Rather**; ReFi DAO project → **Luiz** to create. Luiz + Matt added as **curators** on the Regen Coordination Fund (Afo manages). **Boost allocation** treated as one decision, not two asks — RC Fund first per the 260724 single-drive decision, Green Goods with the remainder, conditional on a fund-level winning threshold from Afo, because the multiplicative score formula caps the RC Fund near 7.5M vs Green Goods' ~210M. Plan + all drafted comms: `docs/260803 Artizen August Drive - Action Plan.md`.
 - [2026-05-15] Framework sync to v3.0.0: pulled latest skills (+18) and infrastructure from canonical `../org-os` (release/v3.5-design) and sister instances `../refi-bcn-os` + `../refi-dao-os`. Total 33 skills (28 framework + 5 instance-specific Phase 0 design preserved). Selective file-copy strategy chosen over `git merge upstream/main` (unrelated histories). `package.json` bumped 2.0.0 → 3.0.0; `org-os-init` skill bumped 2.0.0 → 2.2.0 (Hermes/OpenCode platform support). 42 commits pushed to origin/main (`1ba48ee..c4696da`). SOUL.md left untouched — instance/framework divergence is intentional.
 - [2026-04-26] Toolkit consolidation: single canonical regen-toolkit clone at `repos/regen-toolkit/`; standalone at `../regen-toolkit/` deleted after preserving 133 files of work to `origin/luizfernando-refidao` (5 commits `e3c9b16..835c2ae`). `.stignore` added at Zettelkasten root excluding `repos/`, `regen-toolkit/`, `node_modules/`, `dist/`, `.astro/`, `coverage/` — git is the sync mechanism for code, not Syncthing.
 - [2026-04-25] Toolkit overlay: PR #310 closed (no merge); `feature/org-os-overlay` operates as the working branch directly. Avoids merge gating; team operates against the branch.
@@ -54,7 +55,7 @@ _Key decisions, active context, and organizational history for the Regen Coordin
 
 - [ongoing] Coop: PL Genesis build cycle completed first prototype target (March 9, 2026) and moving into iteration
 - [ongoing] Impact Stake: active implementation track; 1/3-1/3-1/3 split strategy with 10 ETH target
-- [ongoing] Artisan Season 6: preparing applications for network nodes
+- [ongoing] **Artizen Season 7**: Regen Coordination Fund (Afo manager, Luiz + Matt curators) curating 5–10 projects; weekly drives close Thursdays. Open: fund-drive winning threshold, real matching ratio (4:1 vs 1:1-per-fund), pool dilution at 8 projects, and a **named January custodian** given RC's end-of-Q3 wind-down
 - [ongoing] Knowledge commons: designing domain-based structure
 - [ongoing] VPS cluster setup for multi-node agent deployment
 - [ongoing] Superfluid Season 6: track campaign carry-over and recurring participation strategy

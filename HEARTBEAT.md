@@ -5,7 +5,28 @@
 
 ## Active Action Items
 
-_Sources: 2026-04-23 Toolkit Planning · 2026-04-24 Council · 2026-04-28 Greenpill Growth · 2026-05-08 Council · 2026-05-15 Council · 2026-07-03 Matty TG update (scope/budget) · 2026-07-10 Council · 2026-07-24 Council. Full sets tracked per meeting record in `packages/operations/meetings/`._
+_Sources: 2026-04-23 Toolkit Planning · 2026-04-24 Council · 2026-04-28 Greenpill Growth · 2026-05-08 Council · 2026-05-15 Council · 2026-07-03 Matty TG update (scope/budget) · 2026-07-10 Council · 2026-07-24 Council · 2026-08-01/02/03 Matt + Afo TG (Artizen August drive). Full sets tracked per meeting record in `packages/operations/meetings/`._
+
+### ⏱ Artizen August drive — CLOSES THURSDAY 2026-08-06 (260803)
+_Plan: `docs/260803 Artizen August Drive - Action Plan.md`. Sources: Afo TG 07-30/08-02/08-03, Matt TG 08-01. Gap: 260730 toolkit session notes not yet received (requested from Afo). Decision gate is **Wed 08-05** when Afo returns competitive thresholds._
+- [ ] Luiz (today): Check real boost balance + claim code `8MQQ82` at grow.artizen.fund (~600k is the stale 260724 figure)
+- [ ] Luiz (today): Send the 4 blocking questions to Afo — fund-level scoring basis + winning threshold, real matching ratio (4:1 vs public 1:1-per-fund), fund pool remaining + dilution across 8 curated projects, boost-email mechanics (draft §6.1)
+- [ ] Luiz (today): Send Matt the Gardens-timing + ownership-map blockers, and the 3-of-6 signature heads-up (draft §6.2)
+- [ ] Luiz (today): Email venus@artizen.fund to confirm boost-email mechanics before running the campaign (draft §6.4)
+- [ ] Luiz (Wed 08-05): **Decide boost allocation** — RC Fund vs Green Goods — on Afo's thresholds. Council default (260724) is RC Fund first, Green Goods with the remainder
+- [ ] Luiz (Wed–Thu, optional): Supporter email campaign for boost points — 1,000/person, 300k cap (~50% increase on current stack). Targeted list, not a blast (draft §6.3)
+- [x] ~~Luiz: Email venus@artizen.fund to transfer the `regen-coordination` project to Matt~~ — ✅ **DONE 2026-08-05, transfer complete.** Matt owns the project
+- [ ] **Luiz (TODAY/Thu AM): Create the ReFi DAO project** — must exist before Thursday's curation cutoff or it misses next week's drive entirely; last remaining Luiz-side blocker on the fund play
+- [ ] Luiz (Thu): Accept the RC Fund curator invite
+- [ ] Luiz (Thu, before close): Spend boosts per the Wednesday decision
+- [x] ~~Matt: Confirm which entry converts to what~~ — **RESOLVED 2026-08-03 by Afo:** Luiz's `regen-coordination` entry transfers to Matt as-is (via email to Venus); Rather owns a separate Toolkit profile; Luiz creates ReFi DAO fresh. Matt's 08-01 map stands
+- [ ] Matt: Gardens toolkit-pool setting change + proposal to move ~$1,000 to treasury — **conviction accrues over days; if not already in flight it cannot clear before Thursday** (risk R1)
+- [ ] Matt: Collect 3-of-6 multisig signatures for the $250 fund unlock — treasury holds only 260 USDGLO, so this is essentially all liquid GLO (risk R2)
+- [ ] Matt: Rather's confirmation as toolkit project owner (DM'd 08-01)
+- [ ] Afo: Confirm the Luiz + Matt curator invites landed on the Regen Coordination Fund
+- [ ] Afo: Send the 260730 toolkit session notes
+- [ ] **Team (Thu agenda) ⚠️ Name a January custodian + write the reimbursement terms down** — season funds release ~Jan 2027 but RC winds down end of Q3 2026; capital deployed this week returns ~3 months after the council stops existing (risk R3)
+- [ ] Team (Thu agenda): Fund curation list — 8 projects (ReFi DAO, Greenpill, Bread Coop, Bloom, Regen Commons, Grassroot Economics, Regen Coordination, Regen Toolkit) vs. starting at 5, pending the dilution answer
 
 ### Regen Coordination Fund, Artizen, Discourse & budget scope (260724 — latest council)
 _Meeting record: `packages/operations/meetings/260724 Regen Coordination Council Sync.md`. Reinforces RC wind-down; active workstreams: toolkit + BREAD + the new Regen Coordination Fund + Discourse migration + budget close-out. Next council sync: Thu 2026-07-31 (biweekly)._
@@ -20,10 +41,10 @@ _Meeting record: `packages/operations/meetings/260724 Regen Coordination Council
 - [ ] Luiz: Hub offsite backups → Cloudflare R2 (`backup_location=s3`). Currently backups live on the same server; Hetzner snapshots are the only off-box copy
 - [ ] Luiz: Hub uptime monitoring + alerts to Afo/Luiz
 - [ ] **Luiz → Monty: confirm `regencoordination.xyz` auto-renew — domain expires 2026-10-10** (Namecheap, Monty is owner). If it lapses the hub goes down regardless of hosting
-- [ ] Luiz: Convert the Artizen project → **Regen Toolkit project** and join it to the new fund; open a ReFi DAO project if useful
+- [ ] Luiz: Convert the Artizen project → **Regen Toolkit project** and join it to the new fund; open a ReFi DAO project if useful _(→ **conflicts with Matt's 08-01 map** — see risk R4 in the August drive section above; do not execute until resolved)_
 - [ ] Luiz: Bring Artizen contribution sizing + split model to next week's ReFi two-orgs council
 - [ ] Luiz: Apply for Regen Commons membership — submit the form (long overdue; reaffirmed again 260724)
-- [ ] Team: Coordinate Artizen boosts + funds within a **single high-matching weekly drive** (drives end Thursday) — matching is artifact-only; boosts drive cash prizes
+- [ ] Team: Coordinate Artizen boosts + funds within a **single high-matching weekly drive** (drives end Thursday) — matching is artifact-only; boosts drive cash prizes _(→ **this is that week** — executing via the August drive section above)_
 - [ ] Team (unresolved): Eve's role/autonomy — she does more than meditation (community connective tissue). Her work sits under **Regen Commons**, so RC support flows via the Commons (e.g. surface as a Regen Coordination Fund project). Heated Coi↔Afo exchange on past fund allocation left open
 - [ ] Team (impact metric): Track projects funded/supported, coordination rounds, 1:1 mentoring calls
 - [ ] Team (compensation): Track time on synthesis; keep comp flexible/trust-based; Luiz OK with reduced/no comp for his activity reports
