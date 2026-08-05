@@ -4,23 +4,69 @@ schema_version: "2.0"
 # Network events, deadlines, and milestones
 
 events:
-  - id: "event-council-weekly"
+  # Note: today's council sync (2026-05-15) surfaces from the meeting file at
+  # packages/operations/meetings/260515 Regen Coordination Council Sync.md (status: planned).
+  - id: "event-council-20260522"
     title: "Regen Coordination Council Sync"
-    date: "2026-04-18"
+    date: "2026-05-22"
     end_date: null
-    type: "recurring"
+    type: "council"
     location: "Online (Google Meet)"
     url: null
     related_project: null
     status: "upcoming"
-    description: "Weekly council sync for network governance"
-  - id: "event-artisan-deadline"
-    title: "Artisan Season 6 Application Deadline"
-    date: "2026-04-30"
+    description: "Weekly council sync — also expected next toolkit call cadence point"
+  - id: "event-council-20260529"
+    title: "Regen Coordination Council Sync"
+    date: "2026-05-29"
     end_date: null
-    type: "deadline"
-    location: null
-    url: "https://artisan.finance"
-    related_project: "artisan-s6"
+    type: "council"
+    location: "Online (Google Meet)"
+    url: null
+    related_project: null
     status: "upcoming"
-    description: "Final deadline for Artisan S6 applications"
+    description: "Weekly council sync"
+  - id: "event-ma-earth-window-open"
+    title: "Ma Earth Fund — applications open"
+    date: "2026-05-15"
+    end_date: "2026-06-30"
+    type: "funding-window"
+    location: null
+    url: null
+    related_project: null
+    status: "upcoming"
+    description: "$500k matching pool, every 6mo cadence. Eligibility: nonprofit/501c3/charity/NGO/fiscal sponsor (Stripe). Sweet spot <$20k grants, >$20k lending."
+
+  # Cadence change (260710 council): council sync → biweekly, alternating with the
+  # Thursday toolkit call. Skip week of 2026-07-13; toolkit call Thu 2026-07-16;
+  # council resumes Thu 2026-07-23. Supersedes the weekly May events above.
+  - id: "event-toolkit-20260716"
+    title: "Regen Web3 Toolkit Call"
+    date: "2026-07-16"
+    end_date: null
+    type: "toolkit"
+    location: "Online"
+    url: null
+    related_project: "regen-web3-toolkit"
+    status: "upcoming"
+    description: "Thursday toolkit call. Candidate to expand into a three-way session with Rather (GeoBrowser interest) — targeted for the following biweekly instead."
+  - id: "event-council-20260723"
+    title: "Regen Coordination Council Sync"
+    date: "2026-07-24"
+    end_date: null
+    type: "council"
+    location: "Online (Google Meet)"
+    url: null
+    related_project: null
+    status: "completed"
+    description: "First biweekly council sync after cadence change (260710); held Thu 2026-07-24. Collective Governance Fund → Regen Coordination Fund, Artizen strategy, Discourse→Hetzner self-host migration progress, budget scope, outputs-vs-outcomes, Regen Commons stall. Record: packages/operations/meetings/260724 Regen Coordination Council Sync.md"
+  - id: "event-council-20260731"
+    title: "Regen Coordination Council Sync"
+    date: "2026-07-31"
+    end_date: null
+    type: "council"
+    location: "Online (Google Meet)"
+    url: null
+    related_project: null
+    status: "upcoming"
+    description: "Next biweekly council sync (260724). Matt circulates the updated scope/budget sheet in Telegram beforehand; finalize budget scope for the remainder of Q3 async + at the call."

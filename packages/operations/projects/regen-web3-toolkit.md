@@ -111,7 +111,28 @@ From the master doc, still needing your call:
 
 ## Recent meetings
 
+- **2026-07-24** — [Council Sync](../meetings/260724%20Regen%20Coordination%20Council%20Sync.md). Toolkit gets a dedicated **Artizen home**: the Collective Governance Fund is revamped into a curated **Regen Coordination Fund** (5–10 projects incl. the toolkit), and Luiz's existing Artizen project **converts to the Regen Toolkit project** and joins it — fund-level cash prizes unlock more matching. Artizen mechanics clarified (matching = artifact purchases only; boosts drive weekly cash prizes; coordinate within one high-matching drive). **Astro content-layer template**: Rather to prep a new compliant Astro template for the content-visualization layer (the data/content layer maps closely to the toolkit's interoperability layer); Rather also interested in a parallel **BREAD Co-op knowledge-consolidation** effort (Nai + others). Discourse migration progressed → **Hetzner self-host** (<$10/mo; blocker = billing-owner backup request from the current managed provider). Karma GAP deprioritized in favor of **GG23 + poll data synthesis** (Afo leads).
+- **2026-07-10** — [Council Sync](../meetings/260710%20Regen%20Coordination%20Council%20Sync.md). Toolkit repo to migrate to the RC GitHub org (from Heenal's account; no blockers). OS overlay tentatively merges into `main` (no final call). Ontology comparison done → **eight forms of capital** flagged as a framework gap. Next priority: reprocess a subset of Heenal's repo content with the new framework specs for a visual diff before the next demo. ReFi DAO knowledge commons used as a live testbed (joint review with Monty; KOI/"CAR" integrate-now vs defer question, Gregory pinged). Discourse migration starting next week. Gitcoin: audit qualifying funds before a separate toolkit entry. Three-way call with Rather (GeoBrowser) targeted after the skip week. Cadence → biweekly, alternating with the Thursday toolkit call.
 - **2026-04-23** — [Planning Call](../meetings/260423%20Regen%20Web3%20Toolkit%20Planning%20Call.md). Matt one push from master-doc completion → handoff. OrgoS adopted as consolidation framework. Frame-language critique (Durgadas) to be integrated. May hackathon outreach planning.
+
+## Open action items (from 2026-07-10 council sync)
+
+- [ ] Migrate the toolkit repo to the Regen Coordination GitHub org (from Heenal's account; partial fork in Luiz's) — Luiz, no blockers
+- [ ] Decide + propose OS-overlay-into-`main` vs. keeping a separate branch/process — Luiz
+- [ ] Reprocess a subset of Heenal's repo content with the new framework specs → produce a visual, concrete diff before the next demo — Luiz, focus time next week
+- [ ] Integrate the **eight forms of capital** into the framework (master-doc gap surfaced by the ontology comparison) — Luiz
+- [ ] Hand off master doc (one more loop) + resources database (Excel) — Matt; primary input for OS ingestion
+- [ ] ReFi DAO knowledge commons: joint review pass with Monty; decide KOI ("CAR"/BlockScience, used by Regen Network) integrate-now vs. defer-interoperable (Gregory pinged) — Luiz
+- [ ] Set up three-way toolkit call with Matt + Rather (skip next week; confirm Rather's interests — likely GeoBrowser) — Luiz
+- [ ] Audit Gitcoin funds the toolkit qualifies for; decide on a separate toolkit project entry vs. "Region Coordination" — Matt
+- [ ] Toolkit visualization: revisit FigJam board / Obsidian Canvas / Codex-Claude diagrams once architecture is structurally sound (not urgent) — Luiz
+
+## Open action items (from 2026-07-24 council sync)
+
+- [x] ~~Convert the existing Artizen project → **Regen Toolkit project** and join it to the new Regen Coordination Fund — Luiz~~ ⚠️ **SUPERSEDED 2026-08-03/05:** `regen-coordination` → **Matt** (transfer done 2026-08-05), Regen Toolkit profile → **Rather**, ReFi DAO project → **Luiz to create fresh** (open; curation cutoff Thu 2026-08-06)
+- [ ] Prep the new compliant **Astro content-layer template** for content visualization; assess how much of the toolkit's interoperability layer Astro's content layer already covers — Rather (+ Luiz)
+- [ ] Explore the parallel **BREAD Co-op knowledge-consolidation** initiative (Rather led BREAD's info workstream; Nai + others interested) — Luiz
+- [ ] Request the **Discourse full-data backup** from the current managed provider and proceed to **Hetzner self-host** migration (<$10/mo) — Luiz
 
 ## Open action items (from 2026-04-23 planning call)
 

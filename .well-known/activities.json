@@ -3,27 +3,6 @@
   "type": "ActivityLog",
   "activities": [
     {
-      "id": "mtg-20250905-council",
-      "type": "meeting",
-      "title": "Regen Coordination Council Sync",
-      "date": "2025-09-05",
-      "summary": "GG24 Local Funding Programs status. $125k matching budget secured."
-    },
-    {
-      "id": "mtg-20250912-council",
-      "type": "meeting",
-      "title": "Regen Coordination Council Sync",
-      "date": "2025-09-12",
-      "summary": "ReFi Barcelona funding secured. Brazil local rounds proposed."
-    },
-    {
-      "id": "mtg-20250919-council",
-      "type": "meeting",
-      "title": "Regen Coordination Council Sync",
-      "date": "2025-09-19",
-      "summary": "Council frustrations surfaced. GG24 leadership shifted to core team."
-    },
-    {
       "id": "mtg-20250926-council",
       "type": "meeting",
       "title": "Regen Coordination Council Sync",
@@ -136,11 +115,32 @@
       "summary": "Collective Governance Fund app due 2026-04-29; Bahia regional shift to live inside GreenPill Brazil; House of Governance staking secured; Artizen pipeline quiet (no new submissions); ReFi Med EU-grants call tomorrow with OrgoS demo."
     },
     {
+      "id": "mtg-20260515-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync — Discourse self-host, Regen Commons nomination, hub-as-primary platform, Coi's structural critique",
+      "date": "2026-05-15",
+      "summary": "Growth Working Group adopted as Artizen funding-strategy venue. Luiz nominated as Regen Coordination representative to Regen Commons (kickoff 2026-05-28; org form required). Hub designated as primary engagement platform (logo fix, summary automation, community-post surfacing). Discourse self-host investigation green-lit ($100/mo custom-domain cost → VPS). Cloudflare email routing as path to official RC email. Coi's structural-reset call: admin decentralization, pause AI spending, drop expert posturing, stewardship categories (active/inactive/merit). Regen Coordination = coordination layer (grants/voting/signaling); Regen Commons = standards body / dispute resolution (fractal, not hierarchical). Gardens public-goods proposal needs 6–7 more votes (22 threshold; 2,100 units). End-of-year election signal proposed. Side threads: Octant E12 Growi bid, mango-farm RWA mainnet mid-Aug, Spinach/Green Pill takeover, Arbitrum localized-RWA flywheel interest, KYC required at Artizen season end (~37 days), Next State brand-appropriation incident."
+    },
+    {
       "id": "mtg-20260508-council",
       "type": "meeting",
       "title": "Regen Coordination Council Sync — Toolkit handoff, Ma Earth fund, project aggregation, brand legitimacy",
       "date": "2026-05-08",
       "summary": "Matt completed toolkit master doc (markdown handoff); Luiz processes into repo today. Ma Earth $500k matching pool opening next week (eligibility: nonprofit/fiscal sponsor; sweet spot <$20k grants, >$20k lending). Project aggregation strategy: per-individual balance to prevent multi-project gaming. Jane Ukraine = partners not chapter. Region Commons finally opening to community. Luiz personal overload + Coi Green Goods tensions — Durgadas coordination suite recommended."
+    },
+    {
+      "id": "mtg-20260710-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync — Toolkit architecture & repo migration, Discourse migration, budget cleanup, RC wind-down",
+      "date": "2026-07-10",
+      "summary": "Toolkit repo migrates to the Regen Coordination GitHub org (from Heenal's account; no blockers). OS overlay tentatively merges into main (no final call). Meeting cadence → biweekly, alternating with the Thursday toolkit call (skip week of Jul 13; toolkit call Thu Jul 16; next council Thu Jul 23). Idle Gardens funds (~2.4k) + BREAD routed through Artizen for matching rather than direct distribution (Masabi's $1,200 direct proposal set aside); BREAD held to late season, GLO Dollar spent first, BREAD for final voting cycle. RC in deliberate wind-down targeting end of Q3 — only toolkit + BREAD distribution remain. Regen Commons: no org-level fold-in (wait-and-see); initiatives could become Commons-supported programs if funded; RC already joined as a member. Eight forms of capital flagged as framework gap (ontology comparison). Gitcoin: audit qualifying funds before creating a separate toolkit entry ('Region Coordination' name may confuse funders). Budget doc outdated — drop column A, delete vague items, concrete numbers + single owners. ReFi DAO knowledge commons joint review with Monty; KOI ('CAR'/BlockScience, Regen Network) integrate-now-or-defer question (Gregory pinged). Deferred: education content (NotebookLM/Telegram, toolkit as shared substrate), GG23 AI-eval data composting."
+    },
+    {
+      "id": "mtg-20260724-council",
+      "type": "meeting",
+      "title": "Regen Coordination Council Sync — Collective Governance Fund → Regen Coordination Fund, Artizen strategy, Discourse migration progress, budget scope, outputs-vs-outcomes",
+      "date": "2026-07-24",
+      "summary": "Collective Governance Fund revamped into a curated Regen Coordination Fund (5-10 projects: Bloom, BREAD Co-op, Greenpill, ReFi DAO, toolkit, poss. Edge City/TDF) — Afo does it now; fund-level cash prizes are less competitive so unlock more matching. Luiz's existing Artizen project converts to the Regen Toolkit project. Artizen mechanics clarified: matching tied only to artifact purchases, boosts only drive weekly cash-prize fund drives — coordinate boosts + funds within a single high-matching drive rather than spending randomly (Luiz holds ~600k boost points). Season funds release ~January with a reimbursement model for contributors. Discourse migration underway to Hetzner self-host (<$10/mo, from ~$100/mo; ~$80-90/mo saved) — blocker is billing owner Matt requesting the full backup from the current managed provider; Luiz has a draft and tries as admin first. Budget: no long-term treasury earmarking, route surplus through Artizen, outcome-driven not admin-task-driven, optional ~$500 working-group hedge; Karma GAP low priority, prioritize GG23 + poll data synthesis (Afo leads). Compensation stays flexible/trust-based (track hours); Luiz OK with reduced/no comp for his activity reports. Regen Commons stalled (leadership stepped back, ~$5k left, Foundation-join proposal stuck) — RC does not fully fold in; individuals still apply for membership. Unresolved: Eve's role/autonomy — she does more than meditation and her work sits under Regen Commons; heated exchange between Coi and Afo over past fund allocation + outputs-vs-outcomes."
     }
   ]
 }
