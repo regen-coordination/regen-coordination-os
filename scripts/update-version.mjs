@@ -4,10 +4,13 @@
  * update-version.mjs — Bump the framework version across all sources of truth.
  *
  * Usage:
- *   node scripts/update-version.mjs <new-version>
+ *   node scripts/update-version.mjs <new-version>     # bump mode
  *   npm run version:update 3.1.0
  *
- * What it does:
+ *   node scripts/update-version.mjs --check           # check mode (v3.5+)
+ *   npm run version:check
+ *
+ * Bump mode:
  * 1. Validates the new version is a proper semver and higher than current.
  * 2. Updates package.json → version.
  * 3. Updates federation.yaml → metadata.framework_version (major.minor only).
@@ -16,21 +19,104 @@
  * 6. Promotes CHANGELOG.md [Unreleased] section to [<new-version>] — <date>.
  * 7. Inserts a new empty [Unreleased] section at the top.
  * 8. Does NOT commit, does NOT tag, does NOT push. Those are manual.
+ *
+ * Check mode (five surfaces since v0.5 WS-C5):
+ * - Verifies package.json version, federation.yaml framework_version,
+ *   the most-recent CHANGELOG.md [X.Y.Z] heading, root VERSION.md's
+ *   "**Framework Version:**" line, and MASTERPLAN.md's "**Version:**" header
+ *   all agree on major.minor.
+ * - VERSION.md and MASTERPLAN.md are optional: absent, or present without a
+ *   version line, means "makes no claim" and is not drift.
+ * - Exit 0 if consistent; exit 1 with diff if not. No file modifications.
  */
 
-import { readFileSync, writeFileSync } from 'fs';
+import { existsSync, readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
 
 const frameworkRoot = resolve(process.argv[1], '../..');
-const newVersion = process.argv[2];
+const arg = process.argv[2];
 
 function die(msg) {
   console.error(`✗ ${msg}`);
   process.exit(1);
 }
 
+// --- Check mode (v3.5+, widened to five surfaces in v0.5 WS-C5) ---
+//
+// This read three sources for a long time, and the two it could not see were
+// exactly the two that were wrong: root VERSION.md said 1.0.0 and MASTERPLAN.md
+// said 2.0.0 while the framework was on 0.5.0. A surface a check cannot see is
+// a surface that drifts unnoticed, so all five are read here.
+//
+// Absence is not drift: an instance need not carry VERSION.md or MASTERPLAN.md,
+// and a VERSION.md without a "**Framework Version:**" line is making no claim.
+// Those cases report "—" rather than failing.
+if (arg === '--check') {
+  const majorMinor = (v) => (v ? (String(v).match(/^(\d+)\.(\d+)/) || [])[0] : null);
+  const readIfPresent = (rel) => {
+    const p = resolve(frameworkRoot, rel);
+    return existsSync(p) ? readFileSync(p, 'utf-8') : null;
+  };
+
+  const pkg = JSON.parse(readFileSync(resolve(frameworkRoot, 'package.json'), 'utf-8'));
+  const pkgVersion = pkg.version;
+  const pkgMajorMinor = majorMinor(pkgVersion);
+
+  const fedRaw = readFileSync(resolve(frameworkRoot, 'federation.yaml'), 'utf-8');
+  const fedFw = (fedRaw.match(/^\s*framework_version:\s*"?([\d.]+)"?$/m) || [])[1] || null;
+
+  const changelogRaw = readFileSync(resolve(frameworkRoot, 'CHANGELOG.md'), 'utf-8');
+  const clVersion = (changelogRaw.match(/^##\s*\[(\d+\.\d+\.\d+)\]/m) || [])[1] || null;
+
+  const versionMdRaw = readIfPresent('VERSION.md');
+  const versionMd = versionMdRaw
+    ? (versionMdRaw.match(/\*\*Framework Version:\*\*\s*`?(\d+\.\d+(?:\.\d+)?)`?/i) || [])[1] || null
+    : null;
+
+  const masterplanRaw = readIfPresent('MASTERPLAN.md');
+  const masterplan = masterplanRaw
+    ? (masterplanRaw.match(/^\*\*Version:\*\*\s*`?(\d+\.\d+(?:\.\d+)?)`?/m) || [])[1] || null
+    : null;
+
+  // surface label → declared value (null = makes no claim)
+  const surfaces = [
+    ['package.json', pkgVersion],
+    ['federation.yaml framework_version', fedFw],
+    ['CHANGELOG.md most-recent release', clVersion],
+    ['VERSION.md Framework Version', versionMd],
+    ['MASTERPLAN.md version header', masterplan],
+  ];
+
+  console.log('Version surface check (5 surfaces):');
+  for (const [label, value] of surfaces) {
+    console.log(`  ${(label + ':').padEnd(36)} ${value ?? '— (absent)'}`);
+  }
+  console.log('');
+
+  const errors = [];
+  if (!fedFw) errors.push('federation.yaml is missing metadata.framework_version');
+  if (!clVersion) errors.push('CHANGELOG.md has no [X.Y.Z] release entry');
+  for (const [label, value] of surfaces) {
+    if (!value || label === 'package.json') continue;
+    const mm = majorMinor(value);
+    if (mm !== pkgMajorMinor) {
+      errors.push(`major.minor mismatch: package.json ${pkgMajorMinor} ≠ ${label} ${mm}`);
+    }
+  }
+
+  if (errors.length === 0) {
+    console.log('✓ All version sources agree.');
+    process.exit(0);
+  }
+  console.error('✗ Version surfaces inconsistent:');
+  errors.forEach((e) => console.error(`  - ${e}`));
+  process.exit(1);
+}
+
+const newVersion = arg;
+
 if (!newVersion) {
-  die('Usage: node scripts/update-version.mjs <new-version> (e.g., 3.1.0)');
+  die('Usage: node scripts/update-version.mjs <new-version> | --check');
 }
 
 const semverRe = /^(\d+)\.(\d+)\.(\d+)(-[\w.]+)?(\+[\w.]+)?$/;
@@ -124,6 +210,39 @@ changelog = changelog.replace(
 
 writeFileSync(changelogPath, changelog, 'utf-8');
 console.log(`✓ CHANGELOG.md: promoted [Unreleased] → [${newVersion}] — ${today}`);
+
+// --- 4. VERSION.md + MASTERPLAN.md ---
+//
+// C5 made these two checked surfaces but not updated ones, and `--check`
+// compares major.minor — so a PATCH bump left both silently stale while still
+// reporting "all version sources agree". Cutting 0.5.1 would have shipped a
+// VERSION.md that says 0.5.0. Both are optional (an instance need not carry
+// them, and one without a version line is making no claim), so a miss is
+// reported rather than fatal.
+function rewriteOptional(file, label, pattern, replace) {
+  const p = resolve(frameworkRoot, file);
+  if (!existsSync(p)) return;
+  const before = readFileSync(p, 'utf-8');
+  if (!pattern.test(before)) {
+    console.log(`· ${file}: no ${label} line — makes no version claim, left alone`);
+    return;
+  }
+  writeFileSync(p, before.replace(pattern, replace), 'utf-8');
+  console.log(`✓ ${file}: ${label} → ${newVersion}`);
+}
+
+rewriteOptional(
+  'VERSION.md',
+  '**Framework Version:**',
+  /(\*\*Framework Version:\*\*\s*)`?\d+\.\d+(?:\.\d+)?`?/i,
+  `$1\`${newVersion}\``,
+);
+rewriteOptional(
+  'MASTERPLAN.md',
+  '**Version:**',
+  /^(\*\*Version:\*\*\s*)`?\d+\.\d+(?:\.\d+)?`?/m,
+  `$1${newVersion}`,
+);
 
 // --- Done ---
 

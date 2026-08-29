@@ -14,11 +14,20 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
-// Read federation.yaml to get base URL
+// Read federation.yaml to get identity values
 const federationPath = path.join(rootDir, 'federation.yaml');
-const federationContent = fs.readFileSync(federationPath, 'utf-8');
-const baseUrlMatch = federationContent.match(/daoURI: "https:\/\/([^"]+)"/);
-const baseUrl = baseUrlMatch ? baseUrlMatch[1] : 'org.example.com';
+const federationRaw = fs.readFileSync(federationPath, 'utf-8');
+const federationContent = yaml.load(federationRaw);
+const daoURI = federationContent?.identity?.daoURI || 'https://org.example.com/.well-known/dao.json';
+let baseUrl = 'org.example.com';
+try {
+  const daoUrl = new URL(daoURI);
+  baseUrl = daoUrl.host;
+} catch {
+  baseUrl = 'org.example.com';
+}
+const orgName = federationContent?.identity?.name || 'Organization';
+const orgType = federationContent?.identity?.type || 'Organization';
 
 // Read dao.json to get organization info
 const daoJsonPath = path.join(rootDir, '.well-known', 'dao.json');
@@ -28,6 +37,37 @@ if (fs.existsSync(daoJsonPath)) {
 }
 
 console.log('Generating EIP-4824 schemas...');
+
+// Generate dao.json from .well-known/dao.json.template + federation identity
+function generateDao() {
+  const templatePath = path.join(rootDir, '.well-known', 'dao.json.template');
+  const outputPath = path.join(rootDir, '.well-known', 'dao.json');
+
+  if (!fs.existsSync(templatePath)) {
+    return;
+  }
+
+  // Only render when the identity block provides a daoURI — without it there is
+  // no real base URL, and rendering would overwrite a hand-curated dao.json
+  // with example.com placeholders.
+  if (!federationContent?.identity?.daoURI) {
+    console.log('· Skipped dao.json (identity.daoURI not set — keeping existing file)');
+    return;
+  }
+
+  const description =
+    federationContent?.identity?.description ||
+    `${orgName} operational identity surface for governance, members, projects, and coordination.`;
+  let template = fs.readFileSync(templatePath, 'utf-8');
+  template = template.replace(/{{ORGANIZATION_NAME}}/g, orgName);
+  template = template.replace(/{{ORGANIZATION_DESCRIPTION}}/g, description);
+  template = template.replace(/{{BASE_URL}}/g, baseUrl);
+
+  const generated = JSON.parse(template);
+  generated.type = orgType;
+  fs.writeFileSync(outputPath, JSON.stringify(generated, null, 2));
+  console.log('✓ Generated dao.json');
+}
 
 // Generate members.json
 function generateMembers() {
@@ -54,13 +94,21 @@ function generateMembers() {
 
 // Generate meetings.json
 function generateMeetings() {
+  const meetingsYamlPath = path.join(rootDir, 'data', 'meetings.yaml');
   const meetingsDir = path.join(rootDir, 'content', 'meetings');
-  if (!fs.existsSync(meetingsDir)) {
-    return;
-  }
 
   const meetings = [];
-  const files = fs.readdirSync(meetingsDir).filter(f => f.endsWith('.md'));
+
+  if (fs.existsSync(meetingsYamlPath)) {
+    const meetingsData = yaml.load(fs.readFileSync(meetingsYamlPath, 'utf-8'));
+    if (Array.isArray(meetingsData?.meetings)) {
+      meetings.push(...meetingsData.meetings);
+    }
+  }
+
+  const files = fs.existsSync(meetingsDir)
+    ? fs.readdirSync(meetingsDir).filter(f => f.endsWith('.md'))
+    : [];
 
   for (const file of files) {
     const filePath = path.join(meetingsDir, file);
@@ -71,7 +119,7 @@ function generateMeetings() {
 
     // Extract action items from content
     const actionItems = [];
-    const actionItemRegex = /- \[ \] (.+?)(?: \(@(\w+), due: (\d{4}-\d{2}-\d{2})\))?(?: #(\w+))?/g;
+    const actionItemRegex = /- \[ \] (.+?)(?: \(@([A-Za-z0-9:_.\/-]+)(?:, due: (\d{4}-\d{2}-\d{2}))?\))?(?: #([A-Za-z0-9:_./-]+))?/g;
     let match;
     while ((match = actionItemRegex.exec(content)) !== null) {
       actionItems.push({
@@ -85,7 +133,7 @@ function generateMeetings() {
 
     // Extract decisions
     const decisions = [];
-    const decisionRegex = /- \[ \] (.+?)(?: #(\w+))?/g;
+    const decisionRegex = /- \[ \] (.+?)(?: #([A-Za-z0-9:_./-]+))?/g;
     const decisionsSection = content.match(/## Decisions\s+([\s\S]*?)(?=##|$)/);
     if (decisionsSection) {
       let decisionMatch;
@@ -151,7 +199,7 @@ function generateProjects() {
 
       // Extract tasks
       const tasks = [];
-      const taskRegex = /- \[ \] (.+?)(?: \(@(\w+)\))?(?: #(\w+))?/g;
+      const taskRegex = /- \[ \] (.+?)(?: \(@([A-Za-z0-9:_.\/-]+)\))?(?: #([A-Za-z0-9:_./-]+))?/g;
       let taskMatch;
       while ((taskMatch = taskRegex.exec(content)) !== null) {
         tasks.push({
@@ -165,7 +213,7 @@ function generateProjects() {
 
       // Extract milestones
       const milestones = [];
-      const milestoneRegex = /- \[ \] (.+?) \(due: (\d{4}-\d{2}-\d{2})\)(?: #(\w+))?/g;
+      const milestoneRegex = /- \[ \] (.+?) \(due: (\d{4}-\d{2}-\d{2})\)(?: #([A-Za-z0-9:_./-]+))?/g;
       const milestonesSection = content.match(/### Milestones\s+([\s\S]*?)(?=###|$)/);
       if (milestonesSection) {
         let milestoneMatch;
@@ -230,7 +278,7 @@ function generateFinances() {
   console.log(`✓ Generated finances.json`);
 }
 
-// Generate proposals.json from governance.yaml
+// Generate proposals.json
 function generateProposals() {
   const govPath = path.join(rootDir, 'data', 'governance.yaml');
   let decisions = [];
@@ -258,7 +306,7 @@ function generateProposals() {
   console.log(`✓ Generated proposals.json (${decisions.length} proposals)`);
 }
 
-// Generate activities.json (from meetings + recent memory)
+// Generate activities.json
 function generateActivities() {
   const activities = [];
 
@@ -288,18 +336,16 @@ function generateActivities() {
   console.log(`✓ Generated activities.json (${activities.length} activities)`);
 }
 
-// Generate contracts.json from IDENTITY.md
+// Generate contracts.json (placeholder)
 function generateContracts() {
   const schema = {
     "@context": "https://www.daostar.org/schemas",
-    "type": "ContractRegistry",
     "contracts": []
   };
 
   // Try to extract contract addresses from federation.yaml
   if (fs.existsSync(federationPath)) {
-    const fed = yaml.load(federationContent);
-    const id = fed?.identity || {};
+    const id = federationContent?.identity || {};
     if (id.safe) {
       schema.contracts.push({
         type: "safe",
@@ -318,47 +364,41 @@ function generateContracts() {
 
   const outputPath = path.join(rootDir, '.well-known', 'contracts.json');
   fs.writeFileSync(outputPath, JSON.stringify(schema, null, 2));
-  console.log(`✓ Generated contracts.json (${schema.contracts.length} contracts)`);
+  console.log('✓ Generated contracts.json');
 }
 
-// Generate ideas.json from data/ideas.yaml (v2)
+// Generate ideas.json
 function generateIdeas() {
   const ideasPath = path.join(rootDir, 'data', 'ideas.yaml');
-  if (!fs.existsSync(ideasPath)) return;
+  if (!fs.existsSync(ideasPath)) {
+    return;
+  }
 
   const ideasData = yaml.load(fs.readFileSync(ideasPath, 'utf-8'));
-  const ideas = (ideasData?.ideas || []).map(i => ({
-    id: i.id,
-    title: i.title,
-    status: i.status || "proposed",
-    submitted_by: i.submitted_by || null,
-    champions: i.champions || [],
-    ecosystem_gap: i.ecosystem_gap || null,
-    description: i.description || "",
-    hatched_repo: i.hatched_repo || null,
-    skills_needed: i.skills_needed || [],
-    created: i.created || null,
-    votes: i.votes || 0
-  }));
 
   const schema = {
     "@context": "https://www.daostar.org/schemas",
     "type": "IdeaRegistry",
-    "ideas": ideas
+    "ideas": ideasData?.ideas || []
   };
 
   const outputPath = path.join(rootDir, '.well-known', 'ideas.json');
   fs.writeFileSync(outputPath, JSON.stringify(schema, null, 2));
-  console.log(`✓ Generated ideas.json (${ideas.length} ideas)`);
+  console.log(`✓ Generated ideas.json (${(ideasData?.ideas || []).length} ideas)`);
 }
 
-// Generate knowledge.json from data/knowledge-manifest.yaml (v2)
+// Generate knowledge.json
 function generateKnowledge() {
   const manifestPath = path.join(rootDir, 'data', 'knowledge-manifest.yaml');
   if (!fs.existsSync(manifestPath)) return;
 
   const manifestData = yaml.load(fs.readFileSync(manifestPath, 'utf-8'));
   const km = manifestData?.knowledge_manifest || {};
+
+  const sourcesPath = path.join(rootDir, 'data', 'sources.yaml');
+  const sourcesData = fs.existsSync(sourcesPath)
+    ? yaml.load(fs.readFileSync(sourcesPath, 'utf-8'))
+    : {};
 
   const schema = {
     "@context": "https://www.daostar.org/schemas",
@@ -375,7 +415,14 @@ function generateKnowledge() {
     "exchange": {
       published_domains: km.exchange?.published_domains || [],
       subscribed_domains: km.exchange?.subscribed_domains || []
-    }
+    },
+    "sources": (sourcesData?.sources || []).map(s => ({
+      id: s.id,
+      name: s.name,
+      type: s.type,
+      url: s.url || s.feed_url || null,
+      status: s.status
+    }))
   };
 
   const outputPath = path.join(rootDir, '.well-known', 'knowledge.json');
@@ -383,29 +430,9 @@ function generateKnowledge() {
   console.log(`✓ Generated knowledge.json (${schema.domains.length} domains)`);
 }
 
-// Generate events.json from data/events.yaml (v2)
-function generateEvents() {
-  const eventsPath = path.join(rootDir, 'data', 'events.yaml');
-  if (!fs.existsSync(eventsPath)) return;
-
-  const eventsData = yaml.load(fs.readFileSync(eventsPath, 'utf-8'));
-  const events = (eventsData?.events || []).map(e => ({
-    id: e.id,
-    title: e.title,
-    type: e.type || "event",
-    date: e.date,
-    end_date: e.end_date || null,
-    location: e.location || null,
-    status: e.status || "upcoming",
-    related_project: e.related_project || null
-  }));
-
-  // Not written to .well-known/ (not EIP-4824), but available for dashboard
-  console.log(`✓ Processed events.yaml (${events.length} events)`);
-}
-
 // Run all generators
 try {
+  generateDao();
   generateMembers();
   generateMeetings();
   generateProjects();
@@ -415,7 +442,6 @@ try {
   generateContracts();
   generateIdeas();
   generateKnowledge();
-  generateEvents();
 
   console.log('\n✓ All schemas generated successfully!');
 } catch (error) {
