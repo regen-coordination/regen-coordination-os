@@ -95,7 +95,7 @@ for (const dir of requiredDirs) {
 }
 
 // Optional directories
-const optionalDirs = ['knowledge', 'ideas', 'docs', 'repos', '.claude'];
+const optionalDirs = ['knowledge', 'ideas', 'docs', 'repos', '.claude', 'graphify-out'];
 for (const dir of optionalDirs) {
   if (!dirExists(dir)) {
     warn(`${dir}/ not present (optional)`);
@@ -122,6 +122,7 @@ const optionalDataFiles = [
   'events.yaml',
   'channels.yaml',
   'assets.yaml',
+  'knowledge-gaps.yaml',
 ];
 
 for (const file of requiredDataFiles) {
@@ -176,6 +177,20 @@ if (dirExists('skills')) {
   for (const skillDir of skillDirs) {
     if (fileExists(`skills/${skillDir}/SKILL.md`)) {
       skillsWithSkillMd++;
+    } else if (skillDir === 'commands') {
+      // skills/commands/ is a generated CONTAINER of command-skills
+      // (skills/commands/<name>/SKILL.md, emitted by scripts/sync-commands.mjs).
+      const cmdDirs = readdirSync(join(rootDir, 'skills', 'commands'), { withFileTypes: true })
+        .filter(d => d.isDirectory())
+        .map(d => d.name);
+      const allHaveSkillMd =
+        cmdDirs.length > 0 && cmdDirs.every(c => fileExists(`skills/commands/${c}/SKILL.md`));
+      if (allHaveSkillMd) {
+        skillsWithSkillMd++;
+        console.log(`  ✓ skills/commands/ is a generated command-skill container (${cmdDirs.length} command-skills)`);
+      } else {
+        warn(`skills/commands/ has entries missing SKILL.md`);
+      }
     } else {
       warn(`skills/${skillDir}/ missing SKILL.md`);
     }
@@ -198,7 +213,16 @@ if (fileExists('federation.yaml')) {
     check('federation.yaml has identity section', !!fed?.identity);
     check('federation.yaml has identity.name', !!fed?.identity?.name);
     check('federation.yaml has identity.type', !!fed?.identity?.type);
-    check('federation.yaml has federation section', !!fed?.federation);
+    // Federation participation: at least one of network/peers/upstream/downstream
+    // (per FILE-STRUCTURE.md schema; v3.0 flat manifest) — or the legacy v2
+    // `federation:` wrapper, grouped under a `federation:` key. Accept either.
+    const hasV3Flat = !!(fed?.network || fed?.peers || fed?.upstream || fed?.downstream);
+    const hasLegacyFederationSection =
+      fed && typeof fed.federation === 'object' && fed.federation !== null;
+    check(
+      'federation.yaml has federation participation (network/peers/upstream/downstream, or legacy federation: section)',
+      hasV3Flat || hasLegacyFederationSection,
+    );
     check('federation.yaml has agent section', !!fed?.agent);
 
     if (!fed?.['knowledge-commons']) {
@@ -286,6 +310,85 @@ if (fileExists('package.json') && fileExists('federation.yaml')) {
   } catch {
     check('version consistency check could be run', false);
   }
+}
+
+// --- 8b. Lineage Stamp (autopoiesis Phase 2, Loop C) ---
+console.log('\n8b. Lineage Stamp');
+
+if (fileExists('federation.yaml')) {
+  try {
+    const fed = loadYaml(readFileSync(join(rootDir, 'federation.yaml'), 'utf-8'));
+    const genesisCommit = fed?.metadata?.genesis_commit;
+    const lastSyncCommit = fed?.metadata?.last_sync_commit;
+    const SHA_RE = /^[0-9a-f]{40}$/i;
+
+    if (genesisCommit === undefined || genesisCommit === null) {
+      // Warn, don't fail: sync-upstream seeds genesis_commit on first sync,
+      // and this validator runs during that same sync (stage 8).
+      warn('federation.yaml metadata.genesis_commit missing (auto-seeds on first sync-upstream)');
+    } else {
+      check('federation.yaml metadata.genesis_commit is a 40-hex SHA', SHA_RE.test(genesisCommit));
+    }
+
+    if (lastSyncCommit !== undefined && lastSyncCommit !== null) {
+      check('federation.yaml metadata.last_sync_commit is a 40-hex SHA', SHA_RE.test(lastSyncCommit));
+    }
+  } catch {
+    check('lineage stamp check could be run', false);
+  }
+}
+
+// --- 9. Matrix files (v3.5) ---
+console.log('\n9. Matrix Files (skills + packages)');
+
+if (fileExists('data/packages-matrix.yaml')) {
+  try {
+    const pm = loadYaml(readFileSync(join(rootDir, 'data', 'packages-matrix.yaml'), 'utf-8'));
+    const ALLOWED_LIFECYCLE = ['active', 'dormant', 'planned', 'retired'];
+    let allOk = true;
+    for (const pkg of pm?.packages || []) {
+      if (!pkg.lifecycle_status) {
+        warn(`packages-matrix: ${pkg.id} missing lifecycle_status (allowed: ${ALLOWED_LIFECYCLE.join(', ')})`);
+        allOk = false;
+        continue;
+      }
+      if (!ALLOWED_LIFECYCLE.includes(pkg.lifecycle_status)) {
+        check(
+          `packages-matrix: ${pkg.id} has valid lifecycle_status`,
+          false,
+        );
+        allOk = false;
+      }
+    }
+    if (allOk) {
+      check(`packages-matrix: all ${pm?.packages?.length || 0} entries have valid lifecycle_status`, true);
+    }
+  } catch (e) {
+    check('packages-matrix.yaml is valid YAML', false);
+  }
+} else {
+  warn('data/packages-matrix.yaml not present (framework-only registry)');
+}
+
+if (fileExists('data/skills-matrix.yaml')) {
+  try {
+    const sm = loadYaml(readFileSync(join(rootDir, 'data', 'skills-matrix.yaml'), 'utf-8'));
+    const ALLOWED_STATUS = ['canonical', 'evaluating', 'candidate', 'instance-specific', 'deprecated'];
+    let allOk = true;
+    for (const sk of sm?.skills || []) {
+      if (sk.promotion_status && !ALLOWED_STATUS.includes(sk.promotion_status)) {
+        check(`skills-matrix: ${sk.id} has valid promotion_status`, false);
+        allOk = false;
+      }
+    }
+    if (allOk) {
+      check(`skills-matrix: all ${sm?.skills?.length || 0} entries have valid promotion_status`, true);
+    }
+  } catch {
+    check('skills-matrix.yaml is valid YAML', false);
+  }
+} else {
+  warn('data/skills-matrix.yaml not present (framework-only registry)');
 }
 
 // --- Summary ---
