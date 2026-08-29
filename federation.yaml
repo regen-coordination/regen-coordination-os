@@ -20,8 +20,8 @@ hub: "github.com/regen-coordination/regen-coordination-os"
 # Hub's upstream: organizational-os standards stack
 upstream:
   - type: "template"
-    repository: "regen-coordination/organizational-os"
-    url: "https://github.com/regen-coordination/organizational-os"
+    repository: "https://github.com/regen-coordination/org-os-template.git"
+    url: "https://github.com/regen-coordination/org-os-template.git"
     path: "packages/template"
     relationship: "fork"
     sync_frequency: "monthly"
