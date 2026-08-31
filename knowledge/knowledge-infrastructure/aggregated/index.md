@@ -1,3 +1,3 @@
 # Knowledge-infrastructure — Aggregated Knowledge
 
-_Auto-generated from node contributions. Last updated: 2026-08-24_
+_Auto-generated from node contributions. Last updated: 2026-08-31_
