@@ -1,3 +1,3 @@
 # Regenerative-finance — Aggregated Knowledge
 
-_Auto-generated from node contributions. Last updated: 2026-09-28_
+_Auto-generated from node contributions. Last updated: 2026-10-05_
