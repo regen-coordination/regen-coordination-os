@@ -1,8 +1,11 @@
-# Knowledge Commons: Knowledge Infrastructure
+# Knowledge Infrastructure
 
 **Domain:** Knowledge Infrastructure  
 **Network:** Regen Coordination  
 **Maintained by:** Hub (aggregated from nodes)
+
+
+Scope: an organizational knowledge domain within Regen Coordination OS, covering federation, indexing, agents and knowledge-sharing experiments. It is not the Commons repository or the wider Garden. Confirm individual deployments with maintainers.
 
 ---
 
@@ -18,13 +21,15 @@
 
 ## Key Resources
 
-- [KOI-net](../../) — Knowledge Organization Infrastructure
-- [Benjamin Life's bioregional knowledge commons approach](./2026-bioregional-knowledge-commons.md) _(to be created)_
-- Agent architecture for knowledge work (see [framework docs](../../../organizational-os/packages/framework/docs/02-standards/agent-architecture.md))
+- KOI-net — knowledge federation reference; maintainers should confirm its current upstream entry point.
+- Benjamin Life's bioregional knowledge-commons approach — planned research note; the previously linked file is not tracked.
+- [Org OS framework](https://github.com/regen-coordination/org-os-template) — current framework entry point.
 
 ---
 
 ## Ongoing Work
+
+The unchecked items below are planned or exploratory, not evidence of completed deployments.
 
 - [ ] KOI-net node deployment on ReFi BCN DePIN
 - [ ] Define standard knowledge formats for cross-node sharing
