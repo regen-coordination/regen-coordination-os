@@ -141,9 +141,14 @@ Weekly calls: Every Friday — see [MEMBERS.md](MEMBERS.md) for participants.
 
 ---
 
-## Related
+## Relationship to the Knowledge Commons and Garden
 
-- [organizational-os-template](../organizational-os-template/) — The template all nodes fork
-- [organizational-os/packages/framework](../organizational-os/packages/framework/) — Standards reference
-- [organizational-os](../organizational-os/) — Canonical framework/template monorepo
-- [dao-os](../dao-os/) — DAO-specific implementation layer
+This OS supports organizational memory, shared skills, coordination and federation. It is distinct from the Regen Knowledge Commons and Garden. Selected organizational learning may inform the Garden; the OS's internal knowledge and workflows retain their own scope.
+
+## Related projects
+
+- [Regen Knowledge Commons](https://github.com/regen-coordination/knowledge-commons) — commoning documentation and Geo tooling; see its [project map](https://github.com/regen-coordination/knowledge-commons/blob/main/docs/MAP.md).
+- [Regen Toolkit](https://github.com/regen-coordination/regen-toolkit) — public educational and practical knowledge.
+- [Org OS framework and organizational template](https://github.com/regen-coordination/org-os-template) — reusable organizational infrastructure.
+
+The setup, synchronization and node examples above are retained. Maintainers should confirm their supported commands and deployment status before operational use.
