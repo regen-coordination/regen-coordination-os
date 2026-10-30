@@ -1,6 +1,4 @@
-# Organizational Knowledge Workflow — OPAL/KOI Quick Reference
-
-> Status: reference examples of organizational capture, review, search and synchronization. These do not define a universal Commons/Garden process. Confirm tool availability, supported commands and paths with OS maintainers.
+# Knowledge Commons Quick Reference
 
 **One-page cheat sheet for daily use**
 
@@ -156,9 +154,9 @@ confidence: 0.9      # How sure are we (0.0-1.0)
 
 ## 📞 Get Help
 
-- Full guide: [practical-knowledge-commons.md](practical-knowledge-commons.md)
-- Architecture: [ARCHITECTURE.md](ARCHITECTURE.md)
-- Integration details: [integrations](../integrations/)
+- Full guide: `docs/practical-knowledge-commons.md`
+- Architecture: `docs/ARCHITECTURE.md`
+- Integration details: `docs/integrations/`
 - Ask in team channel: "Knowledge commons question..."
 
 ---
