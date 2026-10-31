@@ -1,4 +1,6 @@
-# Practical Knowledge Commons
+# Practical Organizational Knowledge Commoning
+
+> Status: reference practices for organizational capture and review, including OPAL/KOI and agent examples. Use these as methods, not proof that every command is currently supported. See the [Commons project map](https://github.com/regen-coordination/knowledge-commons/blob/main/docs/MAP.md) for wider relationships. Existing templates and examples are preserved.
 
 **Version:** 1.0  
 **Purpose:** Day-to-day workflows for capturing, sharing, and using organizational knowledge  
